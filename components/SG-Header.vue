@@ -22,7 +22,7 @@
         <ul
           class="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
           <li>
-            <nuxt-link to="/quiz"
+            <nuxt-link to="/dashboard"
               class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
               Take Quiz</nuxt-link>
           </li>

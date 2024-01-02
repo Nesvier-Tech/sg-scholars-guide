@@ -1,10 +1,10 @@
 <template>
   <div v-if="finished" class="quiz-score" style="margin-top: 0;">
     <p>Score</p>
-    <p>{{ computeScore() }}/3</p>
+    <p>{{ computeScore() }}</p>
   </div>
   <div v-if="!finished" class="quiz-score" style="margin-top: 0;">
-    <p>Science</p>
+    <p>{{this.$route.query.subject}}</p>
 
   </div>
 </template>

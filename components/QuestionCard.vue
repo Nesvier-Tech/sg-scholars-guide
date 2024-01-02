@@ -26,6 +26,9 @@
   const points = usePoints();
 
   function changeAnswerChoice(newAnswer) {
+    if (finished.value == true) {
+      return
+    }
     answerChoice.value = newAnswer;
     if (answerChoice.value == question.answer) {
       points.value[question.id] = 1;
@@ -37,31 +40,19 @@
   }
 
   function isCorrect(letter) {
-    if (answerChoice.value == question.answer && letter == question.answer && finished.value == true) {
-      return true
-    }
-    return false
+      return answerChoice.value == question.answer && letter == question.answer && finished.value == true
   }
 
   function isIncorrect(letter) {
-    if (answerChoice.value == letter && letter != question.answer && finished.value == true) {
-      return true
-    } 
-    return false
+      return answerChoice.value == letter && letter != question.answer && finished.value == true
   }
 
   function isRedOutline(letter) {
-    if (answerChoice.value != letter && answerChoice.value != question.answer && letter != question.answer && finished.value == true) {
-      return true
-    }
-    return false
+      return answerChoice.value != letter && answerChoice.value != question.answer && letter != question.answer && finished.value == true
   }
 
   function isRightAnswer(letter) {
-    if (answerChoice.value != letter && letter == question.answer && finished.value == true) {
-      return true
-    } 
-    return false
+      return answerChoice.value != letter && letter == question.answer && finished.value == true
   }
 </script>
 
