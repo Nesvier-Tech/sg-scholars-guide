@@ -2,11 +2,6 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100">
     <div class="max-w-md w-full bg-white p-8 shadow-md rounded-md">
-      <!-- SVG Image -->
-      <div class="mb-6 flex items-center justify-center">
-        <img src="@/assets/sg-logo.png" alt="Logo" class="w-16 h-16">
-      </div>
-
       <h2 class="text-3xl font-semibold mb-6">Login</h2>
 
       <form @submit.prevent="login">
