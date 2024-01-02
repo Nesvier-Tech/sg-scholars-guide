@@ -1,3 +1,5 @@
+<!-- TODO: Refactor this shit. Use SFCs. -->
+
 <!-- Signup.vue -->
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100">
@@ -49,37 +51,39 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    };
-  },
-  methods: {
-    async signup() {
-      try {
-        // Check if passwords match
-        if (this.password !== this.confirmPassword) {
-          console.error('Passwords do not match');
-          // Handle error, e.g., show an error message to the user
-          return;
-        }
+// export default {
+//   data() {
+//     return {
+//       username: '',
+//       email: '',
+//       password: '',
+//       confirmPassword: '',
+//     };
+//   },
+//   methods: {
+//     async signup() {
+//       try {
+//         // Check if passwords match
+//         if (this.password !== this.confirmPassword) {
+//           console.error('Passwords do not match');
+//           // Handle error, e.g., show an error message to the user
+//           return;
+//         }
 
-        // Use Appwrite Auth API to create a new account
-        const response = await this.$appwrite.account.create(this.email, this.password, this.username);
+//         // Use Appwrite Auth API to create a new account
+//         const response = await this.$appwrite.account.create(this.email, this.password, this.username);
 
-        // If signup is successful, you may redirect to another page or perform additional actions
-        console.log('Signup Successful', response);
-      } catch (error) {
-        console.error('Signup Failed', error);
-        // Handle signup failure, show error messages, etc.
-      }
-    },
-  },
-};
+//         // If signup is successful, you may redirect to another page or perform additional actions
+//         console.log('Signup Successful', response);
+//       } catch (error) {
+//         console.error('Signup Failed', error);
+//         // Handle signup failure, show error messages, etc.
+//       }
+//     },
+//   },
+// };
 </script>
 
-<style>/* You can customize the styles further based on your design preferences */</style>
+<style>
+/* You can customize the styles further based on your design preferences */
+</style>

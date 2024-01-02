@@ -1,3 +1,5 @@
+<!-- TODO: Refactor this shit. Use SFCs. -->
+
 <!-- ForgotPassword.vue -->
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100">
@@ -28,27 +30,27 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      email: '',
-    };
-  },
-  methods: {
-    async resetPassword() {
-      try {
-        // Use Appwrite Auth API to initiate the password reset process
-        await this.$appwrite.account.createRecovery(this.email);
+// export default {
+//   data() {
+//     return {
+//       email: '',
+//     };
+//   },
+//   methods: {
+//     async resetPassword() {
+//       try {
+//         // Use Appwrite Auth API to initiate the password reset process
+//         await this.$appwrite.account.createRecovery(this.email);
 
-        // Provide feedback to the user, e.g., show a success message or redirect to a confirmation page
-        console.log('Password reset initiated successfully');
-      } catch (error) {
-        console.error('Password reset failed', error);
-        // Handle password reset failure, show error messages, etc.
-      }
-    },
-  },
-};
+//         // Provide feedback to the user, e.g., show a success message or redirect to a confirmation page
+//         console.log('Password reset initiated successfully');
+//       } catch (error) {
+//         console.error('Password reset failed', error);
+//         // Handle password reset failure, show error messages, etc.
+//       }
+//     },
+//   },
+// };
 </script>
 
 <style>
