@@ -1,3 +1,5 @@
+<!-- TODO: Refactor this shit. Use SFCs. -->
+
 <!-- EmailVerification.vue -->
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100">

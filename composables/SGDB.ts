@@ -13,16 +13,24 @@ const SCI_COLLECTION_ID: string = '65697caf0507daf45601';       // Science Colle
 const LANG_PROF_COLLECTION_ID: string = '65697ddbb37b244a5c56'; // Language Proficiency Collection
 const READ_COMP_COLLECTION_ID: string = '65697e2043358985efbb'; // Reading Comprehension Collection
 
+export function getProjectID(): string {
+    return PROJECT_ID;
+}
+
 /////// Client ///////
 const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1')
     .setProject(`${PROJECT_ID}`);
 
+export function getClient(): Client {
+    return client;
+}
+
 /////// Database ///////
 const databases = new Databases(client);
 
 // List of subjects to choose when querying
-export const SUBJECTS: {MATH: string, SCI: string, LANG_PROF: string, READ_COMP: string} = {                               // Leaky
+export const SUBJECTS: { MATH: string, SCI: string, LANG_PROF: string, READ_COMP: string } = {                               // Leaky
     MATH: MATH_COLLECTION_ID,
     SCI: SCI_COLLECTION_ID,
     LANG_PROF: LANG_PROF_COLLECTION_ID,
@@ -64,7 +72,7 @@ export async function get_questions(SUBJECT: string) {
         [
             Query.select(['questionID', 'question', 'correctAnswer', 'wrongAnswers'])
         ]
-    ); 
+    );
     const result = await executeQuery(promise);
     //console.log(`Result: ${result}`);
     return result;

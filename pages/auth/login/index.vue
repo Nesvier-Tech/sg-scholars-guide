@@ -40,28 +40,41 @@
 </template>
 
 <script>
-// export default {
-//   data() {
-//     return {
-//       email: '',
-//       password: '',
-//     };
-//   },
-//   methods: {
-//     async login() {
-//       try {
-//         // Use Appwrite Auth API to perform login
-//         const response = await this.$appwrite.account.createSession(this.email, this.password);
+import { Account } from "appwrite";
 
-//         // If login is successful, you may redirect to another page or perform additional actions
-//         console.log('Login Successful', response);
-//       } catch (error) {
-//         console.error('Login Failed', error);
-//         // Handle login failure, show error messages, etc.
-//       }
-//     },
-//   },
-// };
+const client = getClient();
+const account = new Account(client);
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    async login() {
+      try {
+        const promise = account.createEmailSession(this.email, this.password);
+        console.log(`logging you in... (${this.email} ${this.password})`);
+
+        promise.then(function (response) {
+          console.log(response); // Success
+
+          // Show alert.
+          alert(`Login Successful!`);
+        }, function (error) {
+          console.log(error); // Failure
+          alert(`Login Failed!`);
+        });
+      } catch (error) {
+        console.error('Login Failed', error);
+        alert(`Login Failed!`);
+        // Handle login failure, show error messages, etc.
+      }
+    },
+  },
+};
 </script>
 
 <style>

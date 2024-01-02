@@ -3,6 +3,7 @@
         "appwrite",
         "flowbite",
         "Nuxt",
+        "SGDB",
         "tailwindcss"
     ]
 }
