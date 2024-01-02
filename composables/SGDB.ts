@@ -31,6 +31,8 @@ export const SUBJECTS: {MATH: string, SCI: string, LANG_PROF: string, READ_COMP:
 
 // Create Documents (Row)
 export function post_questions(SUBJECT: string, questions: any) {
+    console.log(`SUBJECT: ${SUBJECT}`);
+    console.log(`Questions: ${questions}`);
     for (const q of questions) {
         if (q.question === '' || q.options.length === 0) return -1;
 
@@ -42,7 +44,8 @@ export function post_questions(SUBJECT: string, questions: any) {
                 'questionID': q.id + 1,         // Change in the future
                 'question': q.question,
                 'correctAnswer': q.correct,
-                'wrongAnswers': q.options
+                'wrongAnswers': q.options,
+                'authorID': q.authorID
             }
         ); const ret = executeQuery(promise);
 

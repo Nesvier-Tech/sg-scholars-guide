@@ -1,7 +1,7 @@
 <template>
     <div>
         <Button @click="handleClick">Test Button</Button>
-        <SG-Dropdown />
+
     </div>
 </template>
 <script lang="ts">
