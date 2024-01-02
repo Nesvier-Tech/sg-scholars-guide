@@ -15,18 +15,39 @@
 </template>
 
 <script>
-// export default {
-//   data() {
-//     return {
-//       email: '', // The email to display (you can pass it as a parameter when navigating to this route)
-//     };
-//   },
-//   created() {
-//     // You may want to handle the email verification process here, such as checking a verification token.
-//     // Ensure that this component receives the email as a parameter when navigating to this route.
-//     // For demonstration purposes, this example assumes that the email is provided in the component's data.
-//   },
-// };
+import { Account } from "appwrite";
+
+const client = getClient();
+const account = new Account(client);
+
+export default {
+  data() {
+    return {
+      email: '',
+    };
+  },
+  methods: {
+    async resetPassword() {
+      try {
+        // TODO: Change this to our own domain.
+        const promise = account.createVerification('https://example.com');
+        console.log(`sending email verification... (${this.email})`);
+
+        promise.then(function (response) {
+          console.log(response);
+          alert('Email verification sent!');
+        }, function (error) {
+          console.log(error);
+          alert('Email verification failed!');
+        });
+      } catch (error) {
+        console.error('Email verification failed', error);
+        alert1('Email verification failed!');
+        // Handle error.
+      }
+    },
+  },
+};
 </script>
 
 <style>
