@@ -65,7 +65,7 @@ export default {
           alert(`Login Successful!`);
         }, function (error) {
           console.log(error); // Failure
-          alert(`Login Failed!`);
+          alert(`Login failed!\n${error.message}`);
         });
       } catch (error) {
         console.error('Login Failed', error);

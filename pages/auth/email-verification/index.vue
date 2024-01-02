@@ -38,7 +38,7 @@ export default {
           alert('Email verification sent!');
         }, function (error) {
           console.log(error);
-          alert('Email verification failed!');
+          alert(`Email verification failed!\n${error.message}`);
         });
       } catch (error) {
         console.error('Email verification failed', error);

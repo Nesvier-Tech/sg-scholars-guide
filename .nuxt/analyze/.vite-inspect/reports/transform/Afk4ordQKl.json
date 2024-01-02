@@ -1,0 +1,222 @@
+{
+  "resolvedId": "E:/scholars_guide/composables/SGDB.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { Client, Databases, ID, Query } from 'appwrite';\r\n\r\n// TEST PROJECT\r\n// const PROJECT_ID = '6551f0f5e59cbbe16389';\r\n// const DATABASE_ID = '6551f11f78036659169c';\r\n// const COLLECTION_ID = '65678a200361fbaf0193';\r\n\r\n// Scholar's Guide\r\nconst PROJECT_ID: string = '652bbefc35c78d6b21ed';              // SG: Scholar's Guide\r\nconst DATABASE_ID: string = '65697a59b90e048cd714';             // SGDB\r\nconst MATH_COLLECTION_ID: string = '65697cc59e598b1d3d11';      // Math Collection\r\nconst SCI_COLLECTION_ID: string = '65697caf0507daf45601';       // Science Collection\r\nconst LANG_PROF_COLLECTION_ID: string = '65697ddbb37b244a5c56'; // Language Proficiency Collection\r\nconst READ_COMP_COLLECTION_ID: string = '65697e2043358985efbb'; // Reading Comprehension Collection\r\n\r\nexport function getProjectID(): string {\r\n    return PROJECT_ID;\r\n}\r\n\r\n/////// Client ///////\r\nconst client = new Client()\r\n    .setEndpoint('https://cloud.appwrite.io/v1')\r\n    .setProject(`${PROJECT_ID}`);\r\n\r\nexport function getClient(): Client {\r\n    return client;\r\n}\r\n\r\n/////// Database ///////\r\nconst databases = new Databases(client);\r\n\r\n// List of subjects to choose when querying\r\nexport const SUBJECTS: { MATH: string, SCI: string, LANG_PROF: string, READ_COMP: string } = {                               // Leaky\r\n    MATH: MATH_COLLECTION_ID,\r\n    SCI: SCI_COLLECTION_ID,\r\n    LANG_PROF: LANG_PROF_COLLECTION_ID,\r\n    READ_COMP: READ_COMP_COLLECTION_ID\r\n}\r\n\r\n// Create Documents (Row)\r\nexport function post_questions(SUBJECT: string, questions: any) {\r\n    console.log(`SUBJECT: ${SUBJECT}`);\r\n    console.log(`Questions: ${questions}`);\r\n    for (const q of questions) {\r\n        if (q.question === '' || q.options.length === 0) return -1;\r\n\r\n        const promise = databases.createDocument(\r\n            `${DATABASE_ID}`,   // Database ID\r\n            `${SUBJECT}`,       // Collection ID\r\n            ID.unique(),\r\n            {\r\n                'questionID': q.id + 1,         // Change in the future\r\n                'question': q.question,\r\n                'correctAnswer': q.correct,\r\n                'wrongAnswers': q.options,\r\n                'authorID': q.authorID\r\n            }\r\n        ); const ret = executeQuery(promise);\r\n\r\n        if ('code' in ret) return -1; // Error\r\n    }\r\n    return 0;\r\n}\r\n\r\n\r\n// Queries function here: https://appwrite.io/docs/products/databases/queries\r\n// List Documents\r\nexport async function get_questions(SUBJECT: string) {\r\n    let promise = databases.listDocuments(\r\n        `${DATABASE_ID}`,    // Database ID\r\n        `${SUBJECT}`,  // Collection ID\r\n        [\r\n            Query.select(['questionID', 'question', 'correctAnswer', 'wrongAnswers'])\r\n        ]\r\n    );\r\n    const result = await executeQuery(promise);\r\n    //console.log(`Result: ${result}`);\r\n    return result;\r\n}\r\n\r\nexport const SGDB = () => {\r\n    return {\r\n        SUBJECTS,\r\n        post_questions,\r\n        get_questions\r\n    }\r\n}\r\n\r\nfunction executeQuery(promise: Promise<any>) {\r\n    return promise.then(function (response) {\r\n        //console.log(`Response: ${response}`);\r\n        return response;\r\n    }, function (error) {\r\n        //console.log(error);\r\n        return error;\r\n    });\r\n}\r\n\r\n// For future use\r\n// We can use getLastID() and have the question 0 to get the last id\r\n// for uploading the questions\r\n// or we can change the function to give us n number of available ids\r\nfunction getLastID(SUBJECT: string) {\r\n    return 0;\r\n    let promise = databases.listDocuments(\r\n        `${DATABASE_ID}`,    // Database ID\r\n        `${SUBJECT}`,  // Collection ID\r\n        [\r\n            Query.select(['questionID']),\r\n        ]\r\n    );\r\n}",
+      "start": 1704207490434,
+      "end": 1704207491185,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704207491185,
+      "end": 1704207491185,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704207491185,
+      "end": 1704207491185,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1704207491185,
+      "end": 1704207491185,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1704207491185,
+      "end": 1704207491185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { Client, Databases, ID, Query } from \"appwrite\";\nconst PROJECT_ID = \"652bbefc35c78d6b21ed\";\nconst DATABASE_ID = \"65697a59b90e048cd714\";\nconst MATH_COLLECTION_ID = \"65697cc59e598b1d3d11\";\nconst SCI_COLLECTION_ID = \"65697caf0507daf45601\";\nconst LANG_PROF_COLLECTION_ID = \"65697ddbb37b244a5c56\";\nconst READ_COMP_COLLECTION_ID = \"65697e2043358985efbb\";\nexport function getProjectID() {\n  return PROJECT_ID;\n}\nconst client = new Client().setEndpoint(\"https://cloud.appwrite.io/v1\").setProject(`${PROJECT_ID}`);\nexport function getClient() {\n  return client;\n}\nconst databases = new Databases(client);\nexport const SUBJECTS = {\n  // Leaky\n  MATH: MATH_COLLECTION_ID,\n  SCI: SCI_COLLECTION_ID,\n  LANG_PROF: LANG_PROF_COLLECTION_ID,\n  READ_COMP: READ_COMP_COLLECTION_ID\n};\nexport function post_questions(SUBJECT, questions) {\n  console.log(`SUBJECT: ${SUBJECT}`);\n  console.log(`Questions: ${questions}`);\n  for (const q of questions) {\n    if (q.question === \"\" || q.options.length === 0)\n      return -1;\n    const promise = databases.createDocument(\n      `${DATABASE_ID}`,\n      // Database ID\n      `${SUBJECT}`,\n      // Collection ID\n      ID.unique(),\n      {\n        \"questionID\": q.id + 1,\n        // Change in the future\n        \"question\": q.question,\n        \"correctAnswer\": q.correct,\n        \"wrongAnswers\": q.options,\n        \"authorID\": q.authorID\n      }\n    );\n    const ret = executeQuery(promise);\n    if (\"code\" in ret)\n      return -1;\n  }\n  return 0;\n}\nexport async function get_questions(SUBJECT) {\n  let promise = databases.listDocuments(\n    `${DATABASE_ID}`,\n    // Database ID\n    `${SUBJECT}`,\n    // Collection ID\n    [\n      Query.select([\"questionID\", \"question\", \"correctAnswer\", \"wrongAnswers\"])\n    ]\n  );\n  const result = await executeQuery(promise);\n  return result;\n}\nexport const SGDB = () => {\n  return {\n    SUBJECTS,\n    post_questions,\n    get_questions\n  };\n};\nfunction executeQuery(promise) {\n  return promise.then(function(response) {\n    return response;\n  }, function(error) {\n    return error;\n  });\n}\nfunction getLastID(SUBJECT) {\n  return 0;\n  let promise = databases.listDocuments(\n    `${DATABASE_ID}`,\n    // Database ID\n    `${SUBJECT}`,\n    // Collection ID\n    [\n      Query.select([\"questionID\"])\n    ]\n  );\n}\n",
+      "start": 1704207491185,
+      "end": 1704207491238,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "E:/scholars_guide/composables/SGDB.ts"
+        ],
+        "sourcesContent": [
+          "import { Client, Databases, ID, Query } from 'appwrite';\r\n\r\n// TEST PROJECT\r\n// const PROJECT_ID = '6551f0f5e59cbbe16389';\r\n// const DATABASE_ID = '6551f11f78036659169c';\r\n// const COLLECTION_ID = '65678a200361fbaf0193';\r\n\r\n// Scholar's Guide\r\nconst PROJECT_ID: string = '652bbefc35c78d6b21ed';              // SG: Scholar's Guide\r\nconst DATABASE_ID: string = '65697a59b90e048cd714';             // SGDB\r\nconst MATH_COLLECTION_ID: string = '65697cc59e598b1d3d11';      // Math Collection\r\nconst SCI_COLLECTION_ID: string = '65697caf0507daf45601';       // Science Collection\r\nconst LANG_PROF_COLLECTION_ID: string = '65697ddbb37b244a5c56'; // Language Proficiency Collection\r\nconst READ_COMP_COLLECTION_ID: string = '65697e2043358985efbb'; // Reading Comprehension Collection\r\n\r\nexport function getProjectID(): string {\r\n    return PROJECT_ID;\r\n}\r\n\r\n/////// Client ///////\r\nconst client = new Client()\r\n    .setEndpoint('https://cloud.appwrite.io/v1')\r\n    .setProject(`${PROJECT_ID}`);\r\n\r\nexport function getClient(): Client {\r\n    return client;\r\n}\r\n\r\n/////// Database ///////\r\nconst databases = new Databases(client);\r\n\r\n// List of subjects to choose when querying\r\nexport const SUBJECTS: { MATH: string, SCI: string, LANG_PROF: string, READ_COMP: string } = {                               // Leaky\r\n    MATH: MATH_COLLECTION_ID,\r\n    SCI: SCI_COLLECTION_ID,\r\n    LANG_PROF: LANG_PROF_COLLECTION_ID,\r\n    READ_COMP: READ_COMP_COLLECTION_ID\r\n}\r\n\r\n// Create Documents (Row)\r\nexport function post_questions(SUBJECT: string, questions: any) {\r\n    console.log(`SUBJECT: ${SUBJECT}`);\r\n    console.log(`Questions: ${questions}`);\r\n    for (const q of questions) {\r\n        if (q.question === '' || q.options.length === 0) return -1;\r\n\r\n        const promise = databases.createDocument(\r\n            `${DATABASE_ID}`,   // Database ID\r\n            `${SUBJECT}`,       // Collection ID\r\n            ID.unique(),\r\n            {\r\n                'questionID': q.id + 1,         // Change in the future\r\n                'question': q.question,\r\n                'correctAnswer': q.correct,\r\n                'wrongAnswers': q.options,\r\n                'authorID': q.authorID\r\n            }\r\n        ); const ret = executeQuery(promise);\r\n\r\n        if ('code' in ret) return -1; // Error\r\n    }\r\n    return 0;\r\n}\r\n\r\n\r\n// Queries function here: https://appwrite.io/docs/products/databases/queries\r\n// List Documents\r\nexport async function get_questions(SUBJECT: string) {\r\n    let promise = databases.listDocuments(\r\n        `${DATABASE_ID}`,    // Database ID\r\n        `${SUBJECT}`,  // Collection ID\r\n        [\r\n            Query.select(['questionID', 'question', 'correctAnswer', 'wrongAnswers'])\r\n        ]\r\n    );\r\n    const result = await executeQuery(promise);\r\n    //console.log(`Result: ${result}`);\r\n    return result;\r\n}\r\n\r\nexport const SGDB = () => {\r\n    return {\r\n        SUBJECTS,\r\n        post_questions,\r\n        get_questions\r\n    }\r\n}\r\n\r\nfunction executeQuery(promise: Promise<any>) {\r\n    return promise.then(function (response) {\r\n        //console.log(`Response: ${response}`);\r\n        return response;\r\n    }, function (error) {\r\n        //console.log(error);\r\n        return error;\r\n    });\r\n}\r\n\r\n// For future use\r\n// We can use getLastID() and have the question 0 to get the last id\r\n// for uploading the questions\r\n// or we can change the function to give us n number of available ids\r\nfunction getLastID(SUBJECT: string) {\r\n    return 0;\r\n    let promise = databases.listDocuments(\r\n        `${DATABASE_ID}`,    // Database ID\r\n        `${SUBJECT}`,  // Collection ID\r\n        [\r\n            Query.select(['questionID']),\r\n        ]\r\n    );\r\n}"
+        ],
+        "mappings": "AAAA,SAAS,QAAQ,WAAW,IAAI,aAAa;AAQ7C,MAAM,aAAqB;AAC3B,MAAM,cAAsB;AAC5B,MAAM,qBAA6B;AACnC,MAAM,oBAA4B;AAClC,MAAM,0BAAkC;AACxC,MAAM,0BAAkC;AAEjC,gBAAS,eAAuB;AACnC,SAAO;AACX;AAGA,MAAM,SAAS,IAAI,OAAO,EACrB,YAAY,8BAA8B,EAC1C,WAAW,GAAG,UAAU,EAAE;AAExB,gBAAS,YAAoB;AAChC,SAAO;AACX;AAGA,MAAM,YAAY,IAAI,UAAU,MAAM;AAG/B,aAAM,WAAgF;AAAA;AAAA,EACzF,MAAM;AAAA,EACN,KAAK;AAAA,EACL,WAAW;AAAA,EACX,WAAW;AACf;AAGO,gBAAS,eAAe,SAAiB,WAAgB;AAC5D,UAAQ,IAAI,YAAY,OAAO,EAAE;AACjC,UAAQ,IAAI,cAAc,SAAS,EAAE;AACrC,aAAW,KAAK,WAAW;AACvB,QAAI,EAAE,aAAa,MAAM,EAAE,QAAQ,WAAW;AAAG,aAAO;AAExD,UAAM,UAAU,UAAU;AAAA,MACtB,GAAG,WAAW;AAAA;AAAA,MACd,GAAG,OAAO;AAAA;AAAA,MACV,GAAG,OAAO;AAAA,MACV;AAAA,QACI,cAAc,EAAE,KAAK;AAAA;AAAA,QACrB,YAAY,EAAE;AAAA,QACd,iBAAiB,EAAE;AAAA,QACnB,gBAAgB,EAAE;AAAA,QAClB,YAAY,EAAE;AAAA,MAClB;AAAA,IACJ;AAAG,UAAM,MAAM,aAAa,OAAO;AAEnC,QAAI,UAAU;AAAK,aAAO;AAAA,EAC9B;AACA,SAAO;AACX;AAKA,sBAAsB,cAAc,SAAiB;AACjD,MAAI,UAAU,UAAU;AAAA,IACpB,GAAG,WAAW;AAAA;AAAA,IACd,GAAG,OAAO;AAAA;AAAA,IACV;AAAA,MACI,MAAM,OAAO,CAAC,cAAc,YAAY,iBAAiB,cAAc,CAAC;AAAA,IAC5E;AAAA,EACJ;AACA,QAAM,SAAS,MAAM,aAAa,OAAO;AAEzC,SAAO;AACX;AAEO,aAAM,OAAO,MAAM;AACtB,SAAO;AAAA,IACH;AAAA,IACA;AAAA,IACA;AAAA,EACJ;AACJ;AAEA,SAAS,aAAa,SAAuB;AACzC,SAAO,QAAQ,KAAK,SAAU,UAAU;AAEpC,WAAO;AAAA,EACX,GAAG,SAAU,OAAO;AAEhB,WAAO;AAAA,EACX,CAAC;AACL;AAMA,SAAS,UAAU,SAAiB;AAChC,SAAO;AACP,MAAI,UAAU,UAAU;AAAA,IACpB,GAAG,WAAW;AAAA;AAAA,IACd,GAAG,OAAO;AAAA;AAAA,IACV;AAAA,MACI,MAAM,OAAO,CAAC,YAAY,CAAC;AAAA,IAC/B;AAAA,EACJ;AACJ;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1704207491238,
+      "end": 1704207491238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1704207491239,
+      "end": 1704207491239,
+      "order": "normal"
+    }
+  ]
+}

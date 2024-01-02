@@ -51,37 +51,54 @@
 </template>
 
 <script>
-// export default {
-//   data() {
-//     return {
-//       username: '',
-//       email: '',
-//       password: '',
-//       confirmPassword: '',
-//     };
-//   },
-//   methods: {
-//     async signup() {
-//       try {
-//         // Check if passwords match
-//         if (this.password !== this.confirmPassword) {
-//           console.error('Passwords do not match');
-//           // Handle error, e.g., show an error message to the user
-//           return;
-//         }
+import { Account, ID } from "appwrite";
 
-//         // Use Appwrite Auth API to create a new account
-//         const response = await this.$appwrite.account.create(this.email, this.password, this.username);
+const client = getClient();
+const account = new Account(client);
 
-//         // If signup is successful, you may redirect to another page or perform additional actions
-//         console.log('Signup Successful', response);
-//       } catch (error) {
-//         console.error('Signup Failed', error);
-//         // Handle signup failure, show error messages, etc.
-//       }
-//     },
-//   },
-// };
+export default {
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    };
+  },
+  methods: {
+    async signup() {
+      try {
+        // Check if passwords match
+        if (this.password !== this.confirmPassword) {
+          console.error('Passwords do not match');
+          alert('Are you f***ing blind?! Passwords do not match!');
+          // Handle error, e.g., show an error message to the user
+          return;
+        }
+
+        // Valid chars are a-z, A-Z, 0-9, period, hyphen, and underscore. 
+        // Can't start with a special char. Max length is 36 chars.
+        // Temporary use the Date.now() as the user ID (for now).
+        let userID = Date.now().toString();
+
+        const promise = account.create(userID, this.email, this.password, this.username);
+        console.log(`creating user... (${this.email})`);
+
+        promise.then(function (response) {
+          console.log(response); // Success
+          alert('User created!');
+        }, function (error) {
+          console.log(error); // Failure
+          alert(`User creation failed!\n${error.message}`);
+        });
+      } catch (error) {
+        console.error('Signup Failed', error);
+        alert('Signup failed!');
+        // Handle signup failure, show error messages, etc.
+      }
+    },
+  },
+};
 </script>
 
 <style>

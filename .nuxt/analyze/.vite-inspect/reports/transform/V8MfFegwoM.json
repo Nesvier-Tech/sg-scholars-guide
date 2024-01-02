@@ -1,0 +1,215 @@
+{
+  "resolvedId": "E:/scholars_guide/components/SG-Header.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <nav class=\"border-gray-200 shadow-md bg-sg-white dark:bg-gray-900\">\r\n    <div class=\"flex flex-wrap items-center justify-between max-w-screen-xl p-1 mx-auto\">\r\n\r\n      <!-- Logo Section -->\r\n      <nuxt-link to=\"/auth/login\" class=\"flex items-center space-x-3 rtl:space-x-reverse\">\r\n        <img src=\"@/assets/sg-logo.png\" class=\"h-12\" alt=\"SG Logo\" />\r\n        <span class=\"self-center text-2xl font-semibold whitespace-nowrap dark:text-white\">Scholar's Guide</span>\r\n      </nuxt-link>\r\n      <button data-collapse-toggle=\"navbar-default\" type=\"button\"\r\n        class=\"inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600\"\r\n        aria-controls=\"navbar-default\" aria-expanded=\"false\">\r\n        <span class=\"sr-only\">Open main menu</span>\r\n        <svg class=\"w-5 h-5\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 17 14\">\r\n          <path stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"\r\n            d=\"M1 1h15M1 7h15M1 13h15\" />\r\n        </svg>\r\n      </button>\r\n\r\n      <!-- Quiz Section -->\r\n      <div class=\"justify-center w-full p-2 bg-white rounded-md shadow-md md:flex md:w-auto\" id=\"navbar-default\">\r\n        <ul\r\n          class=\"flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700\">\r\n          <li>\r\n            <nuxt-link to=\"/quiz\"\r\n              class=\"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">\r\n              Take Quiz</nuxt-link>\r\n          </li>\r\n          <li>\r\n            <nuxt-link to=\"/upload\"\r\n              class=\"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">\r\n              Upload Quiz</nuxt-link>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n\r\n      <!-- Profile Section -->\r\n      <div class=\"w-full md:block md:w-auto bg-sg-white\" id=\"navbar-default\">\r\n        <ul\r\n          class=\"flex items-center p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-sg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700\">\r\n          <li>\r\n            <nuxt-link to=\"/profile\"\r\n              class=\"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">\r\n              Account Name Here</nuxt-link>\r\n          </li>\r\n          <li>\r\n            <img src=\"@/assets/cute-puppy.jpg\" class=\"rounded-full w-9 h-9\" alt=\"Account Picture\" />\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</template>\r\n  \r\n<script setup>\r\n\r\n</script>",
+      "start": 1704207491337,
+      "end": 1704207491498,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704207491498,
+      "end": 1704207491498,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704207491498,
+      "end": 1704207491498,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1704207491498,
+      "end": 1704207491498,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1704207491498,
+      "end": 1704207491498,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1704207491498,
+      "end": 1704207491498,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1704207491498,
+      "end": 1704207491498,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1704207491498,
+      "end": 1704207491498,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, createTextVNode as _createTextVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '@/assets/sg-logo.png'\nimport _imports_1 from '@/assets/cute-puppy.jpg'\n\n\nconst _hoisted_1 = { class: \"border-gray-200 shadow-md bg-sg-white dark:bg-gray-900\" }\nconst _hoisted_2 = { class: \"flex flex-wrap items-center justify-between max-w-screen-xl p-1 mx-auto\" }\nconst _hoisted_3 = /*#__PURE__*/_createElementVNode(\"img\", {\n  src: _imports_0,\n  class: \"h-12\",\n  alt: \"SG Logo\"\n}, null, -1)\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"self-center text-2xl font-semibold whitespace-nowrap dark:text-white\" }, \"Scholar's Guide\", -1)\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"button\", {\n  \"data-collapse-toggle\": \"navbar-default\",\n  type: \"button\",\n  class: \"inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600\",\n  \"aria-controls\": \"navbar-default\",\n  \"aria-expanded\": \"false\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"sr-only\" }, \"Open main menu\"),\n  /*#__PURE__*/_createElementVNode(\"svg\", {\n    class: \"w-5 h-5\",\n    \"aria-hidden\": \"true\",\n    xmlns: \"http://www.w3.org/2000/svg\",\n    fill: \"none\",\n    viewBox: \"0 0 17 14\"\n  }, [\n    /*#__PURE__*/_createElementVNode(\"path\", {\n      stroke: \"currentColor\",\n      \"stroke-linecap\": \"round\",\n      \"stroke-linejoin\": \"round\",\n      \"stroke-width\": \"2\",\n      d: \"M1 1h15M1 7h15M1 13h15\"\n    })\n  ])\n], -1)\nconst _hoisted_6 = {\n  class: \"justify-center w-full p-2 bg-white rounded-md shadow-md md:flex md:w-auto\",\n  id: \"navbar-default\"\n}\nconst _hoisted_7 = { class: \"flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700\" }\nconst _hoisted_8 = {\n  class: \"w-full md:block md:w-auto bg-sg-white\",\n  id: \"navbar-default\"\n}\nconst _hoisted_9 = { class: \"flex items-center p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-sg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700\" }\nconst _hoisted_10 = /*#__PURE__*/_createElementVNode(\"li\", null, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    src: _imports_1,\n    class: \"rounded-full w-9 h-9\",\n    alt: \"Account Picture\"\n  })\n], -1)\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")\n\n  return (_openBlock(), _createElementBlock(\"nav\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createVNode(_component_nuxt_link, {\n        to: \"/auth/login\",\n        class: \"flex items-center space-x-3 rtl:space-x-reverse\"\n      }, {\n        default: _withCtx(() => [\n          _hoisted_3,\n          _hoisted_4\n        ]),\n        _: 1\n      }),\n      _hoisted_5,\n      _createElementVNode(\"div\", _hoisted_6, [\n        _createElementVNode(\"ul\", _hoisted_7, [\n          _createElementVNode(\"li\", null, [\n            _createVNode(_component_nuxt_link, {\n              to: \"/quiz\",\n              class: \"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" Take Quiz\")\n              ]),\n              _: 1\n            })\n          ]),\n          _createElementVNode(\"li\", null, [\n            _createVNode(_component_nuxt_link, {\n              to: \"/upload\",\n              class: \"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" Upload Quiz\")\n              ]),\n              _: 1\n            })\n          ])\n        ])\n      ]),\n      _createElementVNode(\"div\", _hoisted_8, [\n        _createElementVNode(\"ul\", _hoisted_9, [\n          _createElementVNode(\"li\", null, [\n            _createVNode(_component_nuxt_link, {\n              to: \"/profile\",\n              class: \"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" Account Name Here\")\n              ]),\n              _: 1\n            })\n          ]),\n          _hoisted_10\n        ])\n      ])\n    ])\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1704207491498,
+      "end": 1704207491499,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1704207491499,
+      "end": 1704207491499,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704207491499,
+      "end": 1704207491499,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704207491499,
+      "end": 1704207491499,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"E:/scholars_guide/node_modules/nuxt/dist/app/components/nuxt-link\";\nconst _sfc_main = {}\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, createTextVNode as _createTextVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '@/assets/sg-logo.png'\nimport _imports_1 from '@/assets/cute-puppy.jpg'\n\n\nconst _hoisted_1 = { class: \"border-gray-200 shadow-md bg-sg-white dark:bg-gray-900\" }\nconst _hoisted_2 = { class: \"flex flex-wrap items-center justify-between max-w-screen-xl p-1 mx-auto\" }\nconst _hoisted_3 = /*#__PURE__*/_createElementVNode(\"img\", {\n  src: _imports_0,\n  class: \"h-12\",\n  alt: \"SG Logo\"\n}, null, -1)\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"self-center text-2xl font-semibold whitespace-nowrap dark:text-white\" }, \"Scholar's Guide\", -1)\nconst _hoisted_5 = /*#__PURE__*/_createElementVNode(\"button\", {\n  \"data-collapse-toggle\": \"navbar-default\",\n  type: \"button\",\n  class: \"inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600\",\n  \"aria-controls\": \"navbar-default\",\n  \"aria-expanded\": \"false\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"sr-only\" }, \"Open main menu\"),\n  /*#__PURE__*/_createElementVNode(\"svg\", {\n    class: \"w-5 h-5\",\n    \"aria-hidden\": \"true\",\n    xmlns: \"http://www.w3.org/2000/svg\",\n    fill: \"none\",\n    viewBox: \"0 0 17 14\"\n  }, [\n    /*#__PURE__*/_createElementVNode(\"path\", {\n      stroke: \"currentColor\",\n      \"stroke-linecap\": \"round\",\n      \"stroke-linejoin\": \"round\",\n      \"stroke-width\": \"2\",\n      d: \"M1 1h15M1 7h15M1 13h15\"\n    })\n  ])\n], -1)\nconst _hoisted_6 = {\n  class: \"justify-center w-full p-2 bg-white rounded-md shadow-md md:flex md:w-auto\",\n  id: \"navbar-default\"\n}\nconst _hoisted_7 = { class: \"flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700\" }\nconst _hoisted_8 = {\n  class: \"w-full md:block md:w-auto bg-sg-white\",\n  id: \"navbar-default\"\n}\nconst _hoisted_9 = { class: \"flex items-center p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-sg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700\" }\nconst _hoisted_10 = /*#__PURE__*/_createElementVNode(\"li\", null, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    src: _imports_1,\n    class: \"rounded-full w-9 h-9\",\n    alt: \"Account Picture\"\n  })\n], -1)\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_nuxt_link = __nuxt_component_0\n\n  return (_openBlock(), _createElementBlock(\"nav\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createVNode(_component_nuxt_link, {\n        to: \"/auth/login\",\n        class: \"flex items-center space-x-3 rtl:space-x-reverse\"\n      }, {\n        default: _withCtx(() => [\n          _hoisted_3,\n          _hoisted_4\n        ]),\n        _: 1\n      }),\n      _hoisted_5,\n      _createElementVNode(\"div\", _hoisted_6, [\n        _createElementVNode(\"ul\", _hoisted_7, [\n          _createElementVNode(\"li\", null, [\n            _createVNode(_component_nuxt_link, {\n              to: \"/quiz\",\n              class: \"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" Take Quiz\")\n              ]),\n              _: 1\n            })\n          ]),\n          _createElementVNode(\"li\", null, [\n            _createVNode(_component_nuxt_link, {\n              to: \"/upload\",\n              class: \"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" Upload Quiz\")\n              ]),\n              _: 1\n            })\n          ])\n        ])\n      ]),\n      _createElementVNode(\"div\", _hoisted_8, [\n        _createElementVNode(\"ul\", _hoisted_9, [\n          _createElementVNode(\"li\", null, [\n            _createVNode(_component_nuxt_link, {\n              to: \"/profile\",\n              class: \"block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-sg-red md:p-0 dark:text-white md:dark:hover:text-sg-red dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" Account Name Here\")\n              ]),\n              _: 1\n            })\n          ]),\n          _hoisted_10\n        ])\n      ])\n    ])\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1704207491500,
+      "end": 1704207491500,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1704207491500,
+      "end": 1704207491501,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1704207491501,
+      "end": 1704207491501,
+      "order": "normal"
+    }
+  ]
+}

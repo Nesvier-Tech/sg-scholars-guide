@@ -1,0 +1,221 @@
+{
+  "resolvedId": "E:/scholars_guide/pages/quiz/index.vue?vue&type=style&index=0&scoped=21d945aa&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n    .quiz-body-grid {\r\n      background-color: rgba(0, 0, 0, 0.01);\r\n      padding: 4rem 4rem;\r\n      display: grid;\r\n      grid-template-columns: 1fr 2fr 1fr;\r\n    }\r\n    .container-100 {\r\n      width: 100%;\r\n      margin: auto;\r\n      margin-top: 1rem;\r\n      margin-bottom: 1rem;\r\n    }\r\n  \r\n    .card-container {\r\n      width: 100%;\r\n      margin: 1rem auto;\r\n      border-radius: 0.5rem;\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n      padding: 1rem;\r\n      background-color: white;\r\n    }\r\n  \r\n  ",
+      "start": 1704207490503,
+      "end": 1704207490503
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704207490503,
+      "end": 1704207490503,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704207490503,
+      "end": 1704207490503,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1704207490503,
+      "end": 1704207490503,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".quiz-body-grid{background-color:rgba(0,0,0,.01);display:grid;grid-template-columns:1fr 2fr 1fr;padding:4rem}.card-container,.container-100{margin:1rem auto;width:100%}.card-container{background-color:#fff;border-radius:.5rem;box-shadow:0 4px 8px rgba(0,0,0,.1);padding:1rem}",
+      "start": 1704207490503,
+      "end": 1704207490525,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1704207490526,
+      "end": 1704207490526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1704207490526,
+      "end": 1704207490526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1704207490526,
+      "end": 1704207490526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".quiz-body-grid[data-v-21d945aa]{background-color:rgba(0,0,0,.01);display:grid;grid-template-columns:1fr 2fr 1fr;padding:4rem}.card-container[data-v-21d945aa],.container-100[data-v-21d945aa]{margin:1rem auto;width:100%}.card-container[data-v-21d945aa]{background-color:#fff;border-radius:.5rem;box-shadow:0 4px 8px rgba(0,0,0,.1);padding:1rem}",
+      "start": 1704207490526,
+      "end": 1704207490528,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1704207490530,
+      "end": 1704207490530,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704207490530,
+      "end": 1704207490530,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704207490530,
+      "end": 1704207490530,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1704207490530,
+      "end": 1704207490530,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1704207490530,
+      "end": 1704207490530,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704207490531,
+      "end": 1704207490531,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1704207490531,
+      "end": 1704207490531,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1704207490531,
+      "end": 1704207490531,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default ''",
+      "start": 1704207490531,
+      "end": 1704207490531,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1704207490531,
+      "end": 1704207490531,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1704207490531,
+      "end": 1704207490531,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1704207490531,
+      "end": 1704207490531,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1704207490531,
+      "end": 1704207490531,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1704207490535,
+      "end": 1704207490535,
+      "order": "normal"
+    }
+  ]
+}

@@ -53,7 +53,7 @@ export default {
           alert('Password reset email sent!');
         }, function (error) {
           console.log(error); // Failure
-          alert('Password reset failed!');
+          alert(`Password reset failed!\n${error.message}`);
         });
       } catch (error) {
         console.error('Password reset failed', error);
