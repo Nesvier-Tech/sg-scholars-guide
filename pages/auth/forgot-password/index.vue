@@ -30,27 +30,39 @@
 </template>
 
 <script>
-// export default {
-//   data() {
-//     return {
-//       email: '',
-//     };
-//   },
-//   methods: {
-//     async resetPassword() {
-//       try {
-//         // Use Appwrite Auth API to initiate the password reset process
-//         await this.$appwrite.account.createRecovery(this.email);
+import { Account } from "appwrite";
 
-//         // Provide feedback to the user, e.g., show a success message or redirect to a confirmation page
-//         console.log('Password reset initiated successfully');
-//       } catch (error) {
-//         console.error('Password reset failed', error);
-//         // Handle password reset failure, show error messages, etc.
-//       }
-//     },
-//   },
-// };
+const client = getClient();
+const account = new Account(client);
+
+export default {
+  data() {
+    return {
+      email: '',
+    };
+  },
+  methods: {
+    async resetPassword() {
+      try {
+        // TODO: Change this to our own domain.
+        const promise = account.createRecovery(this.email, 'https://example.com');
+        console.log(`sending password reset email... (${this.email})`);
+
+        promise.then(function (response) {
+          console.log(response); // Success
+          alert('Password reset email sent!');
+        }, function (error) {
+          console.log(error); // Failure
+          alert('Password reset failed!');
+        });
+      } catch (error) {
+        console.error('Password reset failed', error);
+        alert('Password reset failed!');
+        // Handle password reset failure, show error messages, etc.
+      }
+    },
+  },
+};
 </script>
 
 <style>
