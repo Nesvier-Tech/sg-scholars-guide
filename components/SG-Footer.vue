@@ -2,9 +2,10 @@
     <footer class="bg-sg-white dark:bg-gray-900">
         <div class="p-4 lg:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
-                <nuxt-link to="/login" class="flex items-center mb-4 space-x-3 sm:mb-0 rtl:space-x-reverse">
+                <nuxt-link to="/auth/login" class="flex items-center mb-4 space-x-3 sm:mb-0 rtl:space-x-reverse">
                     <img src="@/assets/sg-logo.png" class="h-8" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Scholar's Guide</span>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Scholar's
+                        Guide</span>
                 </nuxt-link>
                 <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                     <li>

@@ -6,7 +6,7 @@
                 <nuxt-link to="test">Scratch</nuxt-link>
             </li>
             <li class="px-4 my-2 border-2 rounded-md">
-                <nuxt-link to="login">Login</nuxt-link>
+                <nuxt-link to="/auth/login">Login</nuxt-link>
             </li>
             <li class="px-4 my-2 border-2 rounded-md">
                 <nuxt-link to="dashboard">Dashboard</nuxt-link>
@@ -27,7 +27,7 @@
     <hr>
 
     <div class="flex flex-col items-center my-10">
-        <h2  class="my-3 text-2xl font-bold ">Navigation Map</h2>
-        <img src="@/assets/nav-map.png" width="600" height="1000"/>
+        <h2 class="my-3 text-2xl font-bold ">Navigation Map</h2>
+        <img src="@/assets/nav-map.png" width="600" height="1000" />
     </div>
 </template>

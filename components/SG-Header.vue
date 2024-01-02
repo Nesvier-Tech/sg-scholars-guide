@@ -3,7 +3,7 @@
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-1 mx-auto">
 
       <!-- Logo Section -->
-      <nuxt-link to="/login" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <nuxt-link to="/auth/login" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="@/assets/sg-logo.png" class="h-12" alt="SG Logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Scholar's Guide</span>
       </nuxt-link>
