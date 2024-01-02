@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<script>\r\n\r\n// Don't touch. Start of page is pages/index.vue\r\n\r\n</script>\r\n\r\n<template>\r\n  <div>\r\n    <SG-Header />\r\n\r\n    <NuxtLayout>\r\n      <NuxtPage class=\"min-h-screen\"/>\r\n    </NuxtLayout>\r\n\r\n    <SG-Footer />\r\n  </div>\r\n</template>\r\n",
-      "start": 1704207490449,
-      "end": 1704207491225,
+      "start": 1704208672569,
+      "end": 1704208673336,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207491225,
-      "end": 1704207491225,
+      "start": 1704208673336,
+      "end": 1704208673336,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207491225,
-      "end": 1704207491225,
+      "start": 1704208673336,
+      "end": 1704208673336,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207491225,
-      "end": 1704207491225,
+      "start": 1704208673336,
+      "end": 1704208673336,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207491225,
-      "end": 1704207491225,
+      "start": 1704208673336,
+      "end": 1704208673336,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207491225,
-      "end": 1704207491225,
+      "start": 1704208673336,
+      "end": 1704208673336,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207491225,
-      "end": 1704207491225,
+      "start": 1704208673336,
+      "end": 1704208673336,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207491225,
-      "end": 1704207491225,
+      "start": 1704208673336,
+      "end": 1704208673336,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "\r\n\r\n// Don't touch. Start of page is pages/index.vue\r\n\r\n\nconst _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_SG_Header = _resolveComponent(\"SG-Header\")\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")\n  const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\")\n  const _component_SG_Footer = _resolveComponent(\"SG-Footer\")\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_SG_Header),\n    _createVNode(_component_NuxtLayout, null, {\n      default: _withCtx(() => [\n        _createVNode(_component_NuxtPage, { class: \"min-h-screen\" })\n      ]),\n      _: 1\n    }),\n    _createVNode(_component_SG_Footer)\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1704207491225,
-      "end": 1704207491227,
+      "start": 1704208673336,
+      "end": 1704208673337,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,153 +62,153 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207491227,
-      "end": 1704207491227,
+      "start": 1704208673337,
+      "end": 1704208673337,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1704207491227,
-      "end": 1704207491228,
+      "start": 1704208673337,
+      "end": 1704208673338,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1704207491228,
-      "end": 1704207491228,
+      "start": 1704208673338,
+      "end": 1704208673338,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1704207491228,
-      "end": 1704207491228,
+      "start": 1704208673338,
+      "end": 1704208673338,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207491228,
-      "end": 1704207491228,
+      "start": 1704208673338,
+      "end": 1704208673338,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207491228,
-      "end": 1704207491228,
+      "start": 1704208673338,
+      "end": 1704208673338,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"E:/scholars_guide/components/SG-Header.vue\";\nimport { default as __nuxt_component_1 } from \"E:/scholars_guide/node_modules/nuxt/dist/pages/runtime/page\";\nimport { default as __nuxt_component_2 } from \"E:/scholars_guide/node_modules/nuxt/dist/app/components/nuxt-layout\";\nimport { default as __nuxt_component_3 } from \"E:/scholars_guide/components/SG-Footer.vue\";\n\r\n\r\n// Don't touch. Start of page is pages/index.vue\r\n\r\n\nconst _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_SG_Header = __nuxt_component_0\n  const _component_NuxtPage = __nuxt_component_1\n  const _component_NuxtLayout = __nuxt_component_2\n  const _component_SG_Footer = __nuxt_component_3\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_SG_Header),\n    _createVNode(_component_NuxtLayout, null, {\n      default: _withCtx(() => [\n        _createVNode(_component_NuxtPage, { class: \"min-h-screen\" })\n      ]),\n      _: 1\n    }),\n    _createVNode(_component_SG_Footer)\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1704207491228,
-      "end": 1704207491228,
+      "start": 1704208673338,
+      "end": 1704208673338,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207491228,
-      "end": 1704207491228,
+      "start": 1704208673338,
+      "end": 1704208673338,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207491228,
-      "end": 1704207491228,
+      "start": 1704208673338,
+      "end": 1704208673338,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207491228,
-      "end": 1704207491228,
+      "start": 1704208673338,
+      "end": 1704208673338,
       "order": "normal"
     }
   ]

@@ -1,0 +1,266 @@
+{
+  "resolvedId": "E:/scholars_guide/components/Button.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n    <!-- \r\n    To use this, \r\n    <Button @click=\"functionHere\">Label Here</Button>\r\n    -->\r\n\r\n    <div>\r\n\r\n        <button type=\"button\"\r\n            class=\"text-white bg-sg-red hover:bg-sg-dark-red focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex items-center\">\r\n            <slot>\r\n                Default\r\n            </slot>\r\n        </button>\r\n    </div>\r\n</template>\r\n",
+      "start": 1704208675642,
+      "end": 1704208675749,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1704208675749,
+      "end": 1704208675749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { ssrRenderSlot as _ssrRenderSlot, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs) {\n  _push(`<div${_ssrRenderAttrs(_attrs)}><button type=\"button\" class=\"text-white bg-sg-red hover:bg-sg-dark-red focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex items-center\">`)\n  _ssrRenderSlot(_ctx.$slots, \"default\", {}, () => {\n    _push(` Default `)\n  }, _push, _parent)\n  _push(`</button></div>`)\n}\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/Button.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['ssrRender',_sfc_ssrRender]])",
+      "start": 1704208675749,
+      "end": 1704208675750,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "E:/scholars_guide/components/Button.vue"
+        ],
+        "names": [],
+        "mappings": "",
+        "file": "E:/scholars_guide/components/Button.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n    <!-- \r\n    To use this, \r\n    <Button @click=\"functionHere\">Label Here</Button>\r\n    -->\r\n\r\n    <div>\r\n\r\n        <button type=\"button\"\r\n            class=\"text-white bg-sg-red hover:bg-sg-dark-red focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex items-center\">\r\n            <slot>\r\n                Default\r\n            </slot>\r\n        </button>\r\n    </div>\r\n</template>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1704208675750,
+      "end": 1704208675750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1704208675751,
+      "end": 1704208675751,
+      "order": "normal"
+    }
+  ]
+}

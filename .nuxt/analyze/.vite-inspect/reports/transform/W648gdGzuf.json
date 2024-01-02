@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<template>\r\n    <nuxt-link :to=\"{ name: 'quiz' }\" class=\"no-underline\">\r\n      <div class=\"flex flex-col rounded overflow-hidden shadow-lg bg-white hover:bg-gray-100 transition-colors\">\r\n        <div class=\"px-6 py-4 bg-red-500 text-white\">\r\n          <div class=\"font-bold text-xl mb-2\">{{ title }}</div>\r\n          <p class=\"text-base\">\r\n            {{ subtext }}\r\n          </p>\r\n        </div>\r\n        <div class=\"px-6 py-4 flex-grow\">\r\n          <p class=\"text-gray-700 text-base\">\r\n            {{ description }}\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </nuxt-link>\r\n  </template>\r\n  \r\n  <script>\r\n  export default {\r\n    props: {\r\n      title: String,\r\n      subtext: String,\r\n      description: String\r\n    }\r\n  }\r\n  </script>\r\n  \r\n  <style scoped>\r\n  /* Style for hover state and transition */\r\n  </style>\r\n  ",
-      "start": 1704207490469,
-      "end": 1704207491241,
+      "start": 1704208672589,
+      "end": 1704208673350,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207491241,
-      "end": 1704207491241,
+      "start": 1704208673350,
+      "end": 1704208673350,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207491241,
-      "end": 1704207491241,
+      "start": 1704208673350,
+      "end": 1704208673350,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207491241,
-      "end": 1704207491241,
+      "start": 1704208673350,
+      "end": 1704208673350,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207491241,
-      "end": 1704207491241,
+      "start": 1704208673350,
+      "end": 1704208673350,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207491241,
-      "end": 1704207491241,
+      "start": 1704208673350,
+      "end": 1704208673350,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207491241,
-      "end": 1704207491241,
+      "start": 1704208673350,
+      "end": 1704208673350,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207491241,
-      "end": 1704207491241,
+      "start": 1704208673350,
+      "end": 1704208673350,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "\r\n  const _sfc_main = {\r\n    props: {\r\n      title: String,\r\n      subtext: String,\r\n      description: String\r\n    }\r\n  }\r\n  \nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-262566ff\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"flex flex-col rounded overflow-hidden shadow-lg bg-white hover:bg-gray-100 transition-colors\" }\nconst _hoisted_2 = { class: \"px-6 py-4 bg-red-500 text-white\" }\nconst _hoisted_3 = { class: \"font-bold text-xl mb-2\" }\nconst _hoisted_4 = { class: \"text-base\" }\nconst _hoisted_5 = { class: \"px-6 py-4 flex-grow\" }\nconst _hoisted_6 = { class: \"text-gray-700 text-base\" }\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")\n\n  return (_openBlock(), _createBlock(_component_nuxt_link, {\n    to: { name: 'quiz' },\n    class: \"no-underline\"\n  }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, _toDisplayString($props.title), 1),\n          _createElementVNode(\"p\", _hoisted_4, _toDisplayString($props.subtext), 1)\n        ]),\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createElementVNode(\"p\", _hoisted_6, _toDisplayString($props.description), 1)\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n\nimport \"E:/scholars_guide/components/Card.vue?vue&type=style&index=0&scoped=262566ff&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-262566ff\"]])",
-      "start": 1704207491241,
-      "end": 1704207491243,
+      "start": 1704208673350,
+      "end": 1704208673351,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,153 +62,153 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207491243,
-      "end": 1704207491243,
+      "start": 1704208673351,
+      "end": 1704208673351,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1704207491243,
-      "end": 1704207491244,
+      "start": 1704208673351,
+      "end": 1704208673352,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1704207491244,
-      "end": 1704207491244,
+      "start": 1704208673352,
+      "end": 1704208673352,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1704207491244,
-      "end": 1704207491244,
+      "start": 1704208673352,
+      "end": 1704208673352,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207491244,
-      "end": 1704207491244,
+      "start": 1704208673352,
+      "end": 1704208673352,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207491244,
-      "end": 1704207491244,
+      "start": 1704208673352,
+      "end": 1704208673352,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"E:/scholars_guide/node_modules/nuxt/dist/app/components/nuxt-link\";\n\r\n  const _sfc_main = {\r\n    props: {\r\n      title: String,\r\n      subtext: String,\r\n      description: String\r\n    }\r\n  }\r\n  \nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-262566ff\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"flex flex-col rounded overflow-hidden shadow-lg bg-white hover:bg-gray-100 transition-colors\" }\nconst _hoisted_2 = { class: \"px-6 py-4 bg-red-500 text-white\" }\nconst _hoisted_3 = { class: \"font-bold text-xl mb-2\" }\nconst _hoisted_4 = { class: \"text-base\" }\nconst _hoisted_5 = { class: \"px-6 py-4 flex-grow\" }\nconst _hoisted_6 = { class: \"text-gray-700 text-base\" }\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_nuxt_link = __nuxt_component_0\n\n  return (_openBlock(), _createBlock(_component_nuxt_link, {\n    to: { name: 'quiz' },\n    class: \"no-underline\"\n  }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, _toDisplayString($props.title), 1),\n          _createElementVNode(\"p\", _hoisted_4, _toDisplayString($props.subtext), 1)\n        ]),\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createElementVNode(\"p\", _hoisted_6, _toDisplayString($props.description), 1)\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n\nimport \"E:/scholars_guide/components/Card.vue?vue&type=style&index=0&scoped=262566ff&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-262566ff\"]])",
-      "start": 1704207491244,
-      "end": 1704207491244,
+      "start": 1704208673352,
+      "end": 1704208673352,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207491244,
-      "end": 1704207491244,
+      "start": 1704208673352,
+      "end": 1704208673352,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207491244,
-      "end": 1704207491244,
+      "start": 1704208673352,
+      "end": 1704208673352,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207491244,
-      "end": 1704207491244,
+      "start": 1704208673352,
+      "end": 1704208673352,
       "order": "normal"
     }
   ]

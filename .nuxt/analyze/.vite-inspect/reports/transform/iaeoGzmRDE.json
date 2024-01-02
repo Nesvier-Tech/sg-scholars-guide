@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<!-- TODO: Refactor this shit. Use SFCs. -->\r\n\r\n<!-- EmailVerification.vue -->\r\n<template>\r\n  <div class=\"min-h-screen flex items-center justify-center bg-gray-100\">\r\n    <div class=\"max-w-md w-full bg-white p-8 shadow-md rounded-md\">\r\n      <h2 class=\"text-3xl font-semibold mb-6\">Email Verification</h2>\r\n\r\n      <p class=\"mb-4\">Thank you for signing up! A verification email has been sent to {{ email }}. Please check your email\r\n        and click on the verification link to activate your account.</p>\r\n\r\n      <router-link to=\"/login\" class=\"block text-center text-blue-500 hover:underline\">Return to Login</router-link>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport { Account } from \"appwrite\";\r\n\r\nconst client = getClient();\r\nconst account = new Account(client);\r\n\r\nexport default {\r\n  data() {\r\n    return {\r\n      email: '',\r\n    };\r\n  },\r\n  methods: {\r\n    async resetPassword() {\r\n      try {\r\n        // TODO: Change this to our own domain.\r\n        const promise = account.createVerification('https://example.com');\r\n        console.log(`sending email verification... (${this.email})`);\r\n\r\n        promise.then(function (response) {\r\n          console.log(response);\r\n          alert('Email verification sent!');\r\n        }, function (error) {\r\n          console.log(error);\r\n          alert(`Email verification failed!\\n${error.message}`);\r\n        });\r\n      } catch (error) {\r\n        console.error('Email verification failed', error);\r\n        alert1('Email verification failed!');\r\n        // Handle error.\r\n      }\r\n    },\r\n  },\r\n};\r\n</script>\r\n\r\n<style>\r\n/* You can customize the styles further based on your design preferences */\r\n</style>\r\n",
-      "start": 1704207489647,
-      "end": 1704207489781,
+      "start": 1704208671738,
+      "end": 1704208671935,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207489781,
-      "end": 1704207489781,
+      "start": 1704208671935,
+      "end": 1704208671935,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207489781,
-      "end": 1704207489782,
+      "start": 1704208671935,
+      "end": 1704208671935,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207489782,
-      "end": 1704207489782,
+      "start": 1704208671935,
+      "end": 1704208671935,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207489782,
-      "end": 1704207489782,
+      "start": 1704208671935,
+      "end": 1704208671935,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207489782,
-      "end": 1704207489782,
+      "start": 1704208671935,
+      "end": 1704208671935,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207489782,
-      "end": 1704207489782,
+      "start": 1704208671935,
+      "end": 1704208671935,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207489782,
-      "end": 1704207489782,
+      "start": 1704208671935,
+      "end": 1704208671935,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "\r\nimport { Account } from \"appwrite\";\r\n\r\nconst client = getClient();\r\nconst account = new Account(client);\r\n\r\nconst _sfc_main = {\r\n  data() {\r\n    return {\r\n      email: '',\r\n    };\r\n  },\r\n  methods: {\r\n    async resetPassword() {\r\n      try {\r\n        // TODO: Change this to our own domain.\r\n        const promise = account.createVerification('https://example.com');\r\n        console.log(`sending email verification... (${this.email})`);\r\n\r\n        promise.then(function (response) {\r\n          console.log(response);\r\n          alert('Email verification sent!');\r\n        }, function (error) {\r\n          console.log(error);\r\n          alert(`Email verification failed!\\n${error.message}`);\r\n        });\r\n      } catch (error) {\r\n        console.error('Email verification failed', error);\r\n        alert1('Email verification failed!');\r\n        // Handle error.\r\n      }\r\n    },\r\n  },\r\n};\r\n\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"min-h-screen flex items-center justify-center bg-gray-100\" }\nconst _hoisted_2 = { class: \"max-w-md w-full bg-white p-8 shadow-md rounded-md\" }\nconst _hoisted_3 = /*#__PURE__*/_createElementVNode(\"h2\", { class: \"text-3xl font-semibold mb-6\" }, \"Email Verification\", -1)\nconst _hoisted_4 = { class: \"mb-4\" }\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_router_link = _resolveComponent(\"router-link\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _hoisted_3,\n      _createElementVNode(\"p\", _hoisted_4, \"Thank you for signing up! A verification email has been sent to \" + _toDisplayString($data.email) + \". Please check your email and click on the verification link to activate your account.\", 1),\n      _createVNode(_component_router_link, {\n        to: \"/login\",\n        class: \"block text-center text-blue-500 hover:underline\"\n      }, {\n        default: _withCtx(() => [\n          _createTextVNode(\"Return to Login\")\n        ]),\n        _: 1\n      })\n    ])\n  ]))\n}\n\nimport \"E:/scholars_guide/pages/auth/email-verification/index.vue?vue&type=style&index=0&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1704207489782,
-      "end": 1704207489788,
+      "start": 1704208671935,
+      "end": 1704208671938,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,105 +62,105 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207489788,
-      "end": 1704207489788,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207489788,
-      "end": 1704207489788,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207489788,
-      "end": 1704207489788,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207489788,
-      "end": 1704207489788,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207489788,
-      "end": 1704207489788,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207489789,
-      "end": 1704207489789,
+      "start": 1704208671938,
+      "end": 1704208671938,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { getClient } from 'E:/scholars_guide/composables/SGDB.ts';\n\r\nimport { Account } from \"appwrite\";\r\n\r\nconst client = getClient();\r\nconst account = new Account(client);\r\n\r\nconst _sfc_main = {\r\n  data() {\r\n    return {\r\n      email: '',\r\n    };\r\n  },\r\n  methods: {\r\n    async resetPassword() {\r\n      try {\r\n        // TODO: Change this to our own domain.\r\n        const promise = account.createVerification('https://example.com');\r\n        console.log(`sending email verification... (${this.email})`);\r\n\r\n        promise.then(function (response) {\r\n          console.log(response);\r\n          alert('Email verification sent!');\r\n        }, function (error) {\r\n          console.log(error);\r\n          alert(`Email verification failed!\\n${error.message}`);\r\n        });\r\n      } catch (error) {\r\n        console.error('Email verification failed', error);\r\n        alert1('Email verification failed!');\r\n        // Handle error.\r\n      }\r\n    },\r\n  },\r\n};\r\n\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"min-h-screen flex items-center justify-center bg-gray-100\" }\nconst _hoisted_2 = { class: \"max-w-md w-full bg-white p-8 shadow-md rounded-md\" }\nconst _hoisted_3 = /*#__PURE__*/_createElementVNode(\"h2\", { class: \"text-3xl font-semibold mb-6\" }, \"Email Verification\", -1)\nconst _hoisted_4 = { class: \"mb-4\" }\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_router_link = _resolveComponent(\"router-link\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _hoisted_3,\n      _createElementVNode(\"p\", _hoisted_4, \"Thank you for signing up! A verification email has been sent to \" + _toDisplayString($data.email) + \". Please check your email and click on the verification link to activate your account.\", 1),\n      _createVNode(_component_router_link, {\n        to: \"/login\",\n        class: \"block text-center text-blue-500 hover:underline\"\n      }, {\n        default: _withCtx(() => [\n          _createTextVNode(\"Return to Login\")\n        ]),\n        _: 1\n      })\n    ])\n  ]))\n}\n\nimport \"E:/scholars_guide/pages/auth/email-verification/index.vue?vue&type=style&index=0&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1704207489789,
-      "end": 1704207489790,
+      "start": 1704208671938,
+      "end": 1704208671939,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -173,15 +173,15 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1704207489790,
-      "end": 1704207489790,
+      "start": 1704208671939,
+      "end": 1704208671939,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1704207489790,
-      "end": 1704207489791,
+      "start": 1704208671939,
+      "end": 1704208671939,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -194,38 +194,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207489791,
-      "end": 1704207489791,
+      "start": 1704208671939,
+      "end": 1704208671940,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207489791,
-      "end": 1704207489791,
+      "start": 1704208671940,
+      "end": 1704208671940,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1704207489791,
-      "end": 1704207489791,
+      "start": 1704208671940,
+      "end": 1704208671940,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207489791,
-      "end": 1704207489791,
+      "start": 1704208671940,
+      "end": 1704208671940,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207489791,
-      "end": 1704207489791,
+      "start": 1704208671940,
+      "end": 1704208671940,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207489791,
-      "end": 1704207489791,
+      "start": 1704208671940,
+      "end": 1704208671940,
       "order": "normal"
     }
   ]

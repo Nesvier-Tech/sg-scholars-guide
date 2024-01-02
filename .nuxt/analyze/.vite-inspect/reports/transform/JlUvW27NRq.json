@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<template >\r\n    <div class=\"quiz-body-grid\">\r\n      <div style=\"padding: 0 1rem;\">\r\n        <div class=\"card-container\" style=\"margin-top: 0;\">\r\n          <p>Marc Peejay Viernes</p>\r\n          <p>Student</p>\r\n        </div>\r\n      </div>\r\n      <div style=\"padding: 0 2rem;\">\r\n        <QuizScore style=\"margin-top: 0;\"/>\r\n        <div>\r\n          <div v-for=\"q in questions\">\r\n            <QuestionCard :question=\"q\"/>\r\n          </div>\r\n        </div>\r\n        <div class=\"container-100\">\r\n          <FinishButton />\r\n        </div>\r\n      </div>\r\n      <div style=\"padding: 0 1rem;\">\r\n        <div class=\"card-container\" style=\"margin-top: 0;\">\r\n          <p>Science</p>\r\n          <p style=\"margin-top: 1rem;\">Time Left:</p>\r\n          <p>1:00:00</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    \r\n  </template>\r\n  \r\n  <script setup>\r\n    const finished = useFinished();\r\n  \r\n    const questions = [\r\n      {id: 0, title: \"Question 1\", body: \"The layer of gas covering the earth is called:\", choices: [\"Atmosphere\", \"Hydrosphere\", \"Litosphere\", \"Troposphere\"], answer: \"A\"},\r\n      {id: 1, title: \"Question 2\", body: \"A distance of one mile is about:\" , choices: [\"1 kilometer\", \"16 kilometers\", \"160 kilometers\", \"1.6 kilometers\"], answer: \"D\"},\r\n      {id: 2, title: \"Question 3\", body: \"The largest object in the solar system is:\", choices: [\"A star\", \"A planet\", \"An asteroid\", \"A meteor\"], answer: \"A\"},\r\n    ];\r\n  \r\n  </script>\r\n  \r\n  <style scoped>\r\n    .quiz-body-grid {\r\n      background-color: rgba(0, 0, 0, 0.01);\r\n      padding: 4rem 4rem;\r\n      display: grid;\r\n      grid-template-columns: 1fr 2fr 1fr;\r\n    }\r\n    .container-100 {\r\n      width: 100%;\r\n      margin: auto;\r\n      margin-top: 1rem;\r\n      margin-bottom: 1rem;\r\n    }\r\n  \r\n    .card-container {\r\n      width: 100%;\r\n      margin: 1rem auto;\r\n      border-radius: 0.5rem;\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n      padding: 1rem;\r\n      background-color: white;\r\n    }\r\n  \r\n  </style>",
-      "start": 1704207489843,
-      "end": 1704207490182,
+      "start": 1704208671956,
+      "end": 1704208672294,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-21d945aa\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"quiz-body-grid\" }\nconst _hoisted_2 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { style: {\"padding\":\"0 1rem\"} }, [\n  /*#__PURE__*/_createElementVNode(\"div\", {\n    class: \"card-container\",\n    style: {\"margin-top\":\"0\"}\n  }, [\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Marc Peejay Viernes\"),\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Student\")\n  ])\n], -1))\nconst _hoisted_3 = { style: {\"padding\":\"0 2rem\"} }\nconst _hoisted_4 = { class: \"container-100\" }\nconst _hoisted_5 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { style: {\"padding\":\"0 1rem\"} }, [\n  /*#__PURE__*/_createElementVNode(\"div\", {\n    class: \"card-container\",\n    style: {\"margin-top\":\"0\"}\n  }, [\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Science\"),\n    /*#__PURE__*/_createElementVNode(\"p\", { style: {\"margin-top\":\"1rem\"} }, \"Time Left:\"),\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"1:00:00\")\n  ])\n], -1))\n\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\r\n    const finished = useFinished();\r\n  \r\n    const questions = [\r\n      {id: 0, title: \"Question 1\", body: \"The layer of gas covering the earth is called:\", choices: [\"Atmosphere\", \"Hydrosphere\", \"Litosphere\", \"Troposphere\"], answer: \"A\"},\r\n      {id: 1, title: \"Question 2\", body: \"A distance of one mile is about:\" , choices: [\"1 kilometer\", \"16 kilometers\", \"160 kilometers\", \"1.6 kilometers\"], answer: \"D\"},\r\n      {id: 2, title: \"Question 3\", body: \"The largest object in the solar system is:\", choices: [\"A star\", \"A planet\", \"An asteroid\", \"A meteor\"], answer: \"A\"},\r\n    ];\r\n  \r\n  \nreturn (_ctx, _cache) => {\n  const _component_QuizScore = _resolveComponent(\"QuizScore\")\n  const _component_QuestionCard = _resolveComponent(\"QuestionCard\")\n  const _component_FinishButton = _resolveComponent(\"FinishButton\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _hoisted_2,\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createVNode(_component_QuizScore, { style: {\"margin-top\":\"0\"} }),\n      _createElementVNode(\"div\", null, [\n        (_openBlock(), _createElementBlock(_Fragment, null, _renderList(questions, (q) => {\n          return _createElementVNode(\"div\", null, [\n            _createVNode(_component_QuestionCard, { question: q }, null, 8, [\"question\"])\n          ])\n        }), 64))\n      ]),\n      _createElementVNode(\"div\", _hoisted_4, [\n        _createVNode(_component_FinishButton)\n      ])\n    ]),\n    _hoisted_5\n  ]))\n}\n}\n\n}\n\n\nimport \"E:/scholars_guide/pages/quiz/index.vue?vue&type=style&index=0&scoped=21d945aa&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-21d945aa\"]])",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,105 +62,105 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672294,
+      "end": 1704208672294,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207490182,
-      "end": 1704207490182,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672295,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { useFinished } from 'E:/scholars_guide/composables/states.js';\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-21d945aa\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"quiz-body-grid\" }\nconst _hoisted_2 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { style: {\"padding\":\"0 1rem\"} }, [\n  /*#__PURE__*/_createElementVNode(\"div\", {\n    class: \"card-container\",\n    style: {\"margin-top\":\"0\"}\n  }, [\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Marc Peejay Viernes\"),\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Student\")\n  ])\n], -1))\nconst _hoisted_3 = { style: {\"padding\":\"0 2rem\"} }\nconst _hoisted_4 = { class: \"container-100\" }\nconst _hoisted_5 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { style: {\"padding\":\"0 1rem\"} }, [\n  /*#__PURE__*/_createElementVNode(\"div\", {\n    class: \"card-container\",\n    style: {\"margin-top\":\"0\"}\n  }, [\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Science\"),\n    /*#__PURE__*/_createElementVNode(\"p\", { style: {\"margin-top\":\"1rem\"} }, \"Time Left:\"),\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"1:00:00\")\n  ])\n], -1))\n\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\r\n    const finished = useFinished();\r\n  \r\n    const questions = [\r\n      {id: 0, title: \"Question 1\", body: \"The layer of gas covering the earth is called:\", choices: [\"Atmosphere\", \"Hydrosphere\", \"Litosphere\", \"Troposphere\"], answer: \"A\"},\r\n      {id: 1, title: \"Question 2\", body: \"A distance of one mile is about:\" , choices: [\"1 kilometer\", \"16 kilometers\", \"160 kilometers\", \"1.6 kilometers\"], answer: \"D\"},\r\n      {id: 2, title: \"Question 3\", body: \"The largest object in the solar system is:\", choices: [\"A star\", \"A planet\", \"An asteroid\", \"A meteor\"], answer: \"A\"},\r\n    ];\r\n  \r\n  \nreturn (_ctx, _cache) => {\n  const _component_QuizScore = _resolveComponent(\"QuizScore\")\n  const _component_QuestionCard = _resolveComponent(\"QuestionCard\")\n  const _component_FinishButton = _resolveComponent(\"FinishButton\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _hoisted_2,\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createVNode(_component_QuizScore, { style: {\"margin-top\":\"0\"} }),\n      _createElementVNode(\"div\", null, [\n        (_openBlock(), _createElementBlock(_Fragment, null, _renderList(questions, (q) => {\n          return _createElementVNode(\"div\", null, [\n            _createVNode(_component_QuestionCard, { question: q }, null, 8, [\"question\"])\n          ])\n        }), 64))\n      ]),\n      _createElementVNode(\"div\", _hoisted_4, [\n        _createVNode(_component_FinishButton)\n      ])\n    ]),\n    _hoisted_5\n  ]))\n}\n}\n\n}\n\n\nimport \"E:/scholars_guide/pages/quiz/index.vue?vue&type=style&index=0&scoped=21d945aa&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-21d945aa\"]])",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672295,
+      "end": 1704208672296,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -173,51 +173,51 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1704207490183,
-      "end": 1704207490183,
+      "start": 1704208672296,
+      "end": 1704208672296,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1704207490184,
-      "end": 1704207490184,
+      "start": 1704208672296,
+      "end": 1704208672296,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207490184,
-      "end": 1704207490184,
+      "start": 1704208672296,
+      "end": 1704208672296,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207490184,
-      "end": 1704207490184,
+      "start": 1704208672296,
+      "end": 1704208672296,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"E:/scholars_guide/components/QuizScore.vue\";\nimport { default as __nuxt_component_1 } from \"E:/scholars_guide/components/QuestionCard.vue\";\nimport { default as __nuxt_component_2 } from \"E:/scholars_guide/components/FinishButton.vue\";\nimport { useFinished } from 'E:/scholars_guide/composables/states.js';\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-21d945aa\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"quiz-body-grid\" }\nconst _hoisted_2 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { style: {\"padding\":\"0 1rem\"} }, [\n  /*#__PURE__*/_createElementVNode(\"div\", {\n    class: \"card-container\",\n    style: {\"margin-top\":\"0\"}\n  }, [\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Marc Peejay Viernes\"),\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Student\")\n  ])\n], -1))\nconst _hoisted_3 = { style: {\"padding\":\"0 2rem\"} }\nconst _hoisted_4 = { class: \"container-100\" }\nconst _hoisted_5 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { style: {\"padding\":\"0 1rem\"} }, [\n  /*#__PURE__*/_createElementVNode(\"div\", {\n    class: \"card-container\",\n    style: {\"margin-top\":\"0\"}\n  }, [\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"Science\"),\n    /*#__PURE__*/_createElementVNode(\"p\", { style: {\"margin-top\":\"1rem\"} }, \"Time Left:\"),\n    /*#__PURE__*/_createElementVNode(\"p\", null, \"1:00:00\")\n  ])\n], -1))\n\n\nconst _sfc_main = {\n  __name: 'index',\n  setup(__props) {\n\r\n    const finished = useFinished();\r\n  \r\n    const questions = [\r\n      {id: 0, title: \"Question 1\", body: \"The layer of gas covering the earth is called:\", choices: [\"Atmosphere\", \"Hydrosphere\", \"Litosphere\", \"Troposphere\"], answer: \"A\"},\r\n      {id: 1, title: \"Question 2\", body: \"A distance of one mile is about:\" , choices: [\"1 kilometer\", \"16 kilometers\", \"160 kilometers\", \"1.6 kilometers\"], answer: \"D\"},\r\n      {id: 2, title: \"Question 3\", body: \"The largest object in the solar system is:\", choices: [\"A star\", \"A planet\", \"An asteroid\", \"A meteor\"], answer: \"A\"},\r\n    ];\r\n  \r\n  \nreturn (_ctx, _cache) => {\n  const _component_QuizScore = __nuxt_component_0\n  const _component_QuestionCard = __nuxt_component_1\n  const _component_FinishButton = __nuxt_component_2\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _hoisted_2,\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createVNode(_component_QuizScore, { style: {\"margin-top\":\"0\"} }),\n      _createElementVNode(\"div\", null, [\n        (_openBlock(), _createElementBlock(_Fragment, null, _renderList(questions, (q) => {\n          return _createElementVNode(\"div\", null, [\n            _createVNode(_component_QuestionCard, { question: q }, null, 8, [\"question\"])\n          ])\n        }), 64))\n      ]),\n      _createElementVNode(\"div\", _hoisted_4, [\n        _createVNode(_component_FinishButton)\n      ])\n    ]),\n    _hoisted_5\n  ]))\n}\n}\n\n}\n\n\nimport \"E:/scholars_guide/pages/quiz/index.vue?vue&type=style&index=0&scoped=21d945aa&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-21d945aa\"]])",
-      "start": 1704207490184,
-      "end": 1704207490184,
+      "start": 1704208672296,
+      "end": 1704208672296,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207490184,
-      "end": 1704207490184,
+      "start": 1704208672296,
+      "end": 1704208672296,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207490184,
-      "end": 1704207490184,
+      "start": 1704208672296,
+      "end": 1704208672296,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207490184,
-      "end": 1704207490184,
+      "start": 1704208672296,
+      "end": 1704208672296,
       "order": "normal"
     }
   ]

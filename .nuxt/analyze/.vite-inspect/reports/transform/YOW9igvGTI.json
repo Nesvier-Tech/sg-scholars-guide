@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<template>\r\n  <div v-if=\"finished\" class=\"quiz-score\" style=\"margin-top: 0;\">\r\n    <p>Score</p>\r\n    <p>{{ computeScore() }}/3</p>\r\n  </div>\r\n  <div v-if=\"!finished\" class=\"quiz-score\" style=\"margin-top: 0;\">\r\n    <p>Science</p>\r\n\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\n  const finished = useFinished();\r\n  \r\n  const points = usePoints();\r\n  \r\n\r\n  function computeScore() {\r\n    let score = 0;\r\n    for (const point of points.value) {\r\n      score += point;\r\n    }\r\n    return score;\r\n  }\r\n\r\n</script>\r\n\r\n<style scoped>\r\n  .quiz-score {\r\n    width: 100%;\r\n    padding: 1rem;\r\n    margin: auto;\r\n    margin-top: 1rem;\r\n    margin-bottom: 2rem;\r\n    background-color: white;\r\n    border-radius: 4px;\r\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n  }\r\n</style>",
-      "start": 1704207490494,
-      "end": 1704207491300,
+      "start": 1704208672610,
+      "end": 1704208673397,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207491300,
-      "end": 1704207491300,
+      "start": 1704208673397,
+      "end": 1704208673397,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207491300,
-      "end": 1704207491300,
+      "start": 1704208673397,
+      "end": 1704208673397,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207491300,
-      "end": 1704207491300,
+      "start": 1704208673397,
+      "end": 1704208673397,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207491300,
-      "end": 1704207491300,
+      "start": 1704208673397,
+      "end": 1704208673397,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207491300,
-      "end": 1704207491300,
+      "start": 1704208673397,
+      "end": 1704208673397,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207491300,
-      "end": 1704207491300,
+      "start": 1704208673397,
+      "end": 1704208673397,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207491300,
-      "end": 1704207491300,
+      "start": 1704208673397,
+      "end": 1704208673397,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import { unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, Fragment as _Fragment, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-9c201ecb\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = {\n  key: 0,\n  class: \"quiz-score\",\n  style: {\"margin-top\":\"0\"}\n}\nconst _hoisted_2 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"p\", null, \"Score\", -1))\nconst _hoisted_3 = {\n  key: 1,\n  class: \"quiz-score\",\n  style: {\"margin-top\":\"0\"}\n}\nconst _hoisted_4 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"p\", null, \"Science\", -1))\nconst _hoisted_5 = [\n  _hoisted_4\n]\n\n\nconst _sfc_main = {\n  __name: 'QuizScore',\n  setup(__props) {\n\r\n  const finished = useFinished();\r\n  \r\n  const points = usePoints();\r\n  \r\n\r\n  function computeScore() {\r\n    let score = 0;\r\n    for (const point of points.value) {\r\n      score += point;\r\n    }\r\n    return score;\r\n  }\r\n\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    (_unref(finished))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n          _hoisted_2,\n          _createElementVNode(\"p\", null, _toDisplayString(computeScore()) + \"/3\", 1)\n        ]))\n      : _createCommentVNode(\"\", true),\n    (!_unref(finished))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, _hoisted_5))\n      : _createCommentVNode(\"\", true)\n  ], 64))\n}\n}\n\n}\n\n\nimport \"E:/scholars_guide/components/QuizScore.vue?vue&type=style&index=0&scoped=9c201ecb&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-9c201ecb\"]])",
-      "start": 1704207491300,
-      "end": 1704207491301,
+      "start": 1704208673397,
+      "end": 1704208673399,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,105 +62,105 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207491301,
-      "end": 1704207491301,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491301,
-      "end": 1704207491301,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207491301,
-      "end": 1704207491301,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207491301,
-      "end": 1704207491301,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207491301,
-      "end": 1704207491301,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491301,
-      "end": 1704207491301,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207491301,
-      "end": 1704207491301,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207491301,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673399,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { useFinished, usePoints } from 'E:/scholars_guide/composables/states.js';\nimport { unref as _unref, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, Fragment as _Fragment, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-9c201ecb\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = {\n  key: 0,\n  class: \"quiz-score\",\n  style: {\"margin-top\":\"0\"}\n}\nconst _hoisted_2 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"p\", null, \"Score\", -1))\nconst _hoisted_3 = {\n  key: 1,\n  class: \"quiz-score\",\n  style: {\"margin-top\":\"0\"}\n}\nconst _hoisted_4 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"p\", null, \"Science\", -1))\nconst _hoisted_5 = [\n  _hoisted_4\n]\n\n\nconst _sfc_main = {\n  __name: 'QuizScore',\n  setup(__props) {\n\r\n  const finished = useFinished();\r\n  \r\n  const points = usePoints();\r\n  \r\n\r\n  function computeScore() {\r\n    let score = 0;\r\n    for (const point of points.value) {\r\n      score += point;\r\n    }\r\n    return score;\r\n  }\r\n\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    (_unref(finished))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n          _hoisted_2,\n          _createElementVNode(\"p\", null, _toDisplayString(computeScore()) + \"/3\", 1)\n        ]))\n      : _createCommentVNode(\"\", true),\n    (!_unref(finished))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, _hoisted_5))\n      : _createCommentVNode(\"\", true)\n  ], 64))\n}\n}\n\n}\n\n\nimport \"E:/scholars_guide/components/QuizScore.vue?vue&type=style&index=0&scoped=9c201ecb&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-9c201ecb\"]])",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673399,
+      "end": 1704208673400,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -173,50 +173,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673400,
+      "end": 1704208673400,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673400,
+      "end": 1704208673400,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673400,
+      "end": 1704208673400,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673400,
+      "end": 1704208673400,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673400,
+      "end": 1704208673400,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673400,
+      "end": 1704208673400,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673400,
+      "end": 1704208673400,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207491302,
-      "end": 1704207491302,
+      "start": 1704208673400,
+      "end": 1704208673400,
       "order": "normal"
     }
   ]

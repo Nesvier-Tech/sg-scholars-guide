@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<template>\r\n  <div class=\"question-card\">\r\n    <p style=\"margin-top: 1rem; font-weight: 600;\">{{ question.title }}</p>\r\n    <p style=\"margin-bottom: 2rem;\">{{ question.body }}</p>\r\n    <div class=\"choice-container\">\r\n      <div @click=\"changeAnswerChoice('A')\" class=\"choice-button\" :class=\"{ 'choice-button-active': answerChoice === 'A', 'choice-button-correct': isCorrect('A'), 'choice-button-incorrect': isIncorrect('A'), 'choice-button-red-outline': isRedOutline('A'), 'choice-button': isRightAnswer('A') }\">\r\n        A. {{ question.choices[0] }}\r\n      </div>\r\n      <div @click=\"changeAnswerChoice('B')\" class=\"choice-button\" :class=\"{ 'choice-button-active': answerChoice === 'B', 'choice-button-correct': isCorrect('B'), 'choice-button-incorrect': isIncorrect('B'), 'choice-button-red-outline': isRedOutline('B'), 'choice-button': isRightAnswer('B') }\">\r\n        B. {{ question.choices[1] }}\r\n      </div>\r\n      <div @click=\"changeAnswerChoice('C')\" class=\"choice-button\" :class=\"{ 'choice-button-active': answerChoice === 'C', 'choice-button-correct': isCorrect('C'), 'choice-button-incorrect': isIncorrect('C'), 'choice-button-red-outline': isRedOutline('C'), 'choice-button': isRightAnswer('C') }\">\r\n        C. {{ question.choices[2] }}\r\n      </div>\r\n      <div @click=\"changeAnswerChoice('D')\" class=\"choice-button\" :class=\"{ 'choice-button-active': answerChoice === 'D', 'choice-button-correct': isCorrect('D'), 'choice-button-incorrect': isIncorrect('D'), 'choice-button-red-outline': isRedOutline('D'), 'choice-button': isRightAnswer('D') }\">\r\n        D. {{ question.choices[3] }}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\n  const { question } = defineProps([\"question\"]);\r\n  let answerChoice = ref('');\r\n  const finished = useFinished();\r\n  const points = usePoints();\r\n\r\n  function changeAnswerChoice(newAnswer) {\r\n    answerChoice.value = newAnswer;\r\n    if (answerChoice.value == question.answer) {\r\n      points.value[question.id] = 1;\r\n      console.log(points.value)\r\n    } else {\r\n      points.value[question.id] = 0;\r\n      console.log(points.value)\r\n    }\r\n  }\r\n\r\n  function isCorrect(letter) {\r\n    if (answerChoice.value == question.answer && letter == question.answer && finished.value == true) {\r\n      return true\r\n    }\r\n    return false\r\n  }\r\n\r\n  function isIncorrect(letter) {\r\n    if (answerChoice.value == letter && letter != question.answer && finished.value == true) {\r\n      return true\r\n    } \r\n    return false\r\n  }\r\n\r\n  function isRedOutline(letter) {\r\n    if (answerChoice.value != letter && answerChoice.value != question.answer && letter != question.answer && finished.value == true) {\r\n      return true\r\n    }\r\n    return false\r\n  }\r\n\r\n  function isRightAnswer(letter) {\r\n    if (answerChoice.value != letter && letter == question.answer && finished.value == true) {\r\n      return true\r\n    } \r\n    return false\r\n  }\r\n</script>\r\n\r\n<style scoped>\r\n  .question-card {\r\n    padding: 1rem;\r\n    width: 100%;\r\n    margin: 2rem auto;\r\n    background-color: white;\r\n    border-radius: 0.5rem;\r\n    box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);\r\n    text-align: center;\r\n  }\r\n\r\n  .card {\r\n    width: 50%;\r\n    margin: auto;\r\n    \r\n  }\r\n\r\n  .choice-button {\r\n    background-color: rgba(0, 0, 0, 0);\r\n    color: #1fab59;\r\n    border: 1px solid transparent;\r\n    border-color: #1fab59;\r\n    border-radius: 4px;\r\n    width: 90%;\r\n    margin: 0.5rem auto;\r\n    padding: 0.5rem 1rem;\r\n  }\r\n\r\n  .choice-button-red-outline {\r\n    background-color: rgba(0, 0, 0, 0);\r\n    color: #c72828;\r\n    border: 1px solid transparent;\r\n    border-color: #c72828;\r\n    border-radius: 4px;\r\n    width: 90%;\r\n    margin: 0.5rem auto;\r\n    padding: 0.5rem 1rem;\r\n  }\r\n\r\n  .choice-button:hover {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-active {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-correct {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-incorrect {\r\n    background-color: #c72828;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n  .choice-container {\r\n    margin-top: 1rem;\r\n    margin-bottom: 1rem;\r\n    padding: 0 2rem;\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr;\r\n  }\r\n</style>",
-      "start": 1704207490498,
-      "end": 1704207491276,
+      "start": 1704208672619,
+      "end": 1704208673409,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207491276,
-      "end": 1704207491276,
+      "start": 1704208673409,
+      "end": 1704208673409,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207491276,
-      "end": 1704207491276,
+      "start": 1704208673409,
+      "end": 1704208673409,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207491276,
-      "end": 1704207491276,
+      "start": 1704208673409,
+      "end": 1704208673409,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207491276,
-      "end": 1704207491276,
+      "start": 1704208673409,
+      "end": 1704208673409,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207491276,
-      "end": 1704207491276,
+      "start": 1704208673409,
+      "end": 1704208673409,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207491276,
-      "end": 1704207491276,
+      "start": 1704208673409,
+      "end": 1704208673409,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207491276,
-      "end": 1704207491276,
+      "start": 1704208673409,
+      "end": 1704208673409,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "import { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, unref as _unref, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-bb4ec4b0\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"question-card\" }\nconst _hoisted_2 = { style: {\"margin-top\":\"1rem\",\"font-weight\":\"600\"} }\nconst _hoisted_3 = { style: {\"margin-bottom\":\"2rem\"} }\nconst _hoisted_4 = { class: \"choice-container\" }\n\n\nconst _sfc_main = {\n  __name: 'QuestionCard',\n  props: [\"question\"],\n  setup(__props) {\n\r\n  const { question } = __props;\r\n  let answerChoice = ref('');\r\n  const finished = useFinished();\r\n  const points = usePoints();\r\n\r\n  function changeAnswerChoice(newAnswer) {\r\n    answerChoice.value = newAnswer;\r\n    if (answerChoice.value == question.answer) {\r\n      points.value[question.id] = 1;\r\n      console.log(points.value)\r\n    } else {\r\n      points.value[question.id] = 0;\r\n      console.log(points.value)\r\n    }\r\n  }\r\n\r\n  function isCorrect(letter) {\r\n    if (answerChoice.value == question.answer && letter == question.answer && finished.value == true) {\r\n      return true\r\n    }\r\n    return false\r\n  }\r\n\r\n  function isIncorrect(letter) {\r\n    if (answerChoice.value == letter && letter != question.answer && finished.value == true) {\r\n      return true\r\n    } \r\n    return false\r\n  }\r\n\r\n  function isRedOutline(letter) {\r\n    if (answerChoice.value != letter && answerChoice.value != question.answer && letter != question.answer && finished.value == true) {\r\n      return true\r\n    }\r\n    return false\r\n  }\r\n\r\n  function isRightAnswer(letter) {\r\n    if (answerChoice.value != letter && letter == question.answer && finished.value == true) {\r\n      return true\r\n    } \r\n    return false\r\n  }\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"p\", _hoisted_2, _toDisplayString(__props.question.title), 1),\n    _createElementVNode(\"p\", _hoisted_3, _toDisplayString(__props.question.body), 1),\n    _createElementVNode(\"div\", _hoisted_4, [\n      _createElementVNode(\"div\", {\n        onClick: _cache[0] || (_cache[0] = $event => (changeAnswerChoice('A'))),\n        class: _normalizeClass([\"choice-button\", { 'choice-button-active': _unref(answerChoice) === 'A', 'choice-button-correct': isCorrect('A'), 'choice-button-incorrect': isIncorrect('A'), 'choice-button-red-outline': isRedOutline('A'), 'choice-button': isRightAnswer('A') }])\n      }, \" A. \" + _toDisplayString(__props.question.choices[0]), 3),\n      _createElementVNode(\"div\", {\n        onClick: _cache[1] || (_cache[1] = $event => (changeAnswerChoice('B'))),\n        class: _normalizeClass([\"choice-button\", { 'choice-button-active': _unref(answerChoice) === 'B', 'choice-button-correct': isCorrect('B'), 'choice-button-incorrect': isIncorrect('B'), 'choice-button-red-outline': isRedOutline('B'), 'choice-button': isRightAnswer('B') }])\n      }, \" B. \" + _toDisplayString(__props.question.choices[1]), 3),\n      _createElementVNode(\"div\", {\n        onClick: _cache[2] || (_cache[2] = $event => (changeAnswerChoice('C'))),\n        class: _normalizeClass([\"choice-button\", { 'choice-button-active': _unref(answerChoice) === 'C', 'choice-button-correct': isCorrect('C'), 'choice-button-incorrect': isIncorrect('C'), 'choice-button-red-outline': isRedOutline('C'), 'choice-button': isRightAnswer('C') }])\n      }, \" C. \" + _toDisplayString(__props.question.choices[2]), 3),\n      _createElementVNode(\"div\", {\n        onClick: _cache[3] || (_cache[3] = $event => (changeAnswerChoice('D'))),\n        class: _normalizeClass([\"choice-button\", { 'choice-button-active': _unref(answerChoice) === 'D', 'choice-button-correct': isCorrect('D'), 'choice-button-incorrect': isIncorrect('D'), 'choice-button-red-outline': isRedOutline('D'), 'choice-button': isRightAnswer('D') }])\n      }, \" D. \" + _toDisplayString(__props.question.choices[3]), 3)\n    ])\n  ]))\n}\n}\n\n}\n\n\nimport \"E:/scholars_guide/components/QuestionCard.vue?vue&type=style&index=0&scoped=bb4ec4b0&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-bb4ec4b0\"]])",
-      "start": 1704207491276,
-      "end": 1704207491280,
+      "start": 1704208673409,
+      "end": 1704208673413,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,105 +62,105 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207491280,
-      "end": 1704207491280,
+      "start": 1704208673413,
+      "end": 1704208673413,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
       "result": "import { ref } from 'vue';\nimport { useFinished, usePoints } from 'E:/scholars_guide/composables/states.js';\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, unref as _unref, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-bb4ec4b0\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"question-card\" }\nconst _hoisted_2 = { style: {\"margin-top\":\"1rem\",\"font-weight\":\"600\"} }\nconst _hoisted_3 = { style: {\"margin-bottom\":\"2rem\"} }\nconst _hoisted_4 = { class: \"choice-container\" }\n\n\nconst _sfc_main = {\n  __name: 'QuestionCard',\n  props: [\"question\"],\n  setup(__props) {\n\r\n  const { question } = __props;\r\n  let answerChoice = ref('');\r\n  const finished = useFinished();\r\n  const points = usePoints();\r\n\r\n  function changeAnswerChoice(newAnswer) {\r\n    answerChoice.value = newAnswer;\r\n    if (answerChoice.value == question.answer) {\r\n      points.value[question.id] = 1;\r\n      console.log(points.value)\r\n    } else {\r\n      points.value[question.id] = 0;\r\n      console.log(points.value)\r\n    }\r\n  }\r\n\r\n  function isCorrect(letter) {\r\n    if (answerChoice.value == question.answer && letter == question.answer && finished.value == true) {\r\n      return true\r\n    }\r\n    return false\r\n  }\r\n\r\n  function isIncorrect(letter) {\r\n    if (answerChoice.value == letter && letter != question.answer && finished.value == true) {\r\n      return true\r\n    } \r\n    return false\r\n  }\r\n\r\n  function isRedOutline(letter) {\r\n    if (answerChoice.value != letter && answerChoice.value != question.answer && letter != question.answer && finished.value == true) {\r\n      return true\r\n    }\r\n    return false\r\n  }\r\n\r\n  function isRightAnswer(letter) {\r\n    if (answerChoice.value != letter && letter == question.answer && finished.value == true) {\r\n      return true\r\n    } \r\n    return false\r\n  }\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"p\", _hoisted_2, _toDisplayString(__props.question.title), 1),\n    _createElementVNode(\"p\", _hoisted_3, _toDisplayString(__props.question.body), 1),\n    _createElementVNode(\"div\", _hoisted_4, [\n      _createElementVNode(\"div\", {\n        onClick: _cache[0] || (_cache[0] = $event => (changeAnswerChoice('A'))),\n        class: _normalizeClass([\"choice-button\", { 'choice-button-active': _unref(answerChoice) === 'A', 'choice-button-correct': isCorrect('A'), 'choice-button-incorrect': isIncorrect('A'), 'choice-button-red-outline': isRedOutline('A'), 'choice-button': isRightAnswer('A') }])\n      }, \" A. \" + _toDisplayString(__props.question.choices[0]), 3),\n      _createElementVNode(\"div\", {\n        onClick: _cache[1] || (_cache[1] = $event => (changeAnswerChoice('B'))),\n        class: _normalizeClass([\"choice-button\", { 'choice-button-active': _unref(answerChoice) === 'B', 'choice-button-correct': isCorrect('B'), 'choice-button-incorrect': isIncorrect('B'), 'choice-button-red-outline': isRedOutline('B'), 'choice-button': isRightAnswer('B') }])\n      }, \" B. \" + _toDisplayString(__props.question.choices[1]), 3),\n      _createElementVNode(\"div\", {\n        onClick: _cache[2] || (_cache[2] = $event => (changeAnswerChoice('C'))),\n        class: _normalizeClass([\"choice-button\", { 'choice-button-active': _unref(answerChoice) === 'C', 'choice-button-correct': isCorrect('C'), 'choice-button-incorrect': isIncorrect('C'), 'choice-button-red-outline': isRedOutline('C'), 'choice-button': isRightAnswer('C') }])\n      }, \" C. \" + _toDisplayString(__props.question.choices[2]), 3),\n      _createElementVNode(\"div\", {\n        onClick: _cache[3] || (_cache[3] = $event => (changeAnswerChoice('D'))),\n        class: _normalizeClass([\"choice-button\", { 'choice-button-active': _unref(answerChoice) === 'D', 'choice-button-correct': isCorrect('D'), 'choice-button-incorrect': isIncorrect('D'), 'choice-button-red-outline': isRedOutline('D'), 'choice-button': isRightAnswer('D') }])\n      }, \" D. \" + _toDisplayString(__props.question.choices[3]), 3)\n    ])\n  ]))\n}\n}\n\n}\n\n\nimport \"E:/scholars_guide/components/QuestionCard.vue?vue&type=style&index=0&scoped=bb4ec4b0&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-bb4ec4b0\"]])",
-      "start": 1704207491280,
-      "end": 1704207491281,
+      "start": 1704208673413,
+      "end": 1704208673417,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -173,50 +173,50 @@
     },
     {
       "name": "unctx:transform",
-      "start": 1704207491281,
-      "end": 1704207491281,
+      "start": 1704208673417,
+      "end": 1704208673417,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1704207491281,
-      "end": 1704207491281,
+      "start": 1704208673417,
+      "end": 1704208673417,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207491281,
-      "end": 1704207491281,
+      "start": 1704208673417,
+      "end": 1704208673417,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207491281,
-      "end": 1704207491281,
+      "start": 1704208673417,
+      "end": 1704208673417,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1704207491281,
-      "end": 1704207491281,
+      "start": 1704208673417,
+      "end": 1704208673417,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207491281,
-      "end": 1704207491281,
+      "start": 1704208673417,
+      "end": 1704208673418,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207491281,
-      "end": 1704207491282,
+      "start": 1704208673418,
+      "end": 1704208673418,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207491282,
-      "end": 1704207491282,
+      "start": 1704208673418,
+      "end": 1704208673418,
       "order": "normal"
     }
   ]

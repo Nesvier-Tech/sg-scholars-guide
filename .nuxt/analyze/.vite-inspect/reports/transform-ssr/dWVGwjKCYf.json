@@ -1,0 +1,294 @@
+{
+  "resolvedId": "E:/scholars_guide/pages/quiz/index.vue?vue&type=style&index=0&scoped=21d945aa&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n    .quiz-body-grid {\r\n      background-color: rgba(0, 0, 0, 0.01);\r\n      padding: 4rem 4rem;\r\n      display: grid;\r\n      grid-template-columns: 1fr 2fr 1fr;\r\n    }\r\n    .container-100 {\r\n      width: 100%;\r\n      margin: auto;\r\n      margin-top: 1rem;\r\n      margin-bottom: 1rem;\r\n    }\r\n  \r\n    .card-container {\r\n      width: 100%;\r\n      margin: 1rem auto;\r\n      border-radius: 0.5rem;\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n      padding: 1rem;\r\n      background-color: white;\r\n    }\r\n  \r\n  ",
+      "start": 1704208675637,
+      "end": 1704208675637,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "E:/scholars_guide/pages/quiz/index.vue"
+        ],
+        "names": [],
+        "mappings": ";IA0CI,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;MACd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC;MACrC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;IACpC;IACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;MACb,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MACX,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;IACrB;;IAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;MACd,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MACX,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;MACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MACxC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;MACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC;IACzB",
+        "file": "E:/scholars_guide/pages/quiz/index.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template >\r\n    <div class=\"quiz-body-grid\">\r\n      <div style=\"padding: 0 1rem;\">\r\n        <div class=\"card-container\" style=\"margin-top: 0;\">\r\n          <p>Marc Peejay Viernes</p>\r\n          <p>Student</p>\r\n        </div>\r\n      </div>\r\n      <div style=\"padding: 0 2rem;\">\r\n        <QuizScore style=\"margin-top: 0;\"/>\r\n        <div>\r\n          <div v-for=\"q in questions\">\r\n            <QuestionCard :question=\"q\"/>\r\n          </div>\r\n        </div>\r\n        <div class=\"container-100\">\r\n          <FinishButton />\r\n        </div>\r\n      </div>\r\n      <div style=\"padding: 0 1rem;\">\r\n        <div class=\"card-container\" style=\"margin-top: 0;\">\r\n          <p>Science</p>\r\n          <p style=\"margin-top: 1rem;\">Time Left:</p>\r\n          <p>1:00:00</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    \r\n  </template>\r\n  \r\n  <script setup>\r\n    const finished = useFinished();\r\n  \r\n    const questions = [\r\n      {id: 0, title: \"Question 1\", body: \"The layer of gas covering the earth is called:\", choices: [\"Atmosphere\", \"Hydrosphere\", \"Litosphere\", \"Troposphere\"], answer: \"A\"},\r\n      {id: 1, title: \"Question 2\", body: \"A distance of one mile is about:\" , choices: [\"1 kilometer\", \"16 kilometers\", \"160 kilometers\", \"1.6 kilometers\"], answer: \"D\"},\r\n      {id: 2, title: \"Question 3\", body: \"The largest object in the solar system is:\", choices: [\"A star\", \"A planet\", \"An asteroid\", \"A meteor\"], answer: \"A\"},\r\n    ];\r\n  \r\n  </script>\r\n  \r\n  <style scoped>\r\n    .quiz-body-grid {\r\n      background-color: rgba(0, 0, 0, 0.01);\r\n      padding: 4rem 4rem;\r\n      display: grid;\r\n      grid-template-columns: 1fr 2fr 1fr;\r\n    }\r\n    .container-100 {\r\n      width: 100%;\r\n      margin: auto;\r\n      margin-top: 1rem;\r\n      margin-bottom: 1rem;\r\n    }\r\n  \r\n    .card-container {\r\n      width: 100%;\r\n      margin: 1rem auto;\r\n      border-radius: 0.5rem;\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n      padding: 1rem;\r\n      background-color: white;\r\n    }\r\n  \r\n  </style>"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704208675638,
+      "end": 1704208675638,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704208675638,
+      "end": 1704208675638,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704208675638,
+      "end": 1704208675638,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704208675638,
+      "end": 1704208675638,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1704208675638,
+      "end": 1704208675639,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".quiz-body-grid{background-color:rgba(0,0,0,.01);display:grid;grid-template-columns:1fr 2fr 1fr;padding:4rem}.card-container,.container-100{margin:1rem auto;width:100%}.card-container{background-color:#fff;border-radius:.5rem;box-shadow:0 4px 8px rgba(0,0,0,.1);padding:1rem}",
+      "start": 1704208675639,
+      "end": 1704208675642,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "E:/scholars_guide/pages/quiz/index.vue",
+        "mappings": "AACI,gBACE,gCAAqC,CAErC,YAAa,CACb,iCAAkC,CAFlC,YAGF,CAQA,+BAHE,gBAAmB,CAHnB,UAaF,CAPA,gBAME,qBAAuB,CAHvB,mBAAqB,CACrB,mCAAwC,CACxC,YAEF",
+        "names": [],
+        "sources": [
+          "E:/scholars_guide/pages/quiz/index.vue"
+        ],
+        "sourcesContent": [
+          "\r\n    .quiz-body-grid {\r\n      background-color: rgba(0, 0, 0, 0.01);\r\n      padding: 4rem 4rem;\r\n      display: grid;\r\n      grid-template-columns: 1fr 2fr 1fr;\r\n    }\r\n    .container-100 {\r\n      width: 100%;\r\n      margin: auto;\r\n      margin-top: 1rem;\r\n      margin-bottom: 1rem;\r\n    }\r\n  \r\n    .card-container {\r\n      width: 100%;\r\n      margin: 1rem auto;\r\n      border-radius: 0.5rem;\r\n      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n      padding: 1rem;\r\n      background-color: white;\r\n    }\r\n  \r\n  "
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".quiz-body-grid[data-v-21d945aa]{background-color:rgba(0,0,0,.01);display:grid;grid-template-columns:1fr 2fr 1fr;padding:4rem}.card-container[data-v-21d945aa],.container-100[data-v-21d945aa]{margin:1rem auto;width:100%}.card-container[data-v-21d945aa]{background-color:#fff;border-radius:.5rem;box-shadow:0 4px 8px rgba(0,0,0,.1);padding:1rem}",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "E:/scholars_guide/pages/quiz/index.vue",
+        "mappings": "AAAA,iCAAgB,gCAAgC,CAAC,YAAY,CAAC,iCAAiC,CAAC,YAAY,CAAC,iEAA+B,gBAAgB,CAAC,UAAU,CAAC,iCAAgB,qBAAqB,CAAC,mBAAmB,CAAC,mCAAmC,CAAC,YAAY",
+        "names": [],
+        "sources": [
+          "E:/scholars_guide/pages/quiz/index.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1704208675642,
+      "end": 1704208675642,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default ''",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1704208675643,
+      "end": 1704208675643,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1704208675644,
+      "end": 1704208675644,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1704208675645,
+      "end": 1704208675645,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1704208675645,
+      "end": 1704208675645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1704208675645,
+      "end": 1704208675645,
+      "order": "normal"
+    }
+  ]
+}

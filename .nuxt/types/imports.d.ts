@@ -2,7 +2,6 @@
 export {}
 declare global {
   const SGDB: typeof import('../../composables/SGDB')['SGDB']
-  const SUBJECTS: typeof import('../../composables/SGDB')['SUBJECTS']
   const abortNavigation: typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']
   const addRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']
   const cancelIdleCallback: typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['cancelIdleCallback']
@@ -34,6 +33,7 @@ declare global {
   const getCurrentScope: typeof import('../../node_modules/vue')['getCurrentScope']
   const getProjectID: typeof import('../../composables/SGDB')['getProjectID']
   const getRouteRules: typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']
+  const getSubjects: typeof import('../../composables/SGDB')['getSubjects']
   const get_questions: typeof import('../../composables/SGDB')['get_questions']
   const h: typeof import('../../node_modules/vue')['h']
   const hasInjectionContext: typeof import('../../node_modules/vue')['hasInjectionContext']
@@ -152,7 +152,6 @@ import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
     readonly SGDB: UnwrapRef<typeof import('../../composables/SGDB')['SGDB']>
-    readonly SUBJECTS: UnwrapRef<typeof import('../../composables/SGDB')['SUBJECTS']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']>
     readonly cancelIdleCallback: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['cancelIdleCallback']>
@@ -184,6 +183,7 @@ declare module 'vue' {
     readonly getCurrentScope: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentScope']>
     readonly getProjectID: UnwrapRef<typeof import('../../composables/SGDB')['getProjectID']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']>
+    readonly getSubjects: UnwrapRef<typeof import('../../composables/SGDB')['getSubjects']>
     readonly get_questions: UnwrapRef<typeof import('../../composables/SGDB')['get_questions']>
     readonly h: UnwrapRef<typeof import('../../node_modules/vue')['h']>
     readonly hasInjectionContext: UnwrapRef<typeof import('../../node_modules/vue')['hasInjectionContext']>
@@ -295,7 +295,6 @@ declare module 'vue' {
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     readonly SGDB: UnwrapRef<typeof import('../../composables/SGDB')['SGDB']>
-    readonly SUBJECTS: UnwrapRef<typeof import('../../composables/SGDB')['SUBJECTS']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']>
     readonly cancelIdleCallback: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['cancelIdleCallback']>
@@ -327,6 +326,7 @@ declare module '@vue/runtime-core' {
     readonly getCurrentScope: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentScope']>
     readonly getProjectID: UnwrapRef<typeof import('../../composables/SGDB')['getProjectID']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']>
+    readonly getSubjects: UnwrapRef<typeof import('../../composables/SGDB')['getSubjects']>
     readonly get_questions: UnwrapRef<typeof import('../../composables/SGDB')['get_questions']>
     readonly h: UnwrapRef<typeof import('../../node_modules/vue')['h']>
     readonly hasInjectionContext: UnwrapRef<typeof import('../../node_modules/vue')['hasInjectionContext']>

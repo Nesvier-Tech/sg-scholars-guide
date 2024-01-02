@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<template lang=\"\">\r\n    <div class=\"items-center\">\r\n        <h1 class=\"flex justify-center mt-10 text-3xl font-bold text-green-500\">Success!</h1>\r\n        <h1 class=\"flex justify-center p-5 text-2xl font-bold\">Uploaded under {{$route.query.subject}}. Here's what you uploaded:</h1>\r\n        \r\n        <div class=\"flex flex-col items-center p-2\">\r\n            <RevealQuestion v-for=\"question of JSON.parse(this.$route.query.questions)\" :q=\"question\"/>\r\n        </div>\r\n\r\n        <Button class=\"flex justify-center p-2\"><nuxt-link to=\"/upload\">Submit Again</nuxt-link></Button>\r\n        <Button class=\"flex justify-center\" @click=\"visitSubmitted\">View {{$route.query.subject}} Questions</Button>\r\n    </div>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n    methods: {\r\n        visitSubmitted() {\r\n            this.$router.push({\r\n                path: '/upload/submissions',\r\n                query: {\r\n                    subject: this.$route.query.subject\r\n                }\r\n            })\r\n        }\r\n    },\r\n}\r\n</script>",
-      "start": 1704207489743,
-      "end": 1704207490119,
+      "start": 1704208671838,
+      "end": 1704208672234,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207490119,
-      "end": 1704207490119,
+      "start": 1704208672234,
+      "end": 1704208672234,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207490119,
-      "end": 1704207490119,
+      "start": 1704208672234,
+      "end": 1704208672234,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207490119,
-      "end": 1704207490119,
+      "start": 1704208672234,
+      "end": 1704208672234,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207490119,
-      "end": 1704207490119,
+      "start": 1704208672234,
+      "end": 1704208672234,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207490119,
-      "end": 1704207490119,
+      "start": 1704208672234,
+      "end": 1704208672234,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207490119,
-      "end": 1704207490119,
+      "start": 1704208672234,
+      "end": 1704208672234,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207490119,
-      "end": 1704207490119,
+      "start": 1704208672234,
+      "end": 1704208672234,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "\r\nconst _sfc_main = {\r\n    methods: {\r\n        visitSubmitted() {\r\n            this.$router.push({\r\n                path: '/upload/submissions',\r\n                query: {\r\n                    subject: this.$route.query.subject\r\n                }\r\n            })\r\n        }\r\n    },\r\n}\r\n\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, createBlock as _createBlock, createTextVNode as _createTextVNode, withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"items-center\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"h1\", { class: \"flex justify-center mt-10 text-3xl font-bold text-green-500\" }, \"Success!\", -1)\nconst _hoisted_3 = { class: \"flex justify-center p-5 text-2xl font-bold\" }\nconst _hoisted_4 = { class: \"flex flex-col items-center p-2\" }\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  const _component_RevealQuestion = _resolveComponent(\"RevealQuestion\")\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")\n  const _component_Button = _resolveComponent(\"Button\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _hoisted_2,\n    _createElementVNode(\"h1\", _hoisted_3, \"Uploaded under \" + _toDisplayString(_ctx.$route.query.subject) + \". Here's what you uploaded:\", 1),\n    _createElementVNode(\"div\", _hoisted_4, [\n      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(JSON.parse(this.$route.query.questions), (question) => {\n        return (_openBlock(), _createBlock(_component_RevealQuestion, { q: question }, null, 8, [\"q\"]))\n      }), 256))\n    ]),\n    _createVNode(_component_Button, { class: \"flex justify-center p-2\" }, {\n      default: _withCtx(() => [\n        _createVNode(_component_nuxt_link, { to: \"/upload\" }, {\n          default: _withCtx(() => [\n            _createTextVNode(\"Submit Again\")\n          ]),\n          _: 1\n        })\n      ]),\n      _: 1\n    }),\n    _createVNode(_component_Button, {\n      class: \"flex justify-center\",\n      onClick: $options.visitSubmitted\n    }, {\n      default: _withCtx(() => [\n        _createTextVNode(\"View \" + _toDisplayString(_ctx.$route.query.subject) + \" Questions\", 1)\n      ]),\n      _: 1\n    }, 8, [\"onClick\"])\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1704207490119,
-      "end": 1704207490121,
+      "start": 1704208672234,
+      "end": 1704208672237,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,117 +62,117 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207490121,
-      "end": 1704207490121,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1704207490121,
-      "end": 1704207490122,
+      "start": 1704208672237,
+      "end": 1704208672237,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1704207490122,
-      "end": 1704207490122,
+      "start": 1704208672238,
+      "end": 1704208672238,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
       "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
-      "start": 1704207490122,
-      "end": 1704207490122,
+      "start": 1704208672238,
+      "end": 1704208672238,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -185,38 +185,38 @@
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207490124,
-      "end": 1704207490124,
+      "start": 1704208672238,
+      "end": 1704208672238,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207490124,
-      "end": 1704207490124,
+      "start": 1704208672238,
+      "end": 1704208672238,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1704207490124,
-      "end": 1704207490124,
+      "start": 1704208672238,
+      "end": 1704208672238,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207490124,
-      "end": 1704207490124,
+      "start": 1704208672238,
+      "end": 1704208672238,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207490124,
-      "end": 1704207490124,
+      "start": 1704208672238,
+      "end": 1704208672238,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207490124,
-      "end": 1704207490124,
+      "start": 1704208672238,
+      "end": 1704208672238,
       "order": "normal"
     }
   ]

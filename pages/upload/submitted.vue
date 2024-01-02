@@ -12,7 +12,7 @@
     </ul>
 </template>
 <script>
-import { get_questions, SUBJECTS } from '../SGDB.js'
+// import { get_questions, SUBJECTS } from '../SGDB.js'
 
 
 export default {
@@ -27,7 +27,7 @@ export default {
         }
     },
     created() {
-        get_questions(SUBJECTS.MATH).then((questions) => {
+        get_questions(getSubjects().MATH).then((questions) => {
             this.questions = questions.documents
             console.log(questions)
         })

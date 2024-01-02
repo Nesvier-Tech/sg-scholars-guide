@@ -1,0 +1,294 @@
+{
+  "resolvedId": "E:/scholars_guide/components/QuizScore.vue?vue&type=style&index=0&scoped=9c201ecb&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n  .quiz-score {\r\n    width: 100%;\r\n    padding: 1rem;\r\n    margin: auto;\r\n    margin-top: 1rem;\r\n    margin-bottom: 2rem;\r\n    background-color: white;\r\n    border-radius: 4px;\r\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n  }\r\n",
+      "start": 1704208675720,
+      "end": 1704208675720,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "E:/scholars_guide/components/QuizScore.vue"
+        ],
+        "names": [],
+        "mappings": ";EA4BE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;IACV,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;IACX,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;IACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;IACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;IAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;IACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC;IACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;IAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;EAC1C",
+        "file": "E:/scholars_guide/components/QuizScore.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div v-if=\"finished\" class=\"quiz-score\" style=\"margin-top: 0;\">\r\n    <p>Score</p>\r\n    <p>{{ computeScore() }}/3</p>\r\n  </div>\r\n  <div v-if=\"!finished\" class=\"quiz-score\" style=\"margin-top: 0;\">\r\n    <p>Science</p>\r\n\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\n  const finished = useFinished();\r\n  \r\n  const points = usePoints();\r\n  \r\n\r\n  function computeScore() {\r\n    let score = 0;\r\n    for (const point of points.value) {\r\n      score += point;\r\n    }\r\n    return score;\r\n  }\r\n\r\n</script>\r\n\r\n<style scoped>\r\n  .quiz-score {\r\n    width: 100%;\r\n    padding: 1rem;\r\n    margin: auto;\r\n    margin-top: 1rem;\r\n    margin-bottom: 2rem;\r\n    background-color: white;\r\n    border-radius: 4px;\r\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n  }\r\n</style>"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704208675720,
+      "end": 1704208675720,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704208675720,
+      "end": 1704208675720,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704208675720,
+      "end": 1704208675720,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704208675720,
+      "end": 1704208675720,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1704208675720,
+      "end": 1704208675720,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".quiz-score{background-color:#fff;border-radius:4px;box-shadow:0 4px 8px rgba(0,0,0,.1);margin:1rem auto 2rem;padding:1rem;width:100%}",
+      "start": 1704208675720,
+      "end": 1704208675722,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "E:/scholars_guide/components/QuizScore.vue",
+        "mappings": "AACE,YAME,qBAAuB,CACvB,iBAAkB,CAClB,mCAAwC,CAHxC,qBAAmB,CAHnB,YAAa,CADb,UAQF",
+        "names": [],
+        "sources": [
+          "E:/scholars_guide/components/QuizScore.vue"
+        ],
+        "sourcesContent": [
+          "\r\n  .quiz-score {\r\n    width: 100%;\r\n    padding: 1rem;\r\n    margin: auto;\r\n    margin-top: 1rem;\r\n    margin-bottom: 2rem;\r\n    background-color: white;\r\n    border-radius: 4px;\r\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n  }\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1704208675722,
+      "end": 1704208675722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1704208675722,
+      "end": 1704208675722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1704208675722,
+      "end": 1704208675722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".quiz-score[data-v-9c201ecb]{background-color:#fff;border-radius:4px;box-shadow:0 4px 8px rgba(0,0,0,.1);margin:1rem auto 2rem;padding:1rem;width:100%}",
+      "start": 1704208675722,
+      "end": 1704208675723,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "E:/scholars_guide/components/QuizScore.vue",
+        "mappings": "AAAA,6BAAY,qBAAqB,CAAC,iBAAiB,CAAC,mCAAmC,CAAC,qBAAqB,CAAC,YAAY,CAAC,UAAU",
+        "names": [],
+        "sources": [
+          "E:/scholars_guide/components/QuizScore.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default ''",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1704208675723,
+      "end": 1704208675723,
+      "order": "normal"
+    }
+  ]
+}

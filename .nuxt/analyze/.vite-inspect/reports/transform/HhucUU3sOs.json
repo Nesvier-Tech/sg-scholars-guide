@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<template lang=\"\">\r\n    <div id=\"question-box\">\r\n        <textarea class=\"h-32 w-96\" :id=\"'question'+id\" placeholder='Place your question here' @input=\"update\" required></textarea>\r\n        <div id=\"option\">\r\n            <input type=\"radio\" value='0' v-model=\"selectedOption\" @change=\"update\" required>\r\n            <input type=\"text\" :class=\"'option'+id\" placeholder=\"Put your option here\" @input=\"update\" required>\r\n        </div>\r\n        <div id=\"option\">\r\n            <input type=\"radio\" value='1' v-model=\"selectedOption\" @change=\"update\" required>\r\n            <input type=\"text\" :class=\"'option'+id\" placeholder=\"Put your option here\" @input=\"update\" required>\r\n        </div>\r\n        <div id=\"option\">\r\n            <input type=\"radio\" value='2' v-model=\"selectedOption\" @change=\"update\" required>\r\n            <input type=\"text\" :class=\"'option'+id\" placeholder=\"Put your option here\" @input=\"update\" required>\r\n        </div>\r\n        <div id=\"option\">\r\n            <input type=\"radio\" value='3' v-model=\"selectedOption\" @change=\"update\" required>\r\n            <input type=\"text\" :class=\"'option'+id\" placeholder=\"Put your option here\" @input=\"update\" required>\r\n        </div>\r\n    </div>\r\n</template>\r\n\r\n\r\n<script>\r\nexport default {\r\n    data: () => {\r\n        return {\r\n            selectedOption: '0'\r\n        }\r\n    },\r\n    props: {\r\n        id: Number,\r\n        question: String,\r\n        options: Array,\r\n        correct: String\r\n    },\r\n    methods: {\r\n        update() {\r\n            let c;\r\n            let o = [];\r\n\r\n            const get_options = document.getElementsByClassName(`option${this.id}`)\r\n            for (let i = 0; i < get_options.length; i++) {\r\n                if (i === Number(this.selectedOption)) {\r\n                    c = get_options[i].value\r\n                }\r\n                else o.push(get_options[i].value)\r\n            }\r\n\r\n\r\n            this.$emit('update', {\r\n                id: this.id,\r\n                question: document.getElementById(`question${this.id}`).value,\r\n                options: o,\r\n                correct: c\r\n            });\r\n        },\r\n    },\r\n}\r\n</script>",
-      "start": 1704207490487,
-      "end": 1704207491284,
+      "start": 1704208672649,
+      "end": 1704208673402,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207491284,
-      "end": 1704207491284,
+      "start": 1704208673402,
+      "end": 1704208673402,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207491284,
-      "end": 1704207491284,
+      "start": 1704208673402,
+      "end": 1704208673402,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207491284,
-      "end": 1704207491284,
+      "start": 1704208673402,
+      "end": 1704208673402,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207491284,
-      "end": 1704207491284,
+      "start": 1704208673402,
+      "end": 1704208673402,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207491284,
-      "end": 1704207491284,
+      "start": 1704208673402,
+      "end": 1704208673402,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207491284,
-      "end": 1704207491284,
+      "start": 1704208673402,
+      "end": 1704208673402,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207491284,
-      "end": 1704207491284,
+      "start": 1704208673402,
+      "end": 1704208673402,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "\r\nconst _sfc_main = {\r\n    data: () => {\r\n        return {\r\n            selectedOption: '0'\r\n        }\r\n    },\r\n    props: {\r\n        id: Number,\r\n        question: String,\r\n        options: Array,\r\n        correct: String\r\n    },\r\n    methods: {\r\n        update() {\r\n            let c;\r\n            let o = [];\r\n\r\n            const get_options = document.getElementsByClassName(`option${this.id}`)\r\n            for (let i = 0; i < get_options.length; i++) {\r\n                if (i === Number(this.selectedOption)) {\r\n                    c = get_options[i].value\r\n                }\r\n                else o.push(get_options[i].value)\r\n            }\r\n\r\n\r\n            this.$emit('update', {\r\n                id: this.id,\r\n                question: document.getElementById(`question${this.id}`).value,\r\n                options: o,\r\n                correct: c\r\n            });\r\n        },\r\n    },\r\n}\r\n\nimport { createElementVNode as _createElementVNode, vModelRadio as _vModelRadio, withDirectives as _withDirectives, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { id: \"question-box\" }\nconst _hoisted_2 = [\"id\"]\nconst _hoisted_3 = { id: \"option\" }\nconst _hoisted_4 = { id: \"option\" }\nconst _hoisted_5 = { id: \"option\" }\nconst _hoisted_6 = { id: \"option\" }\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"textarea\", {\n      class: \"h-32 w-96\",\n      id: 'question'+$props.id,\n      placeholder: \"Place your question here\",\n      onInput: _cache[0] || (_cache[0] = (...args) => ($options.update && $options.update(...args))),\n      required: \"\"\n    }, null, 40, _hoisted_2),\n    _createElementVNode(\"div\", _hoisted_3, [\n      _withDirectives(_createElementVNode(\"input\", {\n        type: \"radio\",\n        value: \"0\",\n        \"onUpdate:modelValue\": _cache[1] || (_cache[1] = $event => ((_ctx.selectedOption) = $event)),\n        onChange: _cache[2] || (_cache[2] = (...args) => ($options.update && $options.update(...args))),\n        required: \"\"\n      }, null, 544), [\n        [_vModelRadio, _ctx.selectedOption]\n      ]),\n      _createElementVNode(\"input\", {\n        type: \"text\",\n        class: _normalizeClass('option'+$props.id),\n        placeholder: \"Put your option here\",\n        onInput: _cache[3] || (_cache[3] = (...args) => ($options.update && $options.update(...args))),\n        required: \"\"\n      }, null, 34)\n    ]),\n    _createElementVNode(\"div\", _hoisted_4, [\n      _withDirectives(_createElementVNode(\"input\", {\n        type: \"radio\",\n        value: \"1\",\n        \"onUpdate:modelValue\": _cache[4] || (_cache[4] = $event => ((_ctx.selectedOption) = $event)),\n        onChange: _cache[5] || (_cache[5] = (...args) => ($options.update && $options.update(...args))),\n        required: \"\"\n      }, null, 544), [\n        [_vModelRadio, _ctx.selectedOption]\n      ]),\n      _createElementVNode(\"input\", {\n        type: \"text\",\n        class: _normalizeClass('option'+$props.id),\n        placeholder: \"Put your option here\",\n        onInput: _cache[6] || (_cache[6] = (...args) => ($options.update && $options.update(...args))),\n        required: \"\"\n      }, null, 34)\n    ]),\n    _createElementVNode(\"div\", _hoisted_5, [\n      _withDirectives(_createElementVNode(\"input\", {\n        type: \"radio\",\n        value: \"2\",\n        \"onUpdate:modelValue\": _cache[7] || (_cache[7] = $event => ((_ctx.selectedOption) = $event)),\n        onChange: _cache[8] || (_cache[8] = (...args) => ($options.update && $options.update(...args))),\n        required: \"\"\n      }, null, 544), [\n        [_vModelRadio, _ctx.selectedOption]\n      ]),\n      _createElementVNode(\"input\", {\n        type: \"text\",\n        class: _normalizeClass('option'+$props.id),\n        placeholder: \"Put your option here\",\n        onInput: _cache[9] || (_cache[9] = (...args) => ($options.update && $options.update(...args))),\n        required: \"\"\n      }, null, 34)\n    ]),\n    _createElementVNode(\"div\", _hoisted_6, [\n      _withDirectives(_createElementVNode(\"input\", {\n        type: \"radio\",\n        value: \"3\",\n        \"onUpdate:modelValue\": _cache[10] || (_cache[10] = $event => ((_ctx.selectedOption) = $event)),\n        onChange: _cache[11] || (_cache[11] = (...args) => ($options.update && $options.update(...args))),\n        required: \"\"\n      }, null, 544), [\n        [_vModelRadio, _ctx.selectedOption]\n      ]),\n      _createElementVNode(\"input\", {\n        type: \"text\",\n        class: _normalizeClass('option'+$props.id),\n        placeholder: \"Put your option here\",\n        onInput: _cache[12] || (_cache[12] = (...args) => ($options.update && $options.update(...args))),\n        required: \"\"\n      }, null, 34)\n    ])\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1704207491284,
-      "end": 1704207491286,
+      "start": 1704208673402,
+      "end": 1704208673404,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,152 +62,152 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207491286,
-      "end": 1704207491286,
+      "start": 1704208673404,
+      "end": 1704208673404,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491286,
-      "end": 1704207491287,
+      "start": 1704208673404,
+      "end": 1704208673404,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673404,
+      "end": 1704208673404,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207491287,
-      "end": 1704207491287,
+      "start": 1704208673405,
+      "end": 1704208673405,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1704207491287,
-      "end": 1704207491288,
+      "start": 1704208673405,
+      "end": 1704208673406,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1704207491288,
-      "end": 1704207491288,
+      "start": 1704208673406,
+      "end": 1704208673406,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1704207491288,
-      "end": 1704207491288,
+      "start": 1704208673406,
+      "end": 1704208673406,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207491288,
-      "end": 1704207491288,
+      "start": 1704208673406,
+      "end": 1704208673406,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207491288,
-      "end": 1704207491288,
+      "start": 1704208673406,
+      "end": 1704208673406,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1704207491288,
-      "end": 1704207491288,
+      "start": 1704208673406,
+      "end": 1704208673406,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207491288,
-      "end": 1704207491288,
+      "start": 1704208673406,
+      "end": 1704208673406,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207491288,
-      "end": 1704207491288,
+      "start": 1704208673406,
+      "end": 1704208673406,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207491288,
-      "end": 1704207491288,
+      "start": 1704208673406,
+      "end": 1704208673406,
       "order": "normal"
     }
   ]

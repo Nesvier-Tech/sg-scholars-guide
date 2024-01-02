@@ -30,11 +30,15 @@ export function getClient(): Client {
 const databases = new Databases(client);
 
 // List of subjects to choose when querying
-export const SUBJECTS: { MATH: string, SCI: string, LANG_PROF: string, READ_COMP: string } = {                               // Leaky
+const SUBJECTS: { MATH: string, SCI: string, LANG_PROF: string, READ_COMP: string } = {                               // Leaky
     MATH: MATH_COLLECTION_ID,
     SCI: SCI_COLLECTION_ID,
     LANG_PROF: LANG_PROF_COLLECTION_ID,
     READ_COMP: READ_COMP_COLLECTION_ID
+}
+
+export function getSubjects(): { MATH: string, SCI: string, LANG_PROF: string, READ_COMP: string } {
+    return SUBJECTS;
 }
 
 // Create Documents (Row)

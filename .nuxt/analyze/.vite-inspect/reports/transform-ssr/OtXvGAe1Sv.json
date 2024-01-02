@@ -1,0 +1,294 @@
+{
+  "resolvedId": "E:/scholars_guide/components/QuestionCard.vue?vue&type=style&index=0&scoped=bb4ec4b0&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n  .question-card {\r\n    padding: 1rem;\r\n    width: 100%;\r\n    margin: 2rem auto;\r\n    background-color: white;\r\n    border-radius: 0.5rem;\r\n    box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);\r\n    text-align: center;\r\n  }\r\n\r\n  .card {\r\n    width: 50%;\r\n    margin: auto;\r\n    \r\n  }\r\n\r\n  .choice-button {\r\n    background-color: rgba(0, 0, 0, 0);\r\n    color: #1fab59;\r\n    border: 1px solid transparent;\r\n    border-color: #1fab59;\r\n    border-radius: 4px;\r\n    width: 90%;\r\n    margin: 0.5rem auto;\r\n    padding: 0.5rem 1rem;\r\n  }\r\n\r\n  .choice-button-red-outline {\r\n    background-color: rgba(0, 0, 0, 0);\r\n    color: #c72828;\r\n    border: 1px solid transparent;\r\n    border-color: #c72828;\r\n    border-radius: 4px;\r\n    width: 90%;\r\n    margin: 0.5rem auto;\r\n    padding: 0.5rem 1rem;\r\n  }\r\n\r\n  .choice-button:hover {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-active {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-correct {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-incorrect {\r\n    background-color: #c72828;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n  .choice-container {\r\n    margin-top: 1rem;\r\n    margin-bottom: 1rem;\r\n    padding: 0 2rem;\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr;\r\n  }\r\n",
+      "start": 1704208675734,
+      "end": 1704208675734,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "E:/scholars_guide/components/QuestionCard.vue"
+        ],
+        "names": [],
+        "mappings": "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",
+        "file": "E:/scholars_guide/components/QuestionCard.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"question-card\">\r\n    <p style=\"margin-top: 1rem; font-weight: 600;\">{{ question.title }}</p>\r\n    <p style=\"margin-bottom: 2rem;\">{{ question.body }}</p>\r\n    <div class=\"choice-container\">\r\n      <div @click=\"changeAnswerChoice('A')\" class=\"choice-button\" :class=\"{ 'choice-button-active': answerChoice === 'A', 'choice-button-correct': isCorrect('A'), 'choice-button-incorrect': isIncorrect('A'), 'choice-button-red-outline': isRedOutline('A'), 'choice-button': isRightAnswer('A') }\">\r\n        A. {{ question.choices[0] }}\r\n      </div>\r\n      <div @click=\"changeAnswerChoice('B')\" class=\"choice-button\" :class=\"{ 'choice-button-active': answerChoice === 'B', 'choice-button-correct': isCorrect('B'), 'choice-button-incorrect': isIncorrect('B'), 'choice-button-red-outline': isRedOutline('B'), 'choice-button': isRightAnswer('B') }\">\r\n        B. {{ question.choices[1] }}\r\n      </div>\r\n      <div @click=\"changeAnswerChoice('C')\" class=\"choice-button\" :class=\"{ 'choice-button-active': answerChoice === 'C', 'choice-button-correct': isCorrect('C'), 'choice-button-incorrect': isIncorrect('C'), 'choice-button-red-outline': isRedOutline('C'), 'choice-button': isRightAnswer('C') }\">\r\n        C. {{ question.choices[2] }}\r\n      </div>\r\n      <div @click=\"changeAnswerChoice('D')\" class=\"choice-button\" :class=\"{ 'choice-button-active': answerChoice === 'D', 'choice-button-correct': isCorrect('D'), 'choice-button-incorrect': isIncorrect('D'), 'choice-button-red-outline': isRedOutline('D'), 'choice-button': isRightAnswer('D') }\">\r\n        D. {{ question.choices[3] }}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\n  const { question } = defineProps([\"question\"]);\r\n  let answerChoice = ref('');\r\n  const finished = useFinished();\r\n  const points = usePoints();\r\n\r\n  function changeAnswerChoice(newAnswer) {\r\n    answerChoice.value = newAnswer;\r\n    if (answerChoice.value == question.answer) {\r\n      points.value[question.id] = 1;\r\n      console.log(points.value)\r\n    } else {\r\n      points.value[question.id] = 0;\r\n      console.log(points.value)\r\n    }\r\n  }\r\n\r\n  function isCorrect(letter) {\r\n    if (answerChoice.value == question.answer && letter == question.answer && finished.value == true) {\r\n      return true\r\n    }\r\n    return false\r\n  }\r\n\r\n  function isIncorrect(letter) {\r\n    if (answerChoice.value == letter && letter != question.answer && finished.value == true) {\r\n      return true\r\n    } \r\n    return false\r\n  }\r\n\r\n  function isRedOutline(letter) {\r\n    if (answerChoice.value != letter && answerChoice.value != question.answer && letter != question.answer && finished.value == true) {\r\n      return true\r\n    }\r\n    return false\r\n  }\r\n\r\n  function isRightAnswer(letter) {\r\n    if (answerChoice.value != letter && letter == question.answer && finished.value == true) {\r\n      return true\r\n    } \r\n    return false\r\n  }\r\n</script>\r\n\r\n<style scoped>\r\n  .question-card {\r\n    padding: 1rem;\r\n    width: 100%;\r\n    margin: 2rem auto;\r\n    background-color: white;\r\n    border-radius: 0.5rem;\r\n    box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);\r\n    text-align: center;\r\n  }\r\n\r\n  .card {\r\n    width: 50%;\r\n    margin: auto;\r\n    \r\n  }\r\n\r\n  .choice-button {\r\n    background-color: rgba(0, 0, 0, 0);\r\n    color: #1fab59;\r\n    border: 1px solid transparent;\r\n    border-color: #1fab59;\r\n    border-radius: 4px;\r\n    width: 90%;\r\n    margin: 0.5rem auto;\r\n    padding: 0.5rem 1rem;\r\n  }\r\n\r\n  .choice-button-red-outline {\r\n    background-color: rgba(0, 0, 0, 0);\r\n    color: #c72828;\r\n    border: 1px solid transparent;\r\n    border-color: #c72828;\r\n    border-radius: 4px;\r\n    width: 90%;\r\n    margin: 0.5rem auto;\r\n    padding: 0.5rem 1rem;\r\n  }\r\n\r\n  .choice-button:hover {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-active {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-correct {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-incorrect {\r\n    background-color: #c72828;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n  .choice-container {\r\n    margin-top: 1rem;\r\n    margin-bottom: 1rem;\r\n    padding: 0 2rem;\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr;\r\n  }\r\n</style>"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704208675734,
+      "end": 1704208675734,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1704208675734,
+      "end": 1704208675734,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704208675734,
+      "end": 1704208675734,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1704208675734,
+      "end": 1704208675734,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1704208675734,
+      "end": 1704208675734,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".question-card{background-color:#fff;border-radius:.5rem;box-shadow:.25rem .25rem 1rem rgba(0,0,0,.1);margin:2rem auto;padding:1rem;text-align:center;width:100%}.card{margin:auto;width:50%}.choice-button{border:1px solid #1fab59;border-radius:4px;color:#1fab59}.choice-button,.choice-button-red-outline{background-color:transparent;margin:.5rem auto;padding:.5rem 1rem;width:90%}.choice-button-red-outline{border:1px solid #c72828;border-radius:4px;color:#c72828}.choice-button-active,.choice-button-correct,.choice-button:hover{background-color:#1fab59;border:1px solid;color:#fff}.choice-button-incorrect{background-color:#c72828;border:1px solid;color:#fff}.choice-container{display:grid;grid-template-columns:1fr 1fr;margin-bottom:1rem;margin-top:1rem;padding:0 2rem}",
+      "start": 1704208675734,
+      "end": 1704208675740,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "E:/scholars_guide/components/QuestionCard.vue",
+        "mappings": "AACE,eAIE,qBAAuB,CACvB,mBAAqB,CACrB,4CAAmD,CAHnD,gBAAiB,CAFjB,YAAa,CAMb,iBAAkB,CALlB,UAMF,CAEA,MAEE,WAAY,CADZ,SAGF,CAEA,eAIE,wBAAqB,CACrB,iBAAkB,CAHlB,aAOF,CAEA,0CAVE,4BAAkC,CAMlC,iBAAmB,CACnB,kBAAoB,CAFpB,SAcF,CATA,2BAIE,wBAAqB,CACrB,iBAAkB,CAHlB,aAOF,CAcA,kEACE,wBAAyB,CAEzB,gBAAiB,CADjB,UAEF,CAEA,yBACE,wBAAyB,CAEzB,gBAAiB,CADjB,UAEF,CACA,kBAIE,YAAa,CACb,6BAA8B,CAH9B,kBAAmB,CADnB,eAAgB,CAEhB,cAGF",
+        "names": [],
+        "sources": [
+          "E:/scholars_guide/components/QuestionCard.vue"
+        ],
+        "sourcesContent": [
+          "\r\n  .question-card {\r\n    padding: 1rem;\r\n    width: 100%;\r\n    margin: 2rem auto;\r\n    background-color: white;\r\n    border-radius: 0.5rem;\r\n    box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);\r\n    text-align: center;\r\n  }\r\n\r\n  .card {\r\n    width: 50%;\r\n    margin: auto;\r\n    \r\n  }\r\n\r\n  .choice-button {\r\n    background-color: rgba(0, 0, 0, 0);\r\n    color: #1fab59;\r\n    border: 1px solid transparent;\r\n    border-color: #1fab59;\r\n    border-radius: 4px;\r\n    width: 90%;\r\n    margin: 0.5rem auto;\r\n    padding: 0.5rem 1rem;\r\n  }\r\n\r\n  .choice-button-red-outline {\r\n    background-color: rgba(0, 0, 0, 0);\r\n    color: #c72828;\r\n    border: 1px solid transparent;\r\n    border-color: #c72828;\r\n    border-radius: 4px;\r\n    width: 90%;\r\n    margin: 0.5rem auto;\r\n    padding: 0.5rem 1rem;\r\n  }\r\n\r\n  .choice-button:hover {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-active {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-correct {\r\n    background-color: #1fab59;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n\r\n  .choice-button-incorrect {\r\n    background-color: #c72828;\r\n    color: white;\r\n    border: 1px solid;\r\n  }\r\n  .choice-container {\r\n    margin-top: 1rem;\r\n    margin-bottom: 1rem;\r\n    padding: 0 2rem;\r\n    display: grid;\r\n    grid-template-columns: 1fr 1fr;\r\n  }\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1704208675740,
+      "end": 1704208675740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1704208675740,
+      "end": 1704208675740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1704208675740,
+      "end": 1704208675740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".question-card[data-v-bb4ec4b0]{background-color:#fff;border-radius:.5rem;box-shadow:.25rem .25rem 1rem rgba(0,0,0,.1);margin:2rem auto;padding:1rem;text-align:center;width:100%}.card[data-v-bb4ec4b0]{margin:auto;width:50%}.choice-button[data-v-bb4ec4b0]{border:1px solid #1fab59;border-radius:4px;color:#1fab59}.choice-button[data-v-bb4ec4b0],.choice-button-red-outline[data-v-bb4ec4b0]{background-color:transparent;margin:.5rem auto;padding:.5rem 1rem;width:90%}.choice-button-red-outline[data-v-bb4ec4b0]{border:1px solid #c72828;border-radius:4px;color:#c72828}.choice-button-active[data-v-bb4ec4b0],.choice-button-correct[data-v-bb4ec4b0],.choice-button[data-v-bb4ec4b0]:hover{background-color:#1fab59;border:1px solid;color:#fff}.choice-button-incorrect[data-v-bb4ec4b0]{background-color:#c72828;border:1px solid;color:#fff}.choice-container[data-v-bb4ec4b0]{display:grid;grid-template-columns:1fr 1fr;margin-bottom:1rem;margin-top:1rem;padding:0 2rem}",
+      "start": 1704208675740,
+      "end": 1704208675741,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "E:/scholars_guide/components/QuestionCard.vue",
+        "mappings": "AAAA,gCAAe,qBAAqB,CAAC,mBAAmB,CAAC,4CAA4C,CAAC,gBAAgB,CAAC,YAAY,CAAC,iBAAiB,CAAC,UAAU,CAAC,uBAAM,WAAW,CAAC,SAAS,CAAC,gCAAe,wBAAwB,CAAC,iBAAiB,CAAC,aAAa,CAAC,4EAA0C,4BAA4B,CAAC,iBAAiB,CAAC,kBAAkB,CAAC,SAAS,CAAC,4CAA2B,wBAAwB,CAAC,iBAAiB,CAAC,aAAa,CAAC,qHAAkE,wBAAwB,CAAC,gBAAgB,CAAC,UAAU,CAAC,0CAAyB,wBAAwB,CAAC,gBAAgB,CAAC,UAAU,CAAC,mCAAkB,YAAY,CAAC,6BAA6B,CAAC,kBAAkB,CAAC,eAAe,CAAC,cAAc",
+        "names": [],
+        "sources": [
+          "E:/scholars_guide/components/QuestionCard.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default ''",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1704208675741,
+      "end": 1704208675741,
+      "order": "normal"
+    }
+  ]
+}

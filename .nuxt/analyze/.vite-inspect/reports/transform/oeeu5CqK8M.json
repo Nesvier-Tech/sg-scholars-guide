@@ -4,57 +4,57 @@
     {
       "name": "vite:load-fallback",
       "result": "<template>\r\n    <div>\r\n        <h1 class=\"flex justify-center my-3 text-2xl font-bold\">Index Page</h1>\r\n        <ul class=\"flex flex-col items-center\">\r\n            <li class=\"px-4 my-2 border-2 rounded-md\">\r\n                <nuxt-link to=\"test\">Scratch</nuxt-link>\r\n            </li>\r\n            <li class=\"px-4 my-2 border-2 rounded-md\">\r\n                <nuxt-link to=\"/auth/login\">Login</nuxt-link>\r\n            </li>\r\n            <li class=\"px-4 my-2 border-2 rounded-md\">\r\n                <nuxt-link to=\"dashboard\">Dashboard</nuxt-link>\r\n            </li>\r\n            <li class=\"px-4 my-2 border-2 rounded-md\">\r\n                <nuxt-link to=\"upload\">Upload Quiz</nuxt-link>\r\n            </li>\r\n            <li class=\"px-4 my-2 border-2 rounded-md\">\r\n                <nuxt-link to=\"quiz\">Take Quiz</nuxt-link>\r\n            </li>\r\n            <li class=\"px-4 my-2 border-2 rounded-md\">\r\n                <nuxt-link to=\"profile\">Profile</nuxt-link>\r\n            </li>\r\n        </ul>\r\n        <h3 class=\"ml-10 font-bold text-1xl\">*Let's temporarily use this as temporary navigator</h3>\r\n    </div>\r\n\r\n    <hr>\r\n\r\n    <div class=\"flex flex-col items-center my-10\">\r\n        <h2 class=\"my-3 text-2xl font-bold \">Navigation Map</h2>\r\n        <img src=\"@/assets/nav-map.png\" width=\"600\" height=\"1000\" />\r\n    </div>\r\n</template>",
-      "start": 1704207489792,
-      "end": 1704207490163,
+      "start": 1704208671938,
+      "end": 1704208672283,
       "sourcemaps": null
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1704207490163,
-      "end": 1704207490163,
+      "start": 1704208672283,
+      "end": 1704208672283,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1704207490163,
-      "end": 1704207490163,
+      "start": 1704208672283,
+      "end": 1704208672283,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1704207490163,
-      "end": 1704207490163,
+      "start": 1704208672283,
+      "end": 1704208672283,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1704207490163,
-      "end": 1704207490163,
+      "start": 1704208672283,
+      "end": 1704208672283,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "start": 1704207490163,
-      "end": 1704207490163,
+      "start": 1704208672283,
+      "end": 1704208672283,
       "order": "normal"
     },
     {
       "name": "vite:json",
-      "start": 1704207490163,
-      "end": 1704207490163,
+      "start": 1704208672283,
+      "end": 1704208672283,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1704207490163,
-      "end": 1704207490163,
+      "start": 1704208672283,
+      "end": 1704208672283,
       "order": "normal"
     },
     {
       "name": "vite:vue",
       "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '@/assets/nav-map.png'\n\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"h1\", { class: \"flex justify-center my-3 text-2xl font-bold\" }, \"Index Page\", -1)\nconst _hoisted_2 = { class: \"flex flex-col items-center\" }\nconst _hoisted_3 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_4 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_5 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_6 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_7 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_8 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_9 = /*#__PURE__*/_createElementVNode(\"h3\", { class: \"ml-10 font-bold text-1xl\" }, \"*Let's temporarily use this as temporary navigator\", -1)\nconst _hoisted_10 = /*#__PURE__*/_createElementVNode(\"hr\", null, null, -1)\nconst _hoisted_11 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex flex-col items-center my-10\" }, [\n  /*#__PURE__*/_createElementVNode(\"h2\", { class: \"my-3 text-2xl font-bold\" }, \"Navigation Map\"),\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    src: _imports_0,\n    width: \"600\",\n    height: \"1000\"\n  })\n], -1)\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createElementVNode(\"div\", null, [\n      _hoisted_1,\n      _createElementVNode(\"ul\", _hoisted_2, [\n        _createElementVNode(\"li\", _hoisted_3, [\n          _createVNode(_component_nuxt_link, { to: \"test\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Scratch\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_4, [\n          _createVNode(_component_nuxt_link, { to: \"/auth/login\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Login\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_5, [\n          _createVNode(_component_nuxt_link, { to: \"dashboard\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Dashboard\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_6, [\n          _createVNode(_component_nuxt_link, { to: \"upload\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Upload Quiz\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_7, [\n          _createVNode(_component_nuxt_link, { to: \"quiz\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Take Quiz\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_8, [\n          _createVNode(_component_nuxt_link, { to: \"profile\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Profile\")\n            ]),\n            _: 1\n          })\n        ])\n      ]),\n      _hoisted_9\n    ]),\n    _hoisted_10,\n    _hoisted_11\n  ], 64))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1704207490163,
-      "end": 1704207490164,
+      "start": 1704208672283,
+      "end": 1704208672284,
       "order": "normal",
       "sourcemaps": {
         "mappings": ""
@@ -62,153 +62,153 @@
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1704207490164,
-      "end": 1704207490164,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207490164,
-      "end": 1704207490164,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1704207490164,
-      "end": 1704207490164,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "nuxt:chunk-error",
-      "start": 1704207490164,
-      "end": 1704207490164,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1704207490164,
-      "end": 1704207490164,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1704207490164,
-      "end": 1704207490164,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1704207490164,
-      "end": 1704207490164,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1704207490164,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672284,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672284,
+      "end": 1704208672285,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1704207490165,
-      "end": 1704207490165,
+      "start": 1704208672285,
+      "end": 1704208672285,
       "order": "post"
     },
     {
       "name": "nuxt:runtime-paths-dep",
-      "start": 1704207490166,
-      "end": 1704207490166,
+      "start": 1704208672285,
+      "end": 1704208672285,
       "order": "post"
     },
     {
       "name": "nuxt:route-injection-plugin",
-      "start": 1704207490166,
-      "end": 1704207490166,
+      "start": 1704208672285,
+      "end": 1704208672285,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { default as __nuxt_component_0 } from \"E:/scholars_guide/node_modules/nuxt/dist/app/components/nuxt-link\";\nconst _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '@/assets/nav-map.png'\n\n\nconst _hoisted_1 = /*#__PURE__*/_createElementVNode(\"h1\", { class: \"flex justify-center my-3 text-2xl font-bold\" }, \"Index Page\", -1)\nconst _hoisted_2 = { class: \"flex flex-col items-center\" }\nconst _hoisted_3 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_4 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_5 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_6 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_7 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_8 = { class: \"px-4 my-2 border-2 rounded-md\" }\nconst _hoisted_9 = /*#__PURE__*/_createElementVNode(\"h3\", { class: \"ml-10 font-bold text-1xl\" }, \"*Let's temporarily use this as temporary navigator\", -1)\nconst _hoisted_10 = /*#__PURE__*/_createElementVNode(\"hr\", null, null, -1)\nconst _hoisted_11 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex flex-col items-center my-10\" }, [\n  /*#__PURE__*/_createElementVNode(\"h2\", { class: \"my-3 text-2xl font-bold\" }, \"Navigation Map\"),\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    src: _imports_0,\n    width: \"600\",\n    height: \"1000\"\n  })\n], -1)\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_nuxt_link = __nuxt_component_0\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createElementVNode(\"div\", null, [\n      _hoisted_1,\n      _createElementVNode(\"ul\", _hoisted_2, [\n        _createElementVNode(\"li\", _hoisted_3, [\n          _createVNode(_component_nuxt_link, { to: \"test\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Scratch\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_4, [\n          _createVNode(_component_nuxt_link, { to: \"/auth/login\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Login\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_5, [\n          _createVNode(_component_nuxt_link, { to: \"dashboard\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Dashboard\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_6, [\n          _createVNode(_component_nuxt_link, { to: \"upload\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Upload Quiz\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_7, [\n          _createVNode(_component_nuxt_link, { to: \"quiz\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Take Quiz\")\n            ]),\n            _: 1\n          })\n        ]),\n        _createElementVNode(\"li\", _hoisted_8, [\n          _createVNode(_component_nuxt_link, { to: \"profile\" }, {\n            default: _withCtx(() => [\n              _createTextVNode(\"Profile\")\n            ]),\n            _: 1\n          })\n        ])\n      ]),\n      _hoisted_9\n    ]),\n    _hoisted_10,\n    _hoisted_11\n  ], 64))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
-      "start": 1704207490166,
-      "end": 1704207490166,
+      "start": 1704208672285,
+      "end": 1704208672285,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1704207490166,
-      "end": 1704207490166,
+      "start": 1704208672285,
+      "end": 1704208672285,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1704207490166,
-      "end": 1704207490166,
+      "start": 1704208672285,
+      "end": 1704208672285,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1704207490166,
-      "end": 1704207490166,
+      "start": 1704208672285,
+      "end": 1704208672285,
       "order": "normal"
     }
   ]
