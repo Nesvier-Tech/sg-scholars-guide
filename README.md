@@ -1,4 +1,4 @@
-# SG: Scholar's Guide - College Entrance Exam Reviewer App
+# SG: Scholar's Guide - College Entrance Exam Reviewer Web App
 
 ## Table of Contents
 - [Introduction](#introduction)
