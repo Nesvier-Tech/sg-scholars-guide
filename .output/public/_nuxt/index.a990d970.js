@@ -1,1 +1,0 @@
-import{_ as o}from"./Button.5cf87196.js";import{_ as n,c,b as a,w as s,o as _,d as r}from"./entry.ce932d71.js";const l={methods:{handleClick(){console.log("TEST CLICK")}}};function d(i,p,m,u,f,e){const t=o;return _(),c("div",null,[a(t,{onClick:e.handleClick},{default:s(()=>[r("Test Button")]),_:1},8,["onClick"])])}const k=n(l,[["render",d]]);export{k as default};

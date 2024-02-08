@@ -1,1 +1,0 @@
-import{_ as e,c as o,o as c,a as t}from"./entry.ce932d71.js";const n={},s=t("h1",null,"Profile Page",-1),a=[s];function r(_,l){return c(),o("div",null,a)}const i=e(n,[["render",r]]);export{i as default};
