@@ -19,16 +19,14 @@ Welcome to the README for **SG: Scholar's Guide**, a community-driven College En
 
 ## Tech Stack
 
-The tech stack for **Scholar's Guide** includes:
+The tech stack (and other relevant details) for **Scholar's Guide** includes:
 
-- **HTML**: For structuring web content.
-- **JavaScript/TypeScript**: For dynamic and interactive features.
-- **Svelte (w/ SvelteKit)**: Built on top of JS/TS, a modern web framework for building user interfaces, enhancing the app's performance and maintainability.
-- **CSS**: For styling and design.
-- **Tailwind CSS**: Built on top of CSS, a utility-first CSS framework for efficient and responsive design.
-- **Flowbite**: A Tailwind CSS component library to streamline the design process.
-- **Appwrite**: A self-hosted backend server providing authentication, database, and storage services.
-- **Netlify**: The hosting platform for deploying the app.
+- Framework: **Flutter**
+- Programming Language: **Dart**
+- Backend as a service: **Firebase**
+- State Management: **Bloc**
+- Router: **Go Router**
+- Arch: Clean Architecture (w/ TDD workflow)
 
 ## Problem Statement
 
@@ -96,72 +94,6 @@ Some similar applications include:
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
 
 # bun
 bun run preview
