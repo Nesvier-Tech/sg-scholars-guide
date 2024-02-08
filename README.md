@@ -1,4 +1,4 @@
-# SG: Scholar's Guide - College Entrance Exam Reviewer Web App
+# SG: Scholar's Guide - College Entrance Exam Reviewer App
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -25,7 +25,7 @@ The tech stack (and other relevant details) for **Scholar's Guide** includes:
 - Programming Language: **Dart**
 - Backend as a service: **Firebase**
 - State Management: **Bloc**
-- Router: **Go Router**
+- Routing: **Go Router**
 - Arch: Clean Architecture (w/ TDD workflow)
 
 ## Problem Statement
@@ -89,14 +89,4 @@ Some similar applications include:
 **Scholar's Guide** is a project committed to providing an inclusive, accessible, and continually improving platform for students preparing for college entrance exams. We prioritize data security, user support, and scalability to ensure its success. This initiative aligns with UP Diliman's mission to make quality education accessible to all and aims to level the playing field for all aspiring scholars. With **Scholar's Guide**, we unlock opportunities for all, one student at a time.
 
 ### Note
-- This README document is a summary of this project's project proposal as can be seen in this repo's GitHub Discussions section.
-
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- This README document is a summary of this project's project proposal which can be seen in the GitHub Discussions section.
