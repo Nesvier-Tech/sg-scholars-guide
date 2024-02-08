@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "199209182633",
+    "project_id": "sg-scholars-guide-dev",
+    "storage_bucket": "sg-scholars-guide-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199209182633:android:d710e4814d4df6bf16d0b8",
+        "android_client_info": {
+          "package_name": "com.nesvier.scholars_guide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQzPGcO-Wkqaryc8aiASBGC0bLlhgeiJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
