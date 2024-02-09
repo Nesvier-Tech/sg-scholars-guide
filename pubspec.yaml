@@ -1,5 +1,8 @@
 name: scholars_guide
-description: "A new Flutter project."
+description: "A community-driven College Entrance Exam (CET) Reviewer App | 
+  aimed at democratizing access to quality review materials and leveling | 
+  the playing field for students preparing for college entrance exams in |
+  the Philippines."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -31,11 +34,38 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+
+  # Flutter plugin for Firebase Core, enabling connecting to 
+  # multiple Firebase apps.
   firebase_core: ^2.25.4
+
+  # TODO: Configure App Check before deploying to production.
+  # App Check works alongside other Firebase services to help protect
+  # your backend resources from abuse, such as billing fraud or phishing.
+  firebase_app_check: ^0.2.1+13
+
+  # Flutter plugin for Firebase Auth, enabling authentication using passwords,
+  # phone numbers and identity providers like Google, Facebook and Twitter.
+  firebase_auth: ^4.17.4
+
+  # Pre-built widgets library that are integrated with the variety
+  # of the Firebase Auth providers.
+  firebase_ui_auth: ^1.13.0
+
+  # Flutter plugin for Cloud Firestore, a cloud-hosted, noSQL database with 
+  # live synchronization and offline support on Android and iOS.
+  cloud_firestore: ^4.15.4
+
+  # Flutter plugin for Firebase Cloud Storage, a powerful, simple,
+  # and cost-effective object storage service for Android and iOS.
+  firebase_storage: ^11.6.5
+
+  # Flutter plugin for Firebase Database, a cloud-hosted NoSQL database with
+  # realtime data syncing across Android and iOS clients, and offline access.
+  firebase_database: ^10.4.5
 
 dev_dependencies:
   flutter_test:
