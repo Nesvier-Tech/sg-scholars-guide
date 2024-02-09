@@ -1,0 +1,15 @@
+{
+  "name": "scholars-guide",
+  "version": "1.0.0",
+  "description": "- [Introduction](#introduction)\r - [Tech Stack](#tech-stack)\r - [Problem Statement](#problem-statement)\r - [Customer Motivation and Application Characteristics](#customer-motivation-and-application-characteristics)\r - [The Better Solution](#the-better-solution)\r - [Similar Applications](#similar-applications)\r - [Target Users](#target-users)\r - [User Specifications](#user-specifications)\r - [Conclusion](#conclusion)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
