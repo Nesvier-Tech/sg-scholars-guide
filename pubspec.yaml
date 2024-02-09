@@ -86,6 +86,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.1
+
+  # A testing library which makes it easy to test blocs.
+  # Built to be used with the bloc state management package.
   bloc_test: ^9.1.5
 
   # A Dart mock library which simplifies mocking with null safety support 
