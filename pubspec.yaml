@@ -71,6 +71,11 @@ dependencies:
   # deep linking, data-driven routes and more.
   go_router: ^13.1.0
 
+  # Simple direct Service Locator that allows to decouple the interface from
+  # a concrete implementation and to access the concrete 
+  # implementation from everywhere in your App"
+  get_it: ^7.6.7
+
   # Flutter Widgets that make it easy to implement the
   # BLoC (Business Logic Component) design pattern. 
   # Built to be used with the bloc state management package.
