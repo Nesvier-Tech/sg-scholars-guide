@@ -1,3 +1,4 @@
+// TODO: [P3] Write test for StorageTypesEnum.
 enum StorageTypesEnum {
   generalCloud,
   firebase,

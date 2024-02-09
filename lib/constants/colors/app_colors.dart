@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// TODO: Improve the reference. The link might become invalid someday.
+// TODO: [P3] Improve the reference. The link might become invalid someday.
 /// Ref: https://drive.google.com/drive/folders/1rXCbUuun0VqexHmjBmdceYx4IiltbmOh?usp=sharing
 class AppColors {
   const AppColors._();

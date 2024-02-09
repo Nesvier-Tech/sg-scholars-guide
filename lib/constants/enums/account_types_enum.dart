@@ -1,3 +1,4 @@
+// TODO: [P3] Write test for AccountTypesEnum.
 enum AccountTypesEnum {
   god('God', double.infinity),
   admin('Admin', 80.0),
