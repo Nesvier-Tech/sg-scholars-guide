@@ -1,15 +1,15 @@
 {
   "name": "scholars-guide",
   "version": "1.0.0",
-  "description": "- [Introduction](#introduction)\r - [Tech Stack](#tech-stack)\r - [Problem Statement](#problem-statement)\r - [Customer Motivation and Application Characteristics](#customer-motivation-and-application-characteristics)\r - [The Better Solution](#the-better-solution)\r - [Similar Applications](#similar-applications)\r - [Target Users](#target-users)\r - [User Specifications](#user-specifications)\r - [Conclusion](#conclusion)",
-  "main": "index.js",
+  "description": "A community-driven College Entrance Exam (CET) Reviewer App aimed at democratizing access to quality review materials and leveling the playing field for students preparing for college entrance exams in the Philippines.",
+  "main": "",
   "directories": {
-    "lib": "lib",
-    "test": "test"
+    "lib": "",
+    "test": ""
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Marc Peejay V. Viernes",
+  "license": "Attribution-NonCommercial-NoDerivatives 4.0 International"
 }
