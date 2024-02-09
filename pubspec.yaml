@@ -81,6 +81,10 @@ dependencies:
   # Built to be used with the bloc state management package.
   flutter_bloc: ^8.1.3
 
+  # A Flutter package to use fonts from fonts.google.com. Supports HTTP fetching,
+  # caching, and asset bundling.
+  google_fonts: ^6.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
