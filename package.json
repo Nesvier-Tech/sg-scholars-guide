@@ -8,7 +8,8 @@
     "test": ""
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Note: no build script specified\" && exit 0"
   },
   "author": "Marc Peejay V. Viernes",
   "license": "Attribution-NonCommercial-NoDerivatives 4.0 International"
