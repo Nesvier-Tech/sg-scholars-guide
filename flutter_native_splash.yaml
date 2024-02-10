@@ -25,12 +25,12 @@ flutter_native_splash:
 
   # The image parameter allows you to specify an image used in the splash screen.  It must be a
   # png file and should be sized for 4x pixel density.
-  image: assets/sg_scholars_guide_normal_logo-transformed.png
+  image: assets/logos/sg_scholars_guide_logo-transformed.png
 
   # The branding property allows you to specify an image used as branding in the splash screen.
   # It must be a png file. It is supported for Android, iOS and the Web.  For Android 12,
   # see the Android 12 section below.
-  branding: assets/sg_scholars_guide_branding.png
+  branding: assets/logos/sg_scholars_guide_branding.png
 
   # To position the branding image at the bottom of the screen you can use bottom, bottomRight,
   # and bottomLeft. The default values is bottom if not specified or specified something else.
@@ -45,8 +45,8 @@ flutter_native_splash:
   # Dark maroon.
   color_dark: "#3c0008"
   # background_image_dark: "assets/dark-background.png"
-  image_dark: assets/sg_scholars_guide_white_logo-transformed.png
-  branding_dark: assets/sg_scholars_guide_white_branding.png
+  image_dark: assets/logos/sg_scholars_guide_white_logo-transformed.png
+  branding_dark: assets/logos/sg_scholars_guide_white_branding.png
 
   # From Android 12 onwards, the splash screen is handled differently than in previous versions.
   # Please visit https://developer.android.com/guide/topics/ui/splash-screen
@@ -59,23 +59,29 @@ flutter_native_splash:
     # 640 pixels in diameter.
     # App icon without an icon background: This should be 1152×1152 pixels, and fit within a circle
     # 768 pixels in diameter.
-    #image: assets/android12splash.png
+    image: assets/logos/sg_scholars_guide_logo-transformed-960x960.png
 
     # Splash screen background color.
-    #color: "#42a5f5"
+    # A warm, light shade of yellow-orange. It can be described as a soft, 
+    # creamy yellow with a hint of orange.
+    color: "#ffd694"
 
     # App icon background color.
     #icon_background_color: "#111111"
 
     # The branding property allows you to specify an image used as branding in the splash screen.
-    #branding: assets/dart.png
+    branding: assets/logos/sg_scholars_guide_branding.png
 
     # The image_dark, color_dark, icon_background_color_dark, and branding_dark set values that
     # apply when the device is in dark mode. If they are not specified, the app will use the
     # parameters from above.
-    #image_dark: assets/android12splash-invert.png
-    #color_dark: "#042a49"
-    #icon_background_color_dark: "#eeeeee"
+    image_dark: assets/logos/sg_scholars_guide_white_logo-transformed-960x960.png
+    
+    # Dark maroon.
+    color_dark: "#3c0008"
+
+    # Dark maroon.
+    icon_background_color_dark: "#3c0008"
 
   # The android, ios and web parameters can be used to disable generating a splash screen on a given
   # platform.
@@ -139,7 +145,7 @@ flutter_native_splash:
   #       To show the notification bar, add the following code to your Flutter app:
   #       WidgetsFlutterBinding.ensureInitialized();
   #       SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top], );
-  #fullscreen: true
+  fullscreen: true
 
   # If you have changed the name(s) of your info.plist file(s), you can specify the filename(s)
   # with the info_plist_files parameter.  Remove only the # characters in the three lines below,
