@@ -89,10 +89,6 @@ dependencies:
   # and splash image. Supports dark mode, full screen, and more.
   flutter_native_splash: ^2.3.10
 
-  # A command-line tool that simplifies the task of updating 
-  # your Flutter app's launcher icon.
-  icons_launcher: ^2.1.7
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -111,6 +107,10 @@ dev_dependencies:
   # A Dart mock library which simplifies mocking with null safety support 
   # and no manual mocks or code generation.
   mocktail: ^1.0.3
+
+  # A command-line tool that simplifies the task of updating 
+  # your Flutter app's launcher icon.
+  icons_launcher: ^2.1.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
