@@ -1,6 +1,10 @@
 import 'package:equatable/equatable.dart';
 
 // TODO: [P3] Write a test for the ExceptionIntf abstract class.
+
+/// [ExceptionIntf] should only be used in the Data layer.
+/// It should not be used in the Domain layer and Presentation layer.
+///
 /// This abstract class should only be "extended" and not "implemented"
 /// by an another class.
 ///
@@ -16,6 +20,7 @@ abstract class ExceptionIntf extends Equatable implements Exception {
         _message = message,
         _stackTrace = stackTrace;
 
+  // Fields.
   final String _title;
   final String _message;
   final StackTrace _stackTrace;
@@ -25,6 +30,7 @@ abstract class ExceptionIntf extends Equatable implements Exception {
   String get message => _message;
   StackTrace get stackTrace => _stackTrace;
 
+  // Equatable props.
   @override
   List<Object?> get props => [title, message, stackTrace];
 }
