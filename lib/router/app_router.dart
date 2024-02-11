@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'scaffold_with_nav_bar.dart';
-import 'temp/details_placeholder_page.dart';
-import 'temp/root_placeholder_page.dart';
+import 'temp/details_placeholder_screen.dart';
+import 'temp/root_placeholder_screen.dart';
 
 // TODO: [P3] Make a test for the AppRouter class.
 /// Ref: https://codewithandrea.com/articles/flutter-bottom-navigation-bar-nested-routes-gorouter/
@@ -44,7 +44,7 @@ class AppRouter {
                   // prevent unintended animations when switching between tabs
                   // (this is the default behaviour on popular iOS apps).
                   return const NoTransitionPage(
-                    child: RootPlaceholderPage(
+                    child: RootPlaceholderScreen(
                       label: 'Home',
                       detailsPath: '/home/details',
                     ),
@@ -54,7 +54,7 @@ class AppRouter {
                   GoRoute(
                     path: 'details',
                     builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderPage(label: 'Home');
+                      return const DetailsPlaceholderScreen(label: 'Home');
                     },
                   ),
                 ],
@@ -72,7 +72,7 @@ class AppRouter {
                 path: '/community',
                 pageBuilder: (BuildContext context, GoRouterState state) {
                   return const NoTransitionPage(
-                    child: RootPlaceholderPage(
+                    child: RootPlaceholderScreen(
                       label: 'Community',
                       detailsPath: '/community/details',
                     ),
@@ -82,7 +82,7 @@ class AppRouter {
                   GoRoute(
                     path: 'details',
                     builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderPage(label: 'Community');
+                      return const DetailsPlaceholderScreen(label: 'Community');
                     },
                   ),
                 ],
@@ -100,7 +100,7 @@ class AppRouter {
                 path: '/learn',
                 pageBuilder: (BuildContext context, GoRouterState state) {
                   return const NoTransitionPage(
-                    child: RootPlaceholderPage(
+                    child: RootPlaceholderScreen(
                       label: 'Learn',
                       detailsPath: '/learn/details',
                     ),
@@ -110,7 +110,7 @@ class AppRouter {
                   GoRoute(
                     path: 'details',
                     builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderPage(label: 'Learn');
+                      return const DetailsPlaceholderScreen(label: 'Learn');
                     },
                   ),
                 ],
@@ -127,7 +127,7 @@ class AppRouter {
                 path: '/profile',
                 pageBuilder: (BuildContext context, GoRouterState state) {
                   return const NoTransitionPage(
-                    child: RootPlaceholderPage(
+                    child: RootPlaceholderScreen(
                       label: 'Profile',
                       detailsPath: '/profile/details',
                     ),
@@ -137,7 +137,7 @@ class AppRouter {
                   GoRoute(
                     path: 'details',
                     builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderPage(label: 'Profile');
+                      return const DetailsPlaceholderScreen(label: 'Profile');
                     },
                   ),
                 ],

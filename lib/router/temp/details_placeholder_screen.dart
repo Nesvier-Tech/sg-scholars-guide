@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class DetailsPlaceholderPage extends StatefulWidget {
-  const DetailsPlaceholderPage({super.key, required this.label});
+class DetailsPlaceholderScreen extends StatefulWidget {
+  const DetailsPlaceholderScreen({super.key, required this.label});
 
   final String label;
 
   @override
-  State<StatefulWidget> createState() => _DetailsPlaceholderPageState();
+  State<StatefulWidget> createState() => _DetailsPlaceholderScreenState();
 }
 
-class _DetailsPlaceholderPageState extends State<DetailsPlaceholderPage> {
+class _DetailsPlaceholderScreenState extends State<DetailsPlaceholderScreen> {
   int _counter = 0;
 
   @override

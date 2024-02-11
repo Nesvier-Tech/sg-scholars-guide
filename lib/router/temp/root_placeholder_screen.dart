@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class RootPlaceholderPage extends StatelessWidget {
-  const RootPlaceholderPage({
+class RootPlaceholderScreen extends StatelessWidget {
+  const RootPlaceholderScreen({
     super.key,
     required this.label,
     required this.detailsPath,
