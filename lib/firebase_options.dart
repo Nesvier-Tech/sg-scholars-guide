@@ -23,9 +23,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -59,23 +65,5 @@ class DefaultFirebaseOptions {
     messagingSenderId: '199209182633',
     projectId: 'sg-scholars-guide-dev',
     storageBucket: 'sg-scholars-guide-dev.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB3A4ITrIL8yIlBl4dHTEkNVdv5_wflH-E',
-    appId: '1:199209182633:ios:8a0575f8a09631ee16d0b8',
-    messagingSenderId: '199209182633',
-    projectId: 'sg-scholars-guide-dev',
-    storageBucket: 'sg-scholars-guide-dev.appspot.com',
-    iosBundleId: 'com.nesvier.scholarsGuide',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB3A4ITrIL8yIlBl4dHTEkNVdv5_wflH-E',
-    appId: '1:199209182633:ios:a5c3b12c74d06b8916d0b8',
-    messagingSenderId: '199209182633',
-    projectId: 'sg-scholars-guide-dev',
-    storageBucket: 'sg-scholars-guide-dev.appspot.com',
-    iosBundleId: 'com.nesvier.scholarsGuide.RunnerTests',
   );
 }

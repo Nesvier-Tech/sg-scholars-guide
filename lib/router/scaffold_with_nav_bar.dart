@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 
 /// Builds the "shell" for the app by building a [Scaffold] with a
 /// [NavigationBar], where [child] is placed in the body of the [Scaffold].
+///
+/// Ref: https://codewithandrea.com/articles/flutter-bottom-navigation-bar-nested-routes-gorouter/
 class ScaffoldWithNavBar extends StatelessWidget {
   const ScaffoldWithNavBar({
     Key? key,
