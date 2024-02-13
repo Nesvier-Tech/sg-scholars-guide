@@ -25,12 +25,7 @@ abstract class ExceptionIntf extends Equatable implements Exception {
   final String _message;
   final StackTrace _stackTrace;
 
-  // Getters.
-  String get title => _title;
-  String get message => _message;
-  StackTrace get stackTrace => _stackTrace;
-
   // Equatable props.
   @override
-  List<Object?> get props => [title, message, stackTrace];
+  List<Object?> get props => [_title, _message, _stackTrace];
 }
