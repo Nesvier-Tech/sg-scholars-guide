@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 /// It should not be used in the Domain layer and Presentation layer.
 ///
 /// Properties _title,  _message, and _stackTrace are required for every [ExceptionBase] objects.
-/// You can add more properties on the concrete implementation of this [ExceptionBase]
+/// You can add more properties on the subclass of this [ExceptionBase]
 /// as you need it.ExceptionBase
 abstract class ExceptionBase extends Equatable implements Exception {
   const ExceptionBase({
