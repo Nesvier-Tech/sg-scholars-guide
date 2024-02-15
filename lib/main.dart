@@ -1,14 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/pages/ready_quiz_page.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/pages/quiz_page.dart';
+import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_questions_page.dart';
 
 import 'firebase_options.dart';
-import 'router/app_router.dart';
 
 void main() async {
-  final WidgetsBinding widgetsBinding =
-      WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize Firebase.
   await Firebase.initializeApp(
@@ -17,13 +16,6 @@ void main() async {
   );
 
   runApp(const ScholarsGuideApp());
-
-  // TODO: [P1] Investigate unusual crashing of the app after going home and
-  // then going back to the app (this happened after using the preserve
-  // and remove feature of the FlutterNativeSplash package).
-  // Update: The issue is independent from the FlutterNativeSplash package.
-  // It seems like it is coming from the firebase package/s.
-  FlutterNativeSplash.remove();
 }
 
 class ScholarsGuideApp extends StatelessWidget {
@@ -31,13 +23,30 @@ class ScholarsGuideApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'Scholar\'s Guide',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
       ),
-      routerConfig: AppRouter.router,
+      home: const HomePage(),
       debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Scholar\'s Guide'),
+      ),
+      body: const Center(
+        // child: Text('Welcome to Scholar\'s Guide'),
+        child: ReadyQuizPage(),
+      ),
     );
   }
 }

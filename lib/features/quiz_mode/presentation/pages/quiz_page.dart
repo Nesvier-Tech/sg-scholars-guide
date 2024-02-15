@@ -6,7 +6,9 @@ import 'package:scholars_guide/features/quiz_mode/presentation/widgets/question_
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/timer_display.dart';
 
 class QuizPage extends StatefulWidget {
-  const QuizPage({super.key});
+  const QuizPage({super.key, required this.subject});
+
+  final SUBJ subject;
 
   @override
   State<QuizPage> createState() => _QuizPageState();

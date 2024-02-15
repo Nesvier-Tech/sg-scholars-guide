@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_portal/flutter_portal.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/state_management/ready_quiz/ready_quiz_cubit.dart';
 
 class ChooseSubjectDisplay extends StatefulWidget {
   const ChooseSubjectDisplay({super.key});
@@ -10,24 +13,47 @@ class ChooseSubjectDisplay extends StatefulWidget {
 class _ChooseSubjectDisplayState extends State<ChooseSubjectDisplay> {
   @override
   Widget build(BuildContext context) {
-    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+    return Portal(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       const Text(
         "Choose a subject to start the quiz",
         style: TextStyle(fontSize: 20),
       ),
-      buildElevatedButton("UPCAT Challenge"),
-      buildElevatedButton("Math"),
-      buildElevatedButton("Science"),
-      buildElevatedButton("Language Proficiency"),
-      buildElevatedButton("Reading Comprehension"),
-    ]);
+      buildElevatedButton("UPCAT Challenge", context),
+      buildElevatedButton("Math", context),
+      buildElevatedButton("Science", context),
+      buildElevatedButton("Language Proficiency", context),
+      buildElevatedButton("Reading Comprehension", context),
+    ]));
   }
 }
 
-Container buildElevatedButton(String text) {
+Container buildElevatedButton(String text, BuildContext context) {
   return Container(
       margin: const EdgeInsets.only(bottom: 5, top: 5),
       height: 50,
       width: 220,
-      child: ElevatedButton(onPressed: () {}, child: Text(text)));
+      child: ElevatedButton(
+          onPressed: () {
+            switch (text) {
+              case "Math":
+                context.read<ReadyQuizCubit>().chooseMath();
+                break;
+              case "Science":
+                context.read<ReadyQuizCubit>().chooseScience();
+                break;
+              case "Language Proficiency":
+                context.read<ReadyQuizCubit>().chooseLanguage();
+                break;
+              case "Reading Comprehension":
+                context.read<ReadyQuizCubit>().chooseReading();
+                break;
+              case "UPCAT Challenge":
+                context.read<ReadyQuizCubit>().chooseAll();
+                break;
+              default:
+                context.read<ReadyQuizCubit>().chooseAll();
+            }
+          },
+          child: Text(text)));
 }

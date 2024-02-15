@@ -2,7 +2,7 @@
 
 import 'package:scholars_guide/core/models/firestore_model.dart';
 
-enum SUBJ { MATH, SCIENCE, READING, LANGUAGE, ALL}
+enum SUBJ { MATH, SCIENCE, READING, LANGUAGE, ALL }
 
 class Question {
   final String question;
@@ -11,13 +11,12 @@ class Question {
   final String questionID;
   final String ownerID;
 
-  const Question({
-    required this.question,
-    required this.options,
-    required this.correct,
-    required this.questionID,
-    required this.ownerID
-  });
+  const Question(
+      {required this.question,
+      required this.options,
+      required this.correct,
+      required this.questionID,
+      required this.ownerID});
 
   void printQuestion() {
     print('Question: $question');
@@ -30,12 +29,11 @@ class Question {
   // Returns a Question Class using data fetched from the Firestore
   factory Question.fromMap(Map<String, dynamic> data) {
     return Question(
-      question: data[FireStore.question],
-      options: List<String>.from(data[FireStore.options]),
-      correct: data[FireStore.correct],
-      questionID: data[FireStore.questionID],
-      ownerID: data[FireStore.ownerID]
-    );
+        question: data[FireStore.question],
+        options: List<String>.from(data[FireStore.options]),
+        correct: data[FireStore.correct],
+        questionID: data[FireStore.questionID],
+        ownerID: data[FireStore.ownerID]);
   }
 
   // Converts the Question Class to a json like file to be stored in the Firestore
@@ -61,6 +59,21 @@ class Question {
         return FireStore.subjects[3];
       case SUBJ.ALL:
         return 'all-subjects';
+    }
+  }
+
+  static String SUBJ2string(SUBJ subj) {
+    switch (subj) {
+      case SUBJ.MATH:
+        return "Math";
+      case SUBJ.SCIENCE:
+        return "Science";
+      case SUBJ.READING:
+        return "Reading Comprehension";
+      case SUBJ.LANGUAGE:
+        return "Language Proficiency";
+      case SUBJ.ALL:
+        return 'all subjects';
     }
   }
 }

@@ -1,6 +1,18 @@
-part of 'quiz_card_bloc.dart';
+part of 'quiz_card_cubit.dart';
 
-@immutable
-sealed class QuizCardState {}
+sealed class QuizCardState extends Equatable {
+  const QuizCardState();
 
-final class QuizCardInitial extends QuizCardState {}
+  @override
+  List<Object> get props => [];
+}
+
+final class QuizCardUnanswered extends QuizCardState {}
+
+final class QuizCardAnswered extends QuizCardState {
+  const QuizCardAnswered({required this.optionChosenIndex});
+
+  final int optionChosenIndex;
+}
+
+final class QuizCardRevealed extends QuizCardState {}
