@@ -1,6 +1,8 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../core/features/auth/presentation/screens/login_screen.dart';
 import 'scaffold_with_nav_bar.dart';
 import 'temp/details_placeholder_screen.dart';
 import 'temp/root_placeholder_screen.dart';
@@ -20,9 +22,22 @@ class AppRouter {
       GlobalKey<NavigatorState>(debugLabel: 'sectionProfileNav');
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/login',
     navigatorKey: _rootNavigatorKey,
     routes: <RouteBase>[
+      // AUTH.
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const LoginScreen(),
+        routes: <RouteBase>[
+          GoRoute(
+            path: 'forgot-password',
+            builder: (context, state) => const ForgotPasswordScreen(),
+          ),
+        ],
+      ),
+
+      // BOTTOM NAVIGATION.
       // Stateful nested navigator.
       StatefulShellRoute.indexedStack(
         builder: (

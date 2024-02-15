@@ -1,9 +1,9 @@
-import '../core/interfaces/params_intf.dart';
+import '../core/base_classes/params_base.dart';
 
 // TODO: [P3] Write a test for the NoParams class.
 
 /// When a use case does not require any parameters, this class should be used.
-class NoParams implements ParamsIntf {
+class NoParams implements ParamsBase {
   const NoParams();
 
   @override

@@ -42,7 +42,7 @@ dependencies:
   # multiple Firebase apps.
   firebase_core: ^2.25.4
 
-  # TODO: Configure App Check before deploying to production.
+  # TODO: [P1] Configure App Check before deploying to production.
   # App Check works alongside other Firebase services to help protect
   # your backend resources from abuse, such as billing fraud or phishing.
   firebase_app_check: ^0.2.1+13
@@ -93,6 +93,18 @@ dependencies:
   # and splash image. Supports dark mode, full screen, and more.
   flutter_native_splash: ^2.3.10
 
+  # This package helps in creation of forms in Flutter by removing the boilerplate
+  # code, reusing validation, react to changes, and collect final user input.
+  flutter_form_builder: ^9.2.1
+
+  # Form Builder Validators set of validators for FlutterFormBuilder. 
+  # Provides common validators and a way to make your own.
+  form_builder_validators: ^9.1.0
+
+  # An SVG rendering and widget library for Flutter, which allows painting and
+  # displaying Scalable Vector Graphics 1.1 files.
+  flutter_svg: ^2.0.9
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -116,6 +128,9 @@ dev_dependencies:
   # your Flutter app's launcher icon.
   icons_launcher: ^2.1.7
 
+  # A compiler for `package:vector_graphics`.
+  vector_graphics_compiler: ^1.1.10+1
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -129,6 +144,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/icons/
     - assets/logos/
 
   # An image asset can refer to one or more resolution-specific "variants", see
