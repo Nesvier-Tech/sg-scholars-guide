@@ -1,8 +1,9 @@
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
 import '../core/features/auth/presentation/screens/login_screen.dart';
+import '../core/features/auth/presentation/screens/password_reset_email_sent_confirmation_screen.dart';
 import 'scaffold_with_nav_bar.dart';
 import 'temp/details_placeholder_screen.dart';
 import 'temp/root_placeholder_screen.dart';
@@ -18,6 +19,10 @@ class AppRouter {
       GlobalKey<NavigatorState>(debugLabel: 'root');
   static final _shellNavigatorHomeKey =
       GlobalKey<NavigatorState>(debugLabel: 'sectionHomeNav');
+  static final _shellNavigatorCommunityKey =
+      GlobalKey<NavigatorState>(debugLabel: 'sectionCommunityNav');
+  static final _shellNavigatorLearnKey =
+      GlobalKey<NavigatorState>(debugLabel: 'sectionLearnNav');
   static final _shellNavigatorProfileKey =
       GlobalKey<NavigatorState>(debugLabel: 'sectionProfileNav');
 
@@ -28,11 +33,16 @@ class AppRouter {
       // AUTH.
       GoRoute(
         path: '/login',
-        builder: (context, state) => const LoginScreen(),
+        builder: (_, __) => const LoginScreen(),
         routes: <RouteBase>[
           GoRoute(
             path: 'forgot-password',
-            builder: (context, state) => const ForgotPasswordScreen(),
+            builder: (_, __) => const ForgotPasswordScreen(),
+          ),
+          GoRoute(
+            path: 'password-reset-email-sent-confirmation',
+            builder: (_, __) =>
+                const PasswordResetEmailSentConfirmationScreen(),
           ),
         ],
       ),
@@ -40,11 +50,7 @@ class AppRouter {
       // BOTTOM NAVIGATION.
       // Stateful nested navigator.
       StatefulShellRoute.indexedStack(
-        builder: (
-          BuildContext context,
-          GoRouterState state,
-          StatefulNavigationShell navigationShell,
-        ) {
+        builder: (_, __, StatefulNavigationShell navigationShell) {
           return ScaffoldWithNavBar(navigationShell: navigationShell);
         },
         branches: <StatefulShellBranch>[
@@ -55,7 +61,7 @@ class AppRouter {
               // Top route inside the home branch.
               GoRoute(
                 path: '/home',
-                pageBuilder: (BuildContext context, GoRouterState state) {
+                pageBuilder: (_, __) {
                   // We use a NoTransitionPage inside said route to
                   // prevent unintended animations when switching between tabs
                   // (this is the default behaviour on popular iOS apps).
@@ -69,9 +75,8 @@ class AppRouter {
                 routes: <RouteBase>[
                   GoRoute(
                     path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderScreen(label: 'Home');
-                    },
+                    builder: (_, __) =>
+                        const DetailsPlaceholderScreen(label: 'Home'),
                   ),
                 ],
               ),
@@ -80,13 +85,12 @@ class AppRouter {
 
           // Second branch (community).
           StatefulShellBranch(
-            navigatorKey:
-                GlobalKey<NavigatorState>(debugLabel: 'sectionCommunityNav'),
+            navigatorKey: _shellNavigatorCommunityKey,
             routes: <RouteBase>[
               // Top route inside the community branch.
               GoRoute(
                 path: '/community',
-                pageBuilder: (BuildContext context, GoRouterState state) {
+                pageBuilder: (_, __) {
                   return const NoTransitionPage(
                     child: RootPlaceholderScreen(
                       label: 'Community',
@@ -97,9 +101,8 @@ class AppRouter {
                 routes: <RouteBase>[
                   GoRoute(
                     path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderScreen(label: 'Community');
-                    },
+                    builder: (_, __) =>
+                        const DetailsPlaceholderScreen(label: 'Community'),
                   ),
                 ],
               ),
@@ -108,13 +111,12 @@ class AppRouter {
 
           // Third branch (learn).
           StatefulShellBranch(
-            navigatorKey:
-                GlobalKey<NavigatorState>(debugLabel: 'sectionLearnNav'),
+            navigatorKey: _shellNavigatorLearnKey,
             routes: <RouteBase>[
               // Top route inside the learn branch.
               GoRoute(
                 path: '/learn',
-                pageBuilder: (BuildContext context, GoRouterState state) {
+                pageBuilder: (_, __) {
                   return const NoTransitionPage(
                     child: RootPlaceholderScreen(
                       label: 'Learn',
@@ -125,9 +127,8 @@ class AppRouter {
                 routes: <RouteBase>[
                   GoRoute(
                     path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderScreen(label: 'Learn');
-                    },
+                    builder: (_, __) =>
+                        const DetailsPlaceholderScreen(label: 'Learn'),
                   ),
                 ],
               ),
@@ -141,7 +142,7 @@ class AppRouter {
               // Top route inside the profile branch.
               GoRoute(
                 path: '/profile',
-                pageBuilder: (BuildContext context, GoRouterState state) {
+                pageBuilder: (_, __) {
                   return const NoTransitionPage(
                     child: RootPlaceholderScreen(
                       label: 'Profile',
@@ -152,9 +153,8 @@ class AppRouter {
                 routes: <RouteBase>[
                   GoRoute(
                     path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderScreen(label: 'Profile');
-                    },
+                    builder: (_, __) =>
+                        const DetailsPlaceholderScreen(label: 'Profile'),
                   ),
                 ],
               ),

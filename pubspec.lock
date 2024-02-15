@@ -169,14 +169,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
-  desktop_webview_auth:
-    dependency: transitive
-    description:
-      name: desktop_webview_auth
-      sha256: c4dce73346a7be7243c90ac3b1a68586d9f0e2c2710e81e07d758e80a6ebd920
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.15"
   diff_match_patch:
     dependency: transitive
     description:
@@ -185,14 +177,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.1"
-  email_validator:
-    dependency: transitive
-    description:
-      name: email_validator
-      sha256: e9a90f27ab2b915a27d7f9c2a7ddda5dd752d6942616ee83529b686fc086221b
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.17"
   equatable:
     dependency: "direct main"
     description:
@@ -321,22 +305,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.3+21"
-  firebase_dynamic_links:
-    dependency: transitive
-    description:
-      name: firebase_dynamic_links
-      sha256: "531b79d396e3e92c6ada2beb02769d542b9c744a569e70a54d074d8b55732da9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.4.13"
-  firebase_dynamic_links_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_dynamic_links_platform_interface
-      sha256: f52f51e1097f201055672ce28304c05a5c92f547439c92707b9964e31791ed7f
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.6+21"
   firebase_storage:
     dependency: "direct main"
     description:
@@ -361,38 +329,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.6.22"
-  firebase_ui_auth:
-    dependency: "direct main"
-    description:
-      name: firebase_ui_auth
-      sha256: "3dbe87b5a6a02763af69c79106b2b13eb5907f5696ada6b25c4b9addfe066b5b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.13.0"
-  firebase_ui_localizations:
-    dependency: transitive
-    description:
-      name: firebase_ui_localizations
-      sha256: "816501d26bb9e2a58b5d5f80351d82a50bd2f5c8d4aeb22504c53f91b6c57259"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.10.2"
-  firebase_ui_oauth:
-    dependency: transitive
-    description:
-      name: firebase_ui_oauth
-      sha256: "176d76d31b0bf2167f2a4f83638e9af55c3a98fc6e6b3796f9185a6f48f09c61"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.0"
-  firebase_ui_shared:
-    dependency: transitive
-    description:
-      name: firebase_ui_shared
-      sha256: f1d07c130a39104d32fba1dab274b7bcb13be2bf4e652624a4ccabb58f9781f1
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.4.1"
   flutter:
     dependency: "direct main"
     description: flutter

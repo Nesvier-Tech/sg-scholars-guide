@@ -15,71 +15,74 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                // Welcome message.
-                Text(
-                  'Welcome Scholar',
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                const Text('Log in to continue your learning journey'),
-                const SizedBox(height: 32.0),
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  // Welcome message.
+                  Text(
+                    'Welcome Scholar',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const Text('Log in to continue your learning journey'),
+                  const SizedBox(height: 32.0),
 
-                // Log in with Google.
-                FilledButton.tonal(
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  // Log in with Google.
+                  FilledButton.tonal(
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          googleIconPath,
+                          width: 24.0,
+                          height: 24.0,
+                          semanticsLabel: 'Google Icon Logo',
+                        ),
+                        const SizedBox(width: 8.0),
+                        const Text('Log in with Google'),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 8.0),
+
+                  // Log in Anonymously.
+                  FilledButton.tonal(
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset(
+                          anonymousIconPath,
+                          width: 24.0,
+                          height: 24.0,
+                          semanticLabel: 'Anonymous Icon',
+                        ),
+                        const SizedBox(width: 8.0),
+                        const Text('Log in Anonymously'),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 32.0),
+
+                  // Horizontal divider.
+                  const Row(
                     children: <Widget>[
-                      SvgPicture.asset(
-                        googleIconPath,
-                        width: 24.0,
-                        height: 24.0,
-                        semanticsLabel: 'Google Icon Logo',
-                      ),
-                      const SizedBox(width: 8.0),
-                      const Text('Log in with Google'),
+                      Expanded(child: Divider(endIndent: 8.0)),
+                      Text('OR'),
+                      Expanded(child: Divider(indent: 8.0)),
                     ],
                   ),
-                ),
-                const SizedBox(height: 8.0),
+                  const SizedBox(height: 32.0),
 
-                // Log in Anonymously.
-                FilledButton.tonal(
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset(
-                        anonymousIconPath,
-                        width: 24.0,
-                        height: 24.0,
-                        semanticLabel: 'Anonymous Icon',
-                      ),
-                      const SizedBox(width: 8.0),
-                      const Text('Log in Anonymously'),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 32.0),
-
-                // Horizontal divider.
-                const Row(
-                  children: <Widget>[
-                    Expanded(child: Divider(endIndent: 8.0)),
-                    Text('OR'),
-                    Expanded(child: Divider(indent: 8.0)),
-                  ],
-                ),
-                const SizedBox(height: 32.0),
-
-                // Log in with Email form.
-                const LoginForm(),
-              ],
+                  // Log in with Email form.
+                  const LoginForm(),
+                ],
+              ),
             ),
           ),
         ),
@@ -182,7 +185,7 @@ class _LoginFormState extends State<LoginForm> {
           // Don't have an account? Sign up.
           Row(
             children: <Widget>[
-              const Text('Don\'t have an account?'),
+              const Text('Don\'t have an account? '),
               TextButton(
                 onPressed: () {},
                 child: const Text('Sign up'),
