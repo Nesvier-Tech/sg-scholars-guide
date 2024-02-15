@@ -6,6 +6,7 @@ import 'temp/details_placeholder_screen.dart';
 import 'temp/root_placeholder_screen.dart';
 
 // TODO: [P3] Make a test for the AppRouter class.
+
 /// Ref: https://codewithandrea.com/articles/flutter-bottom-navigation-bar-nested-routes-gorouter/
 class AppRouter {
   const AppRouter._();
