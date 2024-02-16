@@ -27,7 +27,7 @@ class PasswordResetEmailSentConfirmationScreen extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: Text(
-                    'Please check your inbox for the password reset link. If you don\'t see it, please check your spam folder.',
+                    'Please check your inbox for the password reset link. If you didn\'t see it, please check your spam folder.',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
