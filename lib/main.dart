@@ -18,11 +18,6 @@ void main() async {
 
   runApp(const ScholarsGuideApp());
 
-  // TODO: [P1] Investigate unusual crashing of the app after going home and
-  // then going back to the app (this happened after using the preserve
-  // and remove feature of the FlutterNativeSplash package).
-  // Update: The issue is independent from the FlutterNativeSplash package.
-  // It seems like it is coming from the firebase package/s.
   FlutterNativeSplash.remove();
 }
 

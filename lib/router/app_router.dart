@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scholars_guide/core/features/auth/presentation/screens/signup_screen.dart';
 
 import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
 import '../core/features/auth/presentation/screens/login_screen.dart';
@@ -45,6 +46,11 @@ class AppRouter {
                 const PasswordResetEmailSentConfirmationScreen(),
           ),
         ],
+      ),
+
+      GoRoute(
+        path: '/signup',
+        builder: (_, __) => const SignupScreen(),
       ),
 
       // BOTTOM NAVIGATION.

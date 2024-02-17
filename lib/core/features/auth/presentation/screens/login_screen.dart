@@ -140,13 +140,13 @@ class _LoginFormState extends State<LoginForm> {
               labelText: 'Password',
               hintText: 'Enter your password',
               border: const OutlineInputBorder(),
-              suffixIcon: IconButton(
+              suffixIcon: TextButton(
                 onPressed: () {
                   setState(() {
                     _isPasswordVisible = !_isPasswordVisible;
                   });
                 },
-                icon: _isPasswordVisible
+                child: _isPasswordVisible
                     ? const Icon(Icons.visibility)
                     : const Icon(Icons.visibility_off),
               ),
@@ -187,7 +187,7 @@ class _LoginFormState extends State<LoginForm> {
             children: <Widget>[
               const Text('Don\'t have an account? '),
               TextButton(
-                onPressed: () {},
+                onPressed: () => GoRouter.of(context).go('/signup'),
                 child: const Text('Sign up'),
               ),
             ],
