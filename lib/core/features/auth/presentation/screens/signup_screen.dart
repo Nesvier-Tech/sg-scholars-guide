@@ -61,11 +61,11 @@ class SignupForm extends StatefulWidget {
 
 class _SignupFormState extends State<SignupForm> {
   final _formKey = GlobalKey<FormBuilderState>();
-  int usernameLength = 0;
-  bool? isUsernameAvailable;
-  bool wasUsernameTextFieldTappedAtLeastOnce = false;
-  bool isPasswordVisible = false;
-  bool isConfirmPasswordVisible = false;
+  int _usernameLength = 0;
+  bool? _isUsernameAvailable;
+  bool _wasUsernameTextFieldTappedAtLeastOnce = false;
+  bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
 
   Widget? _buildUsernameAvailabilityIconIndicator(bool? isUsernameAvailable) {
     if (isUsernameAvailable == null) {
@@ -83,7 +83,7 @@ class _SignupFormState extends State<SignupForm> {
       return Colors.red;
     }
 
-    if ((numOfCharacters < 6) && wasUsernameTextFieldTappedAtLeastOnce) {
+    if ((numOfCharacters < 6) && _wasUsernameTextFieldTappedAtLeastOnce) {
       return Colors.red;
     }
 
@@ -95,7 +95,7 @@ class _SignupFormState extends State<SignupForm> {
       return 'Must not exceed 20 characters';
     }
 
-    if ((usernameLength < 6) && wasUsernameTextFieldTappedAtLeastOnce) {
+    if ((usernameLength < 6) && _wasUsernameTextFieldTappedAtLeastOnce) {
       return 'Must be at least 6 characters';
     }
 
@@ -135,31 +135,35 @@ class _SignupFormState extends State<SignupForm> {
                     textInputAction: TextInputAction.next,
                     onChanged: (String? value) {
                       setState(() {
-                        usernameLength = value?.length ?? 0;
+                        _usernameLength = value?.length ?? 0;
                       });
                     },
                     onTap: () {
                       setState(() {
-                        wasUsernameTextFieldTappedAtLeastOnce = true;
+                        _wasUsernameTextFieldTappedAtLeastOnce = true;
                       });
                     },
                     decoration: InputDecoration(
                       labelText: 'Username',
                       hintText: 'Enter your username',
                       suffixIcon: _buildUsernameAvailabilityIconIndicator(
-                        isUsernameAvailable,
+                        _isUsernameAvailable,
                       ),
                       border: const OutlineInputBorder(),
-                      counterText: '$usernameLength / 20',
+                      counterText: '$_usernameLength / 20',
                       counterStyle: TextStyle(
-                        color: _getCounterTextColor(usernameLength),
+                        color: _getCounterTextColor(_usernameLength),
                       ),
-                      errorText: _getUsernameLengthErrorText(usernameLength),
+                      errorText: _getUsernameLengthErrorText(_usernameLength),
                     ),
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(),
                       FormBuilderValidators.minLength(6),
                       FormBuilderValidators.maxLength(20),
+                      FormBuilderValidators.match(
+                        r'^[^ ]+$',
+                        errorText: 'No spaces allowed',
+                      ),
                     ]),
                   ),
                   const SizedBox(height: 16.0),
@@ -212,20 +216,23 @@ class _SignupFormState extends State<SignupForm> {
                     name: 'password',
                     keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.next,
-                    obscureText: !isPasswordVisible,
+                    obscureText: !_isPasswordVisible,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       hintText: 'Enter your password',
                       border: const OutlineInputBorder(),
-                      suffixIcon: TextButton(
+                      suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
-                            isPasswordVisible = !isPasswordVisible;
+                            _isPasswordVisible = !_isPasswordVisible;
                           });
                         },
-                        child: isPasswordVisible
+                        icon: _isPasswordVisible
                             ? const Icon(Icons.visibility)
                             : const Icon(Icons.visibility_off),
+                        color: _isPasswordVisible
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
                       ),
                       errorMaxLines: 2,
                     ),
@@ -241,21 +248,24 @@ class _SignupFormState extends State<SignupForm> {
                     name: 'confirmPassword',
                     keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.done,
-                    obscureText: !isConfirmPasswordVisible,
+                    obscureText: !_isConfirmPasswordVisible,
                     decoration: InputDecoration(
                       labelText: 'Confirm Password',
                       hintText: 'Re-enter your password',
                       border: const OutlineInputBorder(),
-                      suffixIcon: TextButton(
+                      suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
-                            isConfirmPasswordVisible =
-                                !isConfirmPasswordVisible;
+                            _isConfirmPasswordVisible =
+                                !_isConfirmPasswordVisible;
                           });
                         },
-                        child: isConfirmPasswordVisible
+                        icon: _isConfirmPasswordVisible
                             ? const Icon(Icons.visibility)
                             : const Icon(Icons.visibility_off),
+                        color: _isConfirmPasswordVisible
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
                       ),
                       errorMaxLines: 2,
                     ),

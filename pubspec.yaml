@@ -103,6 +103,10 @@ dependencies:
   # displaying Scalable Vector Graphics 1.1 files.
   flutter_svg: ^2.0.9
 
+  # A rich text editor built for the modern Android, iOS, web and desktop platforms.
+  # It is the WYSIWYG editor and a Quill component for Flutter.
+  flutter_quill: ^9.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
