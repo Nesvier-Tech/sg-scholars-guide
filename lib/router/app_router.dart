@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:scholars_guide/core/features/auth/presentation/screens/signup_screen.dart';
 
 import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
 import '../core/features/auth/presentation/screens/login_screen.dart';
 import '../core/features/auth/presentation/screens/password_reset_email_sent_confirmation_screen.dart';
+import '../core/features/auth/presentation/screens/signup_screen.dart';
+import '../features/legalities/presentation/screens/privacy_policy_screen.dart';
+import '../features/legalities/presentation/screens/terms_of_services_screen.dart';
 import 'scaffold_with_nav_bar.dart';
 import 'temp/details_placeholder_screen.dart';
 import 'temp/root_placeholder_screen.dart';
@@ -47,10 +49,19 @@ class AppRouter {
           ),
         ],
       ),
-
       GoRoute(
         path: '/signup',
         builder: (_, __) => const SignupScreen(),
+      ),
+
+      // LEGALITIES.
+      GoRoute(
+        path: '/privacy-policy',
+        builder: (_, __) => PrivacyPolicyScreen(),
+      ),
+      GoRoute(
+        path: '/terms-of-service',
+        builder: (_, __) => const TermsOfServiceScreen(),
       ),
 
       // BOTTOM NAVIGATION.

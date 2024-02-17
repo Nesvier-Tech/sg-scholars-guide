@@ -10,7 +10,6 @@ void main() async {
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // Initialize Firebase.
   await Firebase.initializeApp(
     name: 'SG - Scholar\'s Guide',
     options: DefaultFirebaseOptions.currentPlatform,

@@ -107,6 +107,10 @@ dependencies:
   # It is the WYSIWYG editor and a Quill component for Flutter.
   flutter_quill: ^9.3.1
 
+  # A Markdown renderer for Flutter. Create rich text output, including text styles,
+  # tables, links, and more, from plain text data formatted with simple Markdown tags.
+  flutter_markdown: ^0.6.19
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

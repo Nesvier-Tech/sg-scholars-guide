@@ -8,13 +8,13 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: PopScope(
-            canPop: false,
-            onPopInvoked: (_) => GoRouter.of(context).go('/login'),
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (_) => GoRouter.of(context).go('/login'),
+      child: Scaffold(
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(32.0),
