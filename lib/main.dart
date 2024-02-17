@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/pages/ready_quiz_page.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/pages/quiz_page.dart';
-import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_questions_page.dart';
+import 'core/models/question_model.dart';
+import 'features/quiz_mode/presentation/pages/ready_quiz_page.dart';
+import 'features/quiz_mode/presentation/pages/quiz_page.dart';
+import 'features/quiz_upload/presentation/pages/upload_questions_page.dart';
 
 import 'firebase_options.dart';
 
@@ -45,7 +46,7 @@ class HomePage extends StatelessWidget {
       ),
       body: const Center(
         // child: Text('Welcome to Scholar\'s Guide'),
-        child: ReadyQuizPage(),
+        child: QuizPage(subject: SUBJ.MATH),
       ),
     );
   }

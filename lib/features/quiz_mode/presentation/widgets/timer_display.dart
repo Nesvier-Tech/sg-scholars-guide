@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:async';
-
-import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_portal/flutter_portal.dart';
 
 class TimerDisplay extends StatefulWidget {

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:scholars_guide/core/models/question_model.dart';
+
+import '../../../../../core/models/question_model.dart';
 
 part 'ready_quiz_state.dart';
 

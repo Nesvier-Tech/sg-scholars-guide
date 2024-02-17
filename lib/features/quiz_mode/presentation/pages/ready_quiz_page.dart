@@ -19,9 +19,7 @@ class ReadyQuizPage extends StatelessWidget {
           if (state is ReadyQuizSubjectChosen) {
             return ChooseSubjectConfirmDisplay(
                 subject: state.subject);
-          } else {
-            return ChooseSubjectDisplay();
-          }
+          } return ChooseSubjectDisplay();
         }));
   }
 }

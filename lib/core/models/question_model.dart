@@ -31,7 +31,7 @@ class Question {
     return Question(
         question: data[FireStore.question],
         options: List<String>.from(data[FireStore.options]),
-        correct: data[FireStore.correct],
+        correct: data[FireStore.correctIndex],
         questionID: data[FireStore.questionID],
         ownerID: data[FireStore.ownerID]);
   }
@@ -41,7 +41,7 @@ class Question {
     return {
       FireStore.question: question,
       FireStore.options: options,
-      FireStore.correct: correct,
+      FireStore.correctIndex: correct,
       FireStore.questionID: questionID,
       FireStore.ownerID: ownerID
     };

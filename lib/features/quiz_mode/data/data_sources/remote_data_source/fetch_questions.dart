@@ -1,7 +1,6 @@
 
 // import 'package:scholars_guide/service_locator/service_locator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 Future fetchQuestions(String subject) {
   return FirebaseFirestore.instance.collection(subject).get();

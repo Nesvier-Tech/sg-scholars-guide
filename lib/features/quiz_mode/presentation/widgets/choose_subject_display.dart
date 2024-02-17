@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/state_management/ready_quiz/ready_quiz_cubit.dart';
+import '../state_management/ready_quiz/ready_quiz_cubit.dart';
 
 class ChooseSubjectDisplay extends StatefulWidget {
   const ChooseSubjectDisplay({super.key});
