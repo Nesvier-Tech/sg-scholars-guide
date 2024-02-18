@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz/quiz_bloc.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_widgets/question_display.dart';
+
 import 'ready_quiz_page.dart';
 
 class FinishedQuizPage extends StatelessWidget {

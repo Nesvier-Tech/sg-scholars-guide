@@ -50,7 +50,7 @@ Container buildElevatedButton(String text, BuildContext context) {
                 context.read<ReadyQuizCubit>().chooseReading();
                 break;
               case "UPCAT Challenge":
-                context.read<ReadyQuizCubit>().chooseAll();
+                // context.read<ReadyQuizCubit>().chooseAll();
                 break;
               default:
                 context.read<ReadyQuizCubit>().chooseAll();
