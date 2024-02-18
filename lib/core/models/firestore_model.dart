@@ -1,11 +1,16 @@
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:scholars_guide/core/models/question_model.dart';
+
 class FireStore {
   //* Collection names in the Firestore
-  static const List<String> subjects = [
-    'mathematicsQuestions',
-    'scienceQuestions',
-    'readingComprehensionQuestions',
-    'languageProficiencyQuestions'
-  ];
+  static const subjects = {
+    SUBJ.MATH: 'mathematicsQuestions',
+    SUBJ.SCIENCE: 'scienceQuestions',
+    SUBJ.READING: 'readingComprehensionQuestions',
+    SUBJ.LANGUAGE: 'languageProficiencyQuestions',
+    SUBJ.ALL: 'all-subjects'
+  };
 
   //* Field names of each document in the Firestore
   // Question related fields
@@ -27,4 +32,8 @@ class FireStore {
   static const String solutions = 'solutionsRefs';
   static const String comments = 'commentsRef';
   static const String upvotes = 'upvotesCount';
+
+  static String SUBJ2subject(SUBJ subj) {
+    return subjects[subj] as String;
+  }
 }

@@ -9,10 +9,21 @@ sealed class QuizState extends Equatable {
 
 final class QuizLoading extends QuizState {}
 
-final class QuizOngoing extends QuizState {}
+final class QuizOngoing extends QuizState {
+  const QuizOngoing(this.questions);
+
+  final List<Question> questions;
+
+  @override
+  List<Object> get props => [questions];
+}
+
+final class QuizFinishConfirmation extends QuizState {}
+
+final class QuizCancelConfirmation extends QuizState {}
 
 final class QuizOutOfTime extends QuizState {}
 
-final class QuizFinish extends QuizState {}
-
-final class QuizError extends QuizState {}
+final class QuizError extends QuizState {
+  
+}

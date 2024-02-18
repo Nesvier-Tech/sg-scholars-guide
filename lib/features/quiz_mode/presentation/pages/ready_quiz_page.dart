@@ -12,14 +12,20 @@ class ReadyQuizPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ReadyQuizCubit>(
-        create: (context) => ReadyQuizCubit(),
-        child: BlocBuilder<ReadyQuizCubit, ReadyQuizState>(
-            builder: (readyQuizCubitContext, state) {
-          if (state is ReadyQuizSubjectChosen) {
-            return ChooseSubjectConfirmDisplay(
-                subject: state.subject);
-          } return ChooseSubjectDisplay();
-        }));
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Scholar\'s Guide'),
+        ),
+        body: Center(
+          child: BlocProvider<ReadyQuizCubit>(
+              create: (context) => ReadyQuizCubit(),
+              child: BlocBuilder<ReadyQuizCubit, ReadyQuizState>(
+                  builder: (readyQuizCubitContext, state) {
+                if (state is ReadyQuizSubjectChosen) {
+                  return ChooseSubjectConfirmDisplay(subject: state.subject);
+                }
+                return ChooseSubjectDisplay();
+              })),
+        ));
   }
 }

@@ -3,17 +3,21 @@
 import 'package:flutter/material.dart';
 
 class QuestionAnswerCard extends StatefulWidget {
-  const QuestionAnswerCard({super.key});
+  const QuestionAnswerCard(
+      {super.key,
+      required this.choices,
+      required this.correctChoiceKey,
+      required this.question});
+
+  final List<String> choices;
+  final String correctChoiceKey;
+  final String question;
 
   @override
   State<QuestionAnswerCard> createState() => _QuestionAnswerCardState();
 }
 
 class _QuestionAnswerCardState extends State<QuestionAnswerCard> {
-  List<String> choices = ["11111", "2222", "3333", "41114141"];
-  String correctAnswer = "11111";
-  String question = "Question";
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +34,10 @@ class _QuestionAnswerCardState extends State<QuestionAnswerCard> {
                 flex: 3,
                 child: Align(
                     alignment: Alignment.center,
-                    child: Container(margin:EdgeInsets.only(left:25.0, right:25.0), child: Text(question, style: TextStyle(fontSize: 17.0))))),
+                    child: Container(
+                        margin: EdgeInsets.only(left: 25.0, right: 25.0),
+                        child:
+                            Text(widget.question, style: TextStyle(fontSize: 17.0))))),
             Expanded(
               flex: 2,
               child: Row(
@@ -39,21 +46,21 @@ class _QuestionAnswerCardState extends State<QuestionAnswerCard> {
                   Column(children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
-                      child: _choiceButton("A. ${choices[0]}"),
+                      child: _choiceButton("A. ${widget.choices[0]}"),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
-                      child: _choiceButton("B. ${choices[1]}"),
+                      child: _choiceButton("B. ${widget.choices[1]}"),
                     )
                   ]),
                   Column(children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
-                      child: _choiceButton("C. ${choices[2]}"),
+                      child: _choiceButton("C. ${widget.choices[2]}"),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
-                      child: _choiceButton("D. ${choices[3]}"),
+                      child: _choiceButton("D. ${widget.choices[3]}"),
                     ),
                   ])
                 ],
@@ -64,8 +71,6 @@ class _QuestionAnswerCardState extends State<QuestionAnswerCard> {
   }
 }
 
-// Expanded(child: _choiceButton("A. ${choices[0]}")),
-// Expanded(child: _choiceButton("B. ${choices[1]}")),
 OutlinedButton _choiceButton(String choice) {
   return OutlinedButton(
     onPressed: () {},

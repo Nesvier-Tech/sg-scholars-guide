@@ -12,11 +12,8 @@ class ChooseQuestions {
   Future<List<Question>> choose() async {
     List<Question> totalQuestions =
         await const QuizModeRepositoryImpl().collectQuestions(subj: subj);
-    totalQuestions.shuffle(Random());
-    print('======== HERE ARE THE QUESTIONS ========');
-    print(totalQuestions);
-    print('======== ===================== ========');
-
-    return totalQuestions.sublist(0, numQuestions);
+    totalQuestions.shuffle(Random()); 
+    // TODO: randomize the choices as well for each question
+    return totalQuestions.sublist(0, numQuestions < totalQuestions.length ? numQuestions : totalQuestions.length);
   }
 }

@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'core/models/question_model.dart';
 import 'features/quiz_mode/presentation/pages/ready_quiz_page.dart';
 import 'features/quiz_mode/presentation/pages/quiz_page.dart';
@@ -44,9 +47,18 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Scholar\'s Guide'),
       ),
-      body: const Center(
+      body: Center(
         // child: Text('Welcome to Scholar\'s Guide'),
-        child: QuizPage(subject: SUBJ.MATH),
+        // child: QuizPage(subject: SUBJ.LANGUAGE),
+        child: ElevatedButton(
+          onPressed: (){
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => (ReadyQuizPage())),
+                  );
+          }, 
+          child: Text("TEST")),
       ),
     );
   }
