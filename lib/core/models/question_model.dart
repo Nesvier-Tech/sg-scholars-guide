@@ -10,11 +10,13 @@ class Question {
   final String question;
   final List<String> options;
   final int correctIndex;
+  final SUBJ subject;
 
   const Question({
     required this.question,
     required this.options,
     required this.correctIndex,
+    required this.subject,
   });
 
   void printQuestion() {
@@ -24,7 +26,7 @@ class Question {
   }
 
   // Returns a Question Class using data fetched from the Firestore
-  factory Question.fromMap(Map<String, dynamic> data) {
+  factory Question.fromMap(Map<String, dynamic> data, SUBJ subject) {
     List<String> temp = [];
     for (var val in data[FireStore.options].values) temp.add(val);
     
@@ -32,6 +34,7 @@ class Question {
     temp.shuffle(Random());
 
     return Question(
+        subject: subject,
         question: data[FireStore.question],
         options: temp,
         correctIndex: temp.indexWhere((element) => element == temp2));

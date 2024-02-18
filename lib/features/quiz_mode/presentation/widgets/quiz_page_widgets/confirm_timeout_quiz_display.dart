@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/finished_quiz_page.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz/quiz_bloc.dart';
 
-class ConfirmSubmitQuizDisplay extends StatelessWidget {
-  const ConfirmSubmitQuizDisplay({super.key});
+class ConfirmTimeOutQuizDisplay extends StatelessWidget {
+  const ConfirmTimeOutQuizDisplay({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class ConfirmSubmitQuizDisplay extends StatelessWidget {
             color: Colors.black.withOpacity(0.6),
           ),
           child: AlertDialog(
-            title: const Text('Submit Confirmation'),
-            content: const Text("You can't go back after this! Are you sure?"),
+            title: const Text('Out of Time'),
+            content: const Text("You did great! Let's see you did"),
             actions: <Widget>[
               ElevatedButton(
                 child: const Text('Submit Quiz'),
@@ -27,14 +27,11 @@ class ConfirmSubmitQuizDisplay extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => (FinishedQuizPage())),
+                        builder: (context) => (FinishedQuizPage(
+                            subjectQuestionsMap:
+                                context.read<QuizBloc>().subjectQuestionsMap,
+                            subject: context.read<QuizBloc>().subject))),
                   );
-                },
-              ),
-              ElevatedButton(
-                child: const Text('Go Back'),
-                onPressed: () {
-                  context.read<QuizBloc>().add(QuizConfirmFinishBtnPressed());
                 },
               ),
             ],

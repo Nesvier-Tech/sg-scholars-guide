@@ -21,10 +21,10 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract{
           .collection(FireStore.SUBJ2subject(subj))
           .get()
           .then((snapshot) => snapshot.docs
-              .map((e) => questions.add(Question.fromMap(e.data()))).toList()));
+              .map((e) => questions.add(Question.fromMap(e.data(), subj))).toList()));
 
     // TODO: Update imports and change actual code below once get_it is done
-    // await fetchQuestions(subject).then((snapshot) => snapshot.docs.map((e) => questions.add(Question.fromMap(e.data()))));
+    // await fetchQuestions(subject).then((snapshot) => snapshot.docs.map((e) => questions.add(Question.fromMap(e.data(), subj))));
     print("DONE COLLECTING QUESTIONS ========================================"); // ! Debugging
     return questions;
     }

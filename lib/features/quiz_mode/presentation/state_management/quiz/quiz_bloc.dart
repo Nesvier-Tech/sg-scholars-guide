@@ -2,10 +2,9 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:scholars_guide/core/models/question_model.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
+import '../../../../../core/models/question_model.dart';
 import 'package:scholars_guide/features/quiz_mode/domain/usecases/select_questions.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/pages/finished_quiz_page.dart';
 
 part 'quiz_event.dart';
 part 'quiz_state.dart';
@@ -13,20 +12,47 @@ part 'quiz_state.dart';
 class QuizBloc extends Bloc<QuizEvent, QuizState> {
   QuizBloc() : super(QuizLoading()) {
     on<QuizLoadQuestions>((event, emit) async {
-      List<Question> totalQuestions = await ChooseQuestions(
-              subj: event.subject, numQuestions: event.numQuestions)
-          .choose();
-      ongoingQuiz = QuizOngoing(totalQuestions);
-      emit(ongoingQuiz);
+      subject = event.subject;
+
+      if (event.subject == SUBJ.ALL) {
+        Map<SUBJ, List<Question>> allSubjectQuestions = await ChooseQuestions(
+                subj: event.subject, numQuestions: event.numQuestions)
+            .chooseAll();
+
+        subjectQuestionsMap = allSubjectQuestions.map((key, value) {
+          return MapEntry(
+              key,
+              value
+                  .map((e) => QuizCardCubit(
+                      correctIndex: e.correctIndex,
+                      optionsArray: e.options,
+                      question: e.question))
+                  .toList());
+        });
+      } else {
+        List<Question> subjectQuestions = await ChooseQuestions(
+                subj: event.subject, numQuestions: event.numQuestions)
+            .choose();
+
+        subjectQuestionsMap = {
+          event.subject: subjectQuestions
+              .map((e) => QuizCardCubit(
+                  correctIndex: e.correctIndex,
+                  optionsArray: e.options,
+                  question: e.question))
+              .toList()
+        };
+      }
+
+      emit(QuizOngoing());
     });
 
     // * For submitting the quiz
     on<QuizFinishBtnPressed>((event, emit) {
-      print("Submit button pressed 2 =========================="); // ! Debugging
       emit(QuizFinishConfirmation());
     });
     on<QuizConfirmFinishBtnPressed>((event, emit) {
-      emit(ongoingQuiz);
+      emit(QuizOngoing());
     });
     on<QuizTimeFinished>((event, emit) {
       emit(QuizOutOfTime());
@@ -37,7 +63,7 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
       emit(QuizCancelConfirmation());
     });
     on<QuizConfirmCancelBtnPressed>((event, emit) {
-      emit(ongoingQuiz);
+      emit(QuizOngoing());
     });
 
     // * Only for quiz taking all subjects.
@@ -46,12 +72,6 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
     on<QuizPreviousPageBtnPressed>((event, emit) {});
   }
 
-  late QuizOngoing ongoingQuiz;
+  late SUBJ subject;
+  late Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap;
 }
-
-
-      // Navigator.push(
-      //       context,
-      //       MaterialPageRoute(
-      //         builder: (context) => const FinishedQuizPage(),
-      //       ))

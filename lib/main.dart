@@ -2,12 +2,8 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'core/models/question_model.dart';
-import 'features/quiz_mode/presentation/pages/ready_quiz_page.dart';
-import 'features/quiz_mode/presentation/pages/quiz_page.dart';
-import 'features/quiz_upload/presentation/pages/upload_questions_page.dart';
 
+import 'features/quiz_mode/presentation/pages/ready_quiz_page.dart';
 import 'firebase_options.dart';
 
 void main() async {

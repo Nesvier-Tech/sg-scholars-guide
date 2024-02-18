@@ -10,9 +10,19 @@ sealed class QuizCardState extends Equatable {
 final class QuizCardUnanswered extends QuizCardState {}
 
 final class QuizCardAnswered extends QuizCardState {
-  const QuizCardAnswered({required this.optionChosenIndex});
+  const QuizCardAnswered({required this.chosenIndex});
 
-  final int optionChosenIndex;
+  final int chosenIndex;
+
+  @override
+  List<Object> get props => [chosenIndex];
 }
 
-final class QuizCardRevealed extends QuizCardState {}
+final class QuizCardRevealed extends QuizCardState {
+  const QuizCardRevealed({required this.chosenIndex});
+
+  final int chosenIndex;
+
+  @override
+  List<Object> get props => [chosenIndex];
+}
