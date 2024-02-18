@@ -1,7 +1,38 @@
 import '../../../../base_classes/entity_base.dart';
 
+// @override
+// String toString() {
+//   return '$User('
+//       'displayName: $displayName, '
+//       'email: $email, '
+//       'isEmailVerified: $emailVerified, '
+//       'isAnonymous: $isAnonymous, '
+//       'metadata: $metadata, '
+//       'phoneNumber: $phoneNumber, '
+//       'photoURL: $photoURL, '
+//       'providerData, $providerData, '
+//       'refreshToken: $refreshToken, '
+//       'tenantId: $tenantId, '
+//       'uid: $uid)';
+// }
+
+// @override
+// String toString() =>
+//     'AuthCredential(providerId: $providerId, signInMethod: $signInMethod, token: $token, accessToken: $accessToken)';
+
+// @override
+// String toString() {
+//   return '$AdditionalUserInfo('
+//       'isNewUser: $isNewUser, '
+//       'profile: $profile, '
+//       'providerId: $providerId, '
+//       'username: $username, '
+//       'authorizationCode: $authorizationCode)';
+// }
+
 class UserEntity extends EntityBase {
   const UserEntity({
+    required String uid,
     required String username,
     Map<String, String>? fullName,
     String? displayPictureURL,
@@ -16,7 +47,8 @@ class UserEntity extends EntityBase {
     List<String>? createdQuestionsRefs,
     List<String>? updatedQuestionsRefs,
     List<String>? createdSolutionsRefs,
-  })  : _username = username,
+  })  : _uid = uid,
+        _username = username,
         _fullName = fullName,
         _displayPictureURL = displayPictureURL,
         _emails = emails,
@@ -32,6 +64,7 @@ class UserEntity extends EntityBase {
         _createdSolutionsRefs = createdSolutionsRefs;
 
   // Fields.
+  final String _uid;
   final String _username;
   final Map<String, String>? _fullName;
   final String? _displayPictureURL;
@@ -65,6 +98,7 @@ class UserEntity extends EntityBase {
   // Equatable props.
   @override
   List<Object?> get props => [
+        _uid,
         _username,
         _fullName,
         _displayPictureURL,

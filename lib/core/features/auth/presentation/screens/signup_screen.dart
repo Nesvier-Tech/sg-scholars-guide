@@ -1,7 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logger/logger.dart';
+import '../../data/models/user_model.dart';
+
+import '../../../../../service_locator/service_locator.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -60,7 +66,10 @@ class SignupForm extends StatefulWidget {
 }
 
 class _SignupFormState extends State<SignupForm> {
+  final _authInstance = services<FirebaseAuth>();
+  final _dbInstance = services<FirebaseFirestore>();
   final _formKey = GlobalKey<FormBuilderState>();
+  final _logger = services<Logger>();
   int _usernameLength = 0;
   bool? _isUsernameAvailable;
   bool _wasUsernameTextFieldTappedAtLeastOnce = false;
@@ -272,6 +281,9 @@ class _SignupFormState extends State<SignupForm> {
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(),
                       FormBuilderValidators.minLength(16),
+
+                      // TODO: [P*] Investigate this bug. Sometimes this validator does not work.
+                      // It still says 'Passwords do not match' even when they do.
                       FormBuilderValidators.equal(
                         _formKey.currentState?.fields['password']?.value ?? '',
                         errorText: 'Passwords do not match',
@@ -287,9 +299,54 @@ class _SignupFormState extends State<SignupForm> {
 
           // Sign up button.
           FilledButton(
-            onPressed: () {
+            onPressed: () async {
+              // Print the password and confirm password fields.
+              _logger.i(_formKey.currentState?.fields['password']?.value);
+              _logger
+                  .i(_formKey.currentState?.fields['confirmPassword']?.value);
+              // Check if they are equal.
+              _logger.i(
+                _formKey.currentState?.fields['password']?.value ==
+                    _formKey.currentState?.fields['confirmPassword']?.value,
+              );
+
               if (_formKey.currentState?.saveAndValidate() ?? false) {
-                GoRouter.of(context).go('/home');
+                // Create user.
+                final String email =
+                    _formKey.currentState?.fields['email']?.value;
+                final String password =
+                    _formKey.currentState?.fields['password']?.value;
+
+                late final UserCredential userCredential;
+                late final String uid;
+
+                userCredential =
+                    await _authInstance.createUserWithEmailAndPassword(
+                  email: email,
+                  password: password,
+                );
+
+                uid = userCredential.user!.uid;
+                _logger.i('User created with UID: $uid');
+
+                // Upload user data to Firestore.
+                final Map<String, dynamic> data = {
+                  'username': _formKey.currentState?.fields['username']?.value,
+                  'emails': {
+                    'primaryEmail': {
+                      'emailAddress': email,
+                      'isVerified': false,
+                    },
+                  },
+                  'accountTypes': ['regular'],
+                  'createdAt': FieldValue.serverTimestamp(),
+                  'updatedAt': FieldValue.serverTimestamp(),
+                };
+
+                await _dbInstance.collection('users').doc(uid).set(data);
+                _logger.i('User data uploaded to Firestore');
+
+                // GoRouter.of(context).go('/home');
               }
             },
             child: const Text('Sign up'),

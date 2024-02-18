@@ -111,6 +111,13 @@ dependencies:
   # tables, links, and more, from plain text data formatted with simple Markdown tags.
   flutter_markdown: ^0.6.19
 
+  # Functional programming in Dart and Flutter. All the main functional programming
+  # types and patterns fully documented, tested, and with examples.
+  fpdart: ^1.1.0
+
+  # Small, easy to use and extensible logger which prints beautiful logs.
+  logger: ^2.0.2+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
