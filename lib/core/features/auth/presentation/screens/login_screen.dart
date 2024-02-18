@@ -140,15 +140,18 @@ class _LoginFormState extends State<LoginForm> {
               labelText: 'Password',
               hintText: 'Enter your password',
               border: const OutlineInputBorder(),
-              suffixIcon: TextButton(
+              suffixIcon: IconButton(
                 onPressed: () {
                   setState(() {
                     _isPasswordVisible = !_isPasswordVisible;
                   });
                 },
-                child: _isPasswordVisible
+                icon: _isPasswordVisible
                     ? const Icon(Icons.visibility)
                     : const Icon(Icons.visibility_off),
+                color: _isPasswordVisible
+                    ? Theme.of(context).colorScheme.primary
+                    : null,
               ),
             ),
             validator: FormBuilderValidators.compose(
