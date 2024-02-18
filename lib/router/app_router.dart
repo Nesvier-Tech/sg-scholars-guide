@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../core/features/auth/presentation/screens/email_verification_screen.dart';
 import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
 import '../core/features/auth/presentation/screens/login_screen.dart';
 import '../core/features/auth/presentation/screens/password_reset_email_sent_confirmation_screen.dart';
@@ -52,6 +53,12 @@ class AppRouter {
       GoRoute(
         path: '/signup',
         builder: (_, __) => const SignupScreen(),
+        routes: <RouteBase>[
+          GoRoute(
+            path: 'email-verification-sent',
+            builder: (_, __) => const EmailVerificationSentScreen(),
+          ),
+        ],
       ),
 
       // LEGALITIES.

@@ -346,7 +346,16 @@ class _SignupFormState extends State<SignupForm> {
                 await _dbInstance.collection('users').doc(uid).set(data);
                 _logger.i('User data uploaded to Firestore');
 
-                // GoRouter.of(context).go('/home');
+                // Send email verification.
+                await userCredential.user!.sendEmailVerification();
+                _logger.i('Email verification sent');
+
+                if (context.mounted) {
+                  GoRouter.of(context).go(
+                    '/signup/email-verification-sent',
+                    extra: email,
+                  );
+                }
               }
             },
             child: const Text('Sign up'),

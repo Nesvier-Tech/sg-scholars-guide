@@ -117,6 +117,8 @@ dependencies:
 
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^2.0.2+1
+  shared_preferences: ^2.2.2
+  url_launcher: ^6.2.4
 
 dev_dependencies:
   flutter_test:
