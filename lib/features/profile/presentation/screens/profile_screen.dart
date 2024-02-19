@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -9,6 +10,7 @@ class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
 
   final _authService = services<FirebaseAuth>();
+  final _dbService = services<FirebaseFirestore>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +47,60 @@ class ProfileScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Column(children: <Widget>[
-          const Text('Profile Screen'),
-        ]),
+        child: SizedBox(
+          width: double.infinity,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Column(
+                children: <Widget>[
+                  // User uid.
+                  Text('User UID: ${_authService.currentUser?.uid}'),
+
+                  // User email.
+                  Text('User Email: ${_authService.currentUser?.email}'),
+
+                  // User username (from Firestore).
+                  StreamBuilder<DocumentSnapshot>(
+                    stream: _dbService
+                        .collection('users')
+                        .doc(_authService.currentUser?.uid)
+                        .snapshots(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<DocumentSnapshot> snapshot) {
+                      if (snapshot.hasError) {
+                        return const Text('Something went wrong');
+                      }
+
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Text('Loading');
+                      }
+
+                      // Convert timestamp to DateTime.
+                      var createdAt =
+                          (snapshot.data?.get('createdAt') as Timestamp)
+                              .toDate();
+                      var updatedAt = snapshot.data?.get('updatedAt').toDate();
+
+                      // createdAt = createdAt is Timestamp
+                      //     ? createdAt.toDate()
+                      //     : DateTime.now();
+                      // updatedAt = updatedAt is Timestamp
+                      //     ? updatedAt.toDate()
+                      //     : DateTime.now();
+
+                      return Text(
+                        'User Username: ${snapshot.data?.get('username')}\n'
+                        'User Created At: $createdAt\n'
+                        'User Updated At: $updatedAt',
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
