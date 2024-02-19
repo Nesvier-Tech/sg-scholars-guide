@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
@@ -35,16 +36,45 @@ class EmailVerificationSentScreen extends StatelessWidget {
 
                 // Message.
                 Text(
-                  'Check your email!',
+                  'Check Your Email!',
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
                 const SizedBox(height: 8.0),
 
+                // TODO [P3]: Refactor. Probably, use the Wrap widget.
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
-                  child: Text(
-                    'We have sent a verification link to your email. Please click on the link to verify your email.',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        'We\'ve just sent an email to you at',
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            email,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                          ),
+                          Text(
+                            '. Tap on the link',
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        'to verify your account.',
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 32.0),
