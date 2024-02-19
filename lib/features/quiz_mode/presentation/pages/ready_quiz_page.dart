@@ -14,7 +14,7 @@ class ReadyQuizPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Scholar\'s Guide'),
+          title: const Text('Submit Questions'),
         ),
         body: Center(
           child: BlocProvider<ReadyQuizCubit>(

@@ -20,7 +20,7 @@ class _ChooseSubjectDisplayState extends State<ChooseSubjectDisplay> {
         "Choose a subject to start the quiz",
         style: TextStyle(fontSize: 20),
       ),
-      buildElevatedButton("UPCAT Challenge", context),
+      // buildElevatedButton("UPCAT Challenge", context), // TODO: Implement UPCAT Challenge
       buildElevatedButton("Math", context),
       buildElevatedButton("Science", context),
       buildElevatedButton("Language Proficiency", context),

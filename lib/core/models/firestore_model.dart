@@ -14,11 +14,11 @@ class FireStore {
 
   //* Field names of each document in the Firestore
   // Question related fields
-  static const String questionReference = 'additionalQuestionDataRef';
   static const String question = 'question';
   static const String options = 'choices';
   static const String correctIndex = 'correctChoiceKey';
-  static const String isVerified = 'isVerified';
+  // static const String questionReference = 'additionalQuestionDataRef';
+  // static const String isVerified = 'isVerified';
 
   // User related fields
   static const String createdAt = 'createdAt';

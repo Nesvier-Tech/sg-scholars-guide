@@ -44,8 +44,13 @@ class Question {
   Map<String, dynamic> toMap() {
     return {
       FireStore.question: question,
-      FireStore.options: options,
-      FireStore.correctIndex: correctIndex,
+      FireStore.options: {
+        '0': options[0],
+        '1': options[1],
+        '2': options[2],
+        '3': options[3],
+      },
+      FireStore.correctIndex: correctIndex.toString(),
     };
   }
 
@@ -62,5 +67,19 @@ class Question {
       case SUBJ.ALL:
         return 'all subjects';
     }
+  }
+
+  static SUBJ string2SUBJ(String subj) {
+    switch (subj) {
+      case "Math":
+        return SUBJ.MATH;
+      case "Science":
+        return SUBJ.SCIENCE;
+      case "Reading Comprehension":
+        return SUBJ.READING;
+      case "Language Proficiency":
+        return SUBJ.LANGUAGE;
+    }
+    return SUBJ.ALL;
   }
 }

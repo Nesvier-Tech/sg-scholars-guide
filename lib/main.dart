@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'features/quiz_upload/presentation/pages/upload_questions_page.dart';
 import 'features/quiz_mode/presentation/pages/ready_quiz_page.dart';
 import 'firebase_options.dart';
 
@@ -51,7 +52,7 @@ class HomePage extends StatelessWidget {
             Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => (ReadyQuizPage())),
+                        builder: (context) => (UploadQuestionPage())),
                   );
           }, 
           child: Text("TEST")),
