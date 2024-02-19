@@ -37,7 +37,28 @@ class LoginScreen extends StatelessWidget {
 
                   // Log in with Google.
                   FilledButton.tonal(
-                    onPressed: () {},
+                    onPressed: () async {
+                      // Show alert dialog.
+                      await showDialog<AlertDialog>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Coming Soon'),
+                            content: const Text(
+                              'This feature is coming soon.',
+                            ),
+                            actions: <TextButton>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -56,7 +77,28 @@ class LoginScreen extends StatelessWidget {
 
                   // Log in Anonymously.
                   FilledButton.tonal(
-                    onPressed: () {},
+                    onPressed: () {
+                      // Show alert dialog.
+                      showDialog<AlertDialog>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Coming Soon'),
+                            content: const Text(
+                              'This feature is coming soon.',
+                            ),
+                            actions: <TextButton>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

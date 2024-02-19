@@ -168,7 +168,7 @@ class AppRouter {
               GoRoute(
                 path: '/profile',
                 pageBuilder: (_, __) {
-                  return const NoTransitionPage(child: ProfileScreen());
+                  return NoTransitionPage(child: ProfileScreen());
                 },
               ),
             ],
