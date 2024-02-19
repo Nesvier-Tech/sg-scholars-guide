@@ -117,8 +117,20 @@ dependencies:
 
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^2.0.2+1
+  
+  # Flutter plugin for reading and writing simple key-value pairs.
+  # Wraps NSUserDefaults on iOS and SharedPreferences on Android.
   shared_preferences: ^2.2.2
+
+  # Flutter plugin for launching a URL. Supports web, phone,
+  # SMS, and email schemes.
   url_launcher: ^6.2.4
+
+  # A extension to render LaTeX in markdown for package flutter_markdown.
+  flutter_markdown_latex: ^0.2.0
+
+  # A portable Markdown library written in Dart that can parse Markdown into HTML.
+  markdown: ^7.2.1
 
 dev_dependencies:
   flutter_test:

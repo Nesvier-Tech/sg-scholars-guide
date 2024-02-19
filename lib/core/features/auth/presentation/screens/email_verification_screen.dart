@@ -133,26 +133,28 @@ class EmailVerificationSentScreen extends StatelessWidget {
                         }
                       } else {
                         // Show dialog that the email is not yet verified.
-                        await showDialog<void>(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Text('Email Not Verified'),
-                              content: const Text(
-                                'Your email is not yet verified. Please verify your email to continue.',
-                              ),
-                              actions: <Widget>[
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text('OK'),
+                        if (context.mounted) {
+                          await showDialog<void>(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text('Email Not Verified'),
+                                content: const Text(
+                                  'Your email is not yet verified. Please verify your email to continue.',
                                 ),
-                              ],
-                            );
-                          },
-                        );
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('OK'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
                       }
                     },
                     child: const Text('Continue'),
