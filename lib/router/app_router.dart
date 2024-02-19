@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scholars_guide/features/profile/presentation/screens/profile_screen.dart';
 
 import '../core/features/auth/presentation/screens/email_verification_screen.dart';
 import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
@@ -167,20 +168,8 @@ class AppRouter {
               GoRoute(
                 path: '/profile',
                 pageBuilder: (_, __) {
-                  return const NoTransitionPage(
-                    child: RootPlaceholderScreen(
-                      label: 'Profile',
-                      detailsPath: '/profile/details',
-                    ),
-                  );
+                  return const NoTransitionPage(child: ProfileScreen());
                 },
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'details',
-                    builder: (_, __) =>
-                        const DetailsPlaceholderScreen(label: 'Profile'),
-                  ),
-                ],
               ),
             ],
           ),

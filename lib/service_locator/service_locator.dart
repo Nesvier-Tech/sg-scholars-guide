@@ -12,5 +12,6 @@ Future<void> initializeServices() async {
   services.registerLazySingleton(() => FirebaseFirestore.instance);
   services.registerLazySingleton(() => FirebaseStorage.instance);
 
+  //* Utility Services.
   services.registerLazySingleton(() => Logger());
 }

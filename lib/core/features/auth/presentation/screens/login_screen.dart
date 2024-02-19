@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logger/logger.dart';
+
+import '../../../../../service_locator/service_locator.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -99,6 +103,7 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  final _authService = services<FirebaseAuth>();
   final _formKey = GlobalKey<FormBuilderState>();
   final _emailFieldKey = GlobalKey<FormFieldState<String>>();
   bool _isPasswordVisible = false;
@@ -176,9 +181,78 @@ class _LoginFormState extends State<LoginForm> {
 
           // Log in button.
           FilledButton(
-            onPressed: () {
+            onPressed: () async {
               if (_formKey.currentState?.saveAndValidate() ?? false) {
-                GoRouter.of(context).go('/home');
+                try {
+                  final String email = _formKey.currentState?.value['email'];
+                  final String password =
+                      _formKey.currentState?.value['password'];
+                  late final UserCredential userCredential;
+
+                  userCredential =
+                      await _authService.signInWithEmailAndPassword(
+                    email: email,
+                    password: password,
+                  );
+
+                  final String uid = userCredential.user!.uid;
+                  services<Logger>().i('User $uid logged in.');
+
+                  if (context.mounted) {
+                    GoRouter.of(context).go('/profile', extra: uid);
+                  }
+                } on FirebaseAuthException catch (e) {
+                  services<Logger>().e('Error: $e');
+
+                  // Build human readable error message.
+                  String errorMessage;
+                  switch (e.code) {
+                    case 'invalid-email':
+                      errorMessage = 'Invalid email address.';
+                      break;
+                    case 'user-not-found':
+                      errorMessage = 'User not found.';
+                      break;
+                    case 'wrong-password':
+                      errorMessage = 'Wrong password.';
+                      break;
+                    case 'user-disabled':
+                      errorMessage = 'User account is disabled.';
+                      break;
+                    case 'too-many-requests':
+                      errorMessage = 'Too many requests. Try again later.';
+                      break;
+                    case 'operation-not-allowed':
+                      errorMessage = 'Operation not allowed.';
+                      break;
+                    case 'invalid-credential':
+                      errorMessage = 'Invalid credential.';
+                      break;
+                    default:
+                      errorMessage = 'An error occurred.';
+                  }
+
+                  // Show alert dialog.
+                  if (context.mounted) {
+                    await showDialog<AlertDialog>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Error'),
+                          content: Text(errorMessage),
+                          actions: <TextButton>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                }
               }
             },
             child: const Text('Log in'),
