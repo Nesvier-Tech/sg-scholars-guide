@@ -91,6 +91,18 @@ dependencies:
   # and splash image. Supports dark mode, full screen, and more.
   flutter_native_splash: ^2.3.10
 
+  # A Flutter implementation of slidable list item 
+  # with directional slide actions that can be dismissed.
+  flutter_slidable: ^3.0.1
+
+  # An animated circular countdown using Circular Countdown Timer.
+  # Used for quiz mode's countdown timer.
+  circular_countdown_timer: ^0.2.3
+
+  # This library is an enhancement and replacement to Flutter's 
+  # built-in Overlay/OverlayEntry. Intuitive and declarative.
+  flutter_portal: ^1.1.4
+  
   # This package helps in creation of forms in Flutter by removing the boilerplate
   # code, reusing validation, react to changes, and collect final user input.
   flutter_form_builder: ^9.2.1
