@@ -6,9 +6,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:logger/logger.dart';
 
 import 'features/quiz_upload/presentation/pages/upload_questions_page.dart';
-import 'features/quiz_mode/presentation/pages/ready_quiz_page.dart';
 import 'firebase_options.dart';
-import 'router/app_router.dart';
 import 'service_locator/service_locator.dart';
 
 void main() async {
@@ -53,14 +51,13 @@ class HomePage extends StatelessWidget {
         // child: Text('Welcome to Scholar\'s Guide'),
         // child: QuizPage(subject: SUBJ.LANGUAGE),
         child: ElevatedButton(
-          onPressed: (){
-            Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => (UploadQuestionPage())),
-                  );
-          }, 
-          child: Text("TEST")),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => (UploadQuestionPage())),
+              );
+            },
+            child: Text("TEST")),
       ),
     );
   }

@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
-import 'package:scholars_guide/service_locator/service_locator.dart';
+import '../../../../../service_locator/service_locator.dart';
 
 class EmailVerificationSentScreen extends StatelessWidget {
   const EmailVerificationSentScreen({super.key});

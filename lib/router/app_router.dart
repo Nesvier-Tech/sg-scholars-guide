@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:scholars_guide/features/profile/presentation/screens/profile_screen.dart';
 
 import '../core/features/auth/presentation/screens/email_verification_screen.dart';
 import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
@@ -9,6 +8,7 @@ import '../core/features/auth/presentation/screens/password_reset_email_sent_con
 import '../core/features/auth/presentation/screens/signup_screen.dart';
 import '../features/legalities/presentation/screens/privacy_policy_screen.dart';
 import '../features/legalities/presentation/screens/terms_of_service_screen.dart';
+import '../features/profile/presentation/screens/profile_screen.dart';
 import 'scaffold_with_nav_bar.dart';
 import 'temp/details_placeholder_screen.dart';
 import 'temp/root_placeholder_screen.dart';

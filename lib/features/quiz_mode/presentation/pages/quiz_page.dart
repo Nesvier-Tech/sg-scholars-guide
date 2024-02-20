@@ -8,9 +8,9 @@ import 'package:scholars_guide/features/quiz_mode/presentation/state_management/
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/confirm_cancel_quiz_display.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/confirm_submit_quiz_display.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/confirm_timeout_quiz_display.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_widgets/question_display.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/question_loading_display.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/timer_display.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_widgets/question_display.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key, required this.subject});

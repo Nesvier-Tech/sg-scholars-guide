@@ -6,7 +6,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:scholars_guide/service_locator/service_locator.dart';
+import '../../../../service_locator/service_locator.dart';
 
 class TermsOfServiceScreen extends StatefulWidget {
   const TermsOfServiceScreen({super.key});
