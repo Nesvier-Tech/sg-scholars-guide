@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: const Text('User Profile'),
         actions: <Widget>[
           // Triple dot menu.
           PopupMenuButton<String>(
@@ -36,11 +36,23 @@ class ProfileScreen extends StatelessWidget {
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
               const PopupMenuItem<String>(
                 value: 'Settings',
-                child: Text('Settings'),
+                child: Row(
+                  children: <Widget>[
+                    Icon(Icons.settings_outlined),
+                    SizedBox(width: 8.0),
+                    Text('Settings'),
+                  ],
+                ),
               ),
               const PopupMenuItem<String>(
                 value: 'Sign Out',
-                child: Text('Sign Out'),
+                child: Row(
+                  children: <Widget>[
+                    Icon(Icons.logout_outlined),
+                    SizedBox(width: 8.0),
+                    Text('Sign Out'),
+                  ],
+                ),
               ),
             ],
           ),
@@ -51,57 +63,123 @@ class ProfileScreen extends StatelessWidget {
           width: double.infinity,
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Column(
-                children: <Widget>[
-                  // User uid.
-                  Text('User UID: ${_authService.currentUser?.uid}'),
+              padding: EdgeInsets.all(32.0),
+              child: StreamBuilder<DocumentSnapshot>(
+                  stream: _dbService
+                      .collection('users')
+                      .doc(_authService.currentUser?.uid)
+                      .snapshots(),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<DocumentSnapshot> snapshot) {
+                    if (snapshot.hasError) {
+                      return const Text('Something went wrong');
+                    }
 
-                  // User email.
-                  Text('User Email: ${_authService.currentUser?.email}'),
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      // Show a loading spinner.
+                      return const CircularProgressIndicator();
+                    }
 
-                  // User username (from Firestore).
-                  StreamBuilder<DocumentSnapshot>(
-                    stream: _dbService
-                        .collection('users')
-                        .doc(_authService.currentUser?.uid)
-                        .snapshots(),
-                    builder: (BuildContext context,
-                        AsyncSnapshot<DocumentSnapshot> snapshot) {
-                      if (snapshot.hasError) {
-                        return const Text('Something went wrong');
-                      }
+                    // Convert timestamp to DateTime.
+                    var createdAt =
+                        (snapshot.data?.get('createdAt') as Timestamp).toDate();
+                    var updatedAt = snapshot.data?.get('updatedAt').toDate();
 
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Text('Loading');
-                      }
+                    // createdAt = createdAt is Timestamp
+                    //     ? createdAt.toDate()
+                    //     : DateTime.now();
+                    // updatedAt = updatedAt is Timestamp
+                    //     ? updatedAt.toDate()
+                    //     : DateTime.now();
 
-                      // Convert timestamp to DateTime.
-                      var createdAt =
-                          (snapshot.data?.get('createdAt') as Timestamp)
-                              .toDate();
-                      var updatedAt = snapshot.data?.get('updatedAt').toDate();
+                    String username =
+                        snapshot.data?.get('username') ?? 'Loading...';
 
-                      // createdAt = createdAt is Timestamp
-                      //     ? createdAt.toDate()
-                      //     : DateTime.now();
-                      // updatedAt = updatedAt is Timestamp
-                      //     ? updatedAt.toDate()
-                      //     : DateTime.now();
-
-                      return Text(
-                        'User Username: ${snapshot.data?.get('username')}\n'
-                        'User Created At: $createdAt\n'
-                        'User Updated At: $updatedAt',
-                      );
-                    },
-                  ),
-                ],
-              ),
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.blue,
+                          radius: 50,
+                          child: Text(
+                            username[0].toUpperCase(),
+                            style: TextStyle(
+                              fontSize: 40,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        Text(
+                          username,
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          _authService.currentUser?.email ?? 'Loading...',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        SizedBox(height: 32),
+                        ProfileDetailRow(
+                          title: 'UID:',
+                          detail:
+                              '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}' ??
+                                  'Loading...',
+                        ),
+                        SizedBox(height: 10),
+                        ProfileDetailRow(
+                          title: 'Joined in:',
+                          detail: 'January 1, 2022',
+                        ),
+                        SizedBox(height: 10),
+                        ProfileDetailRow(
+                          title: 'Updated in:',
+                          detail: 'February 20, 2024',
+                        ),
+                      ],
+                    );
+                  }),
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class ProfileDetailRow extends StatelessWidget {
+  final String title;
+  final String detail;
+
+  const ProfileDetailRow({
+    required this.title,
+    required this.detail,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          detail,
+          style: TextStyle(
+            fontSize: 18,
+          ),
+        ),
+      ],
     );
   }
 }
