@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scholars_guide/features/profile/presentation/screens/profile_screen.dart';
 
+import '../core/features/auth/presentation/screens/email_verification_screen.dart';
+import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
+import '../core/features/auth/presentation/screens/login_screen.dart';
+import '../core/features/auth/presentation/screens/password_reset_email_sent_confirmation_screen.dart';
+import '../core/features/auth/presentation/screens/signup_screen.dart';
+import '../features/legalities/presentation/screens/privacy_policy_screen.dart';
+import '../features/legalities/presentation/screens/terms_of_service_screen.dart';
 import 'scaffold_with_nav_bar.dart';
 import 'temp/details_placeholder_screen.dart';
 import 'temp/root_placeholder_screen.dart';
@@ -16,20 +24,58 @@ class AppRouter {
       GlobalKey<NavigatorState>(debugLabel: 'root');
   static final _shellNavigatorHomeKey =
       GlobalKey<NavigatorState>(debugLabel: 'sectionHomeNav');
+  static final _shellNavigatorCommunityKey =
+      GlobalKey<NavigatorState>(debugLabel: 'sectionCommunityNav');
+  static final _shellNavigatorLearnKey =
+      GlobalKey<NavigatorState>(debugLabel: 'sectionLearnNav');
   static final _shellNavigatorProfileKey =
       GlobalKey<NavigatorState>(debugLabel: 'sectionProfileNav');
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/login',
     navigatorKey: _rootNavigatorKey,
     routes: <RouteBase>[
+      // AUTH.
+      GoRoute(
+        path: '/login',
+        builder: (_, __) => const LoginScreen(),
+        routes: <RouteBase>[
+          GoRoute(
+            path: 'forgot-password',
+            builder: (_, __) => const ForgotPasswordScreen(),
+          ),
+          GoRoute(
+            path: 'password-reset-email-sent-confirmation',
+            builder: (_, __) =>
+                const PasswordResetEmailSentConfirmationScreen(),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/signup',
+        builder: (_, __) => const SignupScreen(),
+        routes: <RouteBase>[
+          GoRoute(
+            path: 'email-verification-sent',
+            builder: (_, __) => const EmailVerificationSentScreen(),
+          ),
+        ],
+      ),
+
+      // LEGALITIES.
+      GoRoute(
+        path: '/privacy-policy',
+        builder: (_, __) => PrivacyPolicyScreen(),
+      ),
+      GoRoute(
+        path: '/terms-of-service',
+        builder: (_, __) => const TermsOfServiceScreen(),
+      ),
+
+      // BOTTOM NAVIGATION.
       // Stateful nested navigator.
       StatefulShellRoute.indexedStack(
-        builder: (
-          BuildContext context,
-          GoRouterState state,
-          StatefulNavigationShell navigationShell,
-        ) {
+        builder: (_, __, StatefulNavigationShell navigationShell) {
           return ScaffoldWithNavBar(navigationShell: navigationShell);
         },
         branches: <StatefulShellBranch>[
@@ -40,7 +86,7 @@ class AppRouter {
               // Top route inside the home branch.
               GoRoute(
                 path: '/home',
-                pageBuilder: (BuildContext context, GoRouterState state) {
+                pageBuilder: (_, __) {
                   // We use a NoTransitionPage inside said route to
                   // prevent unintended animations when switching between tabs
                   // (this is the default behaviour on popular iOS apps).
@@ -54,9 +100,8 @@ class AppRouter {
                 routes: <RouteBase>[
                   GoRoute(
                     path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderScreen(label: 'Home');
-                    },
+                    builder: (_, __) =>
+                        const DetailsPlaceholderScreen(label: 'Home'),
                   ),
                 ],
               ),
@@ -65,13 +110,12 @@ class AppRouter {
 
           // Second branch (community).
           StatefulShellBranch(
-            navigatorKey:
-                GlobalKey<NavigatorState>(debugLabel: 'sectionCommunityNav'),
+            navigatorKey: _shellNavigatorCommunityKey,
             routes: <RouteBase>[
               // Top route inside the community branch.
               GoRoute(
                 path: '/community',
-                pageBuilder: (BuildContext context, GoRouterState state) {
+                pageBuilder: (_, __) {
                   return const NoTransitionPage(
                     child: RootPlaceholderScreen(
                       label: 'Community',
@@ -82,9 +126,8 @@ class AppRouter {
                 routes: <RouteBase>[
                   GoRoute(
                     path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderScreen(label: 'Community');
-                    },
+                    builder: (_, __) =>
+                        const DetailsPlaceholderScreen(label: 'Community'),
                   ),
                 ],
               ),
@@ -93,13 +136,12 @@ class AppRouter {
 
           // Third branch (learn).
           StatefulShellBranch(
-            navigatorKey:
-                GlobalKey<NavigatorState>(debugLabel: 'sectionLearnNav'),
+            navigatorKey: _shellNavigatorLearnKey,
             routes: <RouteBase>[
               // Top route inside the learn branch.
               GoRoute(
                 path: '/learn',
-                pageBuilder: (BuildContext context, GoRouterState state) {
+                pageBuilder: (_, __) {
                   return const NoTransitionPage(
                     child: RootPlaceholderScreen(
                       label: 'Learn',
@@ -110,9 +152,8 @@ class AppRouter {
                 routes: <RouteBase>[
                   GoRoute(
                     path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderScreen(label: 'Learn');
-                    },
+                    builder: (_, __) =>
+                        const DetailsPlaceholderScreen(label: 'Learn'),
                   ),
                 ],
               ),
@@ -126,22 +167,9 @@ class AppRouter {
               // Top route inside the profile branch.
               GoRoute(
                 path: '/profile',
-                pageBuilder: (BuildContext context, GoRouterState state) {
-                  return const NoTransitionPage(
-                    child: RootPlaceholderScreen(
-                      label: 'Profile',
-                      detailsPath: '/profile/details',
-                    ),
-                  );
+                pageBuilder: (_, __) {
+                  return NoTransitionPage(child: ProfileScreen());
                 },
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'details',
-                    builder: (BuildContext context, GoRouterState state) {
-                      return const DetailsPlaceholderScreen(label: 'Profile');
-                    },
-                  ),
-                ],
               ),
             ],
           ),

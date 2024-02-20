@@ -29,5 +29,13 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <!-- For the super_clipboard package. -->
+        <provider
+            android:name="com.superlist.super_native_extensions.DataProvider"
+            android:authorities="com.nesvier.scholars_guide.SuperClipboardDataProvider"
+            android:exported="true"
+            android:grantUriPermissions="true" >
+        </provider>
     </application>
 </manifest>

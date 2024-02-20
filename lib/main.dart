@@ -2,21 +2,26 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:logger/logger.dart';
 
 import 'features/quiz_upload/presentation/pages/upload_questions_page.dart';
 import 'features/quiz_mode/presentation/pages/ready_quiz_page.dart';
 import 'firebase_options.dart';
+import 'router/app_router.dart';
+import 'service_locator/service_locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase.
-  await Firebase.initializeApp(
-    name: 'SG - Scholar\'s Guide',
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await initializeServices();
+  services<Logger>().i('Services initialized.');
 
   runApp(const ScholarsGuideApp());
+
+  FlutterNativeSplash.remove();
 }
 
 class ScholarsGuideApp extends StatelessWidget {
