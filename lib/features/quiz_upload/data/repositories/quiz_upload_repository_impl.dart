@@ -6,8 +6,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:scholars_guide/core/models/firestore_model.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
-import 'package:scholars_guide/features/quiz_mode/domain/repositories_contract/quiz_mode_repository_contract.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
 import 'package:scholars_guide/features/quiz_upload/domain/repositories_contract/quiz_upload_repository_contract.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/state_management/quiz_input/quiz_input_cubit.dart';
 import 'package:scholars_guide/firebase_options.dart';

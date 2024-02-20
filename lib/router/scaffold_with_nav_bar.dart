@@ -38,10 +38,26 @@ class ScaffoldWithNavBar extends StatelessWidget {
         selectedIndex: navigationShell.currentIndex,
         destinations: const <Widget>[
           // TODO: [P2] Provive an animation for the icons.
-          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.forum), label: 'Community'),
-          NavigationDestination(icon: Icon(Icons.school), label: 'Learn'),
-          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+          // NavigationDestination(
+          //   icon: Icon(Icons.home_outlined),
+          //   selectedIcon: Icon(Icons.home),
+          //   label: 'Home',
+          // ),
+          NavigationDestination(
+            icon: Icon(Icons.school_outlined),
+            selectedIcon: Icon(Icons.school),
+            label: 'Quiz Mode',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.upload_file_outlined),
+            selectedIcon: Icon(Icons.upload_file),
+            label: 'Quiz Upload',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person_outline_outlined),
+            selectedIcon: Icon(Icons.person),
+            label: 'Profile',
+          ),
         ],
         onDestinationSelected: (int index) => _onTap(context, index),
       ),

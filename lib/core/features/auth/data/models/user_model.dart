@@ -39,7 +39,7 @@ class UserModel extends UserEntity {
         }
       },
       isPublic: true,
-      accountTypes: ['email'],
+      accountTypes: const ['email'],
       createdAt: DateTime.now(),
       updatedAt: DateTime.now(),
       isVerified: userCredential.user!.emailVerified,

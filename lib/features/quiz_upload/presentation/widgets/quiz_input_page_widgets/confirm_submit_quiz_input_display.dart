@@ -2,10 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scholars_guide/core/models/question_model.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/pages/finished_quiz_page.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz/quiz_bloc.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_success_page.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/state_management/quiz_input_page/quiz_input_page_bloc.dart';
 

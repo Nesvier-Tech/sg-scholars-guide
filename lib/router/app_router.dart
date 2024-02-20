@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/pages/ready_quiz_page.dart';
+import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_questions_page.dart';
 
 import '../core/features/auth/presentation/screens/email_verification_screen.dart';
 import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
@@ -79,34 +81,34 @@ class AppRouter {
           return ScaffoldWithNavBar(navigationShell: navigationShell);
         },
         branches: <StatefulShellBranch>[
-          // First branch (home).
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorHomeKey,
-            routes: <RouteBase>[
-              // Top route inside the home branch.
-              GoRoute(
-                path: '/home',
-                pageBuilder: (_, __) {
-                  // We use a NoTransitionPage inside said route to
-                  // prevent unintended animations when switching between tabs
-                  // (this is the default behaviour on popular iOS apps).
-                  return const NoTransitionPage(
-                    child: RootPlaceholderScreen(
-                      label: 'Home',
-                      detailsPath: '/home/details',
-                    ),
-                  );
-                },
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'details',
-                    builder: (_, __) =>
-                        const DetailsPlaceholderScreen(label: 'Home'),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          // // First branch (home).
+          // StatefulShellBranch(
+          //   navigatorKey: _shellNavigatorHomeKey,
+          //   routes: <RouteBase>[
+          //     // Top route inside the home branch.
+          //     GoRoute(
+          //       path: '/home',
+          //       pageBuilder: (_, __) {
+          //         // We use a NoTransitionPage inside said route to
+          //         // prevent unintended animations when switching between tabs
+          //         // (this is the default behaviour on popular iOS apps).
+          //         return const NoTransitionPage(
+          //           child: RootPlaceholderScreen(
+          //             label: 'Home',
+          //             detailsPath: '/home/details',
+          //           ),
+          //         );
+          //       },
+          //       routes: <RouteBase>[
+          //         GoRoute(
+          //           path: 'details',
+          //           builder: (_, __) =>
+          //               const DetailsPlaceholderScreen(label: 'Home'),
+          //         ),
+          //       ],
+          //     ),
+          //   ],
+          // ),
 
           // Second branch (community).
           StatefulShellBranch(
@@ -114,22 +116,12 @@ class AppRouter {
             routes: <RouteBase>[
               // Top route inside the community branch.
               GoRoute(
-                path: '/community',
+                path: '/quiz-mode',
                 pageBuilder: (_, __) {
                   return const NoTransitionPage(
-                    child: RootPlaceholderScreen(
-                      label: 'Community',
-                      detailsPath: '/community/details',
-                    ),
+                    child: ReadyQuizPage(),
                   );
                 },
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'details',
-                    builder: (_, __) =>
-                        const DetailsPlaceholderScreen(label: 'Community'),
-                  ),
-                ],
               ),
             ],
           ),
@@ -140,22 +132,12 @@ class AppRouter {
             routes: <RouteBase>[
               // Top route inside the learn branch.
               GoRoute(
-                path: '/learn',
+                path: '/quiz-upload',
                 pageBuilder: (_, __) {
                   return const NoTransitionPage(
-                    child: RootPlaceholderScreen(
-                      label: 'Learn',
-                      detailsPath: '/learn/details',
-                    ),
+                    child: UploadQuestionPage(),
                   );
                 },
-                routes: <RouteBase>[
-                  GoRoute(
-                    path: 'details',
-                    builder: (_, __) =>
-                        const DetailsPlaceholderScreen(label: 'Learn'),
-                  ),
-                ],
               ),
             ],
           ),

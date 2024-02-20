@@ -28,7 +28,9 @@ class Question {
   // Returns a Question Class using data fetched from the Firestore
   factory Question.fromMap(Map<String, dynamic> data, SUBJ subject) {
     List<String> temp = [];
-    for (var val in data[FireStore.options].values) temp.add(val);
+    for (var val in data[FireStore.options].values) {
+      temp.add(val);
+    }
     
     String temp2 = temp[int.parse(data[FireStore.correctIndex])]; 
     temp.shuffle(Random());

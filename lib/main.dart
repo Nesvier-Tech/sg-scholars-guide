@@ -4,8 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:logger/logger.dart';
+import 'package:scholars_guide/router/app_router.dart';
 
-import 'features/quiz_upload/presentation/pages/upload_questions_page.dart';
 import 'firebase_options.dart';
 import 'service_locator/service_locator.dart';
 
@@ -27,38 +27,13 @@ class ScholarsGuideApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Scholar\'s Guide',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
       ),
-      home: const HomePage(),
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Scholar\'s Guide'),
-      ),
-      body: Center(
-        // child: Text('Welcome to Scholar\'s Guide'),
-        // child: QuizPage(subject: SUBJ.LANGUAGE),
-        child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => (UploadQuestionPage())),
-              );
-            },
-            child: Text("TEST")),
-      ),
     );
   }
 }

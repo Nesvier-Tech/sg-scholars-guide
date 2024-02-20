@@ -21,37 +21,42 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (blocContext) => QuizInputPageBloc(),
-      child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Upload Questions'),
-          ),
-          body: BlocBuilder<QuizInputPageBloc, QuizInputPageState>(
-            builder: (blocBuilderContext, state) {
-              if (state is QuizInputPageQuestionsAdd) {
-                return Center(
-                    // Possible use ListView to have a scrollable navigation
-                    child: Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 10.0),
-                    ),
-                    ChangeSubjectDisplay(),
-                    QuestionInputDisplay(),
-                    AddOrSubmitDisplay(),
-                    Container(
-                      margin: EdgeInsets.only(bottom: 20.0),
-                    ),
-                  ],
-                ));
-              } else if (state is QuizInputPageConfirmSubmit) {
-                return ConfirmSubmitQuizInputDisplay();
-              } else if (state is QuizInputPageConfirmCancel) {
-                return ConfirmCancelQuizInputDisplay();
-              }
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+            appBar: AppBar(
+              title: const Text('Upload Questions'),
+            ),
+            body: BlocBuilder<QuizInputPageBloc, QuizInputPageState>(
+              builder: (blocBuilderContext, state) {
+                if (state is QuizInputPageQuestionsAdd) {
+                  return Center(
+                      // Possible use ListView to have a scrollable navigation
+                      child: Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 10.0),
+                      ),
+                      ChangeSubjectDisplay(),
+                      QuestionInputDisplay(),
+                      AddOrSubmitDisplay(),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 20.0),
+                      ),
+                    ],
+                  ));
+                } else if (state is QuizInputPageConfirmSubmit) {
+                  return ConfirmSubmitQuizInputDisplay();
+                } else if (state is QuizInputPageConfirmCancel) {
+                  return ConfirmCancelQuizInputDisplay();
+                }
 
-              return Text("Something went wrong! (state not found)");
-            },
-          )),
+                return Text("Something went wrong! (state not found)");
+              },
+            )),
+      ),
     );
   }
 }

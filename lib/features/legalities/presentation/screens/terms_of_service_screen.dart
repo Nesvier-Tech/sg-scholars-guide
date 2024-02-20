@@ -135,7 +135,7 @@ To calculate the area of an equilateral triangle using trigonometric functions, 
                             ),
 
                             // Choices
-                            SizedBox(height: 400.0)
+                            const SizedBox(height: 400.0)
                           ],
                         ),
                       ),
