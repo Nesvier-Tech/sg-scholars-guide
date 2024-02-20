@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logger/logger.dart';
+
+import '../../../../../service_locator/service_locator.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
@@ -57,6 +61,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                     width: double.infinity,
                     child: TextButton(
                       onPressed: () {
+                        // Send the email to reset the password.
+
                         GoRouter.of(context).go('/login');
                       },
                       child: const Text('Go back'),
@@ -80,6 +86,7 @@ class PasswordResetForm extends StatefulWidget {
 }
 
 class _PasswordResetFormState extends State<PasswordResetForm> {
+  final _authService = services<FirebaseAuth>();
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -94,6 +101,7 @@ class _PasswordResetFormState extends State<PasswordResetForm> {
             name: 'email',
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.done,
+            initialValue: (GoRouterState.of(context).extra ?? '') as String,
             decoration: const InputDecoration(
               labelText: 'Email',
               hintText: 'Enter your email',
@@ -109,11 +117,46 @@ class _PasswordResetFormState extends State<PasswordResetForm> {
 
           // Reset password button.
           FilledButton(
-            onPressed: () {
+            onPressed: () async {
               if (_formKey.currentState?.saveAndValidate() ?? false) {
-                GoRouter.of(context).go(
-                  '/login/password-reset-email-sent-confirmation',
-                );
+                final String email =
+                    (_formKey.currentState?.value['email'] ?? '') as String;
+
+                // Send the email to reset the password.
+                try {
+                  await _authService.sendPasswordResetEmail(email: email);
+                  services<Logger>().i('Password reset email sent to $email.');
+                } on FirebaseAuthException catch (e) {
+                  services<Logger>()
+                      .e('Error sending password reset email: $e');
+
+                  // Show dialog with error message.
+                  if (context.mounted) {
+                    await showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text('Error'),
+                          content: Text(e.message ?? 'An error occurred.'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                }
+
+                if (context.mounted) {
+                  GoRouter.of(context).go(
+                    '/login/password-reset-email-sent-confirmation',
+                  );
+                }
               }
             },
             child: const Text('Reset Password'),

@@ -214,7 +214,9 @@ class _LoginFormState extends State<LoginForm> {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () {
-                GoRouter.of(context).go('/login/forgot-password');
+                final String email =
+                    _formKey.currentState?.value['email'] ?? '';
+                GoRouter.of(context).go('/login/forgot-password', extra: email);
               },
               child: const Text('Forgot password?'),
             ),
