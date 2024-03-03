@@ -26,58 +26,77 @@ class _QuizPageState extends State<QuizPage> {
     final subject = GoRouterState.of(context).extra as SUBJ;
 
     return BlocProvider<QuizBloc>(
-        create: (context) => QuizBloc()
-          ..add(QuizLoadQuestions(
-              subject: subject, numQuestions: widget.numQuestions)),
-        child: Builder(builder: (builderContext) {
+      create: (context) => QuizBloc()
+        ..add(QuizLoadQuestions(
+            subject: subject, numQuestions: widget.numQuestions)),
+      child: Builder(
+        builder: (builderContext) {
           return Scaffold(
-              appBar: AppBar(
-                  title: Text('${Question.SUBJ2string(subject)} Quiz'),
-                  leading: IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    onPressed: () {
-                      showDialog<AlertDialog>(
-                          context: context,
-                          builder: (BuildContext buildContext) {
-                            return ConfirmCancelQuizDialogue();
-                          });
+            appBar: AppBar(
+              title: Text('${Question.SUBJ2string(subject)} Quiz'),
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  showDialog<AlertDialog>(
+                    context: context,
+                    builder: (BuildContext buildContext) {
+                      return ConfirmCancelQuizDialogue();
                     },
-                  )),
-              body: Center(child: BlocBuilder<QuizBloc, QuizState>(
-                  builder: (quizBlocContext, state) {
-                if (state is QuizLoading) {
-                  return QuestionLoadingDisplay();
-                } else if (state is QuizOngoing) {
-                  return Column(
-                    children: [
-                      // * Display the questions
-                      QuestionDisplay(
-                          subjectQuestionsMap: quizBlocContext
-                              .read<QuizBloc>()
-                              .subjectQuestionsMap,
-                          subject: subject),
-
-                      // * Display the submit button
-                      ElevatedButton(
-                          onPressed: () {
-                            showDialog<AlertDialog>(
-                                context: context,
-                                builder: (BuildContext buildContext) {
-                                  return ConfirmSubmitQuizDialogue(quizBloc: quizBlocContext.read<QuizBloc>());
-                                });
-                          },
-                          child: Text("Submit")),
-
-                      // * Display the timer
-                      TimerDisplay()
-                    ],
                   );
-                }
+                },
+              ),
+            ),
+            body: Stack(
+              children: [
+                SingleChildScrollView(
+                  child: BlocBuilder<QuizBloc, QuizState>(
+                    builder: (quizBlocContext, state) {
+                      if (state is QuizLoading) {
+                        return QuestionLoadingDisplay();
+                      } else if (state is QuizOngoing) {
+                        return Column(
+                          children: [
+                            // * Display the questions
+                            QuestionDisplay(
+                                subjectQuestionsMap: quizBlocContext
+                                    .read<QuizBloc>()
+                                    .subjectQuestionsMap,
+                                subject: subject),
 
-                GoRouter.of(context).go('/quiz-mode');
-                return Text(
-                    "SOMETHING WENT WRONG! (No Quiz Bloc State Matched)");
-              })));
-        }));
+                            // * Display the submit button
+                            ElevatedButton(
+                                onPressed: () {
+                                  showDialog<AlertDialog>(
+                                    context: context,
+                                    builder: (BuildContext buildContext) {
+                                      return ConfirmSubmitQuizDialogue(
+                                        quizBloc:
+                                            quizBlocContext.read<QuizBloc>(),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Text("Submit")),
+
+                            
+                          ],
+                        );
+                      }
+
+                      GoRouter.of(context).go('/quiz-mode');
+                      return Text(
+                          "SOMETHING WENT WRONG! (No Quiz Bloc State Matched)");
+                    },
+                  ),
+                ),
+                
+                // * Display the timer
+                TimerDisplay(),
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 }

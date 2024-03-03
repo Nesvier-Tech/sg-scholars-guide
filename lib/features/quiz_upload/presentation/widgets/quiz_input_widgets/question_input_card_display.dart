@@ -39,15 +39,9 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
       ),
     );
 
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.90,
-      height: 630,
-      padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+    return Card(
+      
       child: FormBuilder(
-          // decoration: BoxDecoration(
-          //   color: Colors.deepPurple[100], // ! Panget UI
-          //   borderRadius: BorderRadius.circular(10.0),
-          // ),
           child: Column(
             children: [
               Container(
@@ -60,9 +54,9 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
                       borderSide: BorderSide(
                           color: quizInputPageBloc.revealBlanks
                               ? widget.questionCubit.state.questionNonEmpty
-                                  ? Colors.black
+                                  ? Color.fromARGB(255, 178, 178, 178)
                                   : Colors.red
-                              : Colors.black,
+                              : Color.fromARGB(255, 178, 178, 178),
                           width: 1),
                     ),
                     hintText: "Enter the question here",
@@ -109,9 +103,9 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
                       borderSide: BorderSide(
                           color: quizInputPageBloc.revealBlanks
                               ? widget.questionCubit.state.solutionNonEmpty
-                                  ? Colors.black
+                                  ? Color.fromARGB(255, 178, 178, 178)
                                   : Colors.red
-                              : Colors.black,
+                              : Color.fromARGB(255, 178, 178, 178),
                           width: 1),
                     ),
                     hintText: "Enter the solution here",
@@ -164,7 +158,7 @@ class _QuestionInputOptionsState extends State<QuestionInputOptions> {
     return Container(
         padding: EdgeInsets.all(2.0),
         margin: EdgeInsets.only(left: 30.0),
-        width: MediaQuery.of(context).size.width * 0.70,
+        width: MediaQuery.of(context).size.width * 0.90,
         height: 50,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -175,7 +169,7 @@ class _QuestionInputOptionsState extends State<QuestionInputOptions> {
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(7.0),
                     borderSide: BorderSide(
-                        color: widget.revealBlank ? Colors.red : Colors.black,
+                        color: widget.revealBlank ? Colors.red : Color.fromARGB(255, 178, 178, 178),
                         width: 1),
                   ),
                   hintText: "Enter one of the options here",
@@ -205,7 +199,7 @@ class _QuestionInputOptionsState extends State<QuestionInputOptions> {
               color: widget.optionIndex.toString() ==
                       widget.questionCubit.state.answerIndex
                   ? Colors.green
-                  : Colors.black,
+                  : Color.fromARGB(255, 108, 108, 108),
               onPressed: () {
                 if (widget.optionIndex.toString() !=
                     widget.questionCubit.state.answerIndex) {

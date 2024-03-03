@@ -2,11 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_latex/flutter_markdown_latex.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
+import 'package:markdown/markdown.dart' as md;
 
 class QuestionCardChoicesDisplay extends StatefulWidget {
-  const QuestionCardChoicesDisplay(
-      {super.key, required this.bloc});
+  const QuestionCardChoicesDisplay({super.key, required this.bloc});
 
   final QuizCardCubit bloc;
 
@@ -61,16 +63,7 @@ class _QuestionCardChoicesDisplayState
             buttons.add(button);
           }
 
-          return Expanded(
-            flex: 2,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(children: buttons.sublist(0, 2)),
-                Column(children: buttons.sublist(2))
-              ],
-            ),
-          );
+          return Column(children: buttons);
         });
   }
 }
@@ -84,20 +77,55 @@ ElevatedButton _createChoiceButton(
     required context}) {
   Color color = Colors.black;
   if (isRevealed) {
-    color = isCorrect ? isChosen? Colors.green: Colors.black : isChosen ? Colors.red : Colors.black;
+    color = isCorrect
+        ? isChosen
+            ? Colors.green
+            : Colors.black
+        : isChosen
+            ? Colors.red
+            : Colors.black;
   } else if (isChosen) {
-    color = Colors.blue;
+    color = Colors.indigoAccent;
   }
   return ElevatedButton(
     style: ButtonStyle(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(7.0),
-              side: BorderSide(color: color))),
-      minimumSize: MaterialStateProperty.all<Size>(
-          Size(MediaQuery.of(context).size.width * 0.4, 40.0)),
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          side: BorderSide(color: color),
+        ),
+      ),
     ),
     onPressed: isRevealed ? null : func,
-    child: Text(choice, style: TextStyle(fontSize: 15.0)),
+    child: TextMarkdown(text: choice),
   );
+}
+
+class TextMarkdown extends StatelessWidget {
+  const TextMarkdown({
+    super.key,
+    required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Markdown(
+      padding: EdgeInsets.all(0.0),
+      shrinkWrap: true,
+      data: text,
+      builders: {
+        'latex': LatexElementBuilder(),
+      },
+      styleSheet: MarkdownStyleSheet(
+        textAlign: WrapAlignment.center,
+        p: const TextStyle(fontSize: 15.0),
+      ),
+      extensionSet: md.ExtensionSet(
+        [LatexBlockSyntax()],
+        [LatexInlineSyntax()],
+      ),
+    );
+  }
 }

@@ -11,24 +11,30 @@ class FinishedQuizPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     final extraMap = GoRouterState.of(context).extra as Map<String, dynamic>;
     final SUBJ subject = extraMap['subject'] as SUBJ;
-    final Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap = extraMap['subjectQuestionsMap'] as Map<SUBJ, List<QuizCardCubit>>;
+    final Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap =
+        extraMap['subjectQuestionsMap'] as Map<SUBJ, List<QuizCardCubit>>;
 
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text('Quiz Results'),
         ),
-        body: Center(
+        body: SingleChildScrollView(
           child: Column(
             children: [
-              Text("Congrats on finishing! Let's see how you did"),
+              Container(
+                padding: const EdgeInsets.all(10.0),
+                margin: EdgeInsets.only(top: 20, bottom: 20),
+                child: Text(
+                  "Congrats on finishing! Let's see how you did",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
 
               QuestionDisplay(
-                            subjectQuestionsMap: subjectQuestionsMap,
-                            subject: subject),
+                  subjectQuestionsMap: subjectQuestionsMap, subject: subject),
 
               ElevatedButton(
                 onPressed: () {
@@ -36,7 +42,11 @@ class FinishedQuizPage extends StatelessWidget {
                 },
                 child: Text('Take Another Quiz'),
               ),
-              
+
+              SizedBox(
+                height: 20,
+              ),
+
               // ElevatedButton(
               //   onPressed: () {
               //   },

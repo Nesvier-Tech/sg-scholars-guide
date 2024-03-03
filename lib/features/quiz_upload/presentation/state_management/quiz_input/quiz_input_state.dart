@@ -22,7 +22,7 @@ class QuizInputState extends Equatable {
   final List<bool> optionsNonEmpty;
 
   @override
-  List<Object> get props => [question, options, answerIndex];
+  List<Object> get props => [question, solution, options, answerIndex, questionNonEmpty, solutionNonEmpty, optionsNonEmpty];
 
   QuizInputState copyWith({
     String? question,

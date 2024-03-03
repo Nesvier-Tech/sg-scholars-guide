@@ -5,7 +5,6 @@ import 'package:scholars_guide/features/quiz_mode/presentation/pages/quiz_page.d
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/ready_quiz_page.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_questions_page.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_success_page.dart';
-import 'package:scholars_guide/features/quiz_upload/presentation/widgets/quiz_input_widgets/question_input_tab_display.dart';
 
 import '../core/features/auth/presentation/screens/email_verification_screen.dart';
 import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
@@ -153,8 +152,7 @@ class AppRouter {
                 path: '/quiz-upload',
                 pageBuilder: (_, __) {
                   return const NoTransitionPage(
-                    // child: UploadQuestionPage(),
-                    child: QuestionInputTabDisplay()
+                    child: UploadQuestionPage(),
                   );
                 },
                 routes: <RouteBase>[

@@ -9,9 +9,7 @@ import 'question_card_display.dart';
 // Holds multiple question answer cards
 class QuestionDisplay extends StatefulWidget {
   const QuestionDisplay(
-      {super.key,
-      required this.subjectQuestionsMap,
-      required this.subject});
+      {super.key, required this.subjectQuestionsMap, required this.subject});
 
   final SUBJ subject;
   final Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap;
@@ -24,16 +22,17 @@ class _QuestionDisplayState extends State<QuestionDisplay> {
   @override
   Widget build(BuildContext context) {
     List<QuizCardCubit> questions = widget.subjectQuestionsMap[widget.subject]!;
-    return Expanded(
-      child: ListView.builder(
-          itemCount: widget.subjectQuestionsMap[widget.subject]?.length,
-          itemBuilder: (context, index) {
-            return QuestionCardDisplay(
-                bloc: questions[index],
-                choices: questions[index].optionsArray,
-                correctIndex: questions[index].correctIndex,
-                question: questions[index].question);
-          }),
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: widget.subjectQuestionsMap[widget.subject]?.length,
+      itemBuilder: (context, index) {
+        return QuestionCardDisplay(
+            bloc: questions[index],
+            choices: questions[index].optionsArray,
+            correctIndex: questions[index].correctIndex,
+            question: questions[index].question);
+      },
     );
   }
 }
