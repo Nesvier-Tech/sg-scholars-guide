@@ -1,22 +1,24 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_widgets/question_display.dart';
 
-import 'ready_quiz_page.dart';
-
 class FinishedQuizPage extends StatelessWidget {
-  const FinishedQuizPage({super.key, required this.subjectQuestionsMap, required this.subject});
-
-  final Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap;
-  final SUBJ subject;
+  const FinishedQuizPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
+    final extraMap = GoRouterState.of(context).extra as Map<String, dynamic>;
+    final SUBJ subject = extraMap['subject'] as SUBJ;
+    final Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap = extraMap['subjectQuestionsMap'] as Map<SUBJ, List<QuizCardCubit>>;
+
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text('Quiz Results'),
         ),
         body: Center(
@@ -30,19 +32,16 @@ class FinishedQuizPage extends StatelessWidget {
 
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => (ReadyQuizPage())),
-                  );
+                  GoRouter.of(context).go('/quiz-mode');
                 },
                 child: Text('Take Another Quiz'),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  // TODO: Push to the home page
-                },
-                child: Text("Back to the home page"),
-              ),
+              
+              // ElevatedButton(
+              //   onPressed: () {
+              //   },
+              //   child: Text("Back to the home page"),
+              // ),
             ],
           ),
         ));

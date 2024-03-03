@@ -2,7 +2,10 @@
 
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz/quiz_bloc.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/confirm_timeout_quiz_dialogue.dart';
 
 class TimerDisplay extends StatefulWidget {
   const TimerDisplay({super.key});
@@ -12,8 +15,6 @@ class TimerDisplay extends StatefulWidget {
 }
 
 class _TimerDisplayState extends State<TimerDisplay> {
-  // final CountDownController _controller = CountDownController();
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -59,7 +60,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
   @override
   Widget build(BuildContext context) {
     return CircularCountDownTimer(
-      duration: 60,
+      duration: 60 * 10, // ! 10 minutes muna
       initialDuration: 0,
       controller: CountDownController(),
       width: MediaQuery.of(context).size.width / 6,
@@ -80,13 +81,19 @@ class _CountdownTimerState extends State<CountdownTimer> {
       isTimerTextShown: true,
       autoStart: true,
       onStart: () {
-        debugPrint('Countdown Started');
+        // debugPrint('Countdown Started');
       },
       onComplete: () {
-        debugPrint('Countdown Ended');
+        // debugPrint('Countdown Ended');
+        showDialog<AlertDialog>(
+            barrierDismissible: false,
+            context: context,
+            builder: (BuildContext buildContext) {
+              return ConfirmTimeoutQuizDialogue(quizBloc: context.read<QuizBloc>());
+            });
       },
       onChange: (String timeStamp) {
-        debugPrint('Countdown Changed $timeStamp');
+        // debugPrint('Countdown Changed $timeStamp');
       },
       timeFormatterFunction: (defaultFormatterFunction, duration) {
         if (duration.inSeconds == 0) {

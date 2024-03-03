@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
-
-import '../../state_management/ready_quiz/ready_quiz_cubit.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/ready_quiz_page_widgets/subject_chosen_dialogue.dart';
 
 class ChooseSubjectDisplay extends StatefulWidget {
   const ChooseSubjectDisplay({super.key});
@@ -36,25 +34,11 @@ Container buildElevatedButton(String text, BuildContext context) {
       width: 220,
       child: ElevatedButton(
           onPressed: () {
-            switch (text) {
-              case "Math":
-                context.read<ReadyQuizCubit>().chooseMath();
-                break;
-              case "Science":
-                context.read<ReadyQuizCubit>().chooseScience();
-                break;
-              case "Language Proficiency":
-                context.read<ReadyQuizCubit>().chooseLanguage();
-                break;
-              case "Reading Comprehension":
-                context.read<ReadyQuizCubit>().chooseReading();
-                break;
-              case "UPCAT Challenge":
-                // context.read<ReadyQuizCubit>().chooseAll();
-                break;
-              default:
-                context.read<ReadyQuizCubit>().chooseAll();
-            }
+            showDialog<AlertDialog>(
+                context: context,
+                builder: (BuildContext buildContext) {
+                  return SubjectChosenDialogue(subjectTest: text,);
+                });
           },
           child: Text(text)));
 }

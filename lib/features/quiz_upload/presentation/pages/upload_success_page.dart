@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/state_management/quiz_input/quiz_input_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,11 +10,7 @@ import 'package:scholars_guide/features/quiz_upload/presentation/widgets/upload_
 import 'package:scholars_guide/features/quiz_upload/presentation/widgets/upload_quiz_widgets/upload_loading_display.dart';
 
 class UploadSuccessPage extends StatefulWidget {
-  const UploadSuccessPage(
-      {super.key, required this.questionsToUpload, required this.subjToUpload});
-
-  final List<QuizInputCubit> questionsToUpload;
-  final SUBJ subjToUpload;
+  const UploadSuccessPage({super.key});
 
   @override
   State<UploadSuccessPage> createState() => _UploadSuccessPageState();
@@ -22,12 +19,17 @@ class UploadSuccessPage extends StatefulWidget {
 class _UploadSuccessPageState extends State<UploadSuccessPage> {
   @override
   Widget build(BuildContext buildContext) {
+    final extraMap = GoRouterState.of(context).extra as Map<String, dynamic>;
+    final List<QuizInputCubit> questionsToUpload = extraMap['questionsToUpload'] as List<QuizInputCubit>;
+    final SUBJ subjToUpload = extraMap['subjToUpload'] as SUBJ;
+
     return BlocProvider<UploadQuizCubit>(
       create: (providerContext) => UploadQuizCubit(
-          questions: widget.questionsToUpload, subj: widget.subjToUpload)
+          questions: questionsToUpload, subj: subjToUpload)
         ..uploadQuiz(),
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text('Upload Questions'),
         ),
         body: BlocBuilder<UploadQuizCubit, UploadQuizState>(

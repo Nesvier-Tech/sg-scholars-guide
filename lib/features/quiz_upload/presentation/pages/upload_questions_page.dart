@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/state_management/quiz_input_page/quiz_input_page_bloc.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/widgets/quiz_input_page_widgets/add_or_submit_display.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/widgets/quiz_input_page_widgets/change_subject_display.dart';
-import 'package:scholars_guide/features/quiz_upload/presentation/widgets/quiz_input_page_widgets/confirm_cancel_quiz_input_display.dart';
-import 'package:scholars_guide/features/quiz_upload/presentation/widgets/quiz_input_page_widgets/confirm_submit_quiz_input_display.dart';
+import 'package:scholars_guide/features/quiz_upload/presentation/widgets/quiz_input_page_widgets/confirm_cancel_quiz_input_dialogue.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/widgets/quiz_input_widgets/question_input_display.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -47,8 +46,6 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
                       ),
                     ],
                   ));
-                } else if (state is QuizInputPageConfirmSubmit) {
-                  return ConfirmSubmitQuizInputDisplay();
                 } else if (state is QuizInputPageConfirmCancel) {
                   return ConfirmCancelQuizInputDisplay();
                 }

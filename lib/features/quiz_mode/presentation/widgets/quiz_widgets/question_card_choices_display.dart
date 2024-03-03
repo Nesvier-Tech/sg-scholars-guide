@@ -43,6 +43,7 @@ class _QuestionCardChoicesDisplayState
                     widget.bloc.chooseOption(index: i);
                   },
                   isChosen: state.chosenIndex == i,
+                  isCorrect: widget.bloc.correctIndex == state.chosenIndex,
                   context:
                       context); // ! This is the line that needs to be changed
             } else if (state is QuizCardRevealed) {

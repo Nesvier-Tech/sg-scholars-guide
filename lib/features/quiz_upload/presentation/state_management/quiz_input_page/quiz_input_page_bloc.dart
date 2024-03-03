@@ -24,15 +24,22 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
 
       if (_questionsNotEmpty() && questions.isNotEmpty) {
         revealBlanks = false;
-        emit(QuizInputPageConfirmSubmit());
       } else {
         revealBlanks = true;
         emit(QuizInputPageRefresh());
         emit(QuizInputPageQuestionsAdd());
       }
     });
-    on<QuizInputPageCancelSubmitBtnPressed>((event, emit) {
+
+    // * For resetting the quiz upload after submitting
+    on<QuizInputPageReset>((event, emit) {
+
+      questions = [QuizInputCubit()];
+      subject = SUBJ.MATH;
+      revealBlanks = false;
+      emit(QuizInputPageRefresh());
       emit(QuizInputPageQuestionsAdd());
+
     });
 
     // * For cancelling the quiz upload
@@ -59,6 +66,10 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
   List<QuizInputCubit> questions = [QuizInputCubit()];
   SUBJ subject = SUBJ.MATH;
   bool revealBlanks = false;
+
+  bool isSubmittable() {
+    return _questionsNotEmpty() && questions.isNotEmpty;
+  }
 
   bool _questionsNotEmpty() {
     for (var question in questions) {

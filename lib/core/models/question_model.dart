@@ -2,25 +2,39 @@
 
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:scholars_guide/core/models/firestore_model.dart';
 
 enum SUBJ { MATH, SCIENCE, READING, LANGUAGE, ALL }
 
 class Question {
-  final String question;
-  final List<String> options;
-  final int correctIndex;
-  final SUBJ subject;
-
   const Question({
     required this.question,
+    required this.solution,
     required this.options,
     required this.correctIndex,
     required this.subject,
   });
+  
+  final String question;
+  final String solution;
+  final List<String> options;
+  final int correctIndex;
+  final SUBJ subject;
+
+  static var createdAt = FieldValue.serverTimestamp();
+  static const String createdBy = ''; // ! This is a placeholder
+
+  static var updatedAt =  FieldValue.serverTimestamp();
+  static const String updatedBy = ''; // ! This is a placeholder
+
+  static bool isVerified = false;
+  static const String verifiedAt = '';
+  static const String verifiedBy = '';
 
   void printQuestion() {
     print('Question: $question');
+    print('Solution: $solution');
     print('Options: $options');
     print('Correct: $correctIndex');
   }
@@ -31,13 +45,14 @@ class Question {
     for (var val in data[FireStore.options].values) {
       temp.add(val);
     }
-    
-    String temp2 = temp[int.parse(data[FireStore.correctIndex])]; 
+
+    String temp2 = temp[int.parse(data[FireStore.correctIndex])];
     temp.shuffle(Random());
 
     return Question(
         subject: subject,
         question: data[FireStore.question],
+        solution: '', // ! This is a placeholder
         options: temp,
         correctIndex: temp.indexWhere((element) => element == temp2));
   }

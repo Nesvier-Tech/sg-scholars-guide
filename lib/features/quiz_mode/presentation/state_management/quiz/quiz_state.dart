@@ -11,10 +11,4 @@ final class QuizLoading extends QuizState {}
 
 final class QuizOngoing extends QuizState {}
 
-final class QuizFinishConfirmation extends QuizState {}
-
-final class QuizCancelConfirmation extends QuizState {}
-
-final class QuizOutOfTime extends QuizState {}
-
 final class QuizError extends QuizState {}

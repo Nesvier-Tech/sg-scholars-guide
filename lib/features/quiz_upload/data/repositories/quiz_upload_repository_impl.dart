@@ -25,6 +25,7 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
       for (QuizInputCubit questionCubit in questionsToUpload) {
         Question question = Question(
             question: questionCubit.state.question,
+            solution: questionCubit.state.solution,
             options: questionCubit.state.options,
             correctIndex: int.parse(questionCubit.state.answerIndex),
             subject: subjToUpload);

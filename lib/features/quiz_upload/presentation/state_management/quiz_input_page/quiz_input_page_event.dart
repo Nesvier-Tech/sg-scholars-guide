@@ -18,6 +18,8 @@ class QuizInputPageChangedSubject extends QuizInputPageEvent {
 class QuizInputPageSubmitBtnPressed extends QuizInputPageEvent {}
 class QuizInputPageCancelSubmitBtnPressed extends QuizInputPageEvent {}
 
+class QuizInputPageReset extends QuizInputPageEvent {}
+
 class QuizInputPageBackBtnPressed extends QuizInputPageEvent {}
 class QuizInputPageCancelBackBtnPressed extends QuizInputPageEvent {}
 

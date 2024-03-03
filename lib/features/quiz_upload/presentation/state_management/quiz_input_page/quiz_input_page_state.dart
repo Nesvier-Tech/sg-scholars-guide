@@ -11,6 +11,4 @@ class QuizInputPageRefresh extends QuizInputPageState {}
 
 class QuizInputPageQuestionsAdd extends QuizInputPageState {}
 
-class QuizInputPageConfirmSubmit extends QuizInputPageState {}
-
 class QuizInputPageConfirmCancel extends QuizInputPageState {}

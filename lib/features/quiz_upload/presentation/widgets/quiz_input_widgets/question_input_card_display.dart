@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/state_management/quiz_input/quiz_input_cubit.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/state_management/quiz_input_page/quiz_input_page_bloc.dart';
 
@@ -23,21 +24,30 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
     TextEditingController questionController =
         TextEditingController(text: widget.questionCubit.state.question);
 
+    TextEditingController solutionController =
+        TextEditingController(text: widget.questionCubit.state.solution);
+
     questionController.selection = TextSelection.fromPosition(
       TextPosition(
         offset: questionController.text.length,
       ),
     );
 
+    solutionController.selection = TextSelection.fromPosition(
+      TextPosition(
+        offset: solutionController.text.length,
+      ),
+    );
+
     return Container(
       width: MediaQuery.of(context).size.width * 0.90,
-      height: 430,
+      height: 630,
       padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-      child: Container(
-          decoration: BoxDecoration(
-            color: Colors.deepOrange[100], // ! Panget UI
-            borderRadius: BorderRadius.circular(10.0),
-          ),
+      child: FormBuilder(
+          // decoration: BoxDecoration(
+          //   color: Colors.deepPurple[100], // ! Panget UI
+          //   borderRadius: BorderRadius.circular(10.0),
+          // ),
           child: Column(
             children: [
               Container(
@@ -53,7 +63,7 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
                                   ? Colors.black
                                   : Colors.red
                               : Colors.black,
-                          width: 2),
+                          width: 1),
                     ),
                     hintText: "Enter the question here",
                     filled: true,
@@ -89,6 +99,34 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
                   optionIndex: 3,
                   revealBlank: quizInputPageBloc.revealBlanks &&
                       !widget.questionCubit.state.optionsNonEmpty[3]),
+              Container(
+                padding: EdgeInsets.all(8.0),
+                height: 200,
+                child: TextField(
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                      borderSide: BorderSide(
+                          color: quizInputPageBloc.revealBlanks
+                              ? widget.questionCubit.state.solutionNonEmpty
+                                  ? Colors.black
+                                  : Colors.red
+                              : Colors.black,
+                          width: 1),
+                    ),
+                    hintText: "Enter the solution here",
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                  maxLines: null,
+                  expands: true,
+                  controller: solutionController,
+                  onChanged: (solutionInput) {
+                    widget.questionCubit
+                          .solutionChanged(solution: solutionInput);
+                  },
+                ),
+              ),
             ],
           )),
     );
@@ -138,7 +176,7 @@ class _QuestionInputOptionsState extends State<QuestionInputOptions> {
                     borderRadius: BorderRadius.circular(7.0),
                     borderSide: BorderSide(
                         color: widget.revealBlank ? Colors.red : Colors.black,
-                        width: 2),
+                        width: 1),
                   ),
                   hintText: "Enter one of the options here",
                   filled: true,
