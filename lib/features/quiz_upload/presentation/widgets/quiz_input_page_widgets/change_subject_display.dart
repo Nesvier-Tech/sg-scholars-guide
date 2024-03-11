@@ -32,8 +32,7 @@ class _ChangeSubjectDisplayState extends State<ChangeSubjectDisplay> {
               icon: Icon(Icons.arrow_drop_down),
               iconSize: 24,
               elevation: 16,
-              style: TextStyle(
-                  color: Color.fromARGB(255, 63, 86, 169)), // ! Panget UI
+              style: TextStyle(color: Color.fromARGB(255, 63, 86, 169)),
               underline: Container(
                 height: 2,
                 color: Color.fromARGB(255, 63, 86, 169),

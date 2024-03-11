@@ -92,18 +92,4 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
       print("Options non empty: ${question.optionsNonEmpty}");
     }
   }
-  // void _printQuestions() {
-  //   print("REVEAL THE BLANKS ? $revealBlanks");
-  //   for (var question in questions) {
-  //     print(
-  //         " ====================================== Printing question ======================================");
-  //     print("Question: ${question.state.question}");
-  //     print("Solution: ${question.state.solution}");
-  //     print("Options: ${question.state.options}");
-  //     print("Answer: ${question.state.answerIndex}");
-  //     print("Question non empty: ${question.state.questionNonEmpty}");
-  //     print("Solution non empty: ${question.state.solutionNonEmpty}");
-  //     print("Options non empty: ${question.state.optionsNonEmpty}");
-  //   }
-  // }
 }

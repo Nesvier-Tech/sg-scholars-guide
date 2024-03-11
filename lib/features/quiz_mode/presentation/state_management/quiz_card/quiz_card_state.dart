@@ -1,10 +1,14 @@
+// ignore_for_file: overridden_fields, annotate_overrides
+
 part of 'quiz_card_cubit.dart';
 
 sealed class QuizCardState extends Equatable {
   const QuizCardState();
 
+  final int chosenIndex = -1;
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [chosenIndex];
 }
 
 final class QuizCardUnanswered extends QuizCardState {}

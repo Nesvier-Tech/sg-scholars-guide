@@ -31,7 +31,7 @@ class _QuestionInputDisplayState extends State<QuestionInputDisplay> {
             child: Icon(Icons.delete),
           ),
           direction: DismissDirection.endToStart,
-          key: ValueKey<int>(index),
+          key: UniqueKey(),
           child: QuestionInputCard(
               questionCubit:
                   buildContext.read<QuizInputPageBloc>().questions[index]),

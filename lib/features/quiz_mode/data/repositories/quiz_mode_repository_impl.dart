@@ -17,19 +17,23 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
     final dbService = services<FirebaseFirestore>();
     List<Question> questions = [];
 
+    // * Fetching the questions from the Firestore
     await dbService
         .collection(FireStore.SUBJ2subject(subj))
         .get()
         .then((snapshot) {
+      print("GETTING QUESTIONS");
       snapshot.docs
           .map((e) => questions.add(Question.fromMap(e.id, e.data(), subj)))
           .toList();
-      for (var d in snapshot.docs) {
-        print(d.id);
-        print(d.data());
-      }
     });
 
+    // * Fetching the solutions from the Firestore
+    for (Question q in questions) {
+      await q.solutionRef?.get().then((value) {
+        q.solution = value[FireStore.solutionData];
+      });
+    }
     return questions;
   }
 }

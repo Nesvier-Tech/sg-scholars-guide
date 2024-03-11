@@ -8,15 +8,19 @@ class QuizCardCubit extends Cubit<QuizCardState> {
     required this.correctIndex,
     required this.optionsArray,
     required this.question,
+    required this.solution,
   }) : super(QuizCardUnanswered());
 
   final int correctIndex;
   final List<String> optionsArray;
   final String question;
+  final String solution;
 
   void chooseOption({required int index}) {
     emit(QuizCardUnanswered());
     emit(QuizCardAnswered(chosenIndex: index));
   }
-  void revealAnswer({required int index})  => emit(QuizCardRevealed(chosenIndex: index));
+
+  void revealAnswer({required int index}) =>
+      emit(QuizCardRevealed(chosenIndex: index));
 }

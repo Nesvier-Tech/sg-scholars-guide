@@ -26,7 +26,8 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
                   .map((e) => QuizCardCubit(
                       correctIndex: e.correctIndex,
                       optionsArray: e.options,
-                      question: e.question))
+                      question: e.question,
+                      solution: e.solution))
                   .toList());
         });
       } else {
@@ -39,7 +40,8 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
               .map((e) => QuizCardCubit(
                   correctIndex: e.correctIndex,
                   optionsArray: e.options,
-                  question: e.question))
+                  question: e.question,
+                  solution: e.solution))
               .toList()
         };
       }

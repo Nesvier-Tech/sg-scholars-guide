@@ -9,22 +9,25 @@ enum SUBJ { MATH, SCIENCE, READING, LANGUAGE, ALL }
 
 class Question {
   Question({
-    this.id = '',
     required this.question,
-    required this.solutionRef,
     required this.options,
     required this.correctIndex,
     required this.subject,
-    required this.createdBy,
+    this.id = '',
+    this.solution = '',
+    this.solutionRef,
+    this.createdBy,
   });
-  String id;
+
   final String question;
   final List<String> options;
   final int correctIndex;
   final SUBJ subject;
-  final DocumentReference solutionRef;
+  String id;
+  String solution;
+  DocumentReference? solutionRef;
 
-  final DocumentReference createdBy;
+  DocumentReference? createdBy;
   final FieldValue createdAt = FieldValue.serverTimestamp();
 
   static var updatedAt = FieldValue.serverTimestamp();
@@ -46,7 +49,6 @@ class Question {
     for (var val in data[FireStore.options].values) {
       temp.add(val);
     }
-
     String temp2 = temp[int.parse(data[FireStore.correctIndex])];
     temp.shuffle(Random());
 

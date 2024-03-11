@@ -1,4 +1,13 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:scholars_guide/core/models/question_model.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/state_management/solution_quiz/solution_quiz_cubit.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/question_loading_display.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/solution_quiz_page_widgets/solution_card_display.dart';
 
 class SolutionsQuizPage extends StatefulWidget {
   const SolutionsQuizPage({super.key});
@@ -10,103 +19,41 @@ class SolutionsQuizPage extends StatefulWidget {
 class _SolutionsQuizPageState extends State<SolutionsQuizPage> {
   @override
   Widget build(BuildContext context) {
+    final extraMap = GoRouterState.of(context).extra as Map<String, dynamic>;
+    final SUBJ subject = extraMap['subject'] as SUBJ;
+    final Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap =
+        extraMap['subjectQuestionsMap'] as Map<SUBJ, List<QuizCardCubit>>;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Card Page'),
+        automaticallyImplyLeading: false,
+        title: Text('Solutions Page'),
       ),
-      body: ListView.builder(
-        itemCount: [].length,
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-            child: ListTile(
-              leading: Image.network([][index]['imageUrl']),
-              title: Text([][index]['title']),
-              subtitle: Text([][index]['description']),
-            ),
-          );
-        },
+      body: BlocProvider(
+        create: (providerContext) => SolutionQuizCubit()..loadSolutions(),
+        child: BlocBuilder<SolutionQuizCubit, SolutionQuizState>(
+          builder: (solutionQuizCubitContext, state) {
+            List<QuizCardCubit> questions = subjectQuestionsMap[subject]!;
+
+            if (state is SolutionQuizLoad) {
+              return QuestionLoadingDisplay();
+            } else if (state is SolutionQuizShown) {
+              return PageView.builder(
+                itemCount: questions.length,
+                itemBuilder: (context, index) => SolutionCardDisplay(
+                  question: questions[index].question,
+                  answer: questions[index]
+                      .optionsArray[questions[index].correctIndex],
+                  solution: questions[index].solution,
+                ),
+              );
+            }
+            return Center(
+              child: Text('Something went wrong'),
+            );
+          },
+        ),
       ),
     );
-
-// StreamBuilder<DocumentSnapshot>(
-//                   stream: _dbService
-//                       .collection('users')
-//                       .doc(_authService.currentUser?.uid)
-//                       .snapshots(),
-//                   builder: (BuildContext context,
-//                       AsyncSnapshot<DocumentSnapshot> snapshot) {
-//                     if (snapshot.hasError) {
-//                       return const Text('Something went wrong');
-//                     }
-
-//                     if (snapshot.connectionState == ConnectionState.waiting) {
-//                       // Show a loading spinner.
-//                       return const CircularProgressIndicator();
-//                     }
-
-//                     // Convert timestamp to DateTime.
-//                     var createdAt =
-//                         (snapshot.data?.get('createdAt') as Timestamp).toDate();
-//                     var updatedAt = snapshot.data?.get('updatedAt').toDate();
-
-//                     // createdAt = createdAt is Timestamp
-//                     //     ? createdAt.toDate()
-//                     //     : DateTime.now();
-//                     // updatedAt = updatedAt is Timestamp
-//                     //     ? updatedAt.toDate()
-//                     //     : DateTime.now();
-
-//                     String username =
-//                         snapshot.data?.get('username') ?? 'Loading...';
-
-//                     return Column(
-//                       crossAxisAlignment: CrossAxisAlignment.center,
-//                       children: [
-//                         CircleAvatar(
-//                           backgroundColor: Colors.blue,
-//                           radius: 50,
-//                           child: Text(
-//                             username[0].toUpperCase(),
-//                             style: TextStyle(
-//                               fontSize: 40,
-//                               color: Colors.white,
-//                             ),
-//                           ),
-//                         ),
-//                         SizedBox(height: 16),
-//                         Text(
-//                           username,
-//                           style: TextStyle(
-//                             fontSize: 24,
-//                             fontWeight: FontWeight.bold,
-//                           ),
-//                         ),
-//                         SizedBox(height: 4),
-//                         Text(
-//                           _authService.currentUser?.email ?? 'Loading...',
-//                           style: TextStyle(
-//                             fontSize: 18,
-//                           ),
-//                         ),
-//                         SizedBox(height: 32),
-//                         ProfileDetailRow(
-//                           title: 'UID:',
-//                           detail:
-//                               '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}' ??
-//                                   'Loading...',
-//                         ),
-//                         SizedBox(height: 10),
-//                         ProfileDetailRow(
-//                           title: 'Joined in:',
-//                           detail: 'January 1, 2022',
-//                         ),
-//                         SizedBox(height: 10),
-//                         ProfileDetailRow(
-//                           title: 'Updated in:',
-//                           detail: 'February 20, 2024',
-//                         ),
-//                       ],
-//                     );
-//                   }),
   }
 }

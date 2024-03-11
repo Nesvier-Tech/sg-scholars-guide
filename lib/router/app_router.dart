@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/finished_quiz_page.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/quiz_page.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/ready_quiz_page.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/pages/solutions_quiz_page.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_questions_page.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_success_page.dart';
 
@@ -141,7 +142,7 @@ class AppRouter {
                   GoRoute(
                     path: 'solutions-quiz',
                     pageBuilder: (context, state) => const NoTransitionPage(
-                      child: FinishedQuizPage(), // ! Change
+                      child: SolutionsQuizPage(),
                     ),
                   ),
                 ],

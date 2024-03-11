@@ -4,6 +4,9 @@ import 'package:scholars_guide/core/models/question_model.dart';
 
 class FireStore {
   //* Collection names in the Firestore
+  static const solutionsCollection = 'solutions';
+  static const commentsCollection = 'comments';
+  static const additionalQuestionDataRef = 'additionalQuestionsData';
   static const subjects = {
     SUBJ.MATH: 'mathematicsQuestions',
     SUBJ.SCIENCE: 'scienceQuestions',

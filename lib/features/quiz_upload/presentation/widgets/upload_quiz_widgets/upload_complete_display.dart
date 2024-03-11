@@ -13,7 +13,7 @@ class UploadCompleteDisplay extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text("Upload Success!"),
-        
+
         // Todo: Show results / Show all questions uploaded by user
 
         ElevatedButton(
@@ -21,12 +21,12 @@ class UploadCompleteDisplay extends StatelessWidget {
               GoRouter.of(context).go('/quiz-upload');
             },
             child: Text("Add more questions")),
-        // ElevatedButton(
-        //     onPressed: () {},
-        //     child: Text("Go Back to Home Page")), // ! Add a route to home page
-        ElevatedButton(onPressed: () {
-          GoRouter.of(context).go('/quiz-mode');
-        }, child: Text("Take a quiz now!"))
+
+        ElevatedButton(
+            onPressed: () {
+              GoRouter.of(context).go('/quiz-mode');
+            },
+            child: Text("Take a quiz now!"))
       ],
     ));
   }

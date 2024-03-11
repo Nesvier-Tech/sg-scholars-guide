@@ -25,7 +25,7 @@ class _QuestionDisplayState extends State<QuestionDisplay> {
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: widget.subjectQuestionsMap[widget.subject]?.length,
+      itemCount: questions.length,
       itemBuilder: (context, index) {
         return QuestionCardDisplay(
             bloc: questions[index],
