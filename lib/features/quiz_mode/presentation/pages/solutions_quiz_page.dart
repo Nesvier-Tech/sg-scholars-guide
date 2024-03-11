@@ -10,7 +10,23 @@ class SolutionsQuizPage extends StatefulWidget {
 class _SolutionsQuizPageState extends State<SolutionsQuizPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Card Page'),
+      ),
+      body: ListView.builder(
+        itemCount: [].length,
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            child: ListTile(
+              leading: Image.network([][index]['imageUrl']),
+              title: Text([][index]['title']),
+              subtitle: Text([][index]['description']),
+            ),
+          );
+        },
+      ),
+    );
 
 // StreamBuilder<DocumentSnapshot>(
 //                   stream: _dbService

@@ -8,24 +8,26 @@ import 'package:scholars_guide/core/models/firestore_model.dart';
 enum SUBJ { MATH, SCIENCE, READING, LANGUAGE, ALL }
 
 class Question {
-  const Question({
+  Question({
+    this.id = '',
     required this.question,
-    required this.solution,
+    required this.solutionRef,
     required this.options,
     required this.correctIndex,
     required this.subject,
+    required this.createdBy,
   });
-  
+  String id;
   final String question;
-  final String solution;
   final List<String> options;
   final int correctIndex;
   final SUBJ subject;
+  final DocumentReference solutionRef;
 
-  static var createdAt = FieldValue.serverTimestamp();
-  static const String createdBy = ''; // ! This is a placeholder
+  final DocumentReference createdBy;
+  final FieldValue createdAt = FieldValue.serverTimestamp();
 
-  static var updatedAt =  FieldValue.serverTimestamp();
+  static var updatedAt = FieldValue.serverTimestamp();
   static const String updatedBy = ''; // ! This is a placeholder
 
   static bool isVerified = false;
@@ -34,13 +36,12 @@ class Question {
 
   void printQuestion() {
     print('Question: $question');
-    print('Solution: $solution');
     print('Options: $options');
     print('Correct: $correctIndex');
   }
 
   // Returns a Question Class using data fetched from the Firestore
-  factory Question.fromMap(Map<String, dynamic> data, SUBJ subject) {
+  factory Question.fromMap(String id, Map<String, dynamic> data, SUBJ subject) {
     List<String> temp = [];
     for (var val in data[FireStore.options].values) {
       temp.add(val);
@@ -50,11 +51,13 @@ class Question {
     temp.shuffle(Random());
 
     return Question(
+        id: id,
         subject: subject,
         question: data[FireStore.question],
-        solution: '', // ! This is a placeholder
+        solutionRef: data[FireStore.solutionRef],
         options: temp,
-        correctIndex: temp.indexWhere((element) => element == temp2));
+        correctIndex: temp.indexWhere((element) => element == temp2),
+        createdBy: data[FireStore.createdBy]);
   }
 
   // Converts the Question Class to a json like file to be stored in the Firestore
@@ -68,6 +71,9 @@ class Question {
         '3': options[3],
       },
       FireStore.correctIndex: correctIndex.toString(),
+      FireStore.solutionRef: solutionRef,
+      FireStore.createdBy: createdBy,
+      FireStore.createdAt: createdAt,
     };
   }
 

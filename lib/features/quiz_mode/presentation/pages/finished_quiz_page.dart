@@ -17,43 +17,44 @@ class FinishedQuizPage extends StatelessWidget {
         extraMap['subjectQuestionsMap'] as Map<SUBJ, List<QuizCardCubit>>;
 
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text('Quiz Results'),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text('Quiz Results'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              margin: EdgeInsets.only(top: 20, bottom: 20),
+              child: Text(
+                "Congrats on finishing! Let's see how you did",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+
+            QuestionDisplay(
+                subjectQuestionsMap: subjectQuestionsMap, subject: subject),
+
+            ElevatedButton(
+              onPressed: () {
+                GoRouter.of(context).go('/quiz-mode');
+              },
+              child: Text('Take Another Quiz'),
+            ),
+
+            SizedBox(
+              height: 20,
+            ),
+
+            // ElevatedButton(
+            //   onPressed: () {
+            //   },
+            //   child: Text("Back to the home page"),
+            // ),
+          ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                margin: EdgeInsets.only(top: 20, bottom: 20),
-                child: Text(
-                  "Congrats on finishing! Let's see how you did",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-
-              QuestionDisplay(
-                  subjectQuestionsMap: subjectQuestionsMap, subject: subject),
-
-              ElevatedButton(
-                onPressed: () {
-                  GoRouter.of(context).go('/quiz-mode');
-                },
-                child: Text('Take Another Quiz'),
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-
-              // ElevatedButton(
-              //   onPressed: () {
-              //   },
-              //   child: Text("Back to the home page"),
-              // ),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }

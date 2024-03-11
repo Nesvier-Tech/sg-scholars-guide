@@ -3,12 +3,14 @@
 // import 'package:scholars_guide/service_locator/service_locator.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:scholars_guide/core/models/firestore_model.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
+
 import 'package:scholars_guide/features/quiz_upload/domain/repositories_contract/quiz_upload_repository_contract.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/state_management/quiz_input/quiz_input_cubit.dart';
-import 'package:scholars_guide/firebase_options.dart';
+
+import '../../../../service_locator/service_locator.dart';
 
 class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
   const QuizUploadRepositoryImpl();
@@ -17,29 +19,43 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
   Future<bool> uploadQuestions(
       {required List<QuizInputCubit> questionsToUpload,
       required SUBJ subjToUpload}) async {
+    final authService = services<FirebaseAuth>();
+    final dbService = services<FirebaseFirestore>();
+
+    final DocumentReference userRef =
+        dbService.collection('users').doc(authService.currentUser?.uid);
+
     late bool uploadSucess = true;
 
-    await Firebase.initializeApp(
-            options: DefaultFirebaseOptions.currentPlatform)
-        .whenComplete(() {
-      for (QuizInputCubit questionCubit in questionsToUpload) {
-        Question question = Question(
-            question: questionCubit.question,
-            solution: questionCubit.solution,
-            options: questionCubit.options,
-            correctIndex: int.parse(questionCubit.answerIndex),
-            subject: subjToUpload);
+    print('Username uid is: ${authService.currentUser?.uid}');
 
-        FirebaseFirestore.instance
-            .collection(FireStore.SUBJ2subject(subjToUpload))
-            .add(question.toMap())
-            .then((value) => print('Question added to the database'))
-            .catchError((error) {
-          print('Failed to add question: $error');
-          uploadSucess = false;
-        });
-      }
-    });
+    for (QuizInputCubit questionCubit in questionsToUpload) {
+      // * Uploading the solutions first to the database
+      DocumentReference solRef = await dbService.collection('solutions').add({
+        FireStore.solutionData: questionCubit.solution,
+        FireStore.createdBy: userRef,
+        FireStore.createdAt: FieldValue.serverTimestamp(),
+      });
+
+      // * Uploading the questions to the database w/ solutions reference
+      Question question = Question(
+          question: questionCubit.question,
+          solutionRef: solRef,
+          options: questionCubit.options,
+          correctIndex: int.parse(questionCubit.answerIndex),
+          subject: subjToUpload,
+          createdBy: userRef);
+
+      dbService
+          .collection(FireStore.SUBJ2subject(subjToUpload))
+          .add(question.toMap())
+          .then((value) =>
+              print('[SUCCESS] | Question added to the database: $value'))
+          .catchError((error) {
+        print('[ERROR] | Failed to add question: $error');
+        uploadSucess = false;
+      });
+    }
 
     return uploadSucess;
   }

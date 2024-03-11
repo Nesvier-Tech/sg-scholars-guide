@@ -15,7 +15,8 @@ class FireStore {
   //* Field names of each document in the Firestore
   // Question related fields
   static const String question = 'question';
-  static const String solution = 'solutionData';
+  static const String solutionRef = 'solutionsRef';
+  static const String solutionData = 'solutionData';
   static const String options = 'choices';
   static const String correctIndex = 'correctChoiceKey';
   // static const String questionReference = 'additionalQuestionDataRef';
