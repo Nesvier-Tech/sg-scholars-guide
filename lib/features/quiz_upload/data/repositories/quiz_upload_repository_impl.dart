@@ -24,10 +24,10 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
         .whenComplete(() {
       for (QuizInputCubit questionCubit in questionsToUpload) {
         Question question = Question(
-            question: questionCubit.state.question,
-            solution: questionCubit.state.solution,
-            options: questionCubit.state.options,
-            correctIndex: int.parse(questionCubit.state.answerIndex),
+            question: questionCubit.question,
+            solution: questionCubit.solution,
+            options: questionCubit.options,
+            correctIndex: int.parse(questionCubit.answerIndex),
             subject: subjToUpload);
 
         FirebaseFirestore.instance
@@ -35,9 +35,9 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
             .add(question.toMap())
             .then((value) => print('Question added to the database'))
             .catchError((error) {
-              print('Failed to add question: $error');
-              uploadSucess = false;
-            });
+          print('Failed to add question: $error');
+          uploadSucess = false;
+        });
       }
     });
 

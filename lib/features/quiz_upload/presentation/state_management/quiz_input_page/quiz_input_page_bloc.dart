@@ -20,8 +20,6 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
 
     // * For submitting the quiz upload
     on<QuizInputPageSubmitBtnPressed>((event, emit) {
-      _printQuestions();
-
       if (_questionsNotEmpty() && questions.isNotEmpty) {
         revealBlanks = false;
       } else {
@@ -29,17 +27,16 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
         emit(QuizInputPageRefresh());
         emit(QuizInputPageQuestionsAdd());
       }
+      _printQuestions();
     });
 
     // * For resetting the quiz upload after submitting
     on<QuizInputPageReset>((event, emit) {
-
       questions = [QuizInputCubit()];
       subject = SUBJ.MATH;
       revealBlanks = false;
       emit(QuizInputPageRefresh());
       emit(QuizInputPageQuestionsAdd());
-
     });
 
     // * For cancelling the quiz upload
@@ -73,8 +70,8 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
 
   bool _questionsNotEmpty() {
     for (var question in questions) {
-      if (!question.state.questionNonEmpty) return false;
-      for (var option in question.state.optionsNonEmpty) {
+      if (!question.questionNonEmpty) return false;
+      for (var option in question.optionsNonEmpty) {
         if (!option) return false;
       }
     }
@@ -86,13 +83,27 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
     for (var question in questions) {
       print(
           " ====================================== Printing question ======================================");
-      print("Question: ${question.state.question}");
-      print("Solution: ${question.state.solution}");
-      print("Options: ${question.state.options}");
-      print("Answer: ${question.state.answerIndex}");
-      print("Question non empty: ${question.state.questionNonEmpty}");
-      print("Solution non empty: ${question.state.solutionNonEmpty}");
-      print("Options non empty: ${question.state.optionsNonEmpty}");
+      print("Question: ${question.question}");
+      print("Solution: ${question.solution}");
+      print("Options: ${question.options}");
+      print("Answer: ${question.answerIndex}");
+      print("Question non empty: ${question.questionNonEmpty}");
+      print("Solution non empty: ${question.solutionNonEmpty}");
+      print("Options non empty: ${question.optionsNonEmpty}");
     }
   }
+  // void _printQuestions() {
+  //   print("REVEAL THE BLANKS ? $revealBlanks");
+  //   for (var question in questions) {
+  //     print(
+  //         " ====================================== Printing question ======================================");
+  //     print("Question: ${question.state.question}");
+  //     print("Solution: ${question.state.solution}");
+  //     print("Options: ${question.state.options}");
+  //     print("Answer: ${question.state.answerIndex}");
+  //     print("Question non empty: ${question.state.questionNonEmpty}");
+  //     print("Solution non empty: ${question.state.solutionNonEmpty}");
+  //     print("Options non empty: ${question.state.optionsNonEmpty}");
+  //   }
+  // }
 }

@@ -15,23 +15,31 @@ class QuestionPreviewCardDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int correctIndex = int.parse(questionCubit.state.answerIndex);
+    int correctIndex = int.parse(questionCubit.answerIndex);
 
     return Card(
       margin: EdgeInsets.all(10.0),
       child: Column(
         children: [
           // Question
-          TextContainer(text: questionCubit.state.question),
+          TextContainer(text: questionCubit.question),
 
           // Choices
-          OptionContainer(text: "A: ${questionCubit.state.options[0]}", isCorrect: 0 == correctIndex),
-          OptionContainer(text: "B: ${questionCubit.state.options[1]}", isCorrect: 1 == correctIndex),
-          OptionContainer(text: "C: ${questionCubit.state.options[2]}", isCorrect: 2 == correctIndex),
-          OptionContainer(text: "D: ${questionCubit.state.options[3]}", isCorrect: 3 == correctIndex),
+          OptionContainer(
+              text: "A: ${questionCubit.options[0]}",
+              isCorrect: 0 == correctIndex),
+          OptionContainer(
+              text: "B: ${questionCubit.options[1]}",
+              isCorrect: 1 == correctIndex),
+          OptionContainer(
+              text: "C: ${questionCubit.options[2]}",
+              isCorrect: 2 == correctIndex),
+          OptionContainer(
+              text: "D: ${questionCubit.options[3]}",
+              isCorrect: 3 == correctIndex),
 
           // Solution
-          TextContainer(text: questionCubit.state.solution),
+          TextContainer(text: questionCubit.solution),
         ],
       ),
     );
@@ -50,11 +58,10 @@ class TextContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-          color: Color.fromARGB(255, 178, 178, 178),
-        ),
-        borderRadius: BorderRadius.circular(10.0)
-      ),
+          border: Border.all(
+            color: Color.fromARGB(255, 178, 178, 178),
+          ),
+          borderRadius: BorderRadius.circular(10.0)),
       constraints: BoxConstraints(
         minHeight: MediaQuery.of(context).size.height * 0.1,
       ),
@@ -78,11 +85,11 @@ class OptionContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-          color: isCorrect ?Colors.green: Color.fromARGB(255, 178, 178, 178),
-        ),
-        borderRadius: BorderRadius.circular(10.0)
-      ),
+          border: Border.all(
+            color:
+                isCorrect ? Colors.green : Color.fromARGB(255, 178, 178, 178),
+          ),
+          borderRadius: BorderRadius.circular(10.0)),
       margin: EdgeInsets.all(2.0),
       constraints: BoxConstraints(
         minHeight: MediaQuery.of(context).size.height * 0.02,

@@ -6,7 +6,8 @@ import 'package:scholars_guide/features/quiz_upload/presentation/state_managemen
 import 'package:scholars_guide/features/quiz_upload/presentation/state_management/quiz_input_page/quiz_input_page_bloc.dart';
 
 class ConfirmSubmitQuizInputDialogue extends StatelessWidget {
-  const ConfirmSubmitQuizInputDialogue({super.key, required this.quizInputPageBloc});
+  const ConfirmSubmitQuizInputDialogue(
+      {super.key, required this.quizInputPageBloc});
 
   final QuizInputPageBloc quizInputPageBloc;
 
@@ -20,17 +21,16 @@ class ConfirmSubmitQuizInputDialogue extends StatelessWidget {
           child: const Text('Submit Questions'),
           onPressed: () {
             Navigator.of(context).pop();
-
             quizInputPageBloc.add(QuizInputPageSubmitBtnPressed());
 
-            if (quizInputPageBloc.isSubmittable()){
-              GoRouter.of(context).go('/quiz-upload/finished-quiz-upload', extra: {
+            if (quizInputPageBloc.isSubmittable()) {
+              GoRouter.of(context)
+                  .go('/quiz-upload/finished-quiz-upload', extra: {
                 'questionsToUpload': quizInputPageBloc.questions,
                 'subjToUpload': quizInputPageBloc.subject,
               });
               quizInputPageBloc.add(QuizInputPageReset());
             }
-            
           },
         ),
         ElevatedButton(

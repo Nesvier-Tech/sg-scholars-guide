@@ -137,8 +137,14 @@ class AppRouter {
                     pageBuilder: (context, state) => const NoTransitionPage(
                       child: FinishedQuizPage(),
                     ),
-                  )
-                ]
+                  ),
+                  GoRoute(
+                    path: 'solutions-quiz',
+                    pageBuilder: (context, state) => const NoTransitionPage(
+                      child: FinishedQuizPage(), // ! Change
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -162,7 +168,7 @@ class AppRouter {
                       child: UploadSuccessPage(),
                     ),
                   ),
-                ]
+                ],
               ),
             ],
           ),
