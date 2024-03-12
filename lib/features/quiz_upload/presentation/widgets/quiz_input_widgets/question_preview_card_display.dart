@@ -110,16 +110,18 @@ class TextMarkdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Markdown(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      data: text,
-      builders: {
-        'latex': LatexElementBuilder(),
-      },
-      extensionSet: md.ExtensionSet(
-        [LatexBlockSyntax()],
-        [LatexInlineSyntax()],
+    return IgnorePointer(
+      child: Markdown(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        data: text,
+        builders: {
+          'latex': LatexElementBuilder(),
+        },
+        extensionSet: md.ExtensionSet(
+          [LatexBlockSyntax()],
+          [LatexInlineSyntax()],
+        ),
       ),
     );
   }

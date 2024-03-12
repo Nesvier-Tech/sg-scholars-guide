@@ -24,62 +24,57 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
       length: 2,
       child: BlocProvider(
         create: (blocContext) => QuizInputPageBloc(),
-        child: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: BlocBuilder<QuizInputPageBloc, QuizInputPageState>(
-            builder: (blocBuilderContext, state) {
-              if (state is QuizInputPageQuestionsAdd) {
-                return Scaffold(
-                  appBar: AppBar(
-                    title: const Text('Upload Questions'),
-                    bottom: TabBar(
-                      tabs: const <Widget>[
-                        Tab(
-                          icon: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Icon(Icons.edit_outlined),
-                              SizedBox(width: 8.0),
-                              Text('Edit'),
-                            ],
-                          ),
-                        ),
-                        Tab(
-                          icon: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Icon(Icons.preview_outlined),
-                              SizedBox(width: 8.0),
-                              Text('Preview'),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  body: TabBarView(
-                    children: [
-                      SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            ChangeSubjectDisplay(),
-                            QuestionInputDisplay(),
-                            AddOrSubmitDisplay(),
+        child: BlocBuilder<QuizInputPageBloc, QuizInputPageState>(
+          builder: (blocBuilderContext, state) {
+            if (state is QuizInputPageQuestionsAdd) {
+              return Scaffold(
+                appBar: AppBar(
+                  title: const Text('Upload Questions'),
+                  bottom: TabBar(
+                    tabs: const <Widget>[
+                      Tab(
+                        icon: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.edit_outlined),
+                            SizedBox(width: 8.0),
+                            Text('Edit'),
                           ],
                         ),
                       ),
-                      SingleChildScrollView(
-                        child: QuestionPreviewDisplay(),
+                      Tab(
+                        icon: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.preview_outlined),
+                            SizedBox(width: 8.0),
+                            Text('Preview'),
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                );
-              }
-              return Text("Something went wrong! (state not found)");
-            },
-          ),
+                ),
+                body: TabBarView(
+                  children: [
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          ChangeSubjectDisplay(),
+                          QuestionInputDisplay(),
+                          AddOrSubmitDisplay(),
+                        ],
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      child: QuestionPreviewDisplay(),
+                    ),
+                  ],
+                ),
+              );
+            }
+            return Text("Something went wrong! (state not found)");
+          },
         ),
       ),
     );
