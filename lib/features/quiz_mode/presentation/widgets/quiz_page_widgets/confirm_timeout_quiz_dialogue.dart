@@ -15,7 +15,7 @@ class ConfirmTimeoutQuizDialogue extends StatelessWidget {
       title: const Text('Out of Time'),
       content: const Text("Time's up! You did great"),
       actions: <Widget>[
-        ElevatedButton(
+        TextButton(
           child: const Text('Submit Quiz'),
           onPressed: () {
             final SUBJ subject = quizBloc.subject;

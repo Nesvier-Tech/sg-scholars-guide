@@ -15,36 +15,42 @@ class ConfirmSubmitQuizDialogue extends StatelessWidget {
       title: const Text('Submit Confirmation'),
       content: const Text("You can't go back after this! Are you sure?"),
       actions: <Widget>[
-        ElevatedButton(
-          child: const Text('Submit Quiz'),
-          onPressed: () {
-            final SUBJ subject = quizBloc.subject;
-            Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap =
-                quizBloc.subjectQuestionsMap;
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextButton(
+              child: const Text('Submit Quiz'),
+              onPressed: () {
+                final SUBJ subject = quizBloc.subject;
+                Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap =
+                    quizBloc.subjectQuestionsMap;
 
-            for (List<QuizCardCubit> subject in subjectQuestionsMap.values) {
-              for (QuizCardCubit questionCubit in subject) {
-                if (questionCubit.state is QuizCardUnanswered) {
-                  questionCubit.revealAnswer(index: -1);
+                for (List<QuizCardCubit> subject
+                    in subjectQuestionsMap.values) {
+                  for (QuizCardCubit questionCubit in subject) {
+                    if (questionCubit.state is QuizCardUnanswered) {
+                      questionCubit.revealAnswer(index: -1);
+                    }
+                    if (questionCubit.state is QuizCardAnswered) {
+                      questionCubit.revealAnswer(
+                          index: questionCubit.state.props[0] as int);
+                    }
+                  }
                 }
-                if (questionCubit.state is QuizCardAnswered) {
-                  questionCubit.revealAnswer(
-                      index: questionCubit.state.props[0] as int);
-                }
-              }
-            }
-            Navigator.of(context).pop();
-            GoRouter.of(context).go('/quiz-mode/finished-quiz', extra: {
-              'subjectQuestionsMap': subjectQuestionsMap,
-              'subject': subject
-            });
-          },
-        ),
-        ElevatedButton(
-          child: const Text('Go Back'),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+                Navigator.of(context).pop();
+                GoRouter.of(context).go('/quiz-mode/finished-quiz', extra: {
+                  'subjectQuestionsMap': subjectQuestionsMap,
+                  'subject': subject
+                });
+              },
+            ),
+            TextButton(
+              child: const Text('Go Back'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
         ),
       ],
     );

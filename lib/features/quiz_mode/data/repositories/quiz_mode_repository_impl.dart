@@ -36,4 +36,19 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
     }
     return questions;
   }
+
+  @override
+  Future<List> collectComments({required String questionId}) async {
+    final dbService = services<FirebaseFirestore>();
+    List comments = [];
+
+    // await dbService
+    //     .collection(FireStore.question2comments(questionId))
+    //     .get()
+    //     .then((snapshot) {
+    //   snapshot.docs.map((e) => comments.add(e.data())).toList();
+    // });
+
+    return comments;
+  }
 }

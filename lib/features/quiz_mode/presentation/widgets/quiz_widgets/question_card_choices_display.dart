@@ -33,6 +33,7 @@ class _QuestionCardChoicesDisplayState
             ChoiceButton button;
             if (state is QuizCardUnanswered) {
               button = ChoiceButton(
+                letter: String.fromCharCode(i + 'A'.codeUnitAt(0)),
                 choice: c,
                 func: () {
                   widget.bloc.chooseOption(index: i);
@@ -40,6 +41,7 @@ class _QuestionCardChoicesDisplayState
               );
             } else if (state is QuizCardAnswered) {
               button = ChoiceButton(
+                letter: String.fromCharCode(i + 'A'.codeUnitAt(0)),
                 choice: c,
                 func: () {
                   widget.bloc.chooseOption(index: i);
@@ -49,6 +51,7 @@ class _QuestionCardChoicesDisplayState
               );
             } else if (state is QuizCardRevealed) {
               button = ChoiceButton(
+                letter: String.fromCharCode(i + 'A'.codeUnitAt(0)),
                 choice: c,
                 func: () {},
                 isChosen: state.chosenIndex == i,
@@ -57,6 +60,7 @@ class _QuestionCardChoicesDisplayState
               );
             } else {
               button = ChoiceButton(
+                letter: String.fromCharCode(i + 'A'.codeUnitAt(0)),
                 choice: c,
                 func: () {},
               );
@@ -72,6 +76,7 @@ class _QuestionCardChoicesDisplayState
 class ChoiceButton extends StatelessWidget {
   ChoiceButton({
     super.key,
+    required this.letter,
     required this.choice,
     required this.func,
     this.isChosen = false,
@@ -82,6 +87,7 @@ class ChoiceButton extends StatelessWidget {
   bool isChosen;
   bool isCorrect;
   bool isRevealed;
+  final String letter;
   final String choice;
   final func;
 
@@ -101,7 +107,10 @@ class ChoiceButton extends StatelessWidget {
     }
 
     return Container(
-      width: MediaQuery.of(context).size.width * 0.7,
+      constraints: BoxConstraints(
+        minHeight: 20.0,
+        maxWidth: MediaQuery.of(context).size.width * 0.7,
+      ),
       margin: EdgeInsets.only(top: 2.0, bottom: 2.0),
       child: ElevatedButton(
         style: ButtonStyle(
@@ -113,44 +122,11 @@ class ChoiceButton extends StatelessWidget {
           ),
         ),
         onPressed: isRevealed ? null : func,
-        child: TextMarkdown(text: choice),
+        child: TextMarkdown(text: "$letter. $choice"),
       ),
     );
   }
 }
-
-// ElevatedButton _createChoiceButton(
-//     {required String choice,
-//     bool isChosen = false,
-//     bool isCorrect = false,
-//     bool isRevealed = false,
-//     required func,
-//     required context}) {
-//   Color color = Colors.black;
-//   if (isRevealed) {
-//     color = isCorrect
-//         ? isChosen
-//             ? Colors.green
-//             : Colors.black
-//         : isChosen
-//             ? Colors.red
-//             : Colors.black;
-//   } else if (isChosen) {
-//     color = Colors.indigoAccent;
-//   }
-//   return ElevatedButton(
-//     style: ButtonStyle(
-//       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-//         RoundedRectangleBorder(
-//           borderRadius: BorderRadius.circular(10.0),
-//           side: BorderSide(color: color),
-//         ),
-//       ),
-//     ),
-//     onPressed: isRevealed ? null : func,
-//     child: TextMarkdown(text: choice),
-//   );
-// }
 
 class TextMarkdown extends StatelessWidget {
   const TextMarkdown({
@@ -163,6 +139,7 @@ class TextMarkdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Markdown(
+      physics: NeverScrollableScrollPhysics(),
       padding: EdgeInsets.all(0.0),
       shrinkWrap: true,
       data: text,
@@ -171,7 +148,7 @@ class TextMarkdown extends StatelessWidget {
       },
       styleSheet: MarkdownStyleSheet(
         textAlign: WrapAlignment.center,
-        p: const TextStyle(fontSize: 15.0),
+        p: const TextStyle(fontSize: 15.0, color: Colors.black),
       ),
       extensionSet: md.ExtensionSet(
         [LatexBlockSyntax()],

@@ -16,17 +16,20 @@ class AddOrSubmitDisplay extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {
-              context.read<QuizInputPageBloc>().add(QuizInputPageAddBtnPressed());
+              context
+                  .read<QuizInputPageBloc>()
+                  .add(QuizInputPageAddBtnPressed());
             },
             child: const Text('Add Question'),
           ),
           ElevatedButton(
             onPressed: () {
               showDialog<AlertDialog>(
-              context: context,
-              builder: (BuildContext buildContext) {
-                return ConfirmSubmitQuizInputDialogue(quizInputPageBloc: context.read<QuizInputPageBloc>());
-              });
+                  context: context,
+                  builder: (BuildContext buildContext) {
+                    return ConfirmSubmitQuizInputDialogue(
+                        quizInputPageBloc: context.read<QuizInputPageBloc>());
+                  });
             },
             child: const Text('Submit Questions'),
           )

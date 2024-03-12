@@ -55,6 +55,7 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
                 maxLines: null,
                 expands: true,
                 controller: questionController,
+                keyboardType: TextInputType.multiline,
                 onChanged: (questionInput) {
                   questionCubit.question = questionInput;
                   questionCubit.questionNonEmpty = questionInput.isNotEmpty;

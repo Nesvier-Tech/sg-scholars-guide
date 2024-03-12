@@ -10,18 +10,23 @@ class ConfirmCancelQuizDialogue extends StatelessWidget {
       title: const Text('Cancel Confirmation'),
       content: const Text("You can't go back after this! Are you sure?"),
       actions: <Widget>[
-        ElevatedButton(
-          child: const Text('Continue Quiz'),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        ElevatedButton(
-          child: const Text('Go Back'),
-          onPressed: () {
-            Navigator.of(context).pop();
-            GoRouter.of(context).go('/quiz-mode');
-          },
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextButton(
+              child: const Text('Continue Quiz'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('Go Back'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                GoRouter.of(context).go('/quiz-mode');
+              },
+            ),
+          ],
         ),
       ],
     );

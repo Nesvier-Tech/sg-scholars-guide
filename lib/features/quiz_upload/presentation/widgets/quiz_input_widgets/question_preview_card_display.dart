@@ -63,7 +63,7 @@ class TextContainer extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(10.0)),
       constraints: BoxConstraints(
-        minHeight: MediaQuery.of(context).size.height * 0.1,
+        minHeight: MediaQuery.of(context).size.height * 0.2,
       ),
       margin: EdgeInsets.all(8.0),
       child: TextMarkdown(text: text),
@@ -110,16 +110,18 @@ class TextMarkdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Markdown(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      data: text,
-      builders: {
-        'latex': LatexElementBuilder(),
-      },
-      extensionSet: md.ExtensionSet(
-        [LatexBlockSyntax()],
-        [LatexInlineSyntax()],
+    return IgnorePointer(
+      child: Markdown(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        data: text,
+        builders: {
+          'latex': LatexElementBuilder(),
+        },
+        extensionSet: md.ExtensionSet(
+          [LatexBlockSyntax()],
+          [LatexInlineSyntax()],
+        ),
       ),
     );
   }

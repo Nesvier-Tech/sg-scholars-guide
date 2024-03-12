@@ -62,7 +62,7 @@ class FinishedQuizPage extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    ElevatedButton(
+                    TextButton(
                       onPressed: () {
                         GoRouter.of(context).go(
                           '/quiz-mode/solutions-quiz',
@@ -77,6 +77,10 @@ class FinishedQuizPage extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            Text(
+              "* Results of unanswered questions will not be shown",
+              style: TextStyle(fontSize: 11, color: Colors.grey),
             ),
             QuestionDisplay(
                 subjectQuestionsMap: subjectQuestionsMap, subject: subject),

@@ -38,8 +38,8 @@ class _CountdownTimerState extends State<CountdownTimer> {
       duration: 60 * 10, // ! 10 minutes muna
       initialDuration: 0,
       controller: CountDownController(),
-      width: MediaQuery.of(context).size.width / 7,
-      height: MediaQuery.of(context).size.height / 7,
+      width: MediaQuery.of(context).size.width / 6,
+      height: MediaQuery.of(context).size.height / 6,
       ringColor: Colors.indigo.withOpacity(0.0),
       ringGradient: null,
       fillColor: Colors.indigo.withOpacity(0.5),
@@ -75,9 +75,11 @@ class _CountdownTimerState extends State<CountdownTimer> {
       },
       timeFormatterFunction: (defaultFormatterFunction, duration) {
         if (duration.inSeconds == 0) {
-          return "Start";
+          return "End";
         } else {
-          return Function.apply(defaultFormatterFunction, [duration]);
+          final minutes = duration.inMinutes;
+          final seconds = duration.inSeconds % 60;
+          return "${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}";
         }
       },
     );

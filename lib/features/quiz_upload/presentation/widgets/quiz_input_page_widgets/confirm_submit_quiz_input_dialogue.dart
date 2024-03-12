@@ -16,7 +16,7 @@ class ConfirmSubmitQuizInputDialogue extends StatelessWidget {
       title: const Text('Submit Confirmation'),
       content: const Text("Your questions will be submitted! Are you sure?"),
       actions: <Widget>[
-        ElevatedButton(
+        TextButton(
           child: const Text('Submit Questions'),
           onPressed: () {
             Navigator.of(context).pop();
@@ -32,7 +32,7 @@ class ConfirmSubmitQuizInputDialogue extends StatelessWidget {
             }
           },
         ),
-        ElevatedButton(
+        TextButton(
           child: const Text('Go Back'),
           onPressed: () {
             Navigator.of(context).pop();
