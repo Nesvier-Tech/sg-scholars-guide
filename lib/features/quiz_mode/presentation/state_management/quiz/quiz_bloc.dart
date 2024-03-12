@@ -26,7 +26,8 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
                   .map((e) => QuizCardCubit(
                       correctIndex: e.correctIndex,
                       optionsArray: e.options,
-                      question: e.question))
+                      question: e.question,
+                      solution: e.solution))
                   .toList());
         });
       } else {
@@ -39,7 +40,8 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
               .map((e) => QuizCardCubit(
                   correctIndex: e.correctIndex,
                   optionsArray: e.options,
-                  question: e.question))
+                  question: e.question,
+                  solution: e.solution))
               .toList()
         };
       }
@@ -47,29 +49,10 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
       emit(QuizOngoing());
     });
 
-    // * For submitting the quiz
-    on<QuizFinishBtnPressed>((event, emit) {
-      emit(QuizFinishConfirmation());
-    });
-    on<QuizConfirmFinishBtnPressed>((event, emit) {
-      emit(QuizOngoing());
-    });
-    on<QuizTimeFinished>((event, emit) {
-      emit(QuizOutOfTime());
-    });
-
-    // * For cancelling the quiz
-    on<QuizCancelBtnPressed>((event, emit) {
-      emit(QuizCancelConfirmation());
-    });
-    on<QuizConfirmCancelBtnPressed>((event, emit) {
-      emit(QuizOngoing());
-    });
-
     // * Only for quiz taking all subjects.
     // TODO: Implement the logic for the next and previous page.
-    on<QuizNextPageBtnPressed>((event, emit) {});
-    on<QuizPreviousPageBtnPressed>((event, emit) {});
+    // on<QuizNextPageBtnPressed>((event, emit) {});
+    // on<QuizPreviousPageBtnPressed>((event, emit) {});
   }
 
   late SUBJ subject;

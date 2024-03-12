@@ -3,29 +3,37 @@
 // import 'package:scholars_guide/service_locator/service_locator.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:scholars_guide/core/models/firestore_model.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
 import 'package:scholars_guide/features/quiz_mode/domain/repositories_contract/quiz_mode_repository_contract.dart';
-import 'package:scholars_guide/firebase_options.dart';
 
-class QuizModeRepositoryImpl implements QuizModeRepositoryContract{
+import '../../../../service_locator/service_locator.dart';
+
+class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
   const QuizModeRepositoryImpl();
-  
+
   @override
   Future<List<Question>> collectQuestions({required SUBJ subj}) async {
+    final dbService = services<FirebaseFirestore>();
     List<Question> questions = [];
 
-    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      .whenComplete(() => FirebaseFirestore.instance
-          .collection(FireStore.SUBJ2subject(subj))
-          .get()
-          .then((snapshot) => snapshot.docs
-              .map((e) => questions.add(Question.fromMap(e.data(), subj))).toList()));
+    // * Fetching the questions from the Firestore
+    await dbService
+        .collection(FireStore.SUBJ2subject(subj))
+        .get()
+        .then((snapshot) {
+      print("GETTING QUESTIONS");
+      snapshot.docs
+          .map((e) => questions.add(Question.fromMap(e.id, e.data(), subj)))
+          .toList();
+    });
 
-    // TODO: Update imports and change actual code below once get_it is done
-    // await fetchQuestions(subject).then((snapshot) => snapshot.docs.map((e) => questions.add(Question.fromMap(e.data(), subj))));
-    print("DONE COLLECTING QUESTIONS ========================================"); // ! Debugging
-    return questions;
+    // * Fetching the solutions from the Firestore
+    for (Question q in questions) {
+      await q.solutionRef?.get().then((value) {
+        q.solution = value[FireStore.solutionData];
+      });
     }
+    return questions;
   }
+}

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/pages/finished_quiz_page.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/pages/quiz_page.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/ready_quiz_page.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/pages/solutions_quiz_page.dart';
 import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_questions_page.dart';
+import 'package:scholars_guide/features/quiz_upload/presentation/pages/upload_success_page.dart';
 
 import '../core/features/auth/presentation/screens/email_verification_screen.dart';
 import '../core/features/auth/presentation/screens/forgot_password_screen.dart';
@@ -122,6 +126,26 @@ class AppRouter {
                     child: ReadyQuizPage(),
                   );
                 },
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: 'start-quiz',
+                    pageBuilder: (context, state) => const NoTransitionPage(
+                      child: QuizPage(),
+                    ),
+                  ),
+                  GoRoute(
+                    path: 'finished-quiz',
+                    pageBuilder: (context, state) => const NoTransitionPage(
+                      child: FinishedQuizPage(),
+                    ),
+                  ),
+                  GoRoute(
+                    path: 'solutions-quiz',
+                    pageBuilder: (context, state) => const NoTransitionPage(
+                      child: SolutionsQuizPage(),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -138,6 +162,14 @@ class AppRouter {
                     child: UploadQuestionPage(),
                   );
                 },
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: 'finished-quiz-upload',
+                    pageBuilder: (context, state) => const NoTransitionPage(
+                      child: UploadSuccessPage(),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

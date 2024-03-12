@@ -13,7 +13,6 @@ class ChooseQuestions {
     List<Question> totalQuestions =
         await const QuizModeRepositoryImpl().collectQuestions(subj: subj);
     totalQuestions.shuffle(Random());
-    // TODO: randomize the choices as well for each question
 
     return totalQuestions.sublist(
         0,

@@ -17,16 +17,6 @@ class QuizLoadQuestions extends QuizEvent {
   List<Object> get props => [subject, numQuestions];
 }
 
-class QuizFinishBtnPressed extends QuizEvent {}
-
-class QuizConfirmFinishBtnPressed extends QuizEvent {}
-
-class QuizCancelBtnPressed extends QuizEvent {}
-
-class QuizConfirmCancelBtnPressed extends QuizEvent {}
-
-class QuizTimeFinished extends QuizEvent {}
-
 class QuizNextPageBtnPressed extends QuizEvent {}
 
 class QuizPreviousPageBtnPressed extends QuizEvent {}

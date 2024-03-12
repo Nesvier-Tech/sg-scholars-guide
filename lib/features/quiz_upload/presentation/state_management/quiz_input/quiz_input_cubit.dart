@@ -1,31 +1,21 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 part 'quiz_input_state.dart';
 
 class QuizInputCubit extends Cubit<QuizInputState> {
-  QuizInputCubit()
-      : super(const QuizInputState(
-          question: '',
-          options: ['', '', '', ''],
-          answerIndex: '0',
-          questionNonEmpty: false,
-          optionsNonEmpty: [false, false, false, false],
-        ));
+  QuizInputCubit() : super(const QuizInputState());
 
-  void questionChanged({required String question}) {
-    // print("Question changed to $question");
-    emit(state.copyWith(question: question));
+  void refresh() {
+    emit(QuizInputRefresh());
+    emit(QuizInputState());
   }
 
-  void optionChanged({required List<String> options, required List<bool> optionsNonEmpty}) {
-    // print("Options changed to $options");
-    emit(state.copyWith(options: options, optionsNonEmpty: optionsNonEmpty));
-  }
-
-  void answerChanged({required String answerIndex}) {
-    // print("Answer changed to $answerIndex");
-    emit(state.copyWith(answerIndex: answerIndex));
-  }
+  String question = '';
+  String solution = '';
+  List<String> options = ['', '', '', ''];
+  String answerIndex = '0';
+  bool questionNonEmpty = false;
+  bool solutionNonEmpty = false;
+  List<bool> optionsNonEmpty = [false, false, false, false];
 }

@@ -1,12 +1,14 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_typing_uninitialized_variables, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_latex/flutter_markdown_latex.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
+import 'package:markdown/markdown.dart' as md;
 
 class QuestionCardChoicesDisplay extends StatefulWidget {
-  const QuestionCardChoicesDisplay(
-      {super.key, required this.bloc});
+  const QuestionCardChoicesDisplay({super.key, required this.bloc});
 
   final QuizCardCubit bloc;
 
@@ -23,80 +25,158 @@ class _QuestionCardChoicesDisplayState
         bloc: widget.bloc,
         builder: (choicesContext, state) {
           List<String> choices = widget.bloc.optionsArray;
-          List<ElevatedButton> buttons = [];
+          List<ChoiceButton> buttons = [];
 
           for (int i = 0; i < choices.length; i++) {
             String c = choices[i];
 
-            ElevatedButton button;
+            ChoiceButton button;
             if (state is QuizCardUnanswered) {
-              button = _createChoiceButton(
-                  choice: c,
-                  func: () {
-                    widget.bloc.chooseOption(index: i);
-                  },
-                  context: context);
+              button = ChoiceButton(
+                choice: c,
+                func: () {
+                  widget.bloc.chooseOption(index: i);
+                },
+              );
             } else if (state is QuizCardAnswered) {
-              button = _createChoiceButton(
-                  choice: c,
-                  func: () {
-                    widget.bloc.chooseOption(index: i);
-                  },
-                  isChosen: state.chosenIndex == i,
-                  context:
-                      context); // ! This is the line that needs to be changed
+              button = ChoiceButton(
+                choice: c,
+                func: () {
+                  widget.bloc.chooseOption(index: i);
+                },
+                isChosen: state.chosenIndex == i,
+                isCorrect: widget.bloc.correctIndex == state.chosenIndex,
+              );
             } else if (state is QuizCardRevealed) {
-              button = _createChoiceButton(
-                  choice: c,
-                  func: () {},
-                  isChosen: state.chosenIndex == i,
-                  isCorrect: widget.bloc.correctIndex == state.chosenIndex,
-                  isRevealed: true,
-                  context: context);
+              button = ChoiceButton(
+                choice: c,
+                func: () {},
+                isChosen: state.chosenIndex == i,
+                isCorrect: widget.bloc.correctIndex == state.chosenIndex,
+                isRevealed: true,
+              );
             } else {
-              button =
-                  _createChoiceButton(choice: c, func: () {}, context: context);
+              button = ChoiceButton(
+                choice: c,
+                func: () {},
+              );
             }
             buttons.add(button);
           }
 
-          return Expanded(
-            flex: 2,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(children: buttons.sublist(0, 2)),
-                Column(children: buttons.sublist(2))
-              ],
-            ),
-          );
+          return Column(children: buttons);
         });
   }
 }
 
-ElevatedButton _createChoiceButton(
-    {required String choice,
-    bool isChosen = false,
-    bool isCorrect = false,
-    bool isRevealed = false,
-    required func,
-    required context}) {
-  Color color = Colors.black;
-  if (isRevealed) {
-    color = isCorrect ? isChosen? Colors.green: Colors.black : isChosen ? Colors.red : Colors.black;
-  } else if (isChosen) {
-    color = Colors.blue;
+class ChoiceButton extends StatelessWidget {
+  ChoiceButton({
+    super.key,
+    required this.choice,
+    required this.func,
+    this.isChosen = false,
+    this.isCorrect = false,
+    this.isRevealed = false,
+  });
+
+  bool isChosen;
+  bool isCorrect;
+  bool isRevealed;
+  final String choice;
+  final func;
+
+  @override
+  Widget build(BuildContext context) {
+    Color color = Colors.black;
+    if (isRevealed) {
+      color = isCorrect
+          ? isChosen
+              ? Colors.green
+              : Colors.black
+          : isChosen
+              ? Colors.red
+              : Colors.black;
+    } else if (isChosen) {
+      color = Colors.indigoAccent;
+    }
+
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.7,
+      margin: EdgeInsets.only(top: 2.0, bottom: 2.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              side: BorderSide(color: color),
+            ),
+          ),
+        ),
+        onPressed: isRevealed ? null : func,
+        child: TextMarkdown(text: choice),
+      ),
+    );
   }
-  return ElevatedButton(
-    style: ButtonStyle(
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(7.0),
-              side: BorderSide(color: color))),
-      minimumSize: MaterialStateProperty.all<Size>(
-          Size(MediaQuery.of(context).size.width * 0.4, 40.0)),
-    ),
-    onPressed: isRevealed ? null : func,
-    child: Text(choice, style: TextStyle(fontSize: 15.0)),
-  );
+}
+
+// ElevatedButton _createChoiceButton(
+//     {required String choice,
+//     bool isChosen = false,
+//     bool isCorrect = false,
+//     bool isRevealed = false,
+//     required func,
+//     required context}) {
+//   Color color = Colors.black;
+//   if (isRevealed) {
+//     color = isCorrect
+//         ? isChosen
+//             ? Colors.green
+//             : Colors.black
+//         : isChosen
+//             ? Colors.red
+//             : Colors.black;
+//   } else if (isChosen) {
+//     color = Colors.indigoAccent;
+//   }
+//   return ElevatedButton(
+//     style: ButtonStyle(
+//       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+//         RoundedRectangleBorder(
+//           borderRadius: BorderRadius.circular(10.0),
+//           side: BorderSide(color: color),
+//         ),
+//       ),
+//     ),
+//     onPressed: isRevealed ? null : func,
+//     child: TextMarkdown(text: choice),
+//   );
+// }
+
+class TextMarkdown extends StatelessWidget {
+  const TextMarkdown({
+    super.key,
+    required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Markdown(
+      padding: EdgeInsets.all(0.0),
+      shrinkWrap: true,
+      data: text,
+      builders: {
+        'latex': LatexElementBuilder(),
+      },
+      styleSheet: MarkdownStyleSheet(
+        textAlign: WrapAlignment.center,
+        p: const TextStyle(fontSize: 15.0),
+      ),
+      extensionSet: md.ExtensionSet(
+        [LatexBlockSyntax()],
+        [LatexInlineSyntax()],
+      ),
+    );
+  }
 }
