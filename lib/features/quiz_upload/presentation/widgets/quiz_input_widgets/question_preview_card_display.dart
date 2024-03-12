@@ -63,7 +63,7 @@ class TextContainer extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(10.0)),
       constraints: BoxConstraints(
-        minHeight: MediaQuery.of(context).size.height * 0.1,
+        minHeight: MediaQuery.of(context).size.height * 0.2,
       ),
       margin: EdgeInsets.all(8.0),
       child: TextMarkdown(text: text),

@@ -61,6 +61,10 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
                       child: Column(
                         children: [
                           ChangeSubjectDisplay(),
+                          Text(
+                            "* Quiz Upload supports Latex. Use \$\$ to wrap the equation. \n\t\t\tDouble space for new line.",
+                            style: TextStyle(fontSize: 11, color: Colors.grey),
+                          ),
                           QuestionInputDisplay(),
                           AddOrSubmitDisplay(),
                         ],

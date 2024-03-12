@@ -1,9 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_markdown_latex/flutter_markdown_latex.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/solution_quiz_page_widgets/solution_comment_modal.dart';
 
 class SolutionCardDisplay extends StatefulWidget {
   const SolutionCardDisplay(
@@ -58,6 +60,42 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                   textAlign: WrapAlignment.center,
                   p: const TextStyle(fontSize: 18),
                 ),
+              ),
+              Expanded(child: Container()),
+              TextTitle(title: "Comments"),
+              TextMarkdown(
+                // ! To Remove
+                text: "Coming soon!",
+                styleSheet: MarkdownStyleSheet(
+                  textAlign: WrapAlignment.center,
+                  p: const TextStyle(fontSize: 18),
+                ),
+              ),
+              // SolutionCommentDisplay(),
+              ElevatedButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    showDragHandle: true,
+                    builder: (BuildContext context) => SolutionCommentModal(),
+                  );
+                },
+                child: Text("Experimental"),
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Colors.grey,
+                    size: 12,
+                  ),
+                  Text(
+                    "  Swipe me",
+                    style: TextStyle(fontSize: 11, color: Colors.grey),
+                  ),
+                ],
               )
             ],
           ),
