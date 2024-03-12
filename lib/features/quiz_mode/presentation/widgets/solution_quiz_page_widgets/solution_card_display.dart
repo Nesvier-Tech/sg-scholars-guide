@@ -52,16 +52,17 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                 ),
               ),
               TextTitle(title: "Solution"),
-              TextMarkdown(
-                text: widget.solution == ""
-                    ? "No solution yet provided"
-                    : widget.solution,
-                styleSheet: MarkdownStyleSheet(
-                  textAlign: WrapAlignment.center,
-                  p: const TextStyle(fontSize: 18),
+              Expanded(
+                child: TextMarkdown(
+                  text: widget.solution == ""
+                      ? "No solution yet provided"
+                      : widget.solution,
+                  styleSheet: MarkdownStyleSheet(
+                    textAlign: WrapAlignment.center,
+                    p: const TextStyle(fontSize: 18),
+                  ),
                 ),
               ),
-              Expanded(child: Container()),
               TextTitle(title: "Comments"),
               TextMarkdown(
                 // ! To Remove
@@ -71,7 +72,6 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                   p: const TextStyle(fontSize: 18),
                 ),
               ),
-              // SolutionCommentDisplay(),
               ElevatedButton(
                 onPressed: () {
                   showModalBottomSheet(
@@ -82,7 +82,6 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                 },
                 child: Text("Experimental"),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

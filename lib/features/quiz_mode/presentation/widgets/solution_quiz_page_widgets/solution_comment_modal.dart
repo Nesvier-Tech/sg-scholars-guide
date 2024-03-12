@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 // ! TESTING
 class SolutionCommentModal extends StatefulWidget {
@@ -9,6 +12,7 @@ class SolutionCommentModal extends StatefulWidget {
 }
 
 class _SolutionCommentModalState extends State<SolutionCommentModal> {
+  final TextEditingController _controller = TextEditingController();
   final comments = [
     {
       'initials': 'WDT',
@@ -21,8 +25,8 @@ class _SolutionCommentModalState extends State<SolutionCommentModal> {
       'comment': 'I think this solution is wrong',
     },
     {
-      'initials': 'MVL',
-      'user': 'Mark Victory Liner',
+      'initials': 'MV',
+      'user': 'Mark Viernes Sabado Linggo',
       'comment': 'I think this solution is wrong',
     },
   ];
@@ -33,32 +37,40 @@ class _SolutionCommentModalState extends State<SolutionCommentModal> {
       height: MediaQuery.of(context).size.height,
       child: Column(
         children: <Widget>[
-          ListView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: comments.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  child: Text(comments[index]['initials'] ?? 'AB'),
-                  backgroundColor: Colors.blue,
-                ),
-                title: Text(comments[index]['user'] ?? 'Anonymous'),
-                subtitle: Text(comments[index]['comment'] ?? 'No comment'),
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: comments.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    child: Text(comments[index]['initials'] ?? 'AB'),
+                    backgroundColor: Colors.blue,
+                  ),
+                  title: Text(comments[index]['user'] ?? 'Anonymous'),
+                  subtitle: Text(comments[index]['comment'] ?? 'No comment'),
+                );
+              },
+            ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.9,
-            child: TextField(
-              controller: TextEditingController(),
-              decoration: InputDecoration(
-                labelText: 'Write a comment...',
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.send_rounded),
-                  onPressed: () {
-                    // Handle sending comment
-                  },
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: EdgeInsets.only(bottom: 10.0),
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: TextField(
+                controller: _controller,
+                style: TextStyle(fontSize: 14.0),
+                decoration: InputDecoration(
+                  labelText: 'Write a comment...',
+                  labelStyle: TextStyle(fontSize: 14.0),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.send_rounded),
+                    onPressed: () {
+                      // Handle sending comment
+                      print(_controller.text);
+                      FocusScope.of(context).unfocus();
+                    },
+                  ),
                 ),
               ),
             ),
