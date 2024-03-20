@@ -128,7 +128,9 @@ class EmailVerificationSentScreen extends StatelessWidget {
                       // If email is verified, navigate to home.
                       if (isEmailVerified) {
                         if (context.mounted) {
-                          GoRouter.of(context).go('/home');
+                          final String uid =
+                              FirebaseAuth.instance.currentUser!.uid;
+                          GoRouter.of(context).go('/profile', extra: uid);
                         }
                       } else {
                         // Show dialog that the email is not yet verified.

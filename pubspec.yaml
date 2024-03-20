@@ -1,11 +1,11 @@
 name: scholars_guide
-description: "A community-driven College Entrance Exam (CET) Reviewer App | 
-  aimed at democratizing access to quality review materials and leveling | 
+description: "A community-driven College Entrance Exam (CET) Reviewer App |
+  aimed at democratizing access to quality review materials and leveling |
   the playing field for students preparing for college entrance exams in |
   the Philippines."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -22,7 +22,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: ">=3.2.6 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -38,7 +38,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  # Flutter plugin for Firebase Core, enabling connecting to 
+  # Flutter plugin for Firebase Core, enabling connecting to
   # multiple Firebase apps.
   firebase_core: ^2.25.4
 
@@ -51,7 +51,7 @@ dependencies:
   # phone numbers and identity providers like Google, Facebook and Twitter.
   firebase_auth: ^4.17.4
 
-  # Flutter plugin for Cloud Firestore, a cloud-hosted, noSQL database with 
+  # Flutter plugin for Cloud Firestore, a cloud-hosted, noSQL database with
   # live synchronization and offline support on Android and iOS.
   cloud_firestore: ^4.15.4
 
@@ -63,19 +63,19 @@ dependencies:
   # realtime data syncing across Android and iOS clients, and offline access.
   firebase_database: ^10.4.5
 
-  # A declarative router for Flutter based on Navigation 2 supporting 
+  # A declarative router for Flutter based on Navigation 2 supporting
   # deep linking, data-driven routes and more.
   # TODO: [P*] Temporary downgrade from v13.x.x to fix PopScope issue.
   # Ref: https://github.com/flutter/flutter/issues/138737
   go_router: ^12.1.3
 
   # Simple direct Service Locator that allows to decouple the interface from
-  # a concrete implementation and to access the concrete 
+  # a concrete implementation and to access the concrete
   # implementation from everywhere in your App.
   get_it: ^7.6.7
 
   # Flutter Widgets that make it easy to implement the
-  # BLoC (Business Logic Component) design pattern. 
+  # BLoC (Business Logic Component) design pattern.
   # Built to be used with the bloc state management package.
   flutter_bloc: ^8.1.3
 
@@ -91,19 +91,19 @@ dependencies:
   # and splash image. Supports dark mode, full screen, and more.
   flutter_native_splash: ^2.3.10
 
-  # A Flutter implementation of slidable list item 
+  # A Flutter implementation of slidable list item
   # with directional slide actions that can be dismissed.
   flutter_slidable: ^3.0.1
 
   # An animated circular countdown using Circular Countdown Timer.
   # Used for quiz mode's countdown timer.
   circular_countdown_timer: ^0.2.3
-  
+
   # This package helps in creation of forms in Flutter by removing the boilerplate
   # code, reusing validation, react to changes, and collect final user input.
   flutter_form_builder: ^9.2.1
 
-  # Form Builder Validators set of validators for FlutterFormBuilder. 
+  # Form Builder Validators set of validators for FlutterFormBuilder.
   # Provides common validators and a way to make your own.
   form_builder_validators: ^9.1.0
 
@@ -125,7 +125,7 @@ dependencies:
 
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^2.0.2+1
-  
+
   # Flutter plugin for reading and writing simple key-value pairs.
   # Wraps NSUserDefaults on iOS and SharedPreferences on Android.
   shared_preferences: ^2.2.2
@@ -155,11 +155,11 @@ dev_dependencies:
   # Built to be used with the bloc state management package.
   bloc_test: ^9.1.5
 
-  # A Dart mock library which simplifies mocking with null safety support 
+  # A Dart mock library which simplifies mocking with null safety support
   # and no manual mocks or code generation.
   mocktail: ^1.0.3
 
-  # A command-line tool that simplifies the task of updating 
+  # A command-line tool that simplifies the task of updating
   # your Flutter app's launcher icon.
   icons_launcher: ^2.1.7
 
@@ -171,7 +171,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 // ! TESTING
 class SolutionCommentModal extends StatefulWidget {
@@ -43,8 +42,8 @@ class _SolutionCommentModalState extends State<SolutionCommentModal> {
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: CircleAvatar(
-                    child: Text(comments[index]['initials'] ?? 'AB'),
                     backgroundColor: Colors.blue,
+                    child: Text(comments[index]['initials'] ?? 'AB'),
                   ),
                   title: Text(comments[index]['user'] ?? 'Anonymous'),
                   subtitle: Text(comments[index]['comment'] ?? 'No comment'),

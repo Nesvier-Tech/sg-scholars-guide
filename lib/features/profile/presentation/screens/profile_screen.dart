@@ -22,6 +22,24 @@ class ProfileScreen extends StatelessWidget {
           PopupMenuButton<String>(
             onSelected: (String result) async {
               if (result == 'Settings') {
+                // Show "Feature Under Development" dialog.
+                await showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Feature Under Development'),
+                      content: const Text('This feature is under development.'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    );
+                  },
+                );
               } else if (result == 'Sign Out') {
                 // Sign out user using FirebaseAuth.
                 await _authService.signOut();
@@ -63,7 +81,7 @@ class ProfileScreen extends StatelessWidget {
           width: double.infinity,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(32.0),
+              padding: const EdgeInsets.all(32.0),
               child: StreamBuilder<DocumentSnapshot>(
                   stream: _dbService
                       .collection('users')
@@ -103,41 +121,41 @@ class ProfileScreen extends StatelessWidget {
                           radius: 50,
                           child: Text(
                             username[0].toUpperCase(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 40,
                               color: Colors.white,
                             ),
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Text(
                           username,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(
                           _authService.currentUser?.email ?? 'Loading...',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18,
                           ),
                         ),
-                        SizedBox(height: 32),
+                        const SizedBox(height: 32),
                         ProfileDetailRow(
                           title: 'UID:',
                           detail:
                               '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}' ??
                                   'Loading...',
                         ),
-                        SizedBox(height: 10),
-                        ProfileDetailRow(
+                        const SizedBox(height: 10),
+                        const ProfileDetailRow(
                           title: 'Joined in:',
                           detail: 'January 1, 2022',
                         ),
-                        SizedBox(height: 10),
-                        ProfileDetailRow(
+                        const SizedBox(height: 10),
+                        const ProfileDetailRow(
                           title: 'Updated in:',
                           detail: 'February 20, 2024',
                         ),
@@ -157,6 +175,7 @@ class ProfileDetailRow extends StatelessWidget {
   final String detail;
 
   const ProfileDetailRow({
+    super.key,
     required this.title,
     required this.detail,
   });
@@ -168,14 +187,14 @@ class ProfileDetailRow extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           detail,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
           ),
         ),

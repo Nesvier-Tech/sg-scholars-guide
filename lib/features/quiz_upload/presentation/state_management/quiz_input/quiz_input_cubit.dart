@@ -8,7 +8,7 @@ class QuizInputCubit extends Cubit<QuizInputState> {
 
   void refresh() {
     emit(QuizInputRefresh());
-    emit(QuizInputState());
+    emit(const QuizInputState());
   }
 
   String question = '';
