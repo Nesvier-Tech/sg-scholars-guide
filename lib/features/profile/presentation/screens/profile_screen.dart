@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 
 import '../../../../service_locator/service_locator.dart';
@@ -99,16 +100,10 @@ class ProfileScreen extends StatelessWidget {
                     }
 
                     // Convert timestamp to DateTime.
-                    var createdAt =
+                    final DateTime createdAt =
                         (snapshot.data?.get('createdAt') as Timestamp).toDate();
-                    var updatedAt = snapshot.data?.get('updatedAt').toDate();
-
-                    // createdAt = createdAt is Timestamp
-                    //     ? createdAt.toDate()
-                    //     : DateTime.now();
-                    // updatedAt = updatedAt is Timestamp
-                    //     ? updatedAt.toDate()
-                    //     : DateTime.now();
+                    final DateTime updatedAt =
+                        (snapshot.data?.get('updatedAt') as Timestamp).toDate();
 
                     String username =
                         snapshot.data?.get('username') ?? 'Loading...';
@@ -146,18 +141,17 @@ class ProfileScreen extends StatelessWidget {
                         ProfileDetailRow(
                           title: 'UID:',
                           detail:
-                              '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}' ??
-                                  'Loading...',
+                              '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}',
                         ),
                         const SizedBox(height: 10),
-                        const ProfileDetailRow(
+                        ProfileDetailRow(
                           title: 'Joined in:',
-                          detail: 'January 1, 2022',
+                          detail: DateFormat.yMMMd().format(createdAt),
                         ),
                         const SizedBox(height: 10),
-                        const ProfileDetailRow(
+                        ProfileDetailRow(
                           title: 'Updated in:',
-                          detail: 'February 20, 2024',
+                          detail: DateFormat.yMMMd().format(updatedAt),
                         ),
                       ],
                     );

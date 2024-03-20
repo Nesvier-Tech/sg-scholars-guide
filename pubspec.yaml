@@ -139,6 +139,7 @@ dependencies:
 
   # A portable Markdown library written in Dart that can parse Markdown into HTML.
   markdown: ^7.2.1
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
