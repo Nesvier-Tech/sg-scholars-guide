@@ -45,6 +45,7 @@ class _SolutionsQuizPageState extends State<SolutionsQuizPage> {
                   answer: questions[index]
                       .optionsArray[questions[index].correctIndex],
                   solution: questions[index].solution,
+                  commentRef: questions[index].commentRef,
                 ),
               );
             }

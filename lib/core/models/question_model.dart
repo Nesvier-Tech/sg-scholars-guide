@@ -16,6 +16,7 @@ class Question {
     this.id = '',
     this.solution = '',
     this.solutionRef,
+    this.commentRef,
     this.createdBy,
   });
 
@@ -26,6 +27,7 @@ class Question {
   String id;
   String solution;
   DocumentReference? solutionRef;
+  DocumentReference? commentRef;
 
   DocumentReference? createdBy;
   final FieldValue createdAt = FieldValue.serverTimestamp();
@@ -57,6 +59,7 @@ class Question {
         subject: subject,
         question: data[FireStore.question],
         solutionRef: data[FireStore.solutionRef],
+        commentRef: data[FireStore.commentRef],
         options: temp,
         correctIndex: temp.indexWhere((element) => element == temp2),
         createdBy: data[FireStore.createdBy]);
@@ -74,6 +77,7 @@ class Question {
       },
       FireStore.correctIndex: correctIndex.toString(),
       FireStore.solutionRef: solutionRef,
+      FireStore.commentRef: commentRef,
       FireStore.createdBy: createdBy,
       FireStore.createdAt: createdAt,
     };
