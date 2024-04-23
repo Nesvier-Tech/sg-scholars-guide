@@ -35,7 +35,7 @@ class SignupScreen extends StatelessWidget {
                     const SizedBox(height: 32.0),
 
                     // Sign up form.
-                    const SignupForm(),
+                    const PersonalInformationForm(),
                     const SizedBox(height: 16.0),
 
                     // Go back button.
@@ -57,14 +57,14 @@ class SignupScreen extends StatelessWidget {
   }
 }
 
-class SignupForm extends StatefulWidget {
-  const SignupForm({super.key});
+class PersonalInformationForm extends StatefulWidget {
+  const PersonalInformationForm({super.key});
 
   @override
-  State<SignupForm> createState() => _SignupFormState();
+  State<PersonalInformationForm> createState() => _PersonalInformationForm();
 }
 
-class _SignupFormState extends State<SignupForm> {
+class _PersonalInformationForm extends State<PersonalInformationForm> {
   final _authInstance = services<FirebaseAuth>();
   final _dbInstance = services<FirebaseFirestore>();
   final _formKey = GlobalKey<FormBuilderState>();
@@ -246,50 +246,56 @@ class _SignupFormState extends State<SignupForm> {
                     ),
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(),
-                      FormBuilderValidators.minLength(16),
+                      FormBuilderValidators.minLength(8),
                     ]),
                   ),
                   const SizedBox(height: 16.0),
 
-                  // Confirm Password.
-                  FormBuilderTextField(
-                    name: 'confirmPassword',
-                    keyboardType: TextInputType.visiblePassword,
-                    textInputAction: TextInputAction.done,
-                    obscureText: !_isConfirmPasswordVisible,
-                    decoration: InputDecoration(
-                      labelText: 'Confirm Password',
-                      hintText: 'Re-enter your password',
-                      border: const OutlineInputBorder(),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _isConfirmPasswordVisible =
-                                !_isConfirmPasswordVisible;
-                          });
-                        },
-                        icon: _isConfirmPasswordVisible
-                            ? const Icon(Icons.visibility)
-                            : const Icon(Icons.visibility_off),
-                        color: _isConfirmPasswordVisible
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                      ),
-                      errorMaxLines: 2,
-                    ),
-                    validator: FormBuilderValidators.compose([
-                      FormBuilderValidators.required(),
-                      FormBuilderValidators.minLength(16),
+                  // // Confirm Password.
+                  // FormBuilderTextField(
+                  //   name: 'confirmPassword',
+                  //   keyboardType: TextInputType.visiblePassword,
+                  //   textInputAction: TextInputAction.done,
+                  //   obscureText: !_isConfirmPasswordVisible,
+                  //   decoration: InputDecoration(
+                  //     labelText: 'Confirm Password',
+                  //     hintText: 'Re-enter your password',
+                  //     border: const OutlineInputBorder(),
+                  //     suffixIcon: IconButton(
+                  //       onPressed: () {
+                  //         setState(() {
+                  //           _isConfirmPasswordVisible =
+                  //               !_isConfirmPasswordVisible;
+                  //         });
+                  //       },
+                  //       icon: _isConfirmPasswordVisible
+                  //           ? const Icon(Icons.visibility)
+                  //           : const Icon(Icons.visibility_off),
+                  //       color: _isConfirmPasswordVisible
+                  //           ? Theme.of(context).colorScheme.primary
+                  //           : null,
+                  //     ),
+                  //     errorMaxLines: 2,
+                  //   ),
+                  //   validator: FormBuilderValidators.compose([
+                  //     FormBuilderValidators.required(),
+                  //     FormBuilderValidators.minLength(8),
 
-                      // TODO: [P*] Investigate this bug. Sometimes this validator does not work.
-                      // It still says 'Passwords do not match' even when they do.
-                      FormBuilderValidators.equal(
-                        _formKey.currentState?.fields['password']?.value ?? '',
-                        errorText: 'Passwords do not match',
-                      ),
-                    ]),
+                  //     // TODO: [P*] Investigate this bug. Sometimes this validator does not work.
+                  //     // It still says 'Passwords do not match' even when they do.
+                  //     FormBuilderValidators.equal(
+                  //       _formKey.currentState?.fields['password']?.value ?? '',
+                  //       errorText: 'Passwords do not match',
+                  //     ),
+                  //   ]),
+                  // ),
+                  // const SizedBox(height: 16.0),
+
+                  // Password Hint.
+                  Text(
+                    'Passwords must be at least 8 characters long.',
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
-                  const SizedBox(height: 16.0),
                 ],
               ),
             ),
@@ -397,6 +403,140 @@ class _SignupFormState extends State<SignupForm> {
               ),
             ],
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class AccountSecurityForm extends StatefulWidget {
+  const AccountSecurityForm({super.key});
+
+  @override
+  State<AccountSecurityForm> createState() => _AccountSecurityForm();
+}
+
+class _AccountSecurityForm extends State<AccountSecurityForm> {
+  final _authInstance = services<FirebaseAuth>();
+  final _dbInstance = services<FirebaseFirestore>();
+  final _formKey = GlobalKey<FormBuilderState>();
+  final _logger = services<Logger>();
+  bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
+
+  Widget? _buildUsernameAvailabilityIconIndicator(bool? isUsernameAvailable) {
+    if (isUsernameAvailable == null) {
+      return null;
+    }
+
+    return Icon(
+      isUsernameAvailable ? Icons.check_circle : Icons.cancel,
+      color: isUsernameAvailable ? Colors.green : Colors.red,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FormBuilder(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          // Account Security Card.
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Row(
+                    children: [
+                      const Icon(Icons.security_outlined),
+                      const SizedBox(width: 8.0),
+                      Text(
+                        'Account Security',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24.0),
+
+                  // Password.
+                  FormBuilderTextField(
+                    name: 'password',
+                    keyboardType: TextInputType.visiblePassword,
+                    textInputAction: TextInputAction.next,
+                    obscureText: !_isPasswordVisible,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      hintText: 'Enter your password',
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _isPasswordVisible = !_isPasswordVisible;
+                          });
+                        },
+                        icon: _isPasswordVisible
+                            ? const Icon(Icons.visibility)
+                            : const Icon(Icons.visibility_off),
+                        color: _isPasswordVisible
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                      ),
+                      errorMaxLines: 2,
+                    ),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                      FormBuilderValidators.minLength(8),
+                    ]),
+                  ),
+                  const SizedBox(height: 16.0),
+
+                  // Confirm Password.
+                  FormBuilderTextField(
+                    name: 'confirmPassword',
+                    keyboardType: TextInputType.visiblePassword,
+                    textInputAction: TextInputAction.done,
+                    obscureText: !_isConfirmPasswordVisible,
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      hintText: 'Re-enter your password',
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _isConfirmPasswordVisible =
+                                !_isConfirmPasswordVisible;
+                          });
+                        },
+                        icon: _isConfirmPasswordVisible
+                            ? const Icon(Icons.visibility)
+                            : const Icon(Icons.visibility_off),
+                        color: _isConfirmPasswordVisible
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                      ),
+                      errorMaxLines: 2,
+                    ),
+                    validator: FormBuilderValidators.compose([
+                      FormBuilderValidators.required(),
+                      FormBuilderValidators.minLength(8),
+
+                      // TODO: [P*] Investigate this bug. Sometimes this validator does not work.
+                      // It still says 'Passwords do not match' even when they do.
+                      FormBuilderValidators.equal(
+                        _formKey.currentState?.fields['password']?.value ?? '',
+                        errorText: 'Passwords do not match',
+                      ),
+                    ]),
+                  ),
+                  const SizedBox(height: 16.0),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 32.0),
         ],
       ),
     );
