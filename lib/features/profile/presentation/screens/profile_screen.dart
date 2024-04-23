@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/question_loading_display.dart';
 
 import '../../../../service_locator/service_locator.dart';
 
@@ -17,7 +18,9 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('User Profile'),
+        automaticallyImplyLeading: false,
+        title: const Text('User Profile',
+            style: TextStyle(fontWeight: FontWeight.bold)),
         actions: <Widget>[
           // Triple dot menu.
           PopupMenuButton<String>(
@@ -96,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
 
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       // Show a loading spinner.
-                      return const CircularProgressIndicator();
+                      return Expanded(child: const QuestionLoadingDisplay());
                     }
 
                     // Convert timestamp to DateTime.
@@ -152,6 +155,20 @@ class ProfileScreen extends StatelessWidget {
                         ProfileDetailRow(
                           title: 'Updated in:',
                           detail: DateFormat.yMMMd().format(updatedAt),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 40.0),
+                          child: FilledButton(
+                            onPressed: () {
+                              GoRouter.of(context).go(
+                                '/profile/view-my-questions',
+                              );
+                            },
+                            child: Text(
+                              "View My Questions",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
                         ),
                       ],
                     );

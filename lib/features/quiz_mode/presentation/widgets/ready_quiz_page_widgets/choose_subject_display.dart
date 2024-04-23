@@ -43,5 +43,8 @@ Container buildElevatedButton(String text, BuildContext context) {
                   );
                 });
           },
+          style: ButtonStyle(
+            elevation: MaterialStateProperty.all(3),
+          ),
           child: Text(text)));
 }

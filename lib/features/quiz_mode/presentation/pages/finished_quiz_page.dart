@@ -24,7 +24,8 @@ class FinishedQuizPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Quiz Results'),
+        title: const Text('Quiz Results',
+            style: TextStyle(fontWeight: FontWeight.bold)),
       ),
       body: SingleChildScrollView(
         child: Column(

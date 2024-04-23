@@ -13,7 +13,8 @@ class ConfirmSubmitQuizInputDialogue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Submit Confirmation'),
+      title: const Text('Submit Confirmation',
+          style: TextStyle(fontWeight: FontWeight.bold)),
       content: const Text("Your questions will be submitted! Are you sure?"),
       actions: <Widget>[
         TextButton(

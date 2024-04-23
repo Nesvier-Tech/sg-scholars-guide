@@ -17,6 +17,15 @@ class FireStore {
   };
 
   //* Field names of each document in the Firestore
+  // User related fields
+  static const String accountTypes = 'accountTypes';
+  static const String emails = 'emails';
+  static const String primaryEmail = 'primaryEmail';
+  static const String emailAddress = 'emailAddress';
+  static const String isVerified = 'isVerified';
+  static const String username = 'username';
+  static const String postedQuestions = 'postedQuestions';
+
   // Question related fields
   static const String question = 'question';
   static const String options = 'choices';

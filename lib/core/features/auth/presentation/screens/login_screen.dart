@@ -43,7 +43,8 @@ class LoginScreen extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text('Coming Soon'),
+                            title: const Text('Coming Soon',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             content: const Text(
                               'This feature is coming soon.',
                             ),
@@ -83,7 +84,8 @@ class LoginScreen extends StatelessWidget {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text('Coming Soon'),
+                            title: const Text('Coming Soon',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             content: const Text(
                               'This feature is coming soon.',
                             ),
@@ -282,7 +284,8 @@ class _LoginFormState extends State<LoginForm> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: const Text('Error'),
+                          title: const Text('Error',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
                           content: Text(errorMessage),
                           actions: <TextButton>[
                             TextButton(

@@ -18,7 +18,8 @@ class PrivacyPolicyScreen extends StatelessWidget {
             onPressed: () => GoRouter.of(context).go('/signup'),
             icon: const Icon(Icons.arrow_back),
           ),
-          title: const Text('Privacy Policy'),
+          title: const Text('Privacy Policy',
+              style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         body: SafeArea(
           child: SingleChildScrollView(

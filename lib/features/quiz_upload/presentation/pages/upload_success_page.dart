@@ -20,17 +20,19 @@ class _UploadSuccessPageState extends State<UploadSuccessPage> {
   @override
   Widget build(BuildContext buildContext) {
     final extraMap = GoRouterState.of(context).extra as Map<String, dynamic>;
-    final List<QuizInputCubit> questionsToUpload = extraMap['questionsToUpload'] as List<QuizInputCubit>;
+    final List<QuizInputCubit> questionsToUpload =
+        extraMap['questionsToUpload'] as List<QuizInputCubit>;
     final SUBJ subjToUpload = extraMap['subjToUpload'] as SUBJ;
 
     return BlocProvider<UploadQuizCubit>(
-      create: (providerContext) => UploadQuizCubit(
-          questions: questionsToUpload, subj: subjToUpload)
-        ..uploadQuiz(),
+      create: (providerContext) =>
+          UploadQuizCubit(questions: questionsToUpload, subj: subjToUpload)
+            ..uploadQuiz(),
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text('Upload Questions'),
+          title: const Text('Upload Questions',
+              style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         body: BlocBuilder<UploadQuizCubit, UploadQuizState>(
           builder: (blocBuilderContext, state) {

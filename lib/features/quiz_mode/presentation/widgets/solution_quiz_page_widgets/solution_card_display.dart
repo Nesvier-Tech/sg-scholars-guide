@@ -38,6 +38,20 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
           padding: EdgeInsets.all(20.0),
           child: Column(
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Colors.grey,
+                    size: 12,
+                  ),
+                  Text(
+                    "  Swipe me",
+                    style: TextStyle(fontSize: 11, color: Colors.grey),
+                  ),
+                ],
+              ),
               TextTitle(title: "Question"),
               TextMarkdown(
                 text: widget.question,
@@ -94,20 +108,6 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                 },
                 child: TextTitle(title: "Comments"),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.grey,
-                    size: 12,
-                  ),
-                  Text(
-                    "  Swipe me",
-                    style: TextStyle(fontSize: 11, color: Colors.grey),
-                  ),
-                ],
-              )
             ],
           ),
         ),

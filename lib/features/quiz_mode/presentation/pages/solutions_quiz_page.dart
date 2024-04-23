@@ -27,7 +27,8 @@ class _SolutionsQuizPageState extends State<SolutionsQuizPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Solutions Page'),
+        title: Text('Solutions Page',
+            style: TextStyle(fontWeight: FontWeight.bold)),
       ),
       body: BlocProvider(
         create: (providerContext) => SolutionQuizCubit()..loadSolutions(),

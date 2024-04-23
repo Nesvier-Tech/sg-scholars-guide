@@ -16,7 +16,7 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
   const QuizUploadRepositoryImpl();
 
   @override
-  Future<bool> uploadQuestions(
+  Future<void> uploadQuestions(
       {required List<QuizInputCubit> questionsToUpload,
       required SUBJ subjToUpload}) async {
     final authService = services<FirebaseAuth>();
@@ -55,17 +55,22 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
           commentRef: comRef,
           createdBy: userRef);
 
-      dbService
+      DocumentReference questionRef = await dbService
           .collection(FireStore.SUBJ2subject(subjToUpload))
-          .add(question.toMap())
-          .then((value) =>
-              print('[SUCCESS] | Question added to the database: $value'))
-          .catchError((error) {
-        print('[ERROR] | Failed to add question: $error');
-        uploadSucess = false;
+          .add(question.toMap());
+
+      DocumentSnapshot userSnap = await userRef.get();
+      Map<String, dynamic> userData = userSnap.data() as Map<String, dynamic>;
+
+      // * In case the user does not have a posted questions field yet for old users
+      if (!userData.containsKey(FireStore.postedQuestions)) {
+        await userRef.update({FireStore.postedQuestions: []});
+      }
+
+      // * Uploading the question reference to the user's posted questions field
+      await userRef.update({
+        FireStore.postedQuestions: FieldValue.arrayUnion([questionRef])
       });
     }
-
-    return uploadSucess;
   }
 }

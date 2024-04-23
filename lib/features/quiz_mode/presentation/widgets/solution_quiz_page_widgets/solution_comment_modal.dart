@@ -7,7 +7,6 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:scholars_guide/core/models/firestore_model.dart';
 import 'package:scholars_guide/features/quiz_mode/data/repositories/quiz_mode_repository_impl.dart';
 
-// ! TESTING
 class SolutionCommentModal extends StatefulWidget {
   const SolutionCommentModal({
     super.key,
@@ -74,11 +73,17 @@ class _SolutionCommentModalState extends State<SolutionCommentModal> {
                   suffixIcon: IconButton(
                     icon: Icon(Icons.send_rounded),
                     onPressed: () {
-                      // Handle sending comment
                       QuizModeRepositoryImpl().addComment(
                           docRef: widget.docRef, comment: _controller.text);
                       FocusScope.of(context).unfocus();
                       Navigator.of(context).pop();
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Comment added!'),
+                          duration: Duration(seconds: 1),
+                        ),
+                      );
                     },
                   ),
                 ),

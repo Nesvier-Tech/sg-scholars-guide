@@ -28,7 +28,8 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
             if (state is QuizInputPageQuestionsAdd) {
               return Scaffold(
                 appBar: AppBar(
-                  title: const Text('Upload Questions'),
+                  title: const Text('Upload Questions',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   bottom: TabBar(
                     tabs: const <Widget>[
                       Tab(

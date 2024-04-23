@@ -11,7 +11,8 @@ class ReadyQuizPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text('Submit Questions'),
+          title: const Text('Submit Questions',
+              style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         body: Center(
           child: ChooseSubjectDisplay(),

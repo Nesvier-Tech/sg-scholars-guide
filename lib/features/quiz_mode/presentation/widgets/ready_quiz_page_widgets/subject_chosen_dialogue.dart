@@ -10,9 +10,14 @@ class SubjectChosenDialogue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Confirmation'),
+      title: const Text(
+        'Confirmation',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
       content: Text(
-          "Let's start answering $subjectTest!\nTimer will start. Are you ready?"),
+        "Let's start answering $subjectTest!\nTimer will start. Are you ready?",
+        textAlign: TextAlign.center,
+      ),
       actions: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
