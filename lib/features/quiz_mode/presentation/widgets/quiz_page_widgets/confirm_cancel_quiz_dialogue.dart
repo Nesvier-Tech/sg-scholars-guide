@@ -14,16 +14,16 @@ class ConfirmCancelQuizDialogue extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextButton(
-              child: const Text('Continue Quiz'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
               child: const Text('Go Back'),
               onPressed: () {
                 Navigator.of(context).pop();
                 GoRouter.of(context).go('/quiz-mode');
+              },
+            ),
+            TextButton(
+              child: const Text('Continue Quiz'),
+              onPressed: () {
+                Navigator.of(context).pop();
               },
             ),
           ],

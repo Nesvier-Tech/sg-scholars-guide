@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../../../core/models/question_model.dart';
 
 abstract class QuizModeRepositoryContract {
@@ -5,5 +7,5 @@ abstract class QuizModeRepositoryContract {
 
   Future<List<Question>> collectQuestions({required SUBJ subj});
 
-  Future<List> collectComments({required String questionId});
+  Future<List> collectComments({required DocumentReference docRef});
 }

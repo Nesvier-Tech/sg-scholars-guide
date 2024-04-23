@@ -19,6 +19,12 @@ class ConfirmSubmitQuizDialogue extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextButton(
+              child: const Text('Go Back'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
               child: const Text('Submit Quiz'),
               onPressed: () {
                 final SUBJ subject = quizBloc.subject;
@@ -42,12 +48,6 @@ class ConfirmSubmitQuizDialogue extends StatelessWidget {
                   'subjectQuestionsMap': subjectQuestionsMap,
                   'subject': subject
                 });
-              },
-            ),
-            TextButton(
-              child: const Text('Go Back'),
-              onPressed: () {
-                Navigator.of(context).pop();
               },
             ),
           ],

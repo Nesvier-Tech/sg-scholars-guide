@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
 import '../../../../../core/models/question_model.dart';
@@ -27,7 +28,8 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
                       correctIndex: e.correctIndex,
                       optionsArray: e.options,
                       question: e.question,
-                      solution: e.solution))
+                      solution: e.solution,
+                      commentRef: e.commentRef as DocumentReference))
                   .toList());
         });
       } else {
@@ -41,7 +43,8 @@ class QuizBloc extends Bloc<QuizEvent, QuizState> {
                   correctIndex: e.correctIndex,
                   optionsArray: e.options,
                   question: e.question,
-                  solution: e.solution))
+                  solution: e.solution,
+                  commentRef: e.commentRef as DocumentReference))
               .toList()
         };
       }

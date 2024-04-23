@@ -18,17 +18,17 @@ class SubjectChosenDialogue extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextButton(
+              child: const Text('Go Back'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
               child: const Text('Start'),
               onPressed: () {
                 Navigator.of(context).pop();
                 GoRouter.of(context).go('/quiz-mode/start-quiz',
                     extra: Question.string2SUBJ(subjectTest));
-              },
-            ),
-            TextButton(
-              child: const Text('Go Back'),
-              onPressed: () {
-                Navigator.of(context).pop();
               },
             ),
           ],

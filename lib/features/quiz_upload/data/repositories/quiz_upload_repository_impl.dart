@@ -22,8 +22,9 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
     final authService = services<FirebaseAuth>();
     final dbService = services<FirebaseFirestore>();
 
-    final DocumentReference userRef =
-        dbService.collection('users').doc(authService.currentUser?.uid);
+    final DocumentReference userRef = dbService
+        .collection(FireStore.usersCollection)
+        .doc(authService.currentUser?.uid);
 
     late bool uploadSucess = true;
 
@@ -31,19 +32,27 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
 
     for (QuizInputCubit questionCubit in questionsToUpload) {
       // * Uploading the solutions first to the database
-      DocumentReference solRef = await dbService.collection('solutions').add({
+      DocumentReference solRef =
+          await dbService.collection(FireStore.solutionsCollection).add({
         FireStore.solutionData: questionCubit.solution,
         FireStore.createdBy: userRef,
         FireStore.createdAt: FieldValue.serverTimestamp(),
       });
 
+      // * Uploading a comment section of this post to the database
+      DocumentReference comRef =
+          await dbService.collection(FireStore.commentsCollection).add({
+        FireStore.commentArray: [],
+      });
+
       // * Uploading the questions to the database w/ solutions reference
       Question question = Question(
           question: questionCubit.question,
-          solutionRef: solRef,
           options: questionCubit.options,
           correctIndex: int.parse(questionCubit.answerIndex),
           subject: subjToUpload,
+          solutionRef: solRef,
+          commentRef: comRef,
           createdBy: userRef);
 
       dbService
