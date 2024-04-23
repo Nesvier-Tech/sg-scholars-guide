@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:scholars_guide/core/models/firestore_model.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
 import 'package:scholars_guide/features/quiz_mode/domain/repositories_contract/quiz_mode_repository_contract.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz/quiz_bloc.dart';
 
 import '../../../../service_locator/service_locator.dart';
 
@@ -40,7 +41,8 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
 
       // * Mapping the fetched data to the Question model and adding it to the list
       snapshot.docs
-          .map((e) => questions.add(Question.fromMap(e.id, e.data(), subj)))
+          .map((e) => questions
+              .add(Question.fromMap(id: e.id, data: e.data(), subject: subj)))
           .toList();
     });
 
@@ -85,6 +87,62 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
           FireStore.commentName: userRef.id.substring(0, 5),
         }
       ])
+    });
+  }
+
+  Future<List<Question>> collectMyQuestions() async {
+    final authService = services<FirebaseAuth>();
+    final dbService = services<FirebaseFirestore>();
+
+    final DocumentReference userRef = dbService
+        .collection(FireStore.usersCollection)
+        .doc(authService.currentUser?.uid);
+
+    DocumentSnapshot userSnap = await userRef.get();
+    Map<String, dynamic> userData = userSnap.data() as Map<String, dynamic>;
+
+    // * In case the user does not have a posted questions field yet for old users
+    if (!userData.containsKey(FireStore.postedQuestions)) {
+      await userRef.update({FireStore.postedQuestions: []});
+      return [];
+    }
+
+    // Fetching all questions reference in of the user using the user reference
+    List<Question> questions = [];
+
+    List<dynamic> postedQuestions = userData[FireStore.postedQuestions];
+    for (DocumentReference e in postedQuestions) {
+      DocumentSnapshot eSnap = await e.get();
+      questions.add(Question.fromMap(
+          id: eSnap.id,
+          data: eSnap.data() as Map<String, dynamic>,
+          subject: SUBJ.ALL,
+          questionRef: e));
+    }
+
+    return questions;
+  }
+
+  void deleteQuestion({required DocumentReference docRef}) {
+    final authService = services<FirebaseAuth>();
+    final dbService = services<FirebaseFirestore>();
+
+    final DocumentReference userRef = dbService
+        .collection(FireStore.usersCollection)
+        .doc(authService.currentUser?.uid);
+
+    // * Removing the question reference from the user's posted questions
+    userRef.update({
+      FireStore.postedQuestions: FieldValue.arrayRemove([docRef])
+    });
+
+    // * Deleting the comment reference and solution reference of the question
+    docRef.get().then((value) {
+      DocumentReference comRef = value[FireStore.commentRef];
+      DocumentReference solRef = value[FireStore.solutionRef];
+      comRef.delete();
+      solRef.delete();
+      docRef.delete();
     });
   }
 }

@@ -38,7 +38,8 @@ class _QuizPageState extends State<QuizPage> {
         builder: (builderContext) {
           return Scaffold(
             appBar: AppBar(
-              title: Text('${Question.SUBJ2string(subject)} Quiz'),
+              title: Text('${Question.SUBJ2string(subject)} Quiz',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               leading: IconButton(
                 icon: Icon(Icons.arrow_back),
                 onPressed: () {

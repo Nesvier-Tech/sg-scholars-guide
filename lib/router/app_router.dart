@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scholars_guide/features/profile/presentation/screens/view_questions_screen.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/finished_quiz_page.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/quiz_page.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/pages/ready_quiz_page.dart';
@@ -184,6 +185,14 @@ class AppRouter {
                 pageBuilder: (_, __) {
                   return NoTransitionPage(child: ProfileScreen());
                 },
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: 'view-my-questions',
+                    pageBuilder: (context, state) => const NoTransitionPage(
+                      child: ViewQuestionsScreen(),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

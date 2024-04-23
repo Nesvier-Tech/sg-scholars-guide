@@ -89,7 +89,8 @@ class EmailVerificationSentScreen extends StatelessWidget {
                         barrierDismissible: false,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text('Feature Under Development'),
+                            title: const Text('Feature Under Development',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                             content: const Text(
                               'This feature is under development. The app is currently in development phase. Please check back later.',
                             ),
@@ -138,7 +139,9 @@ class EmailVerificationSentScreen extends StatelessWidget {
                             barrierDismissible: false,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                title: const Text('Email Not Verified'),
+                                title: const Text('Email Not Verified',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
                                 content: const Text(
                                   'Your email is not yet verified. Please verify your email to continue.',
                                 ),
@@ -173,7 +176,9 @@ class EmailVerificationSentScreen extends StatelessWidget {
                           barrierDismissible: false,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: const Text('Feature Under Development'),
+                              title: const Text('Feature Under Development',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                               content: const Text(
                                 'This feature is under development. The app is currently in development phase. Please check back later.',
                               ),
