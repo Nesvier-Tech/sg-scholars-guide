@@ -13,5 +13,5 @@ class SolutionQuizCubit extends Cubit<SolutionQuizState> {
 }
 
 Future<void> placeholder() async {
-  await Future.delayed(Duration(seconds: 3));
+  await Future.delayed(const Duration(seconds: 3));
 }
