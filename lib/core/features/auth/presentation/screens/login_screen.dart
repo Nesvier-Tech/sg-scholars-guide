@@ -204,7 +204,7 @@ class _LoginFormState extends State<LoginForm> {
             validator: FormBuilderValidators.compose(
               [
                 FormBuilderValidators.required(),
-                FormBuilderValidators.minLength(16),
+                FormBuilderValidators.minLength(8),
               ],
             ),
           ),

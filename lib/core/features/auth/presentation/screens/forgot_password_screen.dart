@@ -111,6 +111,7 @@ class _PasswordResetFormState extends State<PasswordResetForm> {
             validator: FormBuilderValidators.compose([
               FormBuilderValidators.required(),
               FormBuilderValidators.email(),
+              FormBuilderValidators.minLength(8),
             ]),
           ),
           const SizedBox(height: 32.0),
