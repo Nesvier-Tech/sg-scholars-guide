@@ -114,6 +114,8 @@ class ChoiceButton extends StatelessWidget {
       margin: EdgeInsets.only(top: 2.0, bottom: 2.0),
       child: ElevatedButton(
         style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(
+              isChosen ? Colors.deepPurple[50] : Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),

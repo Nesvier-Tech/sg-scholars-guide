@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_markdown_latex/flutter_markdown_latex.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:scholars_guide/features/quiz_mode/data/repositories/quiz_mode_repository_impl.dart';
+import 'package:scholars_guide/features/quiz_mode/domain/repositories_contract/quiz_mode_repository_contract.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/question_loading_display.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/solution_quiz_page_widgets/solution_comment_modal.dart';
 
 class SolutionCardDisplay extends StatefulWidget {
@@ -11,11 +15,13 @@ class SolutionCardDisplay extends StatefulWidget {
       {super.key,
       required this.question,
       required this.answer,
-      required this.solution});
+      required this.solution,
+      required this.commentRef});
 
   final String question;
   final String answer;
   final String solution;
+  final DocumentReference commentRef;
 
   @override
   State<SolutionCardDisplay> createState() => _SolutionCardDisplayState();
@@ -32,6 +38,20 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
           padding: EdgeInsets.all(20.0),
           child: Column(
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Colors.grey,
+                    size: 12,
+                  ),
+                  Text(
+                    "  Swipe me",
+                    style: TextStyle(fontSize: 11, color: Colors.grey),
+                  ),
+                ],
+              ),
               TextTitle(title: "Question"),
               TextMarkdown(
                 text: widget.question,
@@ -62,39 +82,32 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                   ),
                 ),
               ),
-              TextTitle(title: "Comments"),
-              TextMarkdown(
-                // ! To Remove
-                text: "Coming soon!",
-                styleSheet: MarkdownStyleSheet(
-                  textAlign: WrapAlignment.center,
-                  p: const TextStyle(fontSize: 18),
-                ),
-              ),
               ElevatedButton(
                 onPressed: () {
                   showModalBottomSheet(
                     context: context,
                     showDragHandle: true,
-                    builder: (BuildContext context) => SolutionCommentModal(),
+                    builder: (BuildContext context) => FutureBuilder(
+                      future: QuizModeRepositoryImpl()
+                          .collectComments(docRef: widget.commentRef),
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return QuestionLoadingDisplay();
+                        } else if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else {
+                          return SolutionCommentModal(
+                            docRef: widget.commentRef,
+                            comments: snapshot.data,
+                          );
+                        }
+                      },
+                    ),
                   );
                 },
-                child: Text("Experimental"),
+                child: TextTitle(title: "Comments"),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.grey,
-                    size: 12,
-                  ),
-                  Text(
-                    "  Swipe me",
-                    style: TextStyle(fontSize: 11, color: Colors.grey),
-                  ),
-                ],
-              )
             ],
           ),
         ),

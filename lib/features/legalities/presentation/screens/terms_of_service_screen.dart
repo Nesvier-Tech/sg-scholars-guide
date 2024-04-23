@@ -63,7 +63,8 @@ To calculate the area of an equilateral triangle using trigonometric functions, 
                 onPressed: () => GoRouter.of(context).go('/signup'),
                 icon: const Icon(Icons.arrow_back),
               ),
-              title: const Text('Terms of Service'),
+              title: const Text('Terms of Service',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               bottom: TabBar(
                 onTap: (value) {
                   services<Logger>().i('Tab index: $value');

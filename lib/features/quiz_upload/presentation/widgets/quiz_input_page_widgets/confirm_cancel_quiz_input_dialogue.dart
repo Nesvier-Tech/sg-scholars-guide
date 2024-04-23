@@ -19,7 +19,8 @@ class ConfirmCancelQuizInputDisplay extends StatelessWidget {
           color: Colors.black.withOpacity(0.6),
         ),
         child: AlertDialog(
-          title: const Text('Cancel Quiz Input'),
+          title: const Text('Cancel Quiz Input',
+              style: TextStyle(fontWeight: FontWeight.bold)),
           content: const Text("Your inputs will be discared! Are you sure?"),
           actions: <Widget>[
             ElevatedButton(

@@ -16,7 +16,9 @@ class Question {
     this.id = '',
     this.solution = '',
     this.solutionRef,
+    this.commentRef,
     this.createdBy,
+    this.questionRef,
   });
 
   final String question;
@@ -26,9 +28,12 @@ class Question {
   String id;
   String solution;
   DocumentReference? solutionRef;
+  DocumentReference? commentRef;
+  DocumentReference? questionRef;
+
 
   DocumentReference? createdBy;
-  final FieldValue createdAt = FieldValue.serverTimestamp();
+  final Timestamp createdAt = Timestamp.now();
 
   static var updatedAt = FieldValue.serverTimestamp();
   static const String updatedBy = ''; // ! This is a placeholder
@@ -44,7 +49,12 @@ class Question {
   }
 
   // Returns a Question Class using data fetched from the Firestore
-  factory Question.fromMap(String id, Map<String, dynamic> data, SUBJ subject) {
+  factory Question.fromMap({
+    required String id,
+    required Map<String, dynamic> data,
+    required SUBJ subject,
+    DocumentReference? questionRef,
+  }) {
     List<String> temp = [];
     for (var val in data[FireStore.options].values) {
       temp.add(val);
@@ -57,9 +67,11 @@ class Question {
         subject: subject,
         question: data[FireStore.question],
         solutionRef: data[FireStore.solutionRef],
+        commentRef: data[FireStore.commentRef],
         options: temp,
         correctIndex: temp.indexWhere((element) => element == temp2),
-        createdBy: data[FireStore.createdBy]);
+        createdBy: data[FireStore.createdBy],
+        questionRef: questionRef);
   }
 
   // Converts the Question Class to a json like file to be stored in the Firestore
@@ -74,6 +86,7 @@ class Question {
       },
       FireStore.correctIndex: correctIndex.toString(),
       FireStore.solutionRef: solutionRef,
+      FireStore.commentRef: commentRef,
       FireStore.createdBy: createdBy,
       FireStore.createdAt: createdAt,
     };

@@ -137,7 +137,8 @@ class _PasswordResetFormState extends State<PasswordResetForm> {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: const Text('Error'),
+                          title: const Text('Error',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
                           content: Text(e.message ?? 'An error occurred.'),
                           actions: <Widget>[
                             TextButton(

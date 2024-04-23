@@ -12,7 +12,8 @@ class ConfirmTimeoutQuizDialogue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Out of Time'),
+      title: const Text('Out of Time',
+          style: TextStyle(fontWeight: FontWeight.bold)),
       content: const Text("Time's up! You did great"),
       actions: <Widget>[
         TextButton(

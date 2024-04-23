@@ -291,7 +291,8 @@ class _LoginFormState extends State<LoginForm> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: const Text('Error'),
+                          title: const Text('Error',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
                           content: Text(errorMessage),
                           actions: <TextButton>[
                             TextButton(

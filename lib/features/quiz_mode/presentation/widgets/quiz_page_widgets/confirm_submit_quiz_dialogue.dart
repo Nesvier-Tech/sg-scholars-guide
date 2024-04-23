@@ -12,12 +12,19 @@ class ConfirmSubmitQuizDialogue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Submit Confirmation'),
+      title: const Text('Submit Confirmation',
+          style: TextStyle(fontWeight: FontWeight.bold)),
       content: const Text("You can't go back after this! Are you sure?"),
       actions: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            TextButton(
+              child: const Text('Go Back'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
             TextButton(
               child: const Text('Submit Quiz'),
               onPressed: () {
@@ -42,12 +49,6 @@ class ConfirmSubmitQuizDialogue extends StatelessWidget {
                   'subjectQuestionsMap': subjectQuestionsMap,
                   'subject': subject
                 });
-              },
-            ),
-            TextButton(
-              child: const Text('Go Back'),
-              onPressed: () {
-                Navigator.of(context).pop();
               },
             ),
           ],

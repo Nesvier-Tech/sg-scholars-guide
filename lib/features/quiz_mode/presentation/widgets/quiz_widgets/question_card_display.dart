@@ -25,17 +25,21 @@ class QuestionCardDisplay extends StatefulWidget {
 class _QuestionCardDisplayState extends State<QuestionCardDisplay> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-        margin: EdgeInsets.all(10.0),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              QuestionCardQuestionDisplay(question: widget.question),
-              QuestionCardChoicesDisplay(bloc: widget.bloc),
-              SizedBox(height: 15.0)
-            ],
-          ),
-        ));
+    return Container(
+      margin: EdgeInsets.only(left: 10, right: 10),
+      child: Card(
+          margin: EdgeInsets.all(10.0),
+          elevation: 5.0,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                QuestionCardQuestionDisplay(question: widget.question),
+                QuestionCardChoicesDisplay(bloc: widget.bloc),
+                SizedBox(height: 15.0)
+              ],
+            ),
+          )),
+    );
   }
 }
