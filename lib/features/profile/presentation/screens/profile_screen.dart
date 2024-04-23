@@ -56,16 +56,16 @@ class ProfileScreen extends StatelessWidget {
               }
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
-                value: 'Settings',
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.settings_outlined),
-                    SizedBox(width: 8.0),
-                    Text('Settings'),
-                  ],
-                ),
-              ),
+              // const PopupMenuItem<String>(
+              //   value: 'Settings',
+              //   child: Row(
+              //     children: <Widget>[
+              //       Icon(Icons.settings_outlined),
+              //       SizedBox(width: 8.0),
+              //       Text('Settings'),
+              //     ],
+              //   ),
+              // ),
               const PopupMenuItem<String>(
                 value: 'Sign Out',
                 child: Row(
@@ -99,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
 
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       // Show a loading spinner.
-                      return Expanded(child: const QuestionLoadingDisplay());
+                      return const Center(child: QuestionLoadingDisplay());
                     }
 
                     // Convert timestamp to DateTime.
@@ -141,12 +141,12 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 32),
-                        ProfileDetailRow(
-                          title: 'UID:',
-                          detail:
-                              '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}',
-                        ),
-                        const SizedBox(height: 10),
+                        // ProfileDetailRow(
+                        //   title: 'UID:',
+                        //   detail:
+                        //       '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}',
+                        // ),
+                        // const SizedBox(height: 10),
                         ProfileDetailRow(
                           title: 'Joined in:',
                           detail: DateFormat.yMMMd().format(createdAt),

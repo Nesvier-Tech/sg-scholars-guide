@@ -316,6 +316,7 @@ class _PersonalInformationForm extends State<PersonalInformationForm> {
               );
 
               if (_formKey.currentState?.saveAndValidate() ?? false) {
+                _logger.i('Form is valid');
                 // Create user.
                 final String email =
                     _formKey.currentState?.fields['email']?.value;
