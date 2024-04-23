@@ -33,97 +33,106 @@ class LoginScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const Text('Log in to continue your learning journey'),
-                  const SizedBox(height: 32.0),
+                  const SizedBox(height: 40.0),
 
-                  // Log in with Google.
-                  FilledButton.tonal(
-                    onPressed: () async {
-                      // Show alert dialog.
-                      await showDialog<AlertDialog>(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Coming Soon'),
-                            content: const Text(
-                              'This feature is coming soon.',
-                            ),
-                            actions: <TextButton>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          googleIconPath,
-                          width: 24.0,
-                          height: 24.0,
-                          semanticsLabel: 'Google Icon Logo',
-                        ),
-                        const SizedBox(width: 8.0),
-                        const Text('Log in with Google'),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 8.0),
+                  // // Log in with Google.
+                  // FilledButton.tonal(
+                  //   onPressed: () async {
+                  //     // Show alert dialog.
+                  //     await showDialog<AlertDialog>(
+                  //       context: context,
+                  //       builder: (BuildContext context) {
+                  //         return AlertDialog(
+                  //           title: const Text('Coming Soon'),
+                  //           content: const Text(
+                  //             'This feature is coming soon.',
+                  //           ),
+                  //           actions: <TextButton>[
+                  //             TextButton(
+                  //               onPressed: () {
+                  //                 Navigator.of(context).pop();
+                  //               },
+                  //               child: const Text('OK'),
+                  //             ),
+                  //           ],
+                  //         );
+                  //       },
+                  //     );
+                  //   },
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: <Widget>[
+                  //       SvgPicture.asset(
+                  //         googleIconPath,
+                  //         width: 24.0,
+                  //         height: 24.0,
+                  //         semanticsLabel: 'Google Icon Logo',
+                  //       ),
+                  //       const SizedBox(width: 8.0),
+                  //       const Text('Log in with Google'),
+                  //     ],
+                  //   ),
+                  // ),
+                  // const SizedBox(height: 8.0),
 
-                  // Log in Anonymously.
-                  FilledButton.tonal(
-                    onPressed: () {
-                      // Show alert dialog.
-                      showDialog<AlertDialog>(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Coming Soon'),
-                            content: const Text(
-                              'This feature is coming soon.',
-                            ),
-                            actions: <TextButton>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          anonymousIconPath,
-                          width: 24.0,
-                          height: 24.0,
-                          semanticLabel: 'Anonymous Icon',
-                        ),
-                        const SizedBox(width: 8.0),
-                        const Text('Log in Anonymously'),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 32.0),
+                  // // Log in Anonymously.
+                  // FilledButton.tonal(
+                  //   onPressed: () {
+                  //     // Show alert dialog.
+                  //     showDialog<AlertDialog>(
+                  //       context: context,
+                  //       builder: (BuildContext context) {
+                  //         return AlertDialog(
+                  //           title: const Text('Coming Soon'),
+                  //           content: const Text(
+                  //             'This feature is coming soon.',
+                  //           ),
+                  //           actions: <TextButton>[
+                  //             TextButton(
+                  //               onPressed: () {
+                  //                 Navigator.of(context).pop();
+                  //               },
+                  //               child: const Text('OK'),
+                  //             ),
+                  //           ],
+                  //         );
+                  //       },
+                  //     );
+                  //   },
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: <Widget>[
+                  //       Image.asset(
+                  //         anonymousIconPath,
+                  //         width: 24.0,
+                  //         height: 24.0,
+                  //         semanticLabel: 'Anonymous Icon',
+                  //       ),
+                  //       const SizedBox(width: 8.0),
+                  //       const Text('Log in Anonymously'),
+                  //     ],
+                  //   ),
+                  // ),
+                  // const SizedBox(height: 32.0),
 
-                  // Horizontal divider.
-                  const Row(
-                    children: <Widget>[
-                      Expanded(child: Divider(endIndent: 8.0)),
-                      Text('OR'),
-                      Expanded(child: Divider(indent: 8.0)),
-                    ],
+                  // // Horizontal divider.
+                  // const Row(
+                  //   children: <Widget>[
+                  //     Expanded(child: Divider(endIndent: 8.0)),
+                  //     Text('OR'),
+                  //     Expanded(child: Divider(indent: 8.0)),
+                  //   ],
+                  // ),
+                  // const SizedBox(height: 32.0),
+
+                  SvgPicture.asset(
+                    'assets/illustrations/undraw_secure_login_pdn4.svg',
+                    width: 150.0,
+                    height: 150.0,
+                    semanticsLabel: 'Secure Login Illustration',
                   ),
-                  const SizedBox(height: 32.0),
+
+                  const SizedBox(height: 40.0),
 
                   // Log in with Email form.
                   const LoginForm(),
