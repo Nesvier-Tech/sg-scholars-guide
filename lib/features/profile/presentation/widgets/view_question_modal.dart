@@ -31,7 +31,6 @@ class ViewQuestionModal extends StatelessWidget {
               Navigator.of(context).pop();
               Navigator.of(context).pop();
 
-              // Show the snackbar
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Question deleted'),

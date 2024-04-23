@@ -69,7 +69,7 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
   }
 
   void addComment(
-      {required DocumentReference docRef, required String comment}) {
+      {required DocumentReference docRef, required String comment}) async {
     final authService = services<FirebaseAuth>();
     final dbService = services<FirebaseFirestore>();
 
@@ -77,14 +77,18 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
         .collection(FireStore.usersCollection)
         .doc(authService.currentUser?.uid);
 
+    DocumentSnapshot userSnap = await userRef.get();
+    Map<String, dynamic> userData = userSnap.data() as Map<String, dynamic>;
+
     docRef.update({
       FireStore.commentArray: FieldValue.arrayUnion([
         {
           FireStore.commentData: comment,
           FireStore.createdAt: Timestamp.now(),
           FireStore.createdBy: userRef,
-          FireStore.commentInitials: userRef.id.substring(0, 2),
-          FireStore.commentName: userRef.id.substring(0, 5),
+          FireStore.commentInitials:
+              userData[FireStore.username].substring(0, 2).toUpperCase(),
+          FireStore.commentName: userData[FireStore.username],
         }
       ])
     });
