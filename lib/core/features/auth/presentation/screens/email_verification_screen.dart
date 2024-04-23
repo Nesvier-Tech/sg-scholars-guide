@@ -78,34 +78,59 @@ class EmailVerificationSentScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 32.0),
 
-                // Open email app button.
+                // // Open email app button.
+                // SizedBox(
+                //   width: double.infinity,
+                //   child: FilledButton(
+                //     onPressed: () {
+                //       // Show dialog that the feature is under development.
+                //       showDialog<void>(
+                //         context: context,
+                //         barrierDismissible: false,
+                //         builder: (BuildContext context) {
+                //           return AlertDialog(
+                //             title: const Text('Feature Under Development'),
+                //             content: const Text(
+                //               'This feature is under development. The app is currently in development phase. Please check back later.',
+                //             ),
+                //             actions: <Widget>[
+                //               TextButton(
+                //                 onPressed: () {
+                //                   Navigator.of(context).pop();
+                //                 },
+                //                 child: const Text('OK'),
+                //               ),
+                //             ],
+                //           );
+                //         },
+                //       );
+                //     },
+                //     child: const Text('Open Email App'),
+                //   ),
+                // ),
+                // const SizedBox(height: 16.0),
+
+                // Go back to Login button.
                 SizedBox(
                   width: double.infinity,
-                  child: FilledButton(
+                  child: OutlinedButton(
                     onPressed: () {
-                      // Show dialog that the feature is under development.
-                      showDialog<void>(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Feature Under Development'),
-                            content: const Text(
-                              'This feature is under development. The app is currently in development phase. Please check back later.',
-                            ),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
+                      GoRouter.of(context).go('/login');
                     },
-                    child: const Text('Open Email App'),
+                    child: const Text('Go Back to Login'),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+
+                // Skip email verification button.
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: () {
+                      final String uid = FirebaseAuth.instance.currentUser!.uid;
+                      GoRouter.of(context).go('/profile', extra: uid);
+                    },
+                    child: const Text('Skip Email Verification'),
                   ),
                 ),
                 const SizedBox(height: 16.0),
