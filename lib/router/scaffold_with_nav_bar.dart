@@ -19,7 +19,12 @@ class ScaffoldWithNavBar extends StatelessWidget {
   void _onTap(BuildContext context, int index) {
     // When navigating to a new branch, it's recommended to use the goBranch
     // method, as doing so makes sure the last navigation state of the
-    // Navigator for the branch is restored.
+    // Navigator for the branch is restored.'
+
+    if (index == navigationShell.currentIndex) {
+      return;
+    }
+
     navigationShell.goBranch(
       index,
       // A common pattern when using bottom navigation bars is to support
