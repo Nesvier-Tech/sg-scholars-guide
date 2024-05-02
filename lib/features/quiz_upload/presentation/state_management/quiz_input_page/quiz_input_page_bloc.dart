@@ -70,7 +70,8 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
 
   bool _questionsNotEmpty() {
     for (var question in questions) {
-      if (!question.questionNonEmpty) return false;
+      if (!question.questionNonEmpty || !question.solutionNonEmpty)
+        return false;
       for (var option in question.optionsNonEmpty) {
         if (!option) return false;
       }

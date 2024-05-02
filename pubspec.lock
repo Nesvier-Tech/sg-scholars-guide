@@ -471,18 +471,18 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_markdown
-      sha256: "04c4722cc36ec5af38acc38ece70d22d3c2123c61305d555750a091517bbe504"
+      sha256: "9921f9deda326f8a885e202b1e35237eadfc1345239a0f6f0f1ff287e047547f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.23"
+    version: "0.7.1"
   flutter_markdown_latex:
     dependency: "direct main"
     description:
       name: flutter_markdown_latex
-      sha256: "080729dd4984e294e4d2b12a346328faaea23b9f96c3d5cf85d2361ca844f978"
+      sha256: b07ade84e661a7a2e7b7e59bcfa95e481d38fd8782a8f9f2349a8cb1b056ae89
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.0"
+    version: "0.3.2"
   flutter_math_fork:
     dependency: transitive
     description:
@@ -503,10 +503,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: c37ab7bd479daa7b20ef281b528d8eea10a2c4f149edb1f94acdbc41af0fbaf3
+      sha256: "51d5a9d2eef893875fa2dc29ea5be9ec07e03255fee9bacd5b4b329fa871d9a5"
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.7"
+    version: "9.3.9"
   flutter_slidable:
     dependency: "direct main"
     description:
@@ -585,10 +585,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: b1ac0fe2832c9cc95e5e88b57d627c5e68c223b9657f4b96e1487aa9098c7b82
+      sha256: "5b1726fee554d1cc9db1baef8061b126567ff0a1140a03ed7de936e62f2ab98b"
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.1"
+    version: "6.2.0"
   html:
     dependency: transitive
     description:
@@ -1348,4 +1348,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=3.3.0 <4.0.0"
-  flutter: ">=3.19.2"
+  flutter: ">=3.19.0"

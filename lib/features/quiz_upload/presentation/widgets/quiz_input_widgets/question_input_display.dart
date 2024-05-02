@@ -22,27 +22,31 @@ class _QuestionInputDisplayState extends State<QuestionInputDisplay> {
       shrinkWrap: true,
       itemCount: buildContext.read<QuizInputPageBloc>().questions.length,
       itemBuilder: (_, index) {
-        return Dismissible(
-          background: Container(
-            color: Colors.white,
-            alignment: Alignment.centerRight,
-            padding: EdgeInsets.only(right: 20.0),
-            margin: EdgeInsets.only(bottom: 10.0),
-            child: Icon(Icons.delete),
+        return Container(
+          margin: EdgeInsets.only(left: 7.0, right: 7.0),
+          child: Dismissible(
+            background: Container(
+              color: Colors.white,
+              alignment: Alignment.centerRight,
+              padding: EdgeInsets.only(right: 20.0),
+              margin: EdgeInsets.only(bottom: 10.0),
+              child: Icon(Icons.delete),
+            ),
+            direction: DismissDirection.endToStart,
+            key: UniqueKey(),
+            child: QuestionInputCard(
+                questionCubit:
+                    buildContext.read<QuizInputPageBloc>().questions[index]),
+            onDismissed: (_) {
+              buildContext.read<QuizInputPageBloc>().add(
+                    QuizInputPageDeleteBtnPressed(
+                      questionCubit: buildContext
+                          .read<QuizInputPageBloc>()
+                          .questions[index],
+                    ),
+                  );
+            },
           ),
-          direction: DismissDirection.endToStart,
-          key: UniqueKey(),
-          child: QuestionInputCard(
-              questionCubit:
-                  buildContext.read<QuizInputPageBloc>().questions[index]),
-          onDismissed: (_) {
-            buildContext.read<QuizInputPageBloc>().add(
-                  QuizInputPageDeleteBtnPressed(
-                    questionCubit:
-                        buildContext.read<QuizInputPageBloc>().questions[index],
-                  ),
-                );
-          },
         );
       },
     );

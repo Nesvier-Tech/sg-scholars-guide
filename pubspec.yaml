@@ -113,11 +113,11 @@ dependencies:
 
   # A rich text editor built for the modern Android, iOS, web and desktop platforms.
   # It is the WYSIWYG editor and a Quill component for Flutter.
-  flutter_quill: ^9.3.1
+  flutter_quill: ^9.3.9
 
   # A Markdown renderer for Flutter. Create rich text output, including text styles,
   # tables, links, and more, from plain text data formatted with simple Markdown tags.
-  flutter_markdown: ^0.6.19
+  flutter_markdown: ^0.7.1
 
   # Functional programming in Dart and Flutter. All the main functional programming
   # types and patterns fully documented, tested, and with examples.
@@ -135,10 +135,10 @@ dependencies:
   url_launcher: ^6.2.4
 
   # A extension to render LaTeX in markdown for package flutter_markdown.
-  flutter_markdown_latex: ^0.2.0
+  flutter_markdown_latex: ^0.3.2
 
   # A portable Markdown library written in Dart that can parse Markdown into HTML.
-  markdown: ^7.2.1
+  markdown: ^7.2.2
   intl: ^0.18.1
 
 dev_dependencies:

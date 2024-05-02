@@ -31,7 +31,7 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(10.0),
+      margin: EdgeInsets.all(20.0),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
@@ -43,12 +43,14 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                 children: [
                   Icon(
                     Icons.arrow_back_ios_new,
-                    color: Colors.grey,
+                    color: const Color.fromRGBO(207, 0, 15, 1),
                     size: 12,
                   ),
                   Text(
-                    "  Swipe me",
-                    style: TextStyle(fontSize: 11, color: Colors.grey),
+                    "  Swipe",
+                    style: TextStyle(
+                        fontSize: 11,
+                        color: const Color.fromRGBO(207, 0, 15, 1)),
                   ),
                 ],
               ),
@@ -82,31 +84,49 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                   ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                    context: context,
-                    showDragHandle: true,
-                    builder: (BuildContext context) => FutureBuilder(
-                      future: QuizModeRepositoryImpl()
-                          .collectComments(docRef: widget.commentRef),
-                      builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return QuestionLoadingDisplay();
-                        } else if (snapshot.hasError) {
-                          return Text('Error: ${snapshot.error}');
-                        } else {
-                          return SolutionCommentModal(
-                            docRef: widget.commentRef,
-                            comments: snapshot.data,
-                          );
-                        }
-                      },
+              Container(
+                width: 300,
+                child: ElevatedButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      showDragHandle: true,
+                      builder: (BuildContext context) => FutureBuilder(
+                        future: QuizModeRepositoryImpl()
+                            .collectComments(docRef: widget.commentRef),
+                        builder:
+                            (BuildContext context, AsyncSnapshot snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return QuestionLoadingDisplay();
+                          } else if (snapshot.hasError) {
+                            return Text('Error: ${snapshot.error}');
+                          } else {
+                            return SolutionCommentModal(
+                              docRef: widget.commentRef,
+                              comments: snapshot.data,
+                            );
+                          }
+                        },
+                      ),
+                    );
+                  },
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                  );
-                },
-                child: TextTitle(title: "Comments"),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color.fromRGBO(207, 0, 15, 1)),
+                  ),
+                  child: Text("Comments",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 17,
+                      )),
+                ),
               ),
             ],
           ),
@@ -129,7 +149,7 @@ class TextTitle extends StatelessWidget {
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 95, 55, 213),
+            color: const Color.fromRGBO(207, 0, 15, 1),
           )),
     );
   }

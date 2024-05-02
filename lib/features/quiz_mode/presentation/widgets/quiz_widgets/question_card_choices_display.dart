@@ -98,12 +98,12 @@ class ChoiceButton extends StatelessWidget {
       color = isCorrect
           ? isChosen
               ? Colors.green
-              : Colors.black
+              : Colors.white
           : isChosen
-              ? Colors.red
-              : Colors.black;
+              ? Color.fromRGBO(207, 0, 15, 1)
+              : Colors.white;
     } else if (isChosen) {
-      color = Colors.indigoAccent;
+      color = Color.fromRGBO(207, 0, 15, 1);
     }
 
     return Container(
@@ -114,17 +114,24 @@ class ChoiceButton extends StatelessWidget {
       margin: EdgeInsets.only(top: 2.0, bottom: 2.0),
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-              isChosen ? Colors.deepPurple[50] : Colors.white),
+          backgroundColor: MaterialStateProperty.all(isRevealed
+              ? color
+              : isChosen
+                  ? const Color.fromRGBO(207, 0, 15, 1)
+                  : Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
-              side: BorderSide(color: color),
+              side: BorderSide(
+                color: isRevealed && isChosen && isCorrect
+                    ? Colors.green
+                    : const Color.fromRGBO(207, 0, 15, 1),
+              ),
             ),
           ),
         ),
         onPressed: isRevealed ? null : func,
-        child: TextMarkdown(text: "$letter. $choice"),
+        child: TextMarkdown(text: "$letter. $choice", isChosen: isChosen),
       ),
     );
   }
@@ -134,9 +141,11 @@ class TextMarkdown extends StatelessWidget {
   const TextMarkdown({
     super.key,
     required this.text,
+    required this.isChosen,
   });
 
   final String text;
+  final bool isChosen;
 
   @override
   Widget build(BuildContext context) {
@@ -146,11 +155,22 @@ class TextMarkdown extends StatelessWidget {
       shrinkWrap: true,
       data: text,
       builders: {
-        'latex': LatexElementBuilder(),
+        'latex': LatexElementBuilder(
+          textScaleFactor: 1.3,
+          textStyle: TextStyle(
+            fontSize: 15.0,
+            color: isChosen ? Colors.white : Color.fromRGBO(207, 0, 15, 1),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       },
       styleSheet: MarkdownStyleSheet(
         textAlign: WrapAlignment.center,
-        p: const TextStyle(fontSize: 15.0, color: Colors.black),
+        p: TextStyle(
+          fontSize: 15.0,
+          color: isChosen ? Colors.white : Color.fromRGBO(207, 0, 15, 1),
+          fontWeight: FontWeight.bold,
+        ),
       ),
       extensionSet: md.ExtensionSet(
         [LatexBlockSyntax()],

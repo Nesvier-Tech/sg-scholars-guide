@@ -22,25 +22,36 @@ class ConfirmCancelQuizInputDisplay extends StatelessWidget {
           title: const Text('Cancel Quiz Input',
               style: TextStyle(fontWeight: FontWeight.bold)),
           content: const Text("Your inputs will be discared! Are you sure?"),
-          actions: <Widget>[
-            ElevatedButton(
-              child: const Text('Continue Quiz Input'),
-              onPressed: () {
-                context
-                    .read<QuizInputPageBloc>()
-                    .add(QuizInputPageCancelBackBtnPressed());
-              },
-            ),
-            ElevatedButton(
-              child: const Text('Go Back'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => (ReadyQuizPage()),
-                  ), // ! Change to home page
-                );
-              },
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElevatedButton(
+                  child: const Text(
+                    'Go Back',
+                    style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => (ReadyQuizPage()),
+                      ), // ! Change to home page
+                    );
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text(
+                    'Continue Quiz Input',
+                    style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+                  ),
+                  onPressed: () {
+                    context
+                        .read<QuizInputPageBloc>()
+                        .add(QuizInputPageCancelBackBtnPressed());
+                  },
+                ),
+              ],
             ),
           ],
         ),

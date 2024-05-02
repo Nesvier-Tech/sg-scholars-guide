@@ -36,11 +36,16 @@ class _QuizPageState extends State<QuizPage> {
       child: Builder(
         builder: (builderContext) {
           return Scaffold(
+            backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
             appBar: AppBar(
               title: Text('${Question.SUBJ2string(subject)} Quiz',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  )),
+              backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
               leading: IconButton(
-                icon: Icon(Icons.arrow_back),
+                icon: Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () {
                   showDialog<AlertDialog>(
                     context: context,
@@ -70,20 +75,39 @@ class _QuizPageState extends State<QuizPage> {
                             ),
 
                             // * Display the submit button
-                            ElevatedButton(
-                              onPressed: () {
-                                showDialog<AlertDialog>(
-                                  context: context,
-                                  builder: (BuildContext buildContext) {
-                                    return ConfirmSubmitQuizDialogue(
-                                      quizBloc:
-                                          quizBlocContext.read<QuizBloc>(),
-                                    );
-                                  },
-                                );
-                              },
-                              child: Text("Submit"),
+                            Container(
+                              width: 200,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  showDialog<AlertDialog>(
+                                    context: context,
+                                    builder: (BuildContext buildContext) {
+                                      return ConfirmSubmitQuizDialogue(
+                                        quizBloc:
+                                            quizBlocContext.read<QuizBloc>(),
+                                      );
+                                    },
+                                  );
+                                },
+                                style: ButtonStyle(
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                ),
+                                child: Text("Submit",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromRGBO(
+                                            207, 0, 15, 1))),
+                              ),
                             ),
+                            Container(height: 20),
                           ],
                         ),
                       ),

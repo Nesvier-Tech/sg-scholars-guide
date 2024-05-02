@@ -31,7 +31,6 @@ class Question {
   DocumentReference? commentRef;
   DocumentReference? questionRef;
 
-
   DocumentReference? createdBy;
   final Timestamp createdAt = Timestamp.now();
 
@@ -95,7 +94,7 @@ class Question {
   static String SUBJ2string(SUBJ subj) {
     switch (subj) {
       case SUBJ.MATH:
-        return "Math";
+        return "Mathematics";
       case SUBJ.SCIENCE:
         return "Science";
       case SUBJ.READING:
@@ -109,7 +108,7 @@ class Question {
 
   static SUBJ string2SUBJ(String subj) {
     switch (subj) {
-      case "Math":
+      case "Mathematics":
         return SUBJ.MATH;
       case "Science":
         return SUBJ.SCIENCE;
