@@ -113,7 +113,7 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
                             children: [
                               ChangeSubjectDisplay(),
                               Text(
-                                "* Quiz Upload supports Latex. Use \$\$ to wrap the equation. \n\t\t\tDouble space for new line. Swipe left to delete a question.",
+                                "* Quiz Upload supports Latex. Check Latex tab for a sample. Swipe left to delete a question.",
                                 style:
                                     TextStyle(fontSize: 11, color: Colors.grey),
                               ),
