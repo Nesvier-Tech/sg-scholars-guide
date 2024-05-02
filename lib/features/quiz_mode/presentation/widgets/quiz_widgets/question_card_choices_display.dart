@@ -48,6 +48,7 @@ class _QuestionCardChoicesDisplayState
                 },
                 isChosen: state.chosenIndex == i,
                 isCorrect: widget.bloc.correctIndex == state.chosenIndex,
+                isCorrectAnswer: widget.bloc.correctIndex == i,
               );
             } else if (state is QuizCardRevealed) {
               button = ChoiceButton(
@@ -56,6 +57,7 @@ class _QuestionCardChoicesDisplayState
                 func: () {},
                 isChosen: state.chosenIndex == i,
                 isCorrect: widget.bloc.correctIndex == state.chosenIndex,
+                isCorrectAnswer: widget.bloc.correctIndex == i,
                 isRevealed: true,
               );
             } else {
@@ -81,11 +83,13 @@ class ChoiceButton extends StatelessWidget {
     required this.func,
     this.isChosen = false,
     this.isCorrect = false,
+    this.isCorrectAnswer = false,
     this.isRevealed = false,
   });
 
   bool isChosen;
   bool isCorrect;
+  bool isCorrectAnswer;
   bool isRevealed;
   final String letter;
   final String choice;
@@ -95,10 +99,8 @@ class ChoiceButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color = Colors.black;
     if (isRevealed) {
-      color = isCorrect
-          ? isChosen
-              ? Colors.green
-              : Colors.white
+      color = isCorrectAnswer
+          ? Colors.green
           : isChosen
               ? Color.fromRGBO(207, 0, 15, 1)
               : Colors.white;
@@ -123,7 +125,7 @@ class ChoiceButton extends StatelessWidget {
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
               side: BorderSide(
-                color: isRevealed && isChosen && isCorrect
+                color: isRevealed && isCorrectAnswer
                     ? Colors.green
                     : const Color.fromRGBO(207, 0, 15, 1),
               ),
@@ -131,7 +133,11 @@ class ChoiceButton extends StatelessWidget {
           ),
         ),
         onPressed: isRevealed ? null : func,
-        child: TextMarkdown(text: "$letter. $choice", isChosen: isChosen),
+        child: TextMarkdown(
+            text: "$letter. $choice",
+            isChosen: isChosen,
+            isCorrectAnswer: isCorrectAnswer,
+            isRevealed: isRevealed),
       ),
     );
   }
@@ -142,10 +148,14 @@ class TextMarkdown extends StatelessWidget {
     super.key,
     required this.text,
     required this.isChosen,
+    required this.isCorrectAnswer,
+    required this.isRevealed,
   });
 
   final String text;
   final bool isChosen;
+  final bool isCorrectAnswer;
+  final bool isRevealed;
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +169,6 @@ class TextMarkdown extends StatelessWidget {
           textScaleFactor: 1.3,
           textStyle: TextStyle(
             fontSize: 15.0,
-            color: isChosen ? Colors.white : Color.fromRGBO(207, 0, 15, 1),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -168,7 +177,9 @@ class TextMarkdown extends StatelessWidget {
         textAlign: WrapAlignment.center,
         p: TextStyle(
           fontSize: 15.0,
-          color: isChosen ? Colors.white : Color.fromRGBO(207, 0, 15, 1),
+          color: isChosen || (isRevealed && isCorrectAnswer)
+              ? Colors.white
+              : Color.fromRGBO(207, 0, 15, 1),
           fontWeight: FontWeight.bold,
         ),
       ),
