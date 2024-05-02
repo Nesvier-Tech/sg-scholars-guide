@@ -100,7 +100,7 @@ class ProfileScreen extends StatelessWidget {
                   // left: -50,
                   child: Container(
                     height: 260,
-                    width: 600,
+                    width: double.infinity,
                     decoration: const BoxDecoration(
                       color: Color.fromRGBO(207, 0, 15, 1),
                       //shape: BoxShape.circle,
