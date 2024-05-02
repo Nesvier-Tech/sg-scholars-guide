@@ -30,7 +30,7 @@ class ScholarsGuideApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Scholar\'s Guide',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
       ),
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,

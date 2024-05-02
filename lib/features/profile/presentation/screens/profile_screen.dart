@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
@@ -19,11 +20,19 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('User Profile',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text(
+          'User Profile',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
         actions: <Widget>[
           // Triple dot menu.
           PopupMenuButton<String>(
+            iconColor: Colors.white70,
             onSelected: (String result) async {
               if (result == 'Settings') {
                 // Show "Feature Under Development" dialog.
@@ -84,120 +93,147 @@ class ProfileScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: StreamBuilder<DocumentSnapshot>(
-                  stream: _dbService
-                      .collection('users')
-                      .doc(_authService.currentUser?.uid)
-                      .snapshots(),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<DocumentSnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return const Text('Something went wrong');
-                    }
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: <Widget>[
+                Positioned(
+                  // left: -50,
+                  child: Container(
+                    height: 260,
+                    width: 600,
+                    decoration: const BoxDecoration(
+                      color: Color.fromRGBO(207, 0, 15, 1),
+                      //shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(32.0, 16.0, 32.0, 33.0),
+                  child: StreamBuilder<DocumentSnapshot>(
+                      stream: _dbService
+                          .collection('users')
+                          .doc(_authService.currentUser?.uid)
+                          .snapshots(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<DocumentSnapshot> snapshot) {
+                        if (snapshot.hasError) {
+                          return const Text('Something went wrong');
+                        }
 
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      // Show a loading spinner.
-                      return const Center(child: QuestionLoadingDisplay());
-                    }
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          // Show a loading spinner.
+                          return const Center(child: QuestionLoadingDisplay());
+                        }
 
-                    // Convert timestamp to DateTime.
-                    final DateTime createdAt =
-                        (snapshot.data?.get('createdAt') as Timestamp).toDate();
-                    final DateTime updatedAt =
-                        (snapshot.data?.get('updatedAt') as Timestamp).toDate();
+                        // Convert timestamp to DateTime.
+                        final DateTime createdAt =
+                            (snapshot.data?.get('createdAt') as Timestamp)
+                                .toDate();
+                        final DateTime updatedAt =
+                            (snapshot.data?.get('updatedAt') as Timestamp)
+                                .toDate();
 
-                    String username =
-                        snapshot.data?.get('username') ?? 'Loading...';
+                        String username =
+                            snapshot.data?.get('username') ?? 'Loading...';
 
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
-                          radius: 50,
-                          child: Text(
-                            username[0].toUpperCase(),
-                            style: const TextStyle(
-                              fontSize: 40,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          username,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          _authService.currentUser?.email ?? 'Loading...',
-                          style: const TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        const SizedBox(height: 32),
-                        // ProfileDetailRow(
-                        //   title: 'UID:',
-                        //   detail:
-                        //       '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}',
-                        // ),
-                        // const SizedBox(height: 10),
-                        ProfileDetailRow(
-                          title: 'Joined in:',
-                          detail: DateFormat.yMMMd().format(createdAt),
-                        ),
-                        const SizedBox(height: 10),
-                        ProfileDetailRow(
-                          title: 'Updated in:',
-                          detail: DateFormat.yMMMd().format(updatedAt),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 40.0),
-                          child: FilledButton(
-                            onPressed: () {
-                              GoRouter.of(context).go(
-                                '/profile/view-my-questions',
-                              );
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color.fromRGBO(207, 0, 15, 1),
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            CircleAvatar(
+                              backgroundColor: Colors.green,
+                              radius: 50,
+                              child: Text(
+                                username[0].toUpperCase(),
+                                style: const TextStyle(
+                                  fontSize: 40,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                            child: Text(
-                              "View My Questions",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: 128,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/logos/sg_scholars_guide_logo-transformed-960x960.png",
-                              height: 50,
-                              width: 50,
-                            ),
-                            const Text(
-                              "Scholar's Guide",
-                              style: TextStyle(
-                                fontSize: 17,
+                            const SizedBox(height: 16),
+                            Text(
+                              username,
+                              style: const TextStyle(
+                                fontSize: 24,
                                 fontWeight: FontWeight.bold,
+                                color: Colors.white,
                               ),
+                            ),
+                            const SizedBox(height: 116),
+                            // Text(
+                            //   _authService.currentUser?.email ?? 'Loading...',
+                            //   style: const TextStyle(
+                            //     fontSize: 18,
+                            //   ),
+                            // ),
+                            const SizedBox(height: 32),
+                            // ProfileDetailRow(
+                            //   title: 'UID:',
+                            //   detail:
+                            //       '***${_authService.currentUser?.uid.substring(12, _authService.currentUser?.uid.length)}',
+                            // ),
+                            // const SizedBox(height: 10),
+                            ProfileDetailRow(
+                              title: 'Joined in:',
+                              detail: DateFormat.yMMMd().format(createdAt),
+                            ),
+                            const SizedBox(height: 10),
+                            ProfileDetailRow(
+                              title: 'Updated in:',
+                              detail: DateFormat.yMMMd().format(updatedAt),
+                            ),
+                            const SizedBox(height: 10),
+                            ProfileDetailRow(
+                              title: 'Email:',
+                              detail: _authService.currentUser?.email ??
+                                  'Loading...',
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 40.0),
+                              child: FilledButton(
+                                onPressed: () {
+                                  GoRouter.of(context).go(
+                                    '/profile/view-my-questions',
+                                  );
+                                },
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                    const Color.fromRGBO(207, 0, 15, 1),
+                                  ),
+                                ),
+                                child: const Text(
+                                  "View My Questions",
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 128,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/logos/sg_scholars_guide_logo-transformed-960x960.png",
+                                  height: 50,
+                                  width: 50,
+                                ),
+                                const Text(
+                                  "Scholar's Guide",
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ],
                             )
                           ],
-                        )
-                      ],
-                    );
-                  }),
+                        );
+                      }),
+                ),
+              ],
             ),
           ),
         ),

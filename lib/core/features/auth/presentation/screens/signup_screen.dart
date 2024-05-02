@@ -326,14 +326,6 @@ class _PersonalInformationForm extends State<PersonalInformationForm> {
                 late UserCredential userCredential;
                 late String uid;
 
-                userCredential = await _authInstance.signInWithEmailAndPassword(
-                  email: email,
-                  password: password,
-                );
-
-                uid = userCredential.user!.uid;
-                _logger.i('User signed in with UID: $uid');
-
                 userCredential =
                     await _authInstance.createUserWithEmailAndPassword(
                   email: email,

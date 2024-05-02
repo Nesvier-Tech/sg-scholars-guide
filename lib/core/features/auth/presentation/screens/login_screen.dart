@@ -125,14 +125,20 @@ class LoginScreen extends StatelessWidget {
                   // ),
                   // const SizedBox(height: 32.0),
 
-                  SvgPicture.asset(
-                    'assets/illustrations/undraw_secure_login_pdn4.svg',
-                    width: 150.0,
-                    height: 150.0,
-                    semanticsLabel: 'Secure Login Illustration',
-                  ),
+                  // SvgPicture.asset(
+                  //   'assets/illustrations/undraw_secure_login_pdn4.svg',
+                  //   width: 150.0,
+                  //   height: 150.0,
+                  //   semanticsLabel: 'Secure Login Illustration',
+                  // ),
 
-                  const SizedBox(height: 40.0),
+                  Image.asset(
+                    'assets/logos/sg_scholars_guide_logo-transformed.png',
+                    width: 120.0,
+                    height: 120.0,
+                    semanticLabel: 'Secure Login Illustration',
+                  ),
+                  const SizedBox(height: 70.0),
 
                   // Log in with Email form.
                   const LoginForm(),

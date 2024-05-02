@@ -112,10 +112,15 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
                           child: Column(
                             children: [
                               ChangeSubjectDisplay(),
-                              Text(
-                                "* Quiz Upload supports Latex. Check Latex tab for a sample. Swipe left to delete a question.",
-                                style:
-                                    TextStyle(fontSize: 11, color: Colors.grey),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0,
+                                ),
+                                child: Text(
+                                  "* Quiz Upload supports Latex. Check Latex tab for a sample. Swipe left to delete a question.",
+                                  style: TextStyle(
+                                      fontSize: 11, color: Colors.grey),
+                                ),
                               ),
                               QuestionInputDisplay(),
                               AddOrSubmitDisplay(),

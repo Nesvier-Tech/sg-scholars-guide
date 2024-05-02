@@ -220,10 +220,10 @@ class EmailVerificationSentScreen extends StatelessWidget {
                           },
                         );
                       },
-                      child: const Text(
+                      child: Text(
                         'Resend',
                         style: TextStyle(
-                          color: Colors.indigo,
+                          color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
