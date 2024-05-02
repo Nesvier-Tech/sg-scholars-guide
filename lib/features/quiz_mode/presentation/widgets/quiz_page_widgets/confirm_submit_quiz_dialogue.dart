@@ -20,13 +20,19 @@ class ConfirmSubmitQuizDialogue extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextButton(
-              child: const Text('Go Back'),
+              child: const Text(
+                'Go Back',
+                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: const Text('Submit Quiz'),
+              child: const Text(
+                'Submit Quiz',
+                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+              ),
               onPressed: () {
                 final SUBJ subject = quizBloc.subject;
                 Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap =

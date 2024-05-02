@@ -39,32 +39,57 @@ class ScaffoldWithNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: navigationShell,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: navigationShell.currentIndex,
-        destinations: const <Widget>[
-          // TODO: [P2] Provive an animation for the icons.
-          // NavigationDestination(
-          //   icon: Icon(Icons.home_outlined),
-          //   selectedIcon: Icon(Icons.home),
-          //   label: 'Home',
-          // ),
-          NavigationDestination(
-            icon: Icon(Icons.school_outlined),
-            selectedIcon: Icon(Icons.school),
-            label: 'Quiz Mode',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.upload_file_outlined),
-            selectedIcon: Icon(Icons.upload_file),
-            label: 'Quiz Upload',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person_outline_outlined),
-            selectedIcon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        onDestinationSelected: (int index) => _onTap(context, index),
+      bottomNavigationBar: Container(
+        height: 60,
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(0, 0, 0, 0),
+        ),
+        child: NavigationBar(
+          elevation: 0,
+          selectedIndex: navigationShell.currentIndex,
+          destinations: const <Widget>[
+            // TODO: [P2] Provive an animation for the icons.
+            // NavigationDestination(
+            //   icon: Icon(Icons.home_outlined),
+            //   selectedIcon: Icon(Icons.home),
+            //   label: 'Home',
+            // ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.school_outlined,
+                color: Color.fromRGBO(207, 0, 15, 1),
+              ),
+              selectedIcon: Icon(
+                Icons.school,
+                color: Color.fromRGBO(139, 0, 9, 1),
+              ),
+              label: 'Quiz Mode',
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.upload_file_outlined,
+                color: Color.fromRGBO(207, 0, 15, 1),
+              ),
+              selectedIcon: Icon(
+                Icons.upload_file,
+                color: Color.fromRGBO(139, 0, 15, 1),
+              ),
+              label: 'Quiz Upload',
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.person_outline_outlined,
+                color: Color.fromRGBO(207, 0, 15, 1),
+              ),
+              selectedIcon: Icon(
+                Icons.person,
+                color: Color.fromRGBO(139, 0, 15, 1),
+              ),
+              label: 'Profile',
+            ),
+          ],
+          onDestinationSelected: (int index) => _onTap(context, index),
+        ),
       ),
     );
   }

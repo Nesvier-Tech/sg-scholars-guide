@@ -115,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CircleAvatar(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
                           radius: 50,
                           child: Text(
                             username[0].toUpperCase(),
@@ -164,12 +164,37 @@ class ProfileScreen extends StatelessWidget {
                                 '/profile/view-my-questions',
                               );
                             },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                const Color.fromRGBO(207, 0, 15, 1),
+                              ),
+                            ),
                             child: Text(
                               "View My Questions",
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
                         ),
+                        Container(
+                          height: 128,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/logos/sg_scholars_guide_logo-transformed-960x960.png",
+                              height: 50,
+                              width: 50,
+                            ),
+                            const Text(
+                              "Scholar's Guide",
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ],
+                        )
                       ],
                     );
                   }),

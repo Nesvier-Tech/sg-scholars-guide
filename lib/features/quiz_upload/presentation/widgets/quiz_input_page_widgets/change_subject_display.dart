@@ -27,15 +27,21 @@ class _ChangeSubjectDisplayState extends State<ChangeSubjectDisplay> {
           children: [
             Text(
               'Select Subject: ',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
+            SizedBox(width: 10),
             DropdownButton<String>(
-              icon: Icon(Icons.arrow_drop_down),
+              alignment: Alignment.center,
+              icon: Icon(
+                Icons.arrow_drop_down,
+                color: Color.fromRGBO(207, 0, 15, 1),
+              ),
               iconSize: 24,
               elevation: 16,
-              style: TextStyle(color: Color.fromARGB(255, 63, 86, 169)),
+              style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
               underline: Container(
                 height: 2,
-                color: Color.fromARGB(255, 63, 86, 169),
+                color: Color.fromRGBO(207, 0, 15, 1),
               ),
               value: Question.SUBJ2string(
                   context.read<QuizInputPageBloc>().subject),

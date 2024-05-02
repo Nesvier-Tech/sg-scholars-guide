@@ -14,25 +14,59 @@ class AddOrSubmitDisplay extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ElevatedButton(
-            onPressed: () {
-              context
-                  .read<QuizInputPageBloc>()
-                  .add(QuizInputPageAddBtnPressed());
-            },
-            child: const Text('Add Question'),
+          Container(
+            width: 160,
+            child: ElevatedButton(
+              onPressed: () {
+                context
+                    .read<QuizInputPageBloc>()
+                    .add(QuizInputPageAddBtnPressed());
+              },
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    side: BorderSide(
+                      color: const Color.fromRGBO(207, 0, 15, 1),
+                    ),
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
+              child: Text("Add Question",
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromRGBO(207, 0, 15, 1))),
+            ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              showDialog<AlertDialog>(
-                  context: context,
-                  builder: (BuildContext buildContext) {
-                    return ConfirmSubmitQuizInputDialogue(
-                        quizInputPageBloc: context.read<QuizInputPageBloc>());
-                  });
-            },
-            child: const Text('Submit Questions'),
-          )
+          Container(
+            width: 160,
+            child: ElevatedButton(
+              onPressed: () {
+                showDialog<AlertDialog>(
+                    context: context,
+                    builder: (BuildContext buildContext) {
+                      return ConfirmSubmitQuizInputDialogue(
+                          quizInputPageBloc: context.read<QuizInputPageBloc>());
+                    });
+              },
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Color.fromRGBO(207, 0, 15, 1)),
+              ),
+              child: Text("Submit Questions",
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
+            ),
+          ),
         ],
       ),
     );

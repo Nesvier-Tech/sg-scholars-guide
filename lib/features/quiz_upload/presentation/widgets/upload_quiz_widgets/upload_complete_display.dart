@@ -12,21 +12,60 @@ class UploadCompleteDisplay extends StatelessWidget {
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text("Upload Success!"),
+        Text(
+          "Upload Success!",
+          style: TextStyle(
+            fontSize: 20,
+            color: Color.fromRGBO(207, 0, 15, 1),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
 
         // Todo: Show results / Show all questions uploaded by user
-
-        ElevatedButton(
+        Container(
+          width: 180,
+          child: ElevatedButton(
             onPressed: () {
               GoRouter.of(context).go('/quiz-upload');
             },
-            child: Text("Add more questions")),
-
-        ElevatedButton(
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                  Color.fromRGBO(207, 0, 15, 1)),
+            ),
+            child: Text("Add more questions",
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
+          ),
+        ),
+        Container(
+          width: 180,
+          child: ElevatedButton(
             onPressed: () {
               GoRouter.of(context).go('/quiz-mode');
             },
-            child: Text("Take a quiz now!"))
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                  Color.fromRGBO(207, 0, 15, 1)),
+            ),
+            child: Text("Take a quiz now!",
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
+          ),
+        ),
       ],
     ));
   }

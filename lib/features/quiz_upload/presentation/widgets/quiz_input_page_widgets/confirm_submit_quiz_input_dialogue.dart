@@ -16,28 +16,39 @@ class ConfirmSubmitQuizInputDialogue extends StatelessWidget {
       title: const Text('Submit Confirmation',
           style: TextStyle(fontWeight: FontWeight.bold)),
       content: const Text("Your questions will be submitted! Are you sure?"),
-      actions: <Widget>[
-        TextButton(
-          child: const Text('Submit Questions'),
-          onPressed: () {
-            Navigator.of(context).pop();
-            quizInputPageBloc.add(QuizInputPageSubmitBtnPressed());
+      actions: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            TextButton(
+              child: const Text(
+                'Go Back',
+                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text(
+                'Submit Questions',
+                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+                quizInputPageBloc.add(QuizInputPageSubmitBtnPressed());
 
-            if (quizInputPageBloc.isSubmittable()) {
-              GoRouter.of(context)
-                  .go('/quiz-upload/finished-quiz-upload', extra: {
-                'questionsToUpload': quizInputPageBloc.questions,
-                'subjToUpload': quizInputPageBloc.subject,
-              });
-              quizInputPageBloc.add(QuizInputPageReset());
-            }
-          },
-        ),
-        TextButton(
-          child: const Text('Go Back'),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+                if (quizInputPageBloc.isSubmittable()) {
+                  GoRouter.of(context)
+                      .go('/quiz-upload/finished-quiz-upload', extra: {
+                    'questionsToUpload': quizInputPageBloc.questions,
+                    'subjToUpload': quizInputPageBloc.subject,
+                  });
+                  quizInputPageBloc.add(QuizInputPageReset());
+                }
+              },
+            ),
+          ],
         ),
       ],
     );

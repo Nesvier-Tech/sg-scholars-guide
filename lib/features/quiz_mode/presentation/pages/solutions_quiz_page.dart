@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz_card/quiz_card_cubit.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/state_management/solution_quiz/solution_quiz_cubit.dart';
+import 'package:scholars_guide/features/quiz_mode/presentation/widgets/finished_quiz_page_widgets/confirm_back_to_quiz_page_dialogue.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/question_loading_display.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/solution_quiz_page_widgets/solution_card_display.dart';
 
@@ -25,10 +26,31 @@ class _SolutionsQuizPageState extends State<SolutionsQuizPage> {
         extraMap['subjectQuestionsMap'] as Map<SUBJ, List<QuizCardCubit>>;
 
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
       appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
         automaticallyImplyLeading: false,
-        title: Text('Solutions Page',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            showDialog<AlertDialog>(
+              context: context,
+              builder: (BuildContext buildContext) {
+                return ConfirmBackToQuizPageDialogue();
+              },
+            );
+          },
+        ),
+        title: Text(
+          'Solutions Page',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: BlocProvider(
         create: (providerContext) => SolutionQuizCubit()..loadSolutions(),
