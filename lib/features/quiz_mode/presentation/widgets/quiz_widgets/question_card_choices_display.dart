@@ -48,6 +48,7 @@ class _QuestionCardChoicesDisplayState
                 },
                 isChosen: state.chosenIndex == i,
                 isCorrect: widget.bloc.correctIndex == state.chosenIndex,
+                isCorrectAnswer: widget.bloc.correctIndex == i,
               );
             } else if (state is QuizCardRevealed) {
               button = ChoiceButton(
@@ -56,6 +57,7 @@ class _QuestionCardChoicesDisplayState
                 func: () {},
                 isChosen: state.chosenIndex == i,
                 isCorrect: widget.bloc.correctIndex == state.chosenIndex,
+                isCorrectAnswer: widget.bloc.correctIndex == i,
                 isRevealed: true,
               );
             } else {
@@ -81,11 +83,13 @@ class ChoiceButton extends StatelessWidget {
     required this.func,
     this.isChosen = false,
     this.isCorrect = false,
+    this.isCorrectAnswer = false,
     this.isRevealed = false,
   });
 
   bool isChosen;
   bool isCorrect;
+  bool isCorrectAnswer;
   bool isRevealed;
   final String letter;
   final String choice;
@@ -95,15 +99,13 @@ class ChoiceButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color = Colors.black;
     if (isRevealed) {
-      color = isCorrect
-          ? isChosen
-              ? Colors.green
-              : Colors.black
+      color = isCorrectAnswer
+          ? Colors.green
           : isChosen
-              ? Colors.red
-              : Colors.black;
+              ? Color.fromRGBO(207, 0, 15, 1)
+              : Colors.white;
     } else if (isChosen) {
-      color = Colors.indigoAccent;
+      color = Color.fromRGBO(207, 0, 15, 1);
     }
 
     return Container(
@@ -114,17 +116,28 @@ class ChoiceButton extends StatelessWidget {
       margin: EdgeInsets.only(top: 2.0, bottom: 2.0),
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-              isChosen ? Colors.deepPurple[50] : Colors.white),
+          backgroundColor: MaterialStateProperty.all(isRevealed
+              ? color
+              : isChosen
+                  ? const Color.fromRGBO(207, 0, 15, 1)
+                  : Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
-              side: BorderSide(color: color),
+              side: BorderSide(
+                color: isRevealed && isCorrectAnswer
+                    ? Colors.green
+                    : const Color.fromRGBO(207, 0, 15, 1),
+              ),
             ),
           ),
         ),
         onPressed: isRevealed ? null : func,
-        child: TextMarkdown(text: "$letter. $choice"),
+        child: TextMarkdown(
+            text: "$letter. $choice",
+            isChosen: isChosen,
+            isCorrectAnswer: isCorrectAnswer,
+            isRevealed: isRevealed),
       ),
     );
   }
@@ -134,9 +147,15 @@ class TextMarkdown extends StatelessWidget {
   const TextMarkdown({
     super.key,
     required this.text,
+    required this.isChosen,
+    required this.isCorrectAnswer,
+    required this.isRevealed,
   });
 
   final String text;
+  final bool isChosen;
+  final bool isCorrectAnswer;
+  final bool isRevealed;
 
   @override
   Widget build(BuildContext context) {
@@ -146,11 +165,23 @@ class TextMarkdown extends StatelessWidget {
       shrinkWrap: true,
       data: text,
       builders: {
-        'latex': LatexElementBuilder(),
+        'latex': LatexElementBuilder(
+          textScaleFactor: 1.3,
+          textStyle: TextStyle(
+            fontSize: 15.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       },
       styleSheet: MarkdownStyleSheet(
         textAlign: WrapAlignment.center,
-        p: const TextStyle(fontSize: 15.0, color: Colors.black),
+        p: TextStyle(
+          fontSize: 15.0,
+          color: isChosen || (isRevealed && isCorrectAnswer)
+              ? Colors.white
+              : Color.fromRGBO(207, 0, 15, 1),
+          fontWeight: FontWeight.bold,
+        ),
       ),
       extensionSet: md.ExtensionSet(
         [LatexBlockSyntax()],

@@ -30,13 +30,20 @@ class TextMarkdown extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       data: text,
+      builders: {
+        'latex': LatexElementBuilder(
+          textScaleFactor: 1.2,
+          textStyle: TextStyle(
+            fontSize: 15.0,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      },
       styleSheet: MarkdownStyleSheet(
         textAlign: WrapAlignment.center,
-        p: const TextStyle(fontSize: 17.0),
+        p: const TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
       ),
-      builders: {
-        'latex': LatexElementBuilder(),
-      },
       extensionSet: md.ExtensionSet(
         [LatexBlockSyntax()],
         [LatexInlineSyntax()],

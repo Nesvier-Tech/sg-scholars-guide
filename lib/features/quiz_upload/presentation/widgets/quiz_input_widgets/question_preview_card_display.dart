@@ -16,6 +16,7 @@ class QuestionPreviewCardDisplay extends StatelessWidget {
     int correctIndex = int.parse(questionCubit.answerIndex);
 
     return Card(
+      elevation: 0,
       margin: EdgeInsets.all(10.0),
       child: Column(
         children: [
@@ -38,6 +39,10 @@ class QuestionPreviewCardDisplay extends StatelessWidget {
 
           // Solution
           TextContainer(text: questionCubit.solution),
+          Divider(
+            color: Color.fromRGBO(207, 0, 15, 1),
+            thickness: 1.5,
+          ),
         ],
       ),
     );
@@ -57,7 +62,7 @@ class TextContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-            color: Color.fromARGB(255, 178, 178, 178),
+            color: Color.fromRGBO(207, 0, 15, 1),
           ),
           borderRadius: BorderRadius.circular(10.0)),
       constraints: BoxConstraints(
@@ -84,8 +89,7 @@ class OptionContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-            color:
-                isCorrect ? Colors.green : Color.fromARGB(255, 178, 178, 178),
+            color: isCorrect ? Colors.green : Color.fromRGBO(207, 0, 15, 1),
           ),
           borderRadius: BorderRadius.circular(10.0)),
       margin: EdgeInsets.all(2.0),

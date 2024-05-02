@@ -15,14 +15,20 @@ class ConfirmCancelQuizDialogue extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextButton(
-              child: const Text('Go Back'),
+              child: const Text(
+                'Go Back',
+                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
                 GoRouter.of(context).go('/quiz-mode');
               },
             ),
             TextButton(
-              child: const Text('Continue Quiz'),
+              child: const Text(
+                'Continue Quiz',
+                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },

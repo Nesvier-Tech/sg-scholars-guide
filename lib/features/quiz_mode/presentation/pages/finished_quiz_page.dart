@@ -22,10 +22,48 @@ class FinishedQuizPage extends StatelessWidget {
         ((score / subjectQuestionsMap[subject]!.length) * 100).round();
 
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Quiz Results',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('Quiz Results',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                )),
+            SizedBox(
+              height: 35,
+              child: ElevatedButton(
+                onPressed: () {
+                  GoRouter.of(context).go('/quiz-mode');
+                },
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  backgroundColor: MaterialStateProperty.all(
+                    const Color.fromRGBO(207, 0, 15, 1),
+                  ),
+                ),
+                child: Text(
+                  "Take Another Quiz",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -35,19 +73,28 @@ class FinishedQuizPage extends StatelessWidget {
               margin: EdgeInsets.only(top: 20, bottom: 10),
               child: Text(
                 "Congrats on finishing! Let's see how you did",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
-            Card(
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.5,
-                margin: EdgeInsets.only(top: 20, bottom: 10),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(left: 10, right: 10),
+              child: Card(
                 child: Column(
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.all(7.0),
+                    ),
                     Text(
                       "Score",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Container(
                       padding: EdgeInsets.all(10),
@@ -59,38 +106,79 @@ class FinishedQuizPage extends StatelessWidget {
                                 : scorePercentage <= 80
                                     ? Colors.orange
                                     : Colors.green,
-                            fontSize: 20,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        GoRouter.of(context).go(
-                          '/quiz-mode/solutions-quiz',
-                          extra: {
-                            'subjectQuestionsMap': subjectQuestionsMap,
-                            'subject': subject
-                          },
-                        );
-                      },
-                      child: Text("Review"),
                     ),
                   ],
                 ),
               ),
             ),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(left: 14, right: 14),
+              padding: EdgeInsets.only(top: 7, bottom: 10),
+              child: TextButton(
+                onPressed: () {
+                  GoRouter.of(context).go(
+                    '/quiz-mode/solutions-quiz',
+                    extra: {
+                      'subjectQuestionsMap': subjectQuestionsMap,
+                      'subject': subject
+                    },
+                  );
+                },
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  side: MaterialStateProperty.all(
+                    BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                child: Text(
+                  "View Solutions",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ),
             Text(
               "* Results of unanswered questions will not be shown",
-              style: TextStyle(fontSize: 11, color: Colors.grey),
+              style: TextStyle(
+                fontSize: 11,
+                color: Colors.white,
+              ),
             ),
             QuestionDisplay(
                 subjectQuestionsMap: subjectQuestionsMap, subject: subject),
-            ElevatedButton(
-              onPressed: () {
-                GoRouter.of(context).go('/quiz-mode');
-              },
-              child: Text('Take Another Quiz'),
-            ),
+            // Container(
+            //   width: 200,
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       GoRouter.of(context).go('/quiz-mode');
+            //     },
+            //     style: ButtonStyle(
+            //       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            //         RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(10),
+            //         ),
+            //       ),
+            //       backgroundColor:
+            //           MaterialStateProperty.all<Color>(Colors.white),
+            //     ),
+            //     child: Text("Take Another Quiz",
+            //         style: TextStyle(
+            //             fontWeight: FontWeight.bold,
+            //             color: const Color.fromRGBO(207, 0, 15, 1))),
+            //   ),
+            // ),
             SizedBox(
               height: 20,
             ),

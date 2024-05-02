@@ -17,7 +17,14 @@ class ConfirmTimeoutQuizDialogue extends StatelessWidget {
       content: const Text("Time's up! You did great"),
       actions: <Widget>[
         TextButton(
-          child: const Text('Submit Quiz'),
+          child: const Center(
+            child: Text(
+              'Submit Quiz',
+              style: TextStyle(
+                color: Color.fromRGBO(207, 0, 15, 1),
+              ),
+            ),
+          ),
           onPressed: () {
             final SUBJ subject = quizBloc.subject;
             Map<SUBJ, List<QuizCardCubit>> subjectQuestionsMap =
