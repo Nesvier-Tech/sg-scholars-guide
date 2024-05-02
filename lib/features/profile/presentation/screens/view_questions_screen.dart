@@ -23,11 +23,11 @@ class _ViewQuestionsScreenState extends State<ViewQuestionsScreen> {
       body: Padding(
         padding: const EdgeInsets.all(13.0),
         child: FutureBuilder(
-          future: QuizModeRepositoryImpl().collectMyQuestions(),
+          future: const QuizModeRepositoryImpl().collectMyQuestions(),
           builder:
               (BuildContext context, AsyncSnapshot<List<Question>> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return QuestionLoadingDisplay();
+              return const QuestionLoadingDisplay();
             } else if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');
             } else {
@@ -82,7 +82,7 @@ class MyQuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(
+      constraints: const BoxConstraints(
         minHeight: 50, // Set the minimum height to your desired value
       ),
       child: Card(
@@ -92,7 +92,7 @@ class MyQuestionCard extends StatelessWidget {
               BorderRadius.circular(8.0), // Adjust the corner radius here
         ),
         child: Padding(
-          padding: EdgeInsets.all(8.0), // Add padding here
+          padding: const EdgeInsets.all(8.0), // Add padding here
           child: Text(questions[index].question),
         ),
       ),

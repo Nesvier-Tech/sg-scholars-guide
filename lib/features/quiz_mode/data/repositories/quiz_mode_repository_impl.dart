@@ -7,7 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:scholars_guide/core/models/firestore_model.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
 import 'package:scholars_guide/features/quiz_mode/domain/repositories_contract/quiz_mode_repository_contract.dart';
-import 'package:scholars_guide/features/quiz_mode/presentation/state_management/quiz/quiz_bloc.dart';
 
 import '../../../../service_locator/service_locator.dart';
 

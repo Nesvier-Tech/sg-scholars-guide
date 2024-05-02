@@ -73,7 +73,7 @@ class _PersonalInformationForm extends State<PersonalInformationForm> {
   bool? _isUsernameAvailable;
   bool _wasUsernameTextFieldTappedAtLeastOnce = false;
   bool _isPasswordVisible = false;
-  bool _isConfirmPasswordVisible = false;
+  final bool _isConfirmPasswordVisible = false;
 
   Widget? _buildUsernameAvailabilityIconIndicator(bool? isUsernameAvailable) {
     if (isUsernameAvailable == null) {
@@ -323,8 +323,16 @@ class _PersonalInformationForm extends State<PersonalInformationForm> {
                 final String password =
                     _formKey.currentState?.fields['password']?.value;
 
-                late final UserCredential userCredential;
-                late final String uid;
+                late UserCredential userCredential;
+                late String uid;
+
+                userCredential = await _authInstance.signInWithEmailAndPassword(
+                  email: email,
+                  password: password,
+                );
+
+                uid = userCredential.user!.uid;
+                _logger.i('User signed in with UID: $uid');
 
                 userCredential =
                     await _authInstance.createUserWithEmailAndPassword(

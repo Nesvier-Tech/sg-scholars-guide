@@ -21,12 +21,12 @@ class ViewQuestionModal extends StatelessWidget {
           Text("Choices: ${question.options}"),
           Text("Answer: ${question.correctIndex}"),
           Text("Created At: ${question.createdAt.toDate()}"),
-          Expanded(
+          const Expanded(
             child: SizedBox(),
           ),
           FilledButton(
             onPressed: () {
-              QuizModeRepositoryImpl()
+              const QuizModeRepositoryImpl()
                   .deleteQuestion(docRef: question.questionRef!);
               Navigator.of(context).pop();
               Navigator.of(context).pop();
@@ -41,9 +41,9 @@ class ViewQuestionModal extends StatelessWidget {
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.red),
             ),
-            child: Text("Delete"),
+            child: const Text("Delete"),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
         ],
       ),
     );

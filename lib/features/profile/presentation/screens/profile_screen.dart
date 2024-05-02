@@ -164,7 +164,7 @@ class ProfileScreen extends StatelessWidget {
                                 '/profile/view-my-questions',
                               );
                             },
-                            child: Text(
+                            child: const Text(
                               "View My Questions",
                               style: TextStyle(fontSize: 16),
                             ),

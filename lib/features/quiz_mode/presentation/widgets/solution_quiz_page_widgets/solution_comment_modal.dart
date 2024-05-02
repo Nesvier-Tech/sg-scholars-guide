@@ -2,8 +2,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:scholars_guide/core/models/firestore_model.dart';
 import 'package:scholars_guide/features/quiz_mode/data/repositories/quiz_mode_repository_impl.dart';
 
