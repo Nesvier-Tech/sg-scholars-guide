@@ -17,8 +17,20 @@ class _ViewQuestionsScreenState extends State<ViewQuestionsScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        title: const Text('My Questions',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text(
+          'My Questions',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(207, 0, 15, 1),
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back,
+              color: Color.fromRGBO(207, 0, 15, 1)),
+          onPressed: () {
+            Navigator.of(buildContext).pop();
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(13.0),
@@ -37,7 +49,10 @@ class _ViewQuestionsScreenState extends State<ViewQuestionsScreen> {
                 return const Center(
                   child: Text(
                     'No questions yet',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(207, 0, 15, 1),
+                    ),
                   ),
                 );
               }

@@ -32,9 +32,11 @@ class _UploadSuccessPageState extends State<UploadSuccessPage> {
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(207, 0, 15, 1),
           automaticallyImplyLeading: false,
-          title: const Text('Upload Questions',
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+          title: const Center(
+            child: Text('Upload Questions',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.white)),
+          ),
         ),
         body: BlocBuilder<UploadQuizCubit, UploadQuizState>(
           builder: (blocBuilderContext, state) {

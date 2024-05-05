@@ -24,6 +24,13 @@ class _ViewAllQuestionsScreenState extends State<ViewAllQuestionsScreen> {
             color: Color.fromRGBO(207, 0, 15, 1),
           ),
         ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back,
+              color: Color.fromRGBO(207, 0, 15, 1)),
+          onPressed: () {
+            Navigator.of(buildContext).pop();
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(13.0),

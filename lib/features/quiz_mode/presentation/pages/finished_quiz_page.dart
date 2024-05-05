@@ -24,47 +24,87 @@ class FinishedQuizPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text('Quiz Results',
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+          title: Center(
+            child: Text('Quiz Results',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 )),
-            SizedBox(
-              height: 35,
-              child: ElevatedButton(
-                onPressed: () {
-                  GoRouter.of(context).go('/quiz-mode');
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(
+          ),
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(30.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  height: 35,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      GoRouter.of(context).go('/quiz-mode');
+                    },
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      backgroundColor: MaterialStateProperty.all(
+                        const Color.fromRGBO(207, 0, 15, 1),
+                      ),
+                    ),
+                    child: Text(
+                      "Take Another Quiz",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                  backgroundColor: MaterialStateProperty.all(
-                    const Color.fromRGBO(207, 0, 15, 1),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  height: 35,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      GoRouter.of(context).go(
+                        '/quiz-mode/solutions-quiz',
+                        extra: {
+                          'subjectQuestionsMap': subjectQuestionsMap,
+                          'subject': subject
+                        },
+                      );
+                    },
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      backgroundColor: MaterialStateProperty.all(
+                        const Color.fromRGBO(207, 0, 15, 1),
+                      ),
+                    ),
+                    child: Text(
+                      "View Solutions",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
-                child: Text(
-                  "Take Another Quiz",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              ],
             ),
-          ],
-        ),
-      ),
+          )),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -147,13 +187,6 @@ class FinishedQuizPage extends StatelessWidget {
                     fontSize: 18,
                   ),
                 ),
-              ),
-            ),
-            Text(
-              "* Results of unanswered questions will not be shown",
-              style: TextStyle(
-                fontSize: 11,
-                color: Colors.white,
               ),
             ),
             QuestionDisplay(
