@@ -121,7 +121,7 @@ class FinishedQuizPage extends StatelessWidget {
               ),
             ),
             Container(
-              width: double.infinity,
+              width: 200,
               margin: EdgeInsets.only(left: 10, right: 10),
               child: Card(
                 child: Column(
@@ -154,64 +154,10 @@ class FinishedQuizPage extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              margin: EdgeInsets.only(left: 14, right: 14),
-              padding: EdgeInsets.only(top: 7, bottom: 10),
-              child: TextButton(
-                onPressed: () {
-                  GoRouter.of(context).go(
-                    '/quiz-mode/solutions-quiz',
-                    extra: {
-                      'subjectQuestionsMap': subjectQuestionsMap,
-                      'subject': subject
-                    },
-                  );
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  side: MaterialStateProperty.all(
-                    BorderSide(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                child: Text(
-                  "View Solutions",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-            ),
             QuestionDisplay(
-                subjectQuestionsMap: subjectQuestionsMap, subject: subject),
-            // Container(
-            //   width: 200,
-            //   child: ElevatedButton(
-            //     onPressed: () {
-            //       GoRouter.of(context).go('/quiz-mode');
-            //     },
-            //     style: ButtonStyle(
-            //       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            //         RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(10),
-            //         ),
-            //       ),
-            //       backgroundColor:
-            //           MaterialStateProperty.all<Color>(Colors.white),
-            //     ),
-            //     child: Text("Take Another Quiz",
-            //         style: TextStyle(
-            //             fontWeight: FontWeight.bold,
-            //             color: const Color.fromRGBO(207, 0, 15, 1))),
-            //   ),
-            // ),
+              subjectQuestionsMap: subjectQuestionsMap,
+              subject: subject,
+            ),
             SizedBox(
               height: 20,
             ),
