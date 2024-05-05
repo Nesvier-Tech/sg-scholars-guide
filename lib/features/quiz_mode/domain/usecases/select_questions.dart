@@ -26,7 +26,6 @@ class ChooseQuestions {
     for (var subj in SUBJ.values) {
       allQuestions[subj] =
           await const QuizModeRepositoryImpl().collectQuestions(subj: subj);
-      print(allQuestions[subj]);
     }
     return allQuestions;
   }

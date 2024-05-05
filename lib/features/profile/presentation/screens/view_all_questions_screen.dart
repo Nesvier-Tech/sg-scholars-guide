@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:scholars_guide/core/models/question_model.dart';
 import 'package:scholars_guide/features/profile/presentation/widgets/view_question_modal.dart';
-import 'package:scholars_guide/features/quiz_mode/data/repositories/quiz_mode_repository_impl.dart';
 import 'package:scholars_guide/features/quiz_mode/domain/usecases/select_questions.dart';
 import 'package:scholars_guide/features/quiz_mode/presentation/widgets/quiz_page_widgets/question_loading_display.dart';
 
@@ -39,7 +37,6 @@ class _ViewAllQuestionsScreenState extends State<ViewAllQuestionsScreen> {
               return Text('Error: ${snapshot.error}');
             } else {
               Map<SUBJ, List<Question>> questionsMap = snapshot.data!;
-              print(questionsMap);
               if (questionsMap.isEmpty) {
                 return const Center(
                   child: Text(
@@ -55,53 +52,8 @@ class _ViewAllQuestionsScreenState extends State<ViewAllQuestionsScreen> {
                     for (SUBJ subj in questionsMap.keys
                         .where((subj) => subj != SUBJ.ALL)
                         .toList())
-                      Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              Question.SUBJ2string(subj),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Color.fromRGBO(207, 0, 15, 1),
-                              ),
-                            ),
-                          ),
-                          Container(
-                              height: 200,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: const Color.fromRGBO(207, 0, 15,
-                                      1), // Set your desired color here
-                                  width: 2.0, // Set your desired width here
-                                ),
-                              ),
-                              child: ListView.builder(
-                                itemCount: questionsMap[subj]?.length,
-                                itemBuilder: (context, index) {
-                                  return Material(
-                                    child: InkWell(
-                                      onTap: () {
-                                        showModalBottomSheet(
-                                          context: context,
-                                          showDragHandle: true,
-                                          builder: (BuildContext context) =>
-                                              ViewQuestionModal(
-                                            question:
-                                                questionsMap[subj]![index],
-                                          ),
-                                        );
-                                      },
-                                      child: MyQuestionCard(
-                                          questions: questionsMap[subj]!,
-                                          index: index),
-                                    ),
-                                  );
-                                },
-                              )),
-                        ],
-                      ),
+                      AllQuestionsSubjectDisplay(
+                          subj: subj, questionsMap: questionsMap),
                   ],
                 ),
               );
@@ -109,6 +61,65 @@ class _ViewAllQuestionsScreenState extends State<ViewAllQuestionsScreen> {
           },
         ),
       ),
+    );
+  }
+}
+
+class AllQuestionsSubjectDisplay extends StatelessWidget {
+  const AllQuestionsSubjectDisplay({
+    super.key,
+    required this.subj,
+    required this.questionsMap,
+  });
+
+  final SUBJ subj;
+  final Map<SUBJ, List<Question>> questionsMap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            Question.SUBJ2string(subj),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Color.fromRGBO(207, 0, 15, 1),
+            ),
+          ),
+        ),
+        Container(
+            height: 200,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: const Color.fromRGBO(
+                    207, 0, 15, 1), // Set your desired color here
+                width: 2.0, // Set your desired width here
+              ),
+            ),
+            child: ListView.builder(
+              itemCount: questionsMap[subj]?.length,
+              itemBuilder: (context, index) {
+                return Material(
+                  child: InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        showDragHandle: true,
+                        builder: (BuildContext context) => ViewQuestionModal(
+                          question: questionsMap[subj]![index],
+                        ),
+                      );
+                    },
+                    child: MyQuestionCard(
+                        questions: questionsMap[subj]!, index: index),
+                  ),
+                );
+              },
+            )),
+      ],
     );
   }
 }

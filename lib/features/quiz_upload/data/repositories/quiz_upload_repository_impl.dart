@@ -28,7 +28,7 @@ class QuizUploadRepositoryImpl implements QuizUploadRepositoryContract {
 
     late bool uploadSucess = true;
 
-    print('Username uid is: ${authService.currentUser?.uid}');
+    // print('Username uid is: ${authService.currentUser?.uid}');
 
     for (QuizInputCubit questionCubit in questionsToUpload) {
       // * Uploading the solutions first to the database

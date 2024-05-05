@@ -60,6 +60,8 @@ class Question {
     }
     String temp2 = temp[int.parse(data[FireStore.correctIndex])];
     temp.shuffle(Random());
+    // print('Question: ${data[FireStore.question]}');
+    // print('Reference: $questionRef');
 
     return Question(
         id: id,
