@@ -30,9 +30,11 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
               return Scaffold(
                 appBar: AppBar(
                   backgroundColor: Color.fromRGBO(207, 0, 15, 1),
-                  title: const Text('Upload Questions',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.white)),
+                  title: const Center(
+                    child: Text('Upload Questions',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white)),
+                  ),
                   bottom: PreferredSize(
                       preferredSize: Size.fromHeight(60.0),
                       child: Column(
