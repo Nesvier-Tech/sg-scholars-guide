@@ -24,7 +24,9 @@ class ChooseQuestions {
   Future<Map<SUBJ, List<Question>>> chooseAll() async {
     Map<SUBJ, List<Question>> allQuestions = {};
     for (var subj in SUBJ.values) {
-      allQuestions[subj] = await choose();
+      allQuestions[subj] =
+          await const QuizModeRepositoryImpl().collectQuestions(subj: subj);
+      print(allQuestions[subj]);
     }
     return allQuestions;
   }

@@ -137,6 +137,9 @@ class ProfileScreen extends StatelessWidget {
                         String username =
                             snapshot.data?.get('username') ?? 'Loading...';
 
+                        List accountTypes =
+                            snapshot.data?.get('accountTypes') ?? 'Loading...';
+
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
@@ -189,8 +192,12 @@ class ProfileScreen extends StatelessWidget {
                               detail: _authService.currentUser?.email ??
                                   'Loading...',
                             ),
+                            ProfileDetailRow(
+                              title: 'Account Types:',
+                              detail: accountTypes.join('\n'),
+                            ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 40.0),
+                              padding: const EdgeInsets.only(top: 20.0),
                               child: FilledButton(
                                 onPressed: () {
                                   GoRouter.of(context).go(
@@ -209,8 +216,30 @@ class ProfileScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            accountTypes.contains('administrator')
+                                ? Padding(
+                                    padding: const EdgeInsets.only(top: 4.0),
+                                    child: FilledButton(
+                                      onPressed: () {
+                                        GoRouter.of(context).go(
+                                          '/profile/view-all-questions',
+                                        );
+                                      },
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                          const Color.fromRGBO(207, 0, 15, 1),
+                                        ),
+                                      ),
+                                      child: const Text(
+                                        "View All Questions",
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ),
+                                  )
+                                : Container(),
                             Container(
-                              height: 128,
+                              height: 40,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
