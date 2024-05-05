@@ -26,6 +26,7 @@ class ViewQuestionModal extends StatelessWidget {
           ),
           FilledButton(
             onPressed: () {
+              print("Deleting question: ${question.questionRef}");
               const QuizModeRepositoryImpl()
                   .deleteQuestion(docRef: question.questionRef!);
               Navigator.of(context).pop();

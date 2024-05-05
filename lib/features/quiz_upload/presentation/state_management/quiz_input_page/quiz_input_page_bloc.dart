@@ -12,7 +12,7 @@ class QuizInputPageBloc extends Bloc<QuizInputPageEvent, QuizInputPageState> {
   QuizInputPageBloc() : super(QuizInputPageQuestionsAdd()) {
     // * For changing the subject
     on<QuizInputPageChangedSubject>((event, emit) {
-      print("Changed subject to ${event.subject}");
+      // print("Changed subject to ${event.subject}");
       subject = event.subject;
       emit(QuizInputPageRefresh());
       emit(QuizInputPageQuestionsAdd());

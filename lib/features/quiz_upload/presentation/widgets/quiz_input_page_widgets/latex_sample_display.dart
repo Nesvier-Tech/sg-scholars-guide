@@ -11,8 +11,11 @@ class LatexSampleDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String latexString = r"""
+This is the Latex Sample Tab. You cannot edit this. Use this as a sample.
+
 This is inline latex: $f(x) = \sum_{i=0}^{n} \frac{a_i}{1+x}$
 INLINE LATEX NEEDS TEXT BEFORE \$ \$, even a space would do too.
+
 One space in between lines for a newline
 
 This is block level latex:

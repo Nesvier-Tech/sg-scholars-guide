@@ -27,7 +27,7 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
       for (var e in snapshot.docs) {
         Map<String, dynamic> data = e.data();
         if (!data.containsKey(FireStore.commentRef)) {
-          print("CREATING COMMENT REFERENCE TO: ${data[FireStore.question]}");
+          // print("CREATING COMMENT REFERENCE TO: ${data[FireStore.question]}");
           // Uploading a comment section of this post to the database
           DocumentReference comRef =
               await dbService.collection(FireStore.commentsCollection).add({
@@ -40,8 +40,11 @@ class QuizModeRepositoryImpl implements QuizModeRepositoryContract {
 
       // * Mapping the fetched data to the Question model and adding it to the list
       snapshot.docs
-          .map((e) => questions
-              .add(Question.fromMap(id: e.id, data: e.data(), subject: subj)))
+          .map((e) => questions.add(Question.fromMap(
+              id: e.id,
+              data: e.data(),
+              subject: subj,
+              questionRef: e.reference)))
           .toList();
     });
 
