@@ -30,7 +30,7 @@ class _UploadSuccessPageState extends State<UploadSuccessPage> {
             ..uploadQuiz(),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(207, 0, 15, 1),
+          backgroundColor: Color.fromRGBO(128, 0, 0, 1),
           automaticallyImplyLeading: false,
           title: const Center(
             child: Text('Upload Questions',

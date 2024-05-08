@@ -21,12 +21,12 @@ class _ViewAllQuestionsScreenState extends State<ViewAllQuestionsScreen> {
           'All Questions',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Color.fromRGBO(207, 0, 15, 1),
+            color: Color.fromRGBO(128, 0, 0, 1),
           ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: Color.fromRGBO(207, 0, 15, 1)),
+          icon:
+              const Icon(Icons.arrow_back, color: Color.fromRGBO(128, 0, 0, 1)),
           onPressed: () {
             Navigator.of(buildContext).pop();
           },
@@ -93,7 +93,7 @@ class AllQuestionsSubjectDisplay extends StatelessWidget {
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
-              color: Color.fromRGBO(207, 0, 15, 1),
+              color: Color.fromRGBO(128, 0, 0, 1),
             ),
           ),
         ),
@@ -102,7 +102,7 @@ class AllQuestionsSubjectDisplay extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(
                 color: const Color.fromRGBO(
-                    207, 0, 15, 1), // Set your desired color here
+                    128, 0, 0, 1), // Set your desired color here
                 width: 2.0, // Set your desired width here
               ),
             ),

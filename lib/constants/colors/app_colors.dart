@@ -11,7 +11,7 @@ class AppColors {
   static const Color primaryColor = maroon;
 
   // Digital identity colors of UP.
-  static const maroon = Color(0xff76090c);
+  static const maroon = Color(0xff800000);
   static const green = Color(0xff0a4424);
   static const yellow = Color(0xfff5ab29);
   static const brownOlive = Color(0xff7c6028);

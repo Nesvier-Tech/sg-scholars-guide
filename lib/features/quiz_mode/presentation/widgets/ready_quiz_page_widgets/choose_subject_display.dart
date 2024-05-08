@@ -81,7 +81,7 @@ Container buildElevatedButton(
               ),
             ),
             backgroundColor: MaterialStateProperty.all(
-              const Color.fromRGBO(207, 0, 15, 1),
+              const Color.fromRGBO(128, 0, 0, 1),
             ),
           ),
           child: Row(

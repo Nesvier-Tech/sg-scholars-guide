@@ -44,9 +44,9 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
                     borderSide: BorderSide(
                         color: quizInputPageBloc.revealBlanks
                             ? questionCubit.questionNonEmpty
-                                ? Color.fromRGBO(207, 0, 15, 1)
+                                ? Color.fromRGBO(128, 0, 0, 1)
                                 : Color.fromRGBO(176, 38, 38, 1)
-                            : Color.fromRGBO(207, 0, 15, 1),
+                            : Color.fromRGBO(128, 0, 0, 1),
                         width: 3),
                   ),
                   hintText: "Enter the question here",
@@ -94,9 +94,9 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
                     borderSide: BorderSide(
                         color: quizInputPageBloc.revealBlanks
                             ? questionCubit.solutionNonEmpty
-                                ? Color.fromRGBO(207, 0, 15, 1)
+                                ? Color.fromRGBO(128, 0, 0, 1)
                                 : Colors.red
-                            : Color.fromRGBO(207, 0, 15, 1),
+                            : Color.fromRGBO(128, 0, 0, 1),
                         width: 1),
                   ),
                   hintText: "Enter the solution here",
@@ -113,7 +113,7 @@ class _QuestionInputCardState extends State<QuestionInputCard> {
               ),
             ),
             Divider(
-              color: Color.fromRGBO(207, 0, 15, 1),
+              color: Color.fromRGBO(128, 0, 0, 1),
               thickness: 1.5,
             ),
           ],
@@ -164,7 +164,7 @@ class _QuestionInputOptionsState extends State<QuestionInputOptions> {
                   borderSide: BorderSide(
                       color: revealBlank
                           ? Colors.red
-                          : Color.fromRGBO(207, 0, 15, 1),
+                          : Color.fromRGBO(128, 0, 0, 1),
                       width: 1),
                 ),
                 hintText: "Enter one of the options here",
@@ -192,7 +192,7 @@ class _QuestionInputOptionsState extends State<QuestionInputOptions> {
                 icon: Icon(Icons.check_circle_outline_rounded),
                 color: optionIndex.toString() == questionCubit.answerIndex
                     ? Colors.green
-                    : Color.fromRGBO(207, 0, 15, 1),
+                    : Color.fromRGBO(128, 0, 0, 1),
                 onPressed: () {
                   questionCubit.refresh();
                   questionCubit.answerIndex = optionIndex.toString();

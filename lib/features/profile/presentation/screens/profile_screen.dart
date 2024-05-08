@@ -28,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+        backgroundColor: const Color.fromRGBO(128, 0, 0, 1),
         actions: <Widget>[
           // Triple dot menu.
           PopupMenuButton<String>(
@@ -102,7 +102,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 260,
                     width: double.infinity,
                     decoration: const BoxDecoration(
-                      color: Color.fromRGBO(207, 0, 15, 1),
+                      color: Color.fromRGBO(128, 0, 0, 1),
                       //shape: BoxShape.circle,
                     ),
                   ),
@@ -207,7 +207,7 @@ class ProfileScreen extends StatelessWidget {
                                 style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(
-                                    const Color.fromRGBO(207, 0, 15, 1),
+                                    const Color.fromRGBO(128, 0, 0, 1),
                                   ),
                                 ),
                                 child: const Text(
@@ -228,7 +228,7 @@ class ProfileScreen extends StatelessWidget {
                                       style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all<Color>(
-                                          const Color.fromRGBO(207, 0, 15, 1),
+                                          const Color.fromRGBO(128, 0, 0, 1),
                                         ),
                                       ),
                                       child: const Text(

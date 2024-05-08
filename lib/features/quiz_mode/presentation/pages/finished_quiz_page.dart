@@ -22,10 +22,10 @@ class FinishedQuizPage extends StatelessWidget {
         ((score / subjectQuestionsMap[subject]!.length) * 100).round();
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+      backgroundColor: const Color.fromRGBO(128, 0, 0, 1),
       appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+          backgroundColor: const Color.fromRGBO(128, 0, 0, 1),
           title: Center(
             child: Text('Quiz Results',
                 style: TextStyle(
@@ -55,7 +55,7 @@ class FinishedQuizPage extends StatelessWidget {
                         ),
                       ),
                       backgroundColor: MaterialStateProperty.all(
-                        const Color.fromRGBO(207, 0, 15, 1),
+                        const Color.fromRGBO(128, 0, 0, 1),
                       ),
                     ),
                     child: Text(
@@ -90,7 +90,7 @@ class FinishedQuizPage extends StatelessWidget {
                         ),
                       ),
                       backgroundColor: MaterialStateProperty.all(
-                        const Color.fromRGBO(207, 0, 15, 1),
+                        const Color.fromRGBO(128, 0, 0, 1),
                       ),
                     ),
                     child: Text(

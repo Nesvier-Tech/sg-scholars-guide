@@ -26,9 +26,9 @@ class _SolutionsQuizPageState extends State<SolutionsQuizPage> {
         extraMap['subjectQuestionsMap'] as Map<SUBJ, List<QuizCardCubit>>;
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+      backgroundColor: const Color.fromRGBO(128, 0, 0, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+        backgroundColor: const Color.fromRGBO(128, 0, 0, 1),
         automaticallyImplyLeading: false,
         leading: IconButton(
           icon: Icon(

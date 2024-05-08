@@ -27,7 +27,7 @@ class AddOrSubmitDisplay extends StatelessWidget {
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                     side: BorderSide(
-                      color: const Color.fromRGBO(207, 0, 15, 1),
+                      color: const Color.fromRGBO(128, 0, 0, 1),
                     ),
                   ),
                 ),
@@ -37,7 +37,7 @@ class AddOrSubmitDisplay extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.bold,
-                      color: const Color.fromRGBO(207, 0, 15, 1))),
+                      color: const Color.fromRGBO(128, 0, 0, 1))),
             ),
           ),
           Container(
@@ -58,7 +58,7 @@ class AddOrSubmitDisplay extends StatelessWidget {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.all<Color>(
-                    Color.fromRGBO(207, 0, 15, 1)),
+                    Color.fromRGBO(128, 0, 0, 1)),
               ),
               child: Text("Submit Questions",
                   style: TextStyle(
