@@ -36,14 +36,14 @@ class _QuizPageState extends State<QuizPage> {
       child: Builder(
         builder: (builderContext) {
           return Scaffold(
-            backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+            backgroundColor: const Color.fromRGBO(128, 0, 0, 1),
             appBar: AppBar(
               title: Text('${Question.SUBJ2string(subject)} Quiz',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   )),
-              backgroundColor: const Color.fromRGBO(207, 0, 15, 1),
+              backgroundColor: const Color.fromRGBO(128, 0, 0, 1),
               leading: IconButton(
                 icon: Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () {
@@ -104,7 +104,7 @@ class _QuizPageState extends State<QuizPage> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: const Color.fromRGBO(
-                                            207, 0, 15, 1))),
+                                            128, 0, 0, 1))),
                               ),
                             ),
                             Container(height: 20),

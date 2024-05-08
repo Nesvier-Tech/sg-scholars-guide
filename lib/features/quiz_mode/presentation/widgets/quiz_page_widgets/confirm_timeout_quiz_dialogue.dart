@@ -21,7 +21,7 @@ class ConfirmTimeoutQuizDialogue extends StatelessWidget {
             child: Text(
               'Submit Quiz',
               style: TextStyle(
-                color: Color.fromRGBO(207, 0, 15, 1),
+                color: Color.fromRGBO(128, 0, 0, 1),
               ),
             ),
           ),

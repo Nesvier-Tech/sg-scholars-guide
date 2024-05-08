@@ -42,14 +42,14 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                 children: [
                   Icon(
                     Icons.arrow_back_ios_new,
-                    color: const Color.fromRGBO(207, 0, 15, 1),
+                    color: const Color.fromRGBO(128, 0, 0, 1),
                     size: 12,
                   ),
                   Text(
                     "  Swipe",
                     style: TextStyle(
                         fontSize: 11,
-                        color: const Color.fromRGBO(207, 0, 15, 1)),
+                        color: const Color.fromRGBO(128, 0, 0, 1)),
                   ),
                 ],
               ),
@@ -117,7 +117,7 @@ class _SolutionCardDisplayState extends State<SolutionCardDisplay> {
                       ),
                     ),
                     backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color.fromRGBO(207, 0, 15, 1)),
+                        const Color.fromRGBO(128, 0, 0, 1)),
                   ),
                   child: Text("Comments",
                       style: TextStyle(
@@ -148,7 +148,7 @@ class TextTitle extends StatelessWidget {
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
-            color: const Color.fromRGBO(207, 0, 15, 1),
+            color: const Color.fromRGBO(128, 0, 0, 1),
           )),
     );
   }

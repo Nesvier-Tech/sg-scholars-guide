@@ -102,10 +102,10 @@ class ChoiceButton extends StatelessWidget {
       color = isCorrectAnswer
           ? Colors.green
           : isChosen
-              ? Color.fromRGBO(207, 0, 15, 1)
+              ? Color.fromRGBO(128, 0, 0, 1)
               : Colors.white;
     } else if (isChosen) {
-      color = Color.fromRGBO(207, 0, 15, 1);
+      color = Color.fromRGBO(128, 0, 0, 1);
     }
 
     return Container(
@@ -119,7 +119,7 @@ class ChoiceButton extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(isRevealed
               ? color
               : isChosen
-                  ? const Color.fromRGBO(207, 0, 15, 1)
+                  ? const Color.fromRGBO(128, 0, 0, 1)
                   : Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
@@ -127,7 +127,7 @@ class ChoiceButton extends StatelessWidget {
               side: BorderSide(
                 color: isRevealed && isCorrectAnswer
                     ? Colors.green
-                    : const Color.fromRGBO(207, 0, 15, 1),
+                    : const Color.fromRGBO(128, 0, 0, 1),
               ),
             ),
           ),
@@ -179,7 +179,7 @@ class TextMarkdown extends StatelessWidget {
           fontSize: 15.0,
           color: isChosen || (isRevealed && isCorrectAnswer)
               ? Colors.white
-              : Color.fromRGBO(207, 0, 15, 1),
+              : Color.fromRGBO(128, 0, 0, 1),
           fontWeight: FontWeight.bold,
         ),
       ),

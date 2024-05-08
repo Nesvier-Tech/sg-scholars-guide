@@ -18,7 +18,7 @@ class ConfirmBackToQuizPageDialogue extends StatelessWidget {
             TextButton(
               child: const Text(
                 "Take Again",
-                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+                style: TextStyle(color: Color.fromRGBO(128, 0, 0, 1)),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -28,7 +28,7 @@ class ConfirmBackToQuizPageDialogue extends StatelessWidget {
             TextButton(
               child: const Text(
                 'Continue Reviewing',
-                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+                style: TextStyle(color: Color.fromRGBO(128, 0, 0, 1)),
               ),
               onPressed: () {
                 Navigator.of(context).pop();

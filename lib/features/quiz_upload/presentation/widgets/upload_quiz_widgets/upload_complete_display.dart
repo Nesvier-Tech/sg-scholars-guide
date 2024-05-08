@@ -16,7 +16,7 @@ class UploadCompleteDisplay extends StatelessWidget {
           "Upload Success!",
           style: TextStyle(
             fontSize: 20,
-            color: Color.fromRGBO(207, 0, 15, 1),
+            color: Color.fromRGBO(128, 0, 0, 1),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -35,7 +35,7 @@ class UploadCompleteDisplay extends StatelessWidget {
                 ),
               ),
               backgroundColor: MaterialStateProperty.all<Color>(
-                  Color.fromRGBO(207, 0, 15, 1)),
+                  Color.fromRGBO(128, 0, 0, 1)),
             ),
             child: Text("Add more questions",
                 style: TextStyle(
@@ -57,7 +57,7 @@ class UploadCompleteDisplay extends StatelessWidget {
                 ),
               ),
               backgroundColor: MaterialStateProperty.all<Color>(
-                  Color.fromRGBO(207, 0, 15, 1)),
+                  Color.fromRGBO(128, 0, 0, 1)),
             ),
             child: Text("Take a quiz now!",
                 style: TextStyle(

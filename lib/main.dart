@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:logger/logger.dart';
+import 'package:scholars_guide/constants/colors/app_colors.dart';
 import 'package:scholars_guide/router/app_router.dart';
 
 import 'firebase_options.dart';
@@ -30,7 +31,7 @@ class ScholarsGuideApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Scholar\'s Guide',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.maroon),
       ),
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,

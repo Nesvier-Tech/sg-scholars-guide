@@ -45,7 +45,7 @@ where \(f(x)\) is the function to be expanded, \(a\) is the expansion point, \(f
           decoration: BoxDecoration(
             border: Border.all(
               color: const Color.fromRGBO(
-                  207, 0, 15, 1), // Set your desired color here
+                  128, 0, 0, 1), // Set your desired color here
               width: 2.0, // Set your desired width here
             ),
           ),
@@ -57,7 +57,7 @@ where \(f(x)\) is the function to be expanded, \(a\) is the expansion point, \(f
           decoration: BoxDecoration(
             border: Border.all(
               color: const Color.fromRGBO(
-                  207, 0, 15, 1), // Set your desired color here
+                  128, 0, 0, 1), // Set your desired color here
               width: 2.0, // Set your desired width here
             ),
           ),

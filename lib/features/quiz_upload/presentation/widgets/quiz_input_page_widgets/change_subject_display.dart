@@ -34,14 +34,14 @@ class _ChangeSubjectDisplayState extends State<ChangeSubjectDisplay> {
               alignment: Alignment.center,
               icon: Icon(
                 Icons.arrow_drop_down,
-                color: Color.fromRGBO(207, 0, 15, 1),
+                color: Color.fromRGBO(128, 0, 0, 1),
               ),
               iconSize: 24,
               elevation: 16,
-              style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+              style: TextStyle(color: Color.fromRGBO(128, 0, 0, 1)),
               underline: Container(
                 height: 2,
-                color: Color.fromRGBO(207, 0, 15, 1),
+                color: Color.fromRGBO(128, 0, 0, 1),
               ),
               value: Question.SUBJ2string(
                   context.read<QuizInputPageBloc>().subject),

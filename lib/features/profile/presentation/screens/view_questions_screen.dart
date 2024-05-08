@@ -21,12 +21,12 @@ class _ViewQuestionsScreenState extends State<ViewQuestionsScreen> {
           'My Questions',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Color.fromRGBO(207, 0, 15, 1),
+            color: Color.fromRGBO(128, 0, 0, 1),
           ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: Color.fromRGBO(207, 0, 15, 1)),
+          icon:
+              const Icon(Icons.arrow_back, color: Color.fromRGBO(128, 0, 0, 1)),
           onPressed: () {
             Navigator.of(buildContext).pop();
           },
@@ -51,7 +51,7 @@ class _ViewQuestionsScreenState extends State<ViewQuestionsScreen> {
                     'No questions yet',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(207, 0, 15, 1),
+                      color: Color.fromRGBO(128, 0, 0, 1),
                     ),
                   ),
                 );

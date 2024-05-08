@@ -29,7 +29,7 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
             if (state is QuizInputPageQuestionsAdd) {
               return Scaffold(
                 appBar: AppBar(
-                  backgroundColor: Color.fromRGBO(207, 0, 15, 1),
+                  backgroundColor: Color.fromRGBO(128, 0, 0, 1),
                   title: const Center(
                     child: Text('Upload Questions',
                         style: TextStyle(
@@ -50,8 +50,8 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
                               ),
                             ),
                             child: TabBar(
-                              indicatorColor: Color.fromRGBO(207, 0, 15, 1),
-                              labelColor: Color.fromRGBO(207, 0, 15, 1),
+                              indicatorColor: Color.fromRGBO(128, 0, 0, 1),
+                              labelColor: Color.fromRGBO(128, 0, 0, 1),
                               unselectedLabelColor: Colors.white,
                               indicatorSize: TabBarIndicatorSize.tab,
                               indicator: BoxDecoration(
@@ -97,7 +97,7 @@ class _UploadQuestionPageState extends State<UploadQuestionPage> {
                 ),
                 body: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(207, 0, 15, 1),
+                    color: Color.fromRGBO(128, 0, 0, 1),
                   ),
                   child: Container(
                     margin: EdgeInsets.only(top: 10.0),

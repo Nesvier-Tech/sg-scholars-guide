@@ -23,7 +23,7 @@ class ConfirmSubmitQuizInputDialogue extends StatelessWidget {
             TextButton(
               child: const Text(
                 'Go Back',
-                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+                style: TextStyle(color: Color.fromRGBO(128, 0, 0, 1)),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -32,7 +32,7 @@ class ConfirmSubmitQuizInputDialogue extends StatelessWidget {
             TextButton(
               child: const Text(
                 'Submit Questions',
-                style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+                style: TextStyle(color: Color.fromRGBO(128, 0, 0, 1)),
               ),
               onPressed: () {
                 Navigator.of(context).pop();

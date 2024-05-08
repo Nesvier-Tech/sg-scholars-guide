@@ -57,7 +57,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
             NavigationDestination(
               icon: Icon(
                 Icons.school_outlined,
-                color: Color.fromRGBO(207, 0, 15, 1),
+                color: Color.fromRGBO(128, 0, 0, 1),
               ),
               selectedIcon: Icon(
                 Icons.school,
@@ -68,7 +68,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
             NavigationDestination(
               icon: Icon(
                 Icons.upload_file_outlined,
-                color: Color.fromRGBO(207, 0, 15, 1),
+                color: Color.fromRGBO(128, 0, 0, 1),
               ),
               selectedIcon: Icon(
                 Icons.upload_file,
@@ -79,7 +79,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
             NavigationDestination(
               icon: Icon(
                 Icons.person_outline_outlined,
-                color: Color.fromRGBO(207, 0, 15, 1),
+                color: Color.fromRGBO(128, 0, 0, 1),
               ),
               selectedIcon: Icon(
                 Icons.person,

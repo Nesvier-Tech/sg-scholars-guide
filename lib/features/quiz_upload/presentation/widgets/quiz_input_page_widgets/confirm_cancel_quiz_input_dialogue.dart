@@ -29,7 +29,7 @@ class ConfirmCancelQuizInputDisplay extends StatelessWidget {
                 ElevatedButton(
                   child: const Text(
                     'Go Back',
-                    style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+                    style: TextStyle(color: Color.fromRGBO(128, 0, 0, 1)),
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -43,7 +43,7 @@ class ConfirmCancelQuizInputDisplay extends StatelessWidget {
                 ElevatedButton(
                   child: const Text(
                     'Continue Quiz Input',
-                    style: TextStyle(color: Color.fromRGBO(207, 0, 15, 1)),
+                    style: TextStyle(color: Color.fromRGBO(128, 0, 0, 1)),
                   ),
                   onPressed: () {
                     context
